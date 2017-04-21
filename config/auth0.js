@@ -1,0 +1,5 @@
+const AUTH0_CLIENT_ID = 'yVWgohF5HglLD5qTqv1zols99eHPYlBK';
+const AUTH0_DOMAIN = 'dominathan.auth0.com';
+const AUTH0_CLIENT_SECRET = 'vXGrh212uC-9Gxe28DKi4GWVYv5IGVghG0r_iS4e7ctXmzw6nK0d-dRC0mDuSaL8'
+const AUTH0_NAME = 'Wander';
+export { AUTH0_CLIENT_ID, AUTH0_DOMAIN, AUTH0_CLIENT_SECRET, AUTH0_NAME };

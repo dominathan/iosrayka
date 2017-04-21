@@ -1,24 +1,14 @@
 import Expo from 'expo';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
+import App from './src/App';
 
-class App extends React.Component {
+class Rayka extends React.Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up something else main.js to start working on your app!</Text>
-      </View>
+      <App />
     );
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
-
-Expo.registerRootComponent(App);
+Expo.registerRootComponent(Rayka);
