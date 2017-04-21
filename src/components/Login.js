@@ -3,8 +3,10 @@ import React, { Component } from 'react';
 import Expo from 'expo';
 import { AsyncStorage, WebView,View, StyleSheet } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import jwtDecode from 'jwt-decode';
 
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from '../../config/auth0';
+import { loginUser } from '../services/apiActions';
 
 const auth0ClientId = 'yVWgohF5HglLD5qTqv1zols99eHPYlBK'
 const auth0Domain = 'https://dominathan.auth0.com';
@@ -16,6 +18,10 @@ export class Login extends Component {
     this.state = {
       url: `${auth0Domain}/authorize` + this.createQueryString()
     }
+    this.handleLoginSuccess = this.handleLoginSuccess.bind(this);
+    this.parseProfile = this.parseProfile.bind(this);
+    this.handleWebError = this.handleWebError.bind(this);
+    this.onNavigationStateChange = this.onNavigationStateChange.bind(this);
   }
 
   componentDidMount() {
@@ -43,9 +49,60 @@ export class Login extends Component {
 
   onNavigationStateChange(navState) {
     console.log("HAPPENING", navState)
+
     if(navState['url'].includes('/+/redirect')) {
+      console.log("HANDLE USER")
+      this.handleUser(navState['url'])
       Actions.home({type: 'reset'})
     }
+  }
+
+  handleUser(redirectUri) {
+    let queryString, responseObj, encodedToken, decodedToken;
+    queryString = redirectUri.split('#')[1];
+    responseObj = queryString.split('&').reduce((map, pair) => {
+      const [key, value] = pair.split('=');
+      map[key] = value; // eslint-disable-line
+      return map;
+    }, {});
+    encodedToken = responseObj.id_token;
+    decodedToken = jwtDecode(encodedToken)
+    console.log("DECODE FROM LOGIN", decodedToken)
+    this.setState({user: decodedToken, isLoggedIn: true});
+    window.FIRST = decodedToken;
+    this.handleLoginSuccess(decodedToken)
+    AsyncStorage.setItem('fullUser', JSON.stringify(decodedToken))
+    AsyncStorage.setItem('token', JSON.stringify(encodedToken))
+  }
+
+  handleLoginSuccess(profile) {
+    loginUser({ user: this.parseProfile(profile) })
+      .then(res => {
+        AsyncStorage.setItem('user', JSON.stringify(res));
+        this.props.setIsLoggedIn(true);
+        if (res.first_time) {
+          return Actions.onboarding({ type: 'reset'});
+        }
+        Actions.home({ type: 'reset' });
+      })
+      .catch((err) => {
+        console.log('FUCK BALLS', err);
+      });
+  }
+
+  parseProfile(profile) {
+    console.log("PROFILE TO PARSE", profile)
+    return {
+      first_name: profile.given_name,
+      last_name: profile.family_name,
+      birthday: profile.birthday,
+      photo_url: profile.picture,
+      email: profile.email,
+    };
+  }
+
+  handleWebError() {
+    console.log("HANDLE HERE");
   }
 
   render() {
@@ -57,7 +114,7 @@ export class Login extends Component {
           javaScriptEnabled={true}
           domStorageEnabled={true}
           onNavigationStateChange={this.onNavigationStateChange}
-
+          onError={this.handleWebError}
         />}
       </View>
     )

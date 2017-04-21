@@ -55,8 +55,19 @@ class App extends Component {
     this.handleFriends = this.handleFriends.bind(this)
   }
 
+  // componentDidMount() {
+  //   this.setState({isLoggedIn: this.props.isLoggedIn})
+  // }
+
   componentDidMount() {
-    this.setState({isLoggedIn: this.props.isLoggedIn})
+      AsyncStorage.getItem('token')
+      .then(token => {
+        if (token) {
+          this.setState({ isLoggedIn: true });
+        } else {
+          this.setState({ isLoggedIn: false });
+        }
+      });
   }
 
   renderTitle() {
