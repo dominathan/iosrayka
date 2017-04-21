@@ -5,6 +5,7 @@ import { Actions } from 'react-native-router-flux';
 // Make a Component
 
 const TabViewHeader = (props) => {
+    const user = props.user
     const { imageViewStyle,
             profileImageStyle,
             textStyle,
@@ -20,15 +21,16 @@ const TabViewHeader = (props) => {
 
     return (
       <TouchableOpacity onPress={() => goToProfile()}>
-        <View style={viewStyle}>
+      {!user && <Text> No User To Display</Text>}
+      {user &&  <View style={viewStyle}>
             <View style={imageViewStyle}>
-                <Image style={profileImageStyle} source={{ uri: props.user.photo_url }} />
+                <Image style={profileImageStyle} source={{ uri: props.user.picture }} />
             </View>
             <View style={textViewStyle}>
-                <Text style={textStyle}>{props.user.first_name} {props.user.last_name}</Text>
+                <Text style={textStyle}>{props.user.name}</Text>
                 <Text style={textStyleEmail}>{props.user.email}</Text>
             </View>
-        </View>
+        </View>}
       </TouchableOpacity>
     );
 };

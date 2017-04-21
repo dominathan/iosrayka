@@ -16,7 +16,6 @@ export class Home extends Component {
   constructor(props) {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     super(props);
-    console.log("PROPS", props)
 
     this.state = {
       markers: [],
@@ -68,13 +67,11 @@ export class Home extends Component {
   }
 
   componentWillReceieeProps(nextProps) {
-    console.log("NEXTPROPS?", nextProps)
   }
 
   getPlaces() {
     getPlaces()
       .then((data) => {
-        console.log("MARKERS GET PLACES", data);
         this.setState({
           markers: data,
           places: this.state.places.cloneWithRows(data)

@@ -1,17 +1,16 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
+import Expo from 'expo';
 import { AsyncStorage } from 'react-native';
-import Auth0Lock from 'react-native-lock';
+// import Auth0Lock from 'react-native-lock';
 import { Actions } from 'react-native-router-flux';
 
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN } from '../../config/auth0';
 import { loginUser } from '../services/apiActions';
 
-
-const lock = new Auth0Lock({
-  clientId: AUTH0_CLIENT_ID,
-  domain: AUTH0_DOMAIN
-});
+const auth0ClientId = 'yVWgohF5HglLD5qTqv1zols99eHPYlBK'
+const auth0Domain = 'https://dominathan.auth0.com';
+const redirectUri = 'exp://ek-n3k.dominathan.iosrayka.exp.direct/+/redirect';
 
 export class Login extends Component {
 
@@ -19,52 +18,28 @@ export class Login extends Component {
     if (this.props.getIsLoggedIn()) {
       Actions.home({ type: 'reset' });
     } else {
-      this.showLock();
+      this._loginWithAuth0()
     }
   }
 
-  showLock() {
-    lock.show({
-      closable: false,
-      authParams: {
-        scope: 'openid email profile'
-      }
-    }, ((err, profile, token) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        AsyncStorage.setItem('token', JSON.stringify(token), () => {
-          this.handleLoginSuccess(profile);
-        });
-      })
-    );
+  _loginWithAuth0 = async () => {
+    console.log("SHOW SCREEN")
+    const redirectionURL = `${auth0Domain}/authorize` + this._toQueryString({
+      client_id: auth0ClientId,
+      response_type: 'token',
+      scope: 'openid name profile email',
+      redirect_uri: redirectUri,
+      state: redirectUri,
+    });
+    Expo.WebBrowser.openBrowserAsync(redirectionURL);
   }
 
-  handleLoginSuccess(profile) {
-    loginUser({ user: this.parseProfile(profile) })
-      .then(res => {
-        AsyncStorage.setItem('user', JSON.stringify(res));
-        this.props.setIsLoggedIn(true);
-        if (res.first_time) {
-          return Actions.onboarding({ type: 'reset'});
-        }
-        Actions.home({ type: 'reset' });
-      })
-      .catch((err) => {
-        console.log('FUCK BALLS', err);
-      });
+  _toQueryString(params) {
+    return '?' + Object.entries(params)
+      .map(([key, value]) => `${encodeURIComponent(key)}=${encodeURIComponent(value)}`)
+      .join('&');
   }
 
-  parseProfile(profile) {
-    return {
-      first_name: profile.extraInfo.given_name,
-      last_name: profile.extraInfo.family_name,
-      birthday: profile.extraInfo.birthday,
-      photo_url: profile.extraInfo.picture_large,
-      email: profile.email,
-    };
-  }
 
   render() {
     return (null);

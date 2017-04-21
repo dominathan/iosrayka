@@ -1,7 +1,8 @@
 // 1. Import library to help create a comment.
 import React, { Component } from 'react';
+import Expo from 'expo';
 import { Scene, Router, Actions } from 'react-native-router-flux';
-import { AsyncStorage, Image, StatusBar, TouchableHighlight, View, StyleSheet, TouchableOpacity } from 'react-native';
+import { AsyncStorage, Image, StatusBar, TouchableHighlight, View, StyleSheet, TouchableOpacity, Linking } from 'react-native';
 import { Icon, Grid, Col, Row} from 'react-native-elements';
 // import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -53,6 +54,11 @@ class App extends Component {
     this.handleExpert = this.handleExpert.bind(this)
     this.handleFriends = this.handleFriends.bind(this)
   }
+
+  componentDidMount() {
+    this.setState({isLoggedIn: this.props.isLoggedIn})
+  }
+
   renderTitle() {
     const { selectedHeader } = this.state
     return (
@@ -76,17 +82,6 @@ class App extends Component {
         </Row>
       </Grid>
     )
-  }
-
-  componentWillMount() {
-      AsyncStorage.getItem('token')
-      .then(token => {
-        if (token) {
-          this.setState({ isLoggedIn: true });
-        } else {
-          this.setState({ isLoggedIn: false });
-        }
-      });
   }
 
   handleGlobal() {
@@ -125,7 +120,6 @@ class App extends Component {
   }
 
   handleSelectedHeaderChange() {
-    console.log("CLICK?")
     Actions.refresh({selectedHeader: this.state.selectedHeader})
   }
 
@@ -167,15 +161,12 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   titleGroupStyle: {
-    width: '80%',
-    height: '130%',
+    width: 200,
     borderWidth: 2,
     borderColor: "#FFF",
-    justifyContent: 'flex-start',
-    alignItems: 'flex-start',
-    left: '10%',
-    position: 'relative',
-    left: 0,
+    position: 'absolute',
+    right: 70,
+    top: '20%',
     alignSelf: 'flex-start'
   },
   iconStyleGlobe: {

@@ -36,7 +36,7 @@ export class Settings extends Component {
                       })
                       .then(() => {
                           this.props.setIsLoggedIn(false);
-                          Actions.launch({type: 'reset'});
+                          Actions.login({type: 'reset'});
                       });
                   }
                 }
