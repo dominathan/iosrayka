@@ -56,6 +56,7 @@ export class Home extends Component {
       })
       this.state.region = region;
     })
+    this.handleGlobal();
   }
 
   componentWillUnmount() {
