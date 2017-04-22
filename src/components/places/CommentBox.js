@@ -108,21 +108,21 @@ export class CommentBox extends Component {
       <View style={styles.container}>
         <View style={styles.placeToAdd}>
           <Text style={styles.placeToAddText}>{place.name}</Text>
-          <TouchableOpacity style={styles.addFavorite} onPress={this.toggleFavorite}>
-            <Text style={styles.addFavoriteText}>Add as Favorite</Text>
-            {
-              !this.state.favorite ?
-              <Icon
-                style={styles.star}
-                name='star-border'
-              />
-              :
-              <Icon name="star"
-                style={styles.star}
-                color='yellow'
-              />
-            }
-          </TouchableOpacity>
+          <View style={styles.favoriteContainer}>
+            <TouchableOpacity style={styles.addFavorite} onPress={this.toggleFavorite}>
+              <Text style={styles.addFavoriteText}>Add as Favorite</Text>
+              {
+                !this.state.favorite ?
+                <Icon
+                  name='star-border'
+                />
+                :
+                <Icon name="star"
+                  color='yellow'
+                />
+              }
+            </TouchableOpacity>
+          </View>
         </View>
         <TouchableOpacity onPress={this.togglePhoto} style={styles.addPhotoContainer}>
           <Icon
@@ -174,7 +174,6 @@ const styles = {
     top: 1
   },
   addFavorite: {
-    position: 'absolute',
     right: 10,
     flexDirection: 'row',
     marginTop: 10
@@ -204,5 +203,12 @@ const styles = {
   commentContainer: {
     height: 200,
     alignItems: 'flex-start',
+  },
+  favoriteContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignItems: 'flex-end',
+    paddingBottom: 10
   }
 };

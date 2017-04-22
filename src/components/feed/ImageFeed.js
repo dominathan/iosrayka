@@ -18,8 +18,8 @@ export class ImageFeed extends Component {
 
   renderImageRow(image) {
     return (
-        <TouchableOpacity style={styles.imageContainer} onPress={() => { Actions.imageDetail({image: {uri: 'https://www.placecage.com/200/200'}}); }}>
-          <Image style={styles.image} source={{uri: 'https://www.placecage.com/200/200'}}/>
+        <TouchableOpacity style={styles.imageContainer} onPress={() => { Actions.imageDetail({image: {uri: image.uri}}); }}>
+          <Image style={styles.image} source={{uri: image.uri}}/>
         </TouchableOpacity>
     );
   }
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     margin: 5,
     width: 100,
     height: 100,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
   image: {
