@@ -54,7 +54,7 @@ export class FeedDetail extends Component {
          subtitle={
            <View style={styles.subtitleView}>
              <Text style={styles.titleStyle}>
-               {feed.user.first_name + ' '}
+               {feed.user.first_name ? feed.user.first_name + ' ' : feed.user.email + " "}
                <Text style={styles.unBold}>
                  added
                </Text>
@@ -63,7 +63,7 @@ export class FeedDetail extends Component {
              <Text style={styles.textComment}>
                {feed.comment}
              </Text>
-             {this.props.showButtons && this.state.user.id !== feed.user.id && <View style={styles.realSubTitle}>
+             {this.props.showButtons && this.state.user && this.state.user.id !== feed.user.id && <View style={styles.realSubTitle}>
                <View style={styles.likeAndBeen}>
                  { !showHeart && <TouchableOpacity onPress={() => this.handleLike(feed)}><Text style={styles.likeButton}>Like</Text></TouchableOpacity> }
                  { !showBeenThere && <TouchableOpacity onPress={() => this.handleBeenThere(feed)}><Text style={styles.beenButton}>Been there</Text></TouchableOpacity> }

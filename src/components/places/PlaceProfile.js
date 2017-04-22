@@ -60,7 +60,6 @@ export class PlaceProfile extends Component {
 
   render() {
     const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter } = this.state;
-    console.log('this state', this.state)
     return (
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} />

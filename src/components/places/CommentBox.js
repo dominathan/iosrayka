@@ -1,33 +1,13 @@
-import React, { Component } from 'react';
-import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet, ImagePickerIOS } from 'react-native';
+import React, { Component, NativeModules } from 'react';
+import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+import { ImagePicker } from 'expo';
 import { CameraRollPicker } from './CameraRollPicker';
+import { API_BASE } from '../../../config/apiBase';
 
 import { addPlaceToFavorite } from '../../services/apiActions';
 
-const toDataUrl = (url, callback) => {
-  const xhr = new XMLHttpRequest();
-  xhr.onload = function() {
-    const reader = new FileReader();
-    reader.onloadend = function() {
-      callback(reader.result);
-    }
-    reader.readAsDataURL(xhr.response);
-  };
-  xhr.open('GET', url);
-  xhr.responseType = 'blob';
-  xhr.send();
-}
-
-// const toDataURL = url => fetch(url)
-//     .then(response => response.blob())
-//     .then(blob => new Promise((resolve, reject) => {
-//       const reader = new FileReader()
-//       reader.onloadend = () => resolve(reader.result)
-//       reader.onerror = reject
-//       reader.readAsDataURL(blob)
-//     }))
 
 export class CommentBox extends Component {
   constructor(props) {
@@ -44,6 +24,7 @@ export class CommentBox extends Component {
     this.toggleFavorite = this.toggleFavorite.bind(this);
     this.togglePhoto = this.togglePhoto.bind(this);
     this.pickImage = this.pickImage.bind(this);
+    this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
   }
 
   savePlace(place) {
@@ -66,18 +47,13 @@ export class CommentBox extends Component {
   }
 
   pickImage() {
-    ImagePickerIOS.openSelectDialog({}, (response) => {
-      toDataUrl(response, (base64) => {
-        const photo = {
-          uri:  base64,
-        };
-        this.setState({ photo: photo })
-      });
-      this.setState({ image: response });
-    },
-    error => {
-      console.error(error);
-    })
+    ImagePicker.launchImageLibraryAsync({})
+      .then((response) => {
+        this.setState({image: response.uri})
+      })
+      .catch(error => {
+        console.error(error);
+      })
   }
 
   togglePhoto() {
@@ -95,8 +71,11 @@ export class CommentBox extends Component {
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo } = this.state;
     place.group ? Actions.groupProfile({group: group}) : Actions.home({type: 'refresh'});
-    addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group, image: photo })
+    addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
+        if(this.state.image) {
+          this.handlePhotoUpload(this.state.image)
+        }
       })
       .catch((error) => console.log('Failed Saving Place: ', error));
   }
@@ -152,6 +131,34 @@ export class CommentBox extends Component {
 
       </View>
     );
+  }
+
+  handlePhotoUpload(response) {
+    var photo = {
+      uri: response,
+      type: 'image/jpeg',
+      name: 'photo.jpg',
+    };
+    AsyncStorage.getItem('token', (err, token) => {
+     if (err) {
+       console.log(' NO TOKEN: ', err);
+       return
+     }
+     const parsedToken = JSON.parse(token);
+      var form = new FormData();
+      form.append("photo", photo);
+      form.append("placename", this.props.place.name)
+      fetch(
+        `${API_BASE}/places/image`,
+        {
+          body: form,
+          method: "POST",
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            'Authorization': 'Bearer ' + token
+          }
+        })
+    })
   }
 }
 
