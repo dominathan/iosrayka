@@ -18,7 +18,6 @@ const TabViewHeader = (props) => {
       props.drawer.close();
       Actions.profile({ person: props.user, type: 'reset' });
     };
-    console.log("USER?!", user)
     return (
       <TouchableOpacity onPress={() => goToProfile()}>
       {!user && <Text> No User To Display</Text>}
