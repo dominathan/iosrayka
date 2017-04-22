@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
     margin: 5,
     width: 100,
     height: 100,
-    justifyContent: 'space-around',
+    justifyContent: 'space-between',
     alignItems: 'center'
   },
   image: {
