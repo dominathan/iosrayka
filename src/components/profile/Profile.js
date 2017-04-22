@@ -104,9 +104,11 @@ export class Profile extends Component {
               <Text style={styles.name}>{person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} name="whatshot"/>} {person.first_name} {person.last_name}</Text>
               {person.expert && 
                 <View style={styles.expertLinkContainer}>
-                  <TouchableOpacity onPress={() => Linking.openURL(person.expert_blog_log)} >
-                    <Text style={styles.expertBlogLink}>View Expert Blog</Text>
-                  </TouchableOpacity>
+                  {person.expert_blog_log && 
+                    <TouchableOpacity onPress={() => Linking.openURL(person.expert_blog_log)} >
+                      <Text style={styles.expertBlogLink}>View Expert Blog</Text>
+                    </TouchableOpacity>
+                  }
                 </View>
               }
             </View>

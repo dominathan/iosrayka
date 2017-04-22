@@ -18,13 +18,11 @@ export class PlaceList extends Component {
 
   render() {
     return (
-      <ScrollView style={styles.scrollView}>
-        <ListView
-         dataSource={this.props.places}
-         renderRow={this.renderPlaces}
-         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-        />
-      </ScrollView>
+      <ListView
+        dataSource={this.props.places}
+        renderRow={this.renderPlaces}
+        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+      />
     );
   }
 }
@@ -34,9 +32,5 @@ const styles = StyleSheet.create({
     flex: 1,
     height: StyleSheet.hairlineWidth,
     backgroundColor: '#8E8E8E',
-  },
-  scrollView: {
-    flex: 1,
-    alignSelf: 'stretch',
   }
 });
