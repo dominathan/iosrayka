@@ -8,8 +8,6 @@ import { Icon, Grid, Col, Row} from 'react-native-elements';
 export default class FeedButtons extends Component {
   constructor(props) {
     super(props);
-    console.log("PROPSFROM FEED", props)
-
   }
 
   render() {

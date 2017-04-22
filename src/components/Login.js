@@ -25,7 +25,6 @@ export class Login extends Component {
   }
 
   componentDidMount() {
-    console.log("IS LOGGED IN", this.props.getIsLoggedIn())
     if (this.props.getIsLoggedIn()) {
       Actions.home({ type: 'reset' });
     }
@@ -48,8 +47,6 @@ export class Login extends Component {
   }
 
   onNavigationStateChange(navState) {
-    console.log("HAPPENING", navState)
-
     if(navState['url'].includes('/+/redirect')) {
       console.log("HANDLE USER")
       this.handleUser(navState['url'])
@@ -67,18 +64,17 @@ export class Login extends Component {
     }, {});
     encodedToken = responseObj.id_token;
     decodedToken = jwtDecode(encodedToken)
-    console.log("DECODE FROM LOGIN", decodedToken)
     this.setState({user: decodedToken, isLoggedIn: true});
-    window.FIRST = decodedToken;
-    this.handleLoginSuccess(decodedToken)
     AsyncStorage.setItem('fullUser', JSON.stringify(decodedToken))
     AsyncStorage.setItem('token', JSON.stringify(encodedToken))
+    this.handleLoginSuccess(decodedToken)
+
   }
 
   handleLoginSuccess(profile) {
     loginUser({ user: this.parseProfile(profile) })
       .then(res => {
-        AsyncStorage.setItem('user', JSON.stringify(res));
+        AsyncStorage.setItem('user', JSON.stringify(res.user));
         this.props.setIsLoggedIn(true);
         if (res.first_time) {
           return Actions.onboarding({ type: 'reset'});
@@ -91,7 +87,6 @@ export class Login extends Component {
   }
 
   parseProfile(profile) {
-    console.log("PROFILE TO PARSE", profile)
     return {
       first_name: profile.given_name,
       last_name: profile.family_name,
