@@ -29,6 +29,7 @@ export class GroupDetail extends Component {
 
   render() {
     const { group } = this.props;
+    console.log('GROUP DATA: ', group)
     return (
       <View style={styles.groupItem}>
         { group.myGroup && <Icon name='group' color='#8E8E8E' /> }
@@ -41,39 +42,32 @@ export class GroupDetail extends Component {
               {`${group.name}`}
             </Text>
             <Text style={styles.memberCount}>
-              {`${group.memberCount} Members` }
+              {group.memberCount && `${group.memberCount} Members` }
             </Text>
-
           </TouchableOpacity>
-
-
-          <TouchableOpacity style={styles.moveButtonsRight}>
-
-          {
-            group.publicGroup && <Button
-              buttonStyle={styles.acceptJoinGroupRequestButton}
-              title="JOIN"
-              icon={{name: 'add', color: '#4296CC'}}
-              backgroundColor='#FFF'
-              color='#4296CC'
-              borderRadius={1}
-              onPress={() => this.joinGroup(group)}
-            />
-          }
-
-          {
-            group.privateGroup && <Button
-              buttonStyle={styles.acceptJoinGroupRequestButton}
-              title="REQUEST"
-              icon={{name: 'add', color: '#4296CC'}}
-              backgroundColor='#FFF'
-              color='#4296CC'
-              borderRadius={1}
-            />
-          }
-
-
-          </TouchableOpacity>
+          <View style={styles.buttonStyles}>
+            {
+              group.publicGroup && <Button
+                buttonStyle={styles.acceptJoinGroupRequestButton}
+                title="JOIN"
+                icon={{name: 'add', color: '#4296CC'}}
+                backgroundColor='#FFF'
+                color='#4296CC'
+                borderRadius={1}
+                onPress={() => this.joinGroup(group)}
+              />
+            }
+            {
+              group.privateGroup && <Button
+                buttonStyle={styles.acceptJoinGroupRequestButton}
+                title="REQUEST"
+                icon={{name: 'add', color: '#4296CC'}}
+                backgroundColor='#FFF'
+                color='#4296CC'
+                borderRadius={1}
+              />
+            }
+          </View>
         </View>
       </View>
     );
@@ -117,7 +111,9 @@ const styles = StyleSheet.create({
     color: '#4296CC',
     backgroundColor: '#4296CC'
   },
-  moveButtonsRight: {
+  buttonStyles: {
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
     flex: 1
   }
 });

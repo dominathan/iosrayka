@@ -59,40 +59,48 @@ export class ProfileInfo extends Component {
       console.log(user)
       return (
         <View style={styles.container}>
-            <FormLabel>First Name</FormLabel>
-            <FormInput
-              onChangeText={(text) => {
-                user.first_name = text;
-                this.setState({ user: user })
-              }}
-              value={user.first_name} />
-            <FormLabel>Last Name</FormLabel>
-            <FormInput
-              onChangeText={(text) => {
-                user.last_name = text;
-                this.setState({ user: user })
-              }}
-              value={user.last_name} />
-          { user.expert &&
-            <View style={styles.fieldView}>
-              <FormLabel>Blog</FormLabel>
+          <View style={styles.formContainer}>
+              <FormLabel>First Name</FormLabel>
               <FormInput
+                inputStyle={styles.inputStyle}
                 onChangeText={(text) => {
-                  user.expert_blog_log = text;
+                  user.first_name = text;
                   this.setState({ user: user })
                 }}
-                value={user.expert_blog_log}
-              />
-            </View>
-          }
-          <Button
-            buttonStyle={styles.button}
-            raised
-            backgroundColor='#3c95cd'
-            icon={{ name: 'check', type: 'font-awesome' }}
-            title="Submit"
-            onPress={() => { this.submit() }}
-          />
+                value={user.first_name} />
+              <FormLabel>Last Name</FormLabel>
+              <FormInput
+                inputStyle={styles.inputStyle}
+                onChangeText={(text) => {
+                  user.last_name = text;
+                  this.setState({ user: user })
+                }}
+                value={user.last_name} />
+            { user.expert &&
+              <View style={styles.fieldView}>
+                <FormLabel>Blog</FormLabel>
+                <FormInput
+                  inputStyle={styles.inputStyle}
+                  autoCapitalize={'none'}
+                  onChangeText={(text) => {
+                    user.expert_blog_log = text;
+                    this.setState({ user: user })
+                  }}
+                  value={user.expert_blog_log}
+                />
+              </View>
+            }
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              buttonStyle={styles.button}
+              raised
+              backgroundColor='#3c95cd'
+              icon={{ name: 'check', type: 'font-awesome' }}
+              title="Submit"
+              onPress={() => { this.submit() }}
+            />
+          </View>
         </View>
       );
     }
@@ -100,8 +108,10 @@ export class ProfileInfo extends Component {
 }
 
 const styles = StyleSheet.create({
-  button: {
-    marginTop: 15
+  buttonContainer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    marginBottom: 15
   },
   container: {
     flex: 1,
@@ -109,5 +119,11 @@ const styles = StyleSheet.create({
   },
   fieldView: {
     height: 40
+  },
+  formContainer: {
+    flex: 3
+  },
+  inputStyle: {
+    width: '100%'
   }
 });

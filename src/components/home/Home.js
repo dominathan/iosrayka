@@ -264,7 +264,6 @@ const styles = StyleSheet.create({
     color: '#4296CC',
     borderBottomWidth: 1,
     borderBottomColor: '#4296CC',
-    marginRight: 10,
     marginLeft: 25,
   },
   filterButton: {

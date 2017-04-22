@@ -4,7 +4,7 @@ import { Icon, CheckBox, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
 import { addFriend, acceptFriend, declineFriend } from '../../services/apiActions';
-//
+
 export class FriendDetail extends Component {
   constructor(props) {
     super(props);
@@ -44,32 +44,34 @@ export class FriendDetail extends Component {
 
   renderCheckBox(friend) {
     return (
-      <CheckBox
-        checked={this.state.checked}
-        onPress={ _ => {
-          friend.invited = !this.state.checked
-          this.setState({
-            checked: !this.state.checked
-          })
-        }}
-
-      />
+      <View style={styles.checkboxContainer}>
+        <CheckBox
+          checked={this.state.checked}
+          onPress={ _ => {
+            friend.invited = !this.state.checked
+            this.setState({
+              checked: !this.state.checked
+            })
+          }}
+        />
+      </View>
     );
   }
 
   addToGroup(friend) {
     return (
-      <CheckBox
-        checked={this.state.checked}
-        onPress={ _ => {
-          friend.invited = !this.state.checked
-          this.setState({
-            checked: !this.state.checked
-          })
-          console.log("ON CHECK", friend)
-        }}
-
-      />
+      <View style={styles.checkboxContainer}>
+        <CheckBox
+          checked={this.state.checked}
+          onPress={ _ => {
+            friend.invited = !this.state.checked
+            this.setState({
+              checked: !this.state.checked
+            })
+            console.log("ON CHECK", friend)
+          }}
+        />
+      </View>
     );
   }
 
@@ -146,8 +148,11 @@ const styles = StyleSheet.create({
     fontWeight: '500'
   },
   checkboxContainer: {
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
+    justifyContent: 'flex-start',
     flex: 1,
-    alignSelf: 'stretch'
+    marginRight: 20
   },
   acceptFriend: {
     alignItems: 'flex-end',
