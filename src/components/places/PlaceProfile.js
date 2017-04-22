@@ -67,7 +67,9 @@ export class PlaceProfile extends Component {
         <View style={styles.detailsContainer}>
           { place && <View style={styles.profileDetailsContainer}>
             <View style={styles.profileTextContainer}>
-              <Text style={styles.name}>{place.name}</Text>
+              <View style={styles.profileText}>
+                <Text style={styles.name}>{place.name}</Text>
+              </View>
               <ProfileStats style={styles.favorites} label="Favorites" icon="star-o" data={favorites.length} />
             </View>
           </View> }
@@ -152,10 +154,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   name: {
-    fontSize: 24,
+    fontSize: 24
+  },
+  profileText: {
     alignSelf: 'flex-start',
     paddingTop: 15,
-    marginRight: '40%'
+    width: '75%'
+  },
+  favorites: {
+    alignSelf: 'flex-end'
   },
   profileDetailsContainer: {
     flex: 1,

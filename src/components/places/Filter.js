@@ -24,11 +24,17 @@ const selectedFilter = (onPress, type) => {
 const Filter = ({ onPress, props }) => {
   return (
     <ScrollView>
-      <List>
+      <List style={styles.container}>
         {createTypeList(onPress)}
       </List>
     </ScrollView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    marginTop: 0
+  }
+});
 
 export default Filter;

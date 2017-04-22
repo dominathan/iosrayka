@@ -4,7 +4,7 @@ import { Icon, CheckBox, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
 import { addFriend, acceptFriend, declineFriend } from '../../services/apiActions';
-//
+
 export class FriendDetail extends Component {
   constructor(props) {
     super(props);
@@ -59,17 +59,18 @@ export class FriendDetail extends Component {
 
   addToGroup(friend) {
     return (
-      <CheckBox
-        checked={this.state.checked}
-        onPress={ _ => {
-          friend.invited = !this.state.checked
-          this.setState({
-            checked: !this.state.checked
-          })
-          console.log("ON CHECK", friend)
-        }}
-
-      />
+        <CheckBox
+          containerStyle={styles.checkboxContainer}
+          center={true}
+          checked={this.state.checked}
+          onPress={ _ => {
+            friend.invited = !this.state.checked
+            this.setState({
+              checked: !this.state.checked
+            })
+            console.log("ON CHECK", friend)
+          }}
+        />
     );
   }
 
@@ -146,8 +147,7 @@ const styles = StyleSheet.create({
     fontWeight: '500'
   },
   checkboxContainer: {
-    flex: 1,
-    alignSelf: 'stretch'
+    alignSelf: 'flex-end'
   },
   acceptFriend: {
     alignItems: 'flex-end',

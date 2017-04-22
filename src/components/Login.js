@@ -10,7 +10,7 @@ import { loginUser } from '../services/apiActions';
 
 const auth0ClientId = 'yVWgohF5HglLD5qTqv1zols99eHPYlBK'
 const auth0Domain = 'https://dominathan.auth0.com';
-const redirectUri = 'exp://ek-n3k.dominathan.iosrayka.exp.direct/+/redirect';
+const redirectUri = 'exp://zw-ii3.bhare1987.iosrayka.exp.direct/+/redirect';
 
 export class Login extends Component {
   constructor(props) {

@@ -29,6 +29,7 @@ export class GroupDetail extends Component {
 
   render() {
     const { group } = this.props;
+    console.log('GROUP DATA: ', group)
     return (
       <View style={styles.groupItem}>
         { group.myGroup && <Icon name='group' color='#8E8E8E' /> }
@@ -41,7 +42,7 @@ export class GroupDetail extends Component {
               {`${group.name}`}
             </Text>
             <Text style={styles.memberCount}>
-              {`${group.memberCount} Members` }
+              {group.memberCount && `${group.memberCount} Members` }
             </Text>
 
           </TouchableOpacity>

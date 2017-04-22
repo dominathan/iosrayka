@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking } from 'react-native';
+import { Icon } from 'react-native-elements';
 
 import { getFriends, getUserFeed, getUserPlaces } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
@@ -100,7 +101,14 @@ export class Profile extends Component {
             <Image source={{ uri: person.photo_url }} style={styles.photo} />
             </View>
             <View style={styles.profileTextContainer}>
-              <Text style={styles.name}>{person.first_name} {person.last_name}</Text>
+              <Text style={styles.name}>{person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} name="whatshot"/>} {person.first_name} {person.last_name}</Text>
+              {person.expert && 
+                <View style={styles.expertLinkContainer}>
+                  <TouchableOpacity onPress={() => Linking.openURL(person.expert_blog_log)} >
+                    <Text style={styles.expertBlogLink}>View Expert Blog</Text>
+                  </TouchableOpacity>
+                </View>
+              }
             </View>
           </View> }
           <View style={styles.statsContainer}>
@@ -138,6 +146,20 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 1,
     position: 'relative'
+  },
+  expertBlogLink: {
+    color: '#4296cc',
+    fontSize: 16
+  },
+  expertContainer: {
+    marginTop: 15,
+    height: 15,
+    width: 25
+  },
+  expertLinkContainer: {
+    marginLeft: 110,
+    alignSelf: 'flex-start',
+    marginTop: 5
   },
   filtersContainer: {
     flexDirection: 'row',
