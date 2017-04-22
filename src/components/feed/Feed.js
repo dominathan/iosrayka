@@ -36,56 +36,10 @@ export class Feed extends Component {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 4,
-    flexDirection: 'row',
-    alignSelf: 'stretch',
-    marginLeft: 10,
-    height: 65
-  },
-  subtitleView: {
-    paddingLeft: 13,
-    width: '80%'
-  },
-  bold: {
-    fontWeight: '600'
-  },
   separator: {
     flex: 1,
     height: StyleSheet.hairlineWidth,
     backgroundColor: '#8E8E8E',
-  },
-  textComment: {
-    fontWeight: '100',
-    flexWrap: 'wrap',
-  },
-  likeAndBeen: {
-    flexDirection: 'row',
-    alignSelf: 'flex-start',
-    marginTop: 10
-  },
-  likeButton: {
-    color: 'gray'
-  },
-  beenButton: {
-    color: 'gray',
-    marginLeft: 45
-  },
-  titleStyle: {
-    fontWeight: '600',
-  },
-  unBold: {
-    fontWeight: '300'
-  },
-  avatarStyle: {
-    width: 45,
-    height: 45,
-    borderRadius: 20,
-    marginLeft: '2%'
-  },
-  listStyle: {
-    flex: 1
   }
 
 });

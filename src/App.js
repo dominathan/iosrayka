@@ -3,10 +3,9 @@ import React, { Component } from 'react';
 import Expo from 'expo';
 import { Scene, Router, Actions } from 'react-native-router-flux';
 import { AsyncStorage, Image, StatusBar, TouchableHighlight, View, StyleSheet, TouchableOpacity, Linking } from 'react-native';
-import { Icon, Grid, Col, Row} from 'react-native-elements';
-// import Icon from 'react-native-vector-icons/FontAwesome';
+import { Icon } from 'react-native-elements';
 
-import { Home } from './components/Home';
+import { Home } from './components/home/Home';
 import SimpleDrawer from './SimpleDrawer';
 
 // Places
@@ -47,17 +46,8 @@ class App extends Component {
     this.handleAddFriends = this.handleAddFriends.bind(this);
     this.setIsLoggedIn = this.setIsLoggedIn.bind(this);
     this.getIsLoggedIn = this.getIsLoggedIn.bind(this);
-    this.renderTitle = this.renderTitle.bind(this);
     this.renderDrawerButton = this.renderDrawerButton.bind(this);
-    this.handleSelectedHeaderChange = this.handleSelectedHeaderChange.bind(this);
-    this.handleGlobal = this.handleGlobal.bind(this);
-    this.handleExpert = this.handleExpert.bind(this)
-    this.handleFriends = this.handleFriends.bind(this)
   }
-
-  // componentDidMount() {
-  //   this.setState({isLoggedIn: this.props.isLoggedIn})
-  // }
 
   componentDidMount() {
       AsyncStorage.getItem('token')
@@ -68,46 +58,6 @@ class App extends Component {
           this.setState({ isLoggedIn: false });
         }
       });
-  }
-
-  renderTitle() {
-    const { selectedHeader } = this.state
-    return (
-      <Grid style={styles.titleGroupStyle}>
-        <Row>
-          <Col>
-            <TouchableOpacity style={selectedHeader === 'global' ? styles.selectedIconContainer : styles.iconStyleGlobe} onPress={() => this.handleGlobal()}>
-              <Icon containerStyle={styles.iconContainerStyles} name="public" color={selectedHeader === 'global' ? '#3c95cd': "#FFF"}/>
-            </TouchableOpacity>
-          </Col>
-          <Col>
-            <TouchableOpacity style={selectedHeader === 'friends' ? styles.selectedIconContainer : styles.iconStyleFriends} onPress={() => this.handleFriends()}>
-              <Icon containerStyle={styles.iconContainerStyles} name="people" color={selectedHeader === 'friends' ? '#3c95cd': "#FFF"}/>
-            </TouchableOpacity>
-          </Col>
-          <Col>
-            <TouchableOpacity style={selectedHeader === 'expert' ? styles.selectedIconContainer : styles.iconStyleExpert} onPress={() => this.handleExpert()}>
-              <Icon containerStyle={styles.iconContainerStyles} name="whatshot" color={selectedHeader === 'expert' ? '#3c95cd': "#FFF"} />
-            </TouchableOpacity>
-          </Col>
-        </Row>
-      </Grid>
-    )
-  }
-
-  handleGlobal() {
-    this.setState({selectedHeader: 'global'})
-    Actions.home({selectedHeader: this.state.selectedHeader})
-  }
-
-  handleExpert() {
-    this.setState({selectedHeader: 'expert'})
-    Actions.home({selectedHeader: this.state.selectedHeader})
-  }
-
-  handleFriends() {
-    this.setState({selectedHeader: 'friends'})
-    Actions.home({selectedHeader: this.state.selectedHeader})
   }
 
   getIsLoggedIn() {
@@ -130,9 +80,6 @@ class App extends Component {
     )
   }
 
-  handleSelectedHeaderChange() {
-    Actions.refresh({selectedHeader: this.state.selectedHeader})
-  }
 
   render() {
       if (this.state.isLoggedIn === undefined) {
@@ -142,7 +89,7 @@ class App extends Component {
           <Router navigationBarStyle={{ backgroundColor: '#3c95cd', justifyContent: 'flex-start', flex: 1 }} titleStyle={{ color: '#FFF' }} barButtonTextStyle={{ color: "#FFF" }} barButtonIconStyle={{ tintColor: 'rgb(255,255,255)' }} getIsLoggedIn={this.getIsLoggedIn} setIsLoggedIn={this.setIsLoggedIn}>
             <Scene key='drawer' component={SimpleDrawer} >
               <Scene key='main' tabs={false}>
-                <Scene renderLeftButton={this.renderDrawerButton} key="home" component={Home} renderRightButton={this.renderTitle} onRight={() => console.log("ANYHTHIGN")} selectedHeader={this.state.selectedHeader} initial />
+                <Scene renderLeftButton={this.renderDrawerButton} key="home" component={Home} title="Home" initial />
                 <Scene renderLeftButton={this.renderDrawerButton} key="myPlaces" component={MyPlaces} title="Places" />
                 <Scene key="googlePlaces" component={GooglePlaces} title="Add a Place" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="friends" component={Friends} title="Friends" />
@@ -160,7 +107,6 @@ class App extends Component {
                 <Scene key='profileInfo' component={ProfileInfo} title='Profile Info' />
                 <Scene key='imageDetail' component={ImageDetail} title='Image' />
                 <Scene key='login' component={Login} title="Login" hideNavBar />
-
               </Scene>
             </Scene>
           </Router>
@@ -169,28 +115,5 @@ class App extends Component {
   }
 
 }
-
-const styles = StyleSheet.create({
-  titleGroupStyle: {
-    width: 200,
-    borderWidth: 2,
-    borderColor: "#FFF",
-    position: 'absolute',
-    right: 70,
-    top: '20%',
-    alignSelf: 'flex-start'
-  },
-  iconStyleGlobe: {
-    borderRightWidth: 2.5,
-    borderRightColor: '#FFF',
-  },
-  iconStyleFriends: {
-    borderRightWidth: 2.5,
-    borderRightColor: '#FFF',
-  },
-  selectedIconContainer: {
-    backgroundColor: '#FFF',
-  }
-})
 
 export default App;

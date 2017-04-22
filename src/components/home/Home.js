@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet, ListView } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
-import { Icon } from 'react-native-elements';
+import { Icon, Grid, Row } from 'react-native-elements';
 
-import { getPlaces, getFeed, getFriendFeed, getExpertFeed, getFilterPlaces, getExpertPlaces, getFriendPlaces } from '../services/apiActions';
-import { Feed } from './feed/Feed';
-import { Map } from './map/Map';
-import { PlaceList } from './places/PlaceList';
-import Filter from './places/Filter';
+import { getPlaces, getFeed, getFriendFeed, getExpertFeed, getFilterPlaces, getExpertPlaces, getFriendPlaces } from '../../services/apiActions';
+import { Feed } from '../feed/Feed';
+import { Map } from '../map/Map';
+import { PlaceList } from '../places/PlaceList';
+import FeedButtons from './FeedButtons';
+import Filter from '../places/Filter';
 
 export class Home extends Component {
 
@@ -23,6 +24,7 @@ export class Home extends Component {
       feed: null,
       feedReady: false,
       selectedFilter: 'feed',
+      selectedHeader: 'global',
       region: new MapView.AnimatedRegion({
         latitude: 32.8039917,
         longitude: -79.9525327,
@@ -39,6 +41,9 @@ export class Home extends Component {
     this.filterExperts = this.filterExperts.bind(this);
     this.globalFilter = this.globalFilter.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
+    this.handleGlobal = this.handleGlobal.bind(this);
+    this.handleExpert = this.handleExpert.bind(this);
+    this.handleFriends = this.handleFriends.bind(this);
   }
 
   componentDidMount() {
@@ -51,22 +56,25 @@ export class Home extends Component {
       })
       this.state.region = region;
     })
-
-    if(this.props.selectedHeader === 'global') {
-      this.getPlaces();
-    } else if (this.props.selectedHeader === 'friends') {
-      this.filterFriends();
-    } else {
-      this.filterExperts();
-    }
-
   }
 
   componentWillUnmount() {
      navigator.geolocation.clearWatch(this.watchID);
   }
 
-  componentWillReceieeProps(nextProps) {
+  handleGlobal() {
+    this.getPlaces();
+    this.setState({selectedHeader: 'global'})
+  }
+
+  handleExpert() {
+    this.setState({selectedHeader: 'expert'})
+    this.filterExperts();
+  }
+
+  handleFriends() {
+    this.setState({selectedHeader: 'friends'})
+    this.filterFriends();
   }
 
   getPlaces() {
@@ -175,10 +183,10 @@ export class Home extends Component {
   }
 
   render() {
-    const { feedReady, region, feed, markers, selectedFilter, places } = this.state;
+    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader } = this.state;
     return (
       <View style={styles.container}>
-        {region && <Map onRegionChange={this.onRegionChange} region={this.state.region} markers={markers}/>}
+        {region && <Map onRegionChange={this.onRegionChange} region={region} markers={markers}/>}
 
         <View style={styles.publicPrivateContainer}>
           <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('feed')}>
@@ -191,9 +199,7 @@ export class Home extends Component {
             <Text style={this.state.selectedFilter === 'filter' ? styles.selectedFilterButton : styles.filterButtonText}>FILTER</Text>
           </TouchableOpacity>
         </View>
-        {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
-        {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
-        {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}
+
         <TouchableOpacity style={styles.addPlaceButton}>
           <Icon
             raised
@@ -203,6 +209,15 @@ export class Home extends Component {
             onPress={this.navigateToAddPlace}
           />
         </TouchableOpacity>
+        <View style={styles.feed}>
+          {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
+          {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
+          {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}
+        </View>
+        <View style={styles.feedButtons}>
+          <FeedButtons handleGlobal={this.handleGlobal} handleExpert={this.handleExpert} handleFriends={this.handleFriends} selectedHeader={selectedHeader}/>
+        </View>
+
       </View>
     );
   }
@@ -217,8 +232,8 @@ const styles = StyleSheet.create({
   },
   addPlaceButton: {
     position: 'absolute',
-    bottom: 10,
-    right: 12
+    bottom: '15%',
+    right: '5%'
   },
   publicPrivateContainer: {
     flexDirection: 'row',
@@ -257,5 +272,11 @@ const styles = StyleSheet.create({
   },
   filterButtonText: {
     color: '#8D8F90',
+  },
+  feed: {
+    height: '43%'
+  },
+  feedButtons: {
+    height: '6%'
   }
 });
