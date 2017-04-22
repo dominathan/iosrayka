@@ -27,7 +27,7 @@ const TabViewHeader = (props) => {
                 <Image style={profileImageStyle} source={{ uri: props.user.photo_url }} />
             </View>
             <View style={textViewStyle}>
-                <Text style={textStyle}>{props.user.name}</Text>
+                <Text style={textStyle}>{props.user.first_name} {props.user.last_name}</Text>
                 <Text style={textStyleEmail}>{props.user.email}</Text>
             </View>
         </View>}
