@@ -95,6 +95,7 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
+      console.log("HELLO", region)
      this.state.region.setValue(region);
   }
 
@@ -234,7 +235,8 @@ const styles = StyleSheet.create({
   addPlaceButton: {
     position: 'absolute',
     bottom: '15%',
-    right: '5%'
+    right: '5%',
+    zIndex: 100
   },
   publicPrivateContainer: {
     flexDirection: 'row',
