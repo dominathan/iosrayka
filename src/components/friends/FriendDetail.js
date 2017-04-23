@@ -100,10 +100,10 @@ export class FriendDetail extends Component {
                   backgroundColor='#FFF'
                   color='#4296CC'
                   borderRadius={1}
+                  onPress={() => {this.addFriendToDatabase(friend)}}
                 />
             }
           </View>
-
 
           {
             friend.pending &&
@@ -173,12 +173,6 @@ const styles = StyleSheet.create({
   acceptFriend: {
     alignItems: 'flex-end',
     flexDirection: 'row',
-  },
-  acceptJoinGroupRequestButton: {
-    borderWidth: 1,
-    borderColor: '#4296CC',
-    alignSelf: 'flex-end',
-    flex: 1
   },
   acceptJoinPlus: {
     color: '#4296CC',
