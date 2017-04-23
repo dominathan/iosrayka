@@ -15,7 +15,6 @@ export class GroupDetail extends Component {
   }
 
   joinGroup(group) {
-    console.log("THIS IS GROUP", group)
     if(group.publicGroup || !group.private) {
       //join public
       joinPublicGroup(group)
@@ -29,7 +28,6 @@ export class GroupDetail extends Component {
 
   render() {
     const { group } = this.props;
-    console.log('GROUP DATA: ', group)
     return (
       <View style={styles.groupItem}>
         { group.myGroup && <Icon name='group' color='#8E8E8E' /> }
