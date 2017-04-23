@@ -280,6 +280,6 @@ const styles = StyleSheet.create({
     height: '43%'
   },
   feedButtons: {
-    height: '6%'
+    height: 60
   }
 });

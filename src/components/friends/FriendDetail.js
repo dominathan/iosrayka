@@ -86,9 +86,11 @@ export class FriendDetail extends Component {
               {`${friend.first_name} ${friend.last_name}`}
             </Text>
           </TouchableOpacity>
+        </View>
+
+        <View style={styles.addFriend}>
           {
             friend.search &&
-            <View style={styles.addFriend}>
               <Button
                 buttonStyle={styles.acceptJoinGroupRequestButton}
                 title="Add"
@@ -97,26 +99,26 @@ export class FriendDetail extends Component {
                 color='#4296CC'
                 borderRadius={1}
               />
-            </View>
           }
-
-          {
-            friend.pending &&
-            <View style={styles.acceptFriend}>
-            <Icon
-              name='x'
-              color='red'
-              onPress={() => this.denyFriendRequest(friend)} />
-              <Icon
-              name='add'
-              color="#4296CC"
-              onPress={() => this.acceptFriendRequest(friend)} />
-            </View>
-          }
-
-          { this.props.isGroup && this.renderCheckBox(friend) }
-          { friend.isGroup && this.addToGroup(friend) }
         </View>
+
+
+        {
+          friend.pending &&
+          <View style={styles.acceptFriend}>
+          <Icon
+            name='x'
+            color='red'
+            onPress={() => this.denyFriendRequest(friend)} />
+            <Icon
+            name='add'
+            color="#4296CC"
+            onPress={() => this.acceptFriendRequest(friend)} />
+          </View>
+        }
+
+        { this.props.isGroup && this.renderCheckBox(friend) }
+        { friend.isGroup && this.addToGroup(friend) }
       </View>
     );
   }
@@ -129,6 +131,8 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginTop: 7,
     marginBottom: 5,
+    alignItems: 'center',
+    justifyContent: 'flex-start',
   },
   photo: {
     height: 40,
@@ -161,10 +165,12 @@ const styles = StyleSheet.create({
   acceptJoinGroupRequestButton: {
     borderWidth: 1,
     borderColor: '#4296CC',
-    alignSelf: 'flex-end'
   },
   acceptJoinPlus: {
     color: '#4296CC',
     backgroundColor: '#4296CC'
   },
+  addFriend: {
+    alignSelf: 'flex-end',
+  }
 });

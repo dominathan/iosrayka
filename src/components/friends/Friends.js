@@ -16,7 +16,8 @@ export class Friends extends Component {
       loadingFriends: true,
       dataSource: ds.cloneWithRows(['row1', 'row2']),
       searching: false,
-      pendingFriend: false
+      pendingFriend: false,
+      selectedTab: 'friends'
     };
     this.handleFriendSearch = this.handleFriendSearch.bind(this);
     this.getRequestedFriendsList = this.getRequestedFriendsList.bind(this);
@@ -28,6 +29,9 @@ export class Friends extends Component {
   }
 
   loadFriends() {
+    this.setState({
+      selectedTab: 'friends'
+    })
     getFriends()
       .then((friends) => {
         if(friends.length > 0) {
@@ -35,7 +39,7 @@ export class Friends extends Component {
             dataSource: this.state.dataSource.cloneWithRows(friends),
             loadingFriends: false,
             pendingFriend: false,
-            search: false
+            search: false,
           });
         }
       })
@@ -56,6 +60,9 @@ export class Friends extends Component {
   }
 
   getRequestedFriendsList() {
+    this.setState({
+      selectedTab: 'requests'
+    })
     getRequestedFriends()
       .then((data) => {
         const friendList = data.map((friend) => {
@@ -65,20 +72,25 @@ export class Friends extends Component {
         this.setState({
           dataSource: this.state.dataSource.cloneWithRows(friendList),
           searching: false,
-          pendingFriend: true
+          pendingFriend: true,
         });
       })
       .catch(err => console.error('NO SEARACH', err));
   };
 
   render() {
-    const { loadingFriends, dataSource } = this.state;
+    const { loadingFriends, dataSource, selectedTab } = this.state;
     return (
       <View style={styles.container}>
         <FriendSearch giveBackFriend={this.handleFriendSearch}/>
         { !loadingFriends && <FriendList friends={dataSource} /> }
 
-        <FriendsButtons getRequestedFriendsList={this.getRequestedFriendsList} getFriends={this.loadFriends}/>
+        <View style={styles.friendsButtons}>
+          <FriendsButtons
+            getRequestedFriendsList={this.getRequestedFriendsList}
+            getFriends={this.loadFriends}
+            selectedTab={selectedTab}/>
+        </View>
 
       </View>
     );
@@ -89,7 +101,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     marginTop: 62,
-    alignItems: 'stretch'
+    alignItems: 'stretch',
+    justifyContent: 'space-between'
   },
+  friendsButtons: {
+    height: 40,
+    alignSelf: 'flex-end',
+  }
 
 });

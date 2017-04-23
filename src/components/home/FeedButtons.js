@@ -41,30 +41,31 @@ const styles = StyleSheet.create({
   titleGroupStyle: {
     flex: 1,
     flexDirection: 'row',
-    borderWidth: 2,
-    borderColor: "#FFF",
     alignSelf: 'flex-end',
-    alignItems: 'center',
+    alignItems: 'flex-end',
     backgroundColor: '#4296CC',
     justifyContent: 'center'
   },
   iconStyleGlobe: {
     height: '100%',
-    borderRightWidth: 2.5,
-    borderRightColor: '#FFF',
+    paddingTop: 5
   },
   iconStyleFriends: {
     height: '100%',
-    borderRightWidth: 2.5,
-    borderRightColor: '#FFF',
+    paddingTop: 5,
+    borderLeftWidth: 2,
+    borderRightWidth: 2,
+    borderRightColor: "#FFF",
+    borderLeftColor: "#FFF"
+
   },
   iconStyleExpert: {
     height: '100%',
-    borderRightWidth: 2.5,
-    borderRightColor: '#FFF',
+    paddingTop: 5
   },
   selectedIconContainer: {
     height: '100%',
     backgroundColor: '#FFF',
+    paddingTop: 5
   }
 })

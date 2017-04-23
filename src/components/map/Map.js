@@ -15,7 +15,7 @@ export class Map extends Component {
   loadMarkers() {
     return this.props.markers.map((place) => {
       return {
-        key: place.id,
+        key: place.id + Math.random(),
         coordinate: {
           latitude: place.lat,
           longitude: place.lng
