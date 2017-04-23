@@ -36,6 +36,15 @@ export class GroupProfile extends Component {
     this.getGroupPlaces = this.getGroupPlaces.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.new_place) {
+      this.setState({
+        feed: this.state.feed.push(nextProps.new_place),
+        markers: this.state.markers.push(nextProps.new_place)
+      });
+    }
+  }
+
   componentDidMount() {
     this.watchID = navigator.geolocation.watchPosition((position) => {
       let region = new MapView.AnimatedRegion({

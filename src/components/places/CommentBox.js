@@ -70,7 +70,19 @@ export class CommentBox extends Component {
 
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo } = this.state;
-    place.group ? Actions.groupProfile({group: group}) : Actions.home({type: 'refresh'});
+    if (group) {
+      console.log('group', group);
+      Actions.groupProfile({
+        group: group, 
+        type: 'reset',
+        new_place: place
+      });
+    } else {
+      Actions.home({ 
+        new_place: place,
+        type: 'reset' 
+      });
+    }
     Keyboard.dismiss();
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
