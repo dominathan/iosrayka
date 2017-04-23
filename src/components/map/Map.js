@@ -5,16 +5,11 @@ import { Actions } from 'react-native-router-flux';
 import { Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
 
-import { getPlaces } from '../../services/apiActions';
-
 export class Map extends Component {
 
   constructor(props) {
     super(props);
     this.loadMarkers = this.loadMarkers.bind(this);
-  }
-
-  componentWillMount() {
   }
 
   loadMarkers() {
@@ -59,10 +54,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   callout: {
-    width: 100,
+    width: 150,
     height: 25,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   calloutText: {
-    fontSize: 12
+    fontSize: 16,
+    textAlign: 'center'
   }
 });

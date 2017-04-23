@@ -24,9 +24,10 @@ export class PlaceDetail extends Component {
             <Text style={styles.text}>
               {`${place.name}`}
             </Text>
-            <Text style={styles.locationText}>
-              {`${place.city}`}
-            </Text>
+            <View style={styles.starContainer}>
+              <Icon name="star" color="gold" />
+              <Text style={styles.favoriteCount}>{place.favorites_count}</Text>
+            </View>
           </TouchableOpacity>
         </View>
       </View>
@@ -60,5 +61,14 @@ const styles = StyleSheet.create({
     color: "gray",
     marginLeft: 8,
     fontSize: 12,
+  },
+  starContainer: {
+    flexDirection: 'row',
+    marginLeft: '5%',
+    alignItems: 'center'
+  },
+  favoriteCount: {
+    color: '#4296CC',
+    paddingTop: '1%'
   }
 });
