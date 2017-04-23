@@ -12,6 +12,10 @@ export class Map extends Component {
     this.loadMarkers = this.loadMarkers.bind(this);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.loadMarkers();
+  }
+
   loadMarkers() {
     return this.props.markers.map((place) => {
       return {

@@ -59,6 +59,15 @@ export class Home extends Component {
     this.handleGlobal();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.new_place) {
+      this.setState({
+        feed: this.state.feed.push(nextProps.new_place),
+        markers: this.state.markers.push(nextProps.new_place)
+      });
+    }
+  }
+
   componentWillUnmount() {
      navigator.geolocation.clearWatch(this.watchID);
   }
@@ -95,7 +104,6 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
-      console.log("HELLO", region)
      this.state.region.setValue(region);
   }
 
