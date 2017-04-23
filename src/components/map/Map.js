@@ -28,11 +28,14 @@ export class Map extends Component {
         title: place.name
       };
     }).map((marker) => {
-      return (<MapView.Marker
-        key={marker.key}
-        coordinate={marker.coordinate}
-        title={marker.title}
-      />);
+      return (
+        <MapView.Marker coordinate={marker.coordinate} key={marker.key} title={marker.title}>
+          <Icon name="location-on" color="red" key={marker.key} />
+          <MapView.Callout style={styles.callout}>
+            <Text style={styles.calloutText}>{marker.title}</Text>
+          </MapView.Callout>
+        </MapView.Marker>
+      );
     });
   }
 
@@ -55,4 +58,11 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
+  callout: {
+    width: 100,
+    height: 25,
+  },
+  calloutText: {
+    fontSize: 12
+  }
 });
