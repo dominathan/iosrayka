@@ -228,6 +228,7 @@ export class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent: 'space-between'
   },
   map: {
     flex: 1,

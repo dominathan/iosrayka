@@ -90,7 +90,7 @@ const getExpertPlaces = () => defaultGet(`places/experts`);
 const getUserPlaces = (user) => defaultPost('places/user', user);
 const getFilterPlaces = (places) => defaultGet('places/types', places)
 const getFeed = () => defaultGet('feed');
-const getUserFeed = () => defaultGet('feed/users');
+const getUserFeed = (user) => defaultGet(`feed/users/${user.id}`);
 const getFriends = () => defaultGet('friends');
 const searchForFriends = (query) => defaultGet('users/search', query);
 const addFriend = (friend) => defaultPost('friends', friend);
