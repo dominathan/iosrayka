@@ -1,5 +1,5 @@
 import React, { Component, NativeModules } from 'react';
-import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet } from 'react-native';
+import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet, Keyboard } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { ImagePicker } from 'expo';
@@ -71,6 +71,7 @@ export class CommentBox extends Component {
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo } = this.state;
     place.group ? Actions.groupProfile({group: group}) : Actions.home({type: 'refresh'});
+    Keyboard.dismiss();
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
         if(this.state.image) {

@@ -62,6 +62,7 @@ export class FriendDetail extends Component {
     return (
       <View style={styles.checkboxContainer}>
         <CheckBox
+          center
           checked={this.state.checked}
           onPress={ _ => {
             friend.invited = !this.state.checked
@@ -88,37 +89,41 @@ export class FriendDetail extends Component {
           </TouchableOpacity>
         </View>
 
-        <View style={styles.addFriend}>
-          {
-            friend.search &&
-              <Button
-                buttonStyle={styles.acceptJoinGroupRequestButton}
-                title="Add"
-                icon={{name: 'add', color: '#4296CC'}}
-                backgroundColor='#FFF'
-                color='#4296CC'
-                borderRadius={1}
-              />
-          }
-        </View>
-
-
-        {
-          friend.pending &&
-          <View style={styles.acceptFriend}>
-          <Icon
-            name='x'
-            color='red'
-            onPress={() => this.denyFriendRequest(friend)} />
-            <Icon
-            name='add'
-            color="#4296CC"
-            onPress={() => this.acceptFriendRequest(friend)} />
+        <View style={styles.buttonContainer}>
+          <View style={styles.addFriend}>
+            {
+              friend.search &&
+                <Button
+                  buttonStyle={styles.acceptJoinGroupRequestButton}
+                  title="Add"
+                  icon={{name: 'add', color: '#4296CC'}}
+                  backgroundColor='#FFF'
+                  color='#4296CC'
+                  borderRadius={1}
+                />
+            }
           </View>
-        }
 
-        { this.props.isGroup && this.renderCheckBox(friend) }
-        { friend.isGroup && this.addToGroup(friend) }
+
+          {
+            friend.pending &&
+            <View style={styles.acceptFriend}>
+              <Icon
+                containerStyle={styles.iconStyle}
+                name='cancel'
+                color='red'
+                onPress={() => this.denyFriendRequest(friend)} />
+              <Icon
+                containerStyle={styles.iconStyle}
+                name='add'
+                color="#4296CC"
+                onPress={() => this.acceptFriendRequest(friend)} />
+            </View>
+          }
+
+          { this.props.isGroup && this.renderCheckBox(friend) }
+          { friend.isGroup && this.addToGroup(friend) }
+        </View>
       </View>
     );
   }
@@ -133,6 +138,13 @@ const styles = StyleSheet.create({
     marginBottom: 5,
     alignItems: 'center',
     justifyContent: 'flex-start',
+  },
+  buttonContainer: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    alignSelf: 'center',
+    alignItems: 'flex-start'
   },
   photo: {
     height: 40,
@@ -165,12 +177,20 @@ const styles = StyleSheet.create({
   acceptJoinGroupRequestButton: {
     borderWidth: 1,
     borderColor: '#4296CC',
+    alignSelf: 'flex-end',
+    flex: 1
   },
   acceptJoinPlus: {
     color: '#4296CC',
-    backgroundColor: '#4296CC'
+    backgroundColor: '#4296CC',
+    alignSelf: 'flex-end',
+    flex: 1
   },
   addFriend: {
     alignSelf: 'flex-end',
+    flexDirection: 'row'
+  },
+  iconStyle: {
+    marginRight: 10
   }
 });
