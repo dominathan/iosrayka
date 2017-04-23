@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { AsyncStorage, ListView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { List, ListItem, Icon } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 
 import { createLike, beenThere } from '../../services/apiActions';
 
@@ -53,26 +54,38 @@ export class FeedDetail extends Component {
          roundAvatar
          subtitle={
            <View style={styles.subtitleView}>
-             <Text style={styles.titleStyle}>
-               {feed.user.first_name ? feed.user.first_name + ' ' : feed.user.email + " "}
-               <Text style={styles.unBold}>
-                 added
-               </Text>
-               {" " + feed.place.name}
-             </Text>
-             <Text style={styles.textComment}>
-               {feed.comment}
-             </Text>
-             {this.props.showButtons && this.state.user && this.state.user.id !== feed.user.id && <View style={styles.realSubTitle}>
-               <View style={styles.likeAndBeen}>
-                 { !showHeart && <TouchableOpacity onPress={() => this.handleLike(feed)}><Text style={styles.likeButton}>Like</Text></TouchableOpacity> }
-                 { !showBeenThere && <TouchableOpacity onPress={() => this.handleBeenThere(feed)}><Text style={styles.beenButton}>Been there</Text></TouchableOpacity> }
-               </View>
-               <View style={styles.icons}>
-                 { showHeart && <Icon name="favorite" color="red" /> }
-                 { showBeenThere && <Icon name="place" color="red"/> }
-               </View>
-             </View>}
+            <Text>
+              <Text 
+                onPress={()=> { Actions.profile({
+                  person: feed.user
+                })}} 
+                style={styles.titleStyle}>
+                  {feed.user.first_name ? feed.user.first_name + ' ' : feed.user.email + " "}
+              </Text>
+              <Text style={styles.unBold}>
+                added
+              </Text>
+              <Text 
+                onPress={()=>{ Actions.placeProfile({
+                  place: feed.place
+                })}} 
+                style={styles.titleStyle}>
+                  {" " + feed.place.name}
+              </Text>
+            </Text>
+            <Text style={styles.textComment}>
+              {feed.comment}
+            </Text>
+            {this.props.showButtons && this.state.user && this.state.user.id !== feed.user.id && <View style={styles.realSubTitle}>
+              <View style={styles.likeAndBeen}>
+                { !showHeart && <TouchableOpacity onPress={() => this.handleLike(feed)}><Text style={styles.likeButton}>Like</Text></TouchableOpacity> }
+                { !showBeenThere && <TouchableOpacity onPress={() => this.handleBeenThere(feed)}><Text style={styles.beenButton}>Been there</Text></TouchableOpacity> }
+              </View>
+              <View style={styles.icons}>
+                { showHeart && <Icon name="favorite" color="red" /> }
+                { showBeenThere && <Icon name="place" color="red"/> }
+              </View>
+            </View>}
            </View>
          }
          hideChevron={true}
