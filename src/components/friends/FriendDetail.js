@@ -9,7 +9,8 @@ export class FriendDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      checked: false
+      checked: false,
+      showActivityIndicator: false
     };
 
     this.addFriendToDatabase = this.addFriendToDatabase.bind(this);
