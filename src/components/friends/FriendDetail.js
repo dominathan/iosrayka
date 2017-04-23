@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Icon, CheckBox, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
@@ -10,7 +10,8 @@ export class FriendDetail extends Component {
     super(props);
     this.state = {
       checked: false,
-      showActivityIndicator: false
+      showActivityIndicator: false,
+      friendAdded: false
     };
 
     this.addFriendToDatabase = this.addFriendToDatabase.bind(this);
@@ -20,8 +21,11 @@ export class FriendDetail extends Component {
   }
 
   addFriendToDatabase(friend) {
+    this.setState({showActivityIndicator: true})
     addFriend(friend)
-      .then((resp) => console.log('ADDED FRIEND', resp))
+      .then((resp) => {
+        this.setState({friendAdded:true, showActivityIndicator: false})
+      })
       .catch((err) => console.error('NO ADD FRIEND', err));
   }
 
@@ -30,16 +34,20 @@ export class FriendDetail extends Component {
   }
 
   acceptFriendRequest(friend) {
-    console.log("ACCEPT FRIEND", friend)
+    this.setState({showActivityIndicator: true})
     acceptFriend(friend)
-      .then((yay) => console.log("ACCEPTED", yay))
+      .then((yay) => {
+        this.setState({friendAdded:true, showActivityIndicator: false})
+      })
       .catch(err => console.log('nOOOOO ', err))
   }
 
   denyFriendRequest(friend) {
-    console.log("DENIED", friend)
+    this.setState({showActivityIndicator: true})
     declineFriend(friend)
-      .then((yay) => console.log("DECLINE", yay))
+      .then((yay) => {
+        this.setState({friendAdded:true, showActivityIndicator: false})
+      })
       .catch(err => console.log('nOOOOO ', err))
   }
 
@@ -79,6 +87,7 @@ export class FriendDetail extends Component {
 
   render() {
     const friend = this.props.friend;
+    const { showActivityIndicator, friendAdded } = this.state;
     return (
       <View style={styles.friendItem}>
         <Image source={{ uri: friend.photo_url || null }} style={styles.photo} />
@@ -93,34 +102,51 @@ export class FriendDetail extends Component {
         <View style={styles.buttonContainer}>
           <View style={styles.addFriend}>
             {
-              friend.search &&
-                <Button
+              friend.search && !showActivityIndicator && !friendAdded && <Button
                   buttonStyle={styles.acceptJoinGroupRequestButton}
                   title="Add"
                   icon={{name: 'add', color: '#4296CC'}}
                   backgroundColor='#FFF'
                   color='#4296CC'
                   borderRadius={1}
+                  onPress={() => this.addFriendToDatabase(friend)}
                 />
+            }
+            {
+              friend.search && showActivityIndicator && !friendAdded && <ActivityIndicator
+                animating={showActivityIndicator}
+                size="large"
+              />
+            }
+            {
+              friend.search && !showActivityIndicator && friendAdded && <Icon name='check-circle' color="green" />
             }
           </View>
 
+          <View style={styles.acceptFriend}>
 
-          {
-            friend.pending &&
-            <View style={styles.acceptFriend}>
-              <Icon
-                containerStyle={styles.iconStyle}
-                name='cancel'
-                color='red'
-                onPress={() => this.denyFriendRequest(friend)} />
-              <Icon
-                containerStyle={styles.iconStyle}
-                name='add'
-                color="#4296CC"
-                onPress={() => this.acceptFriendRequest(friend)} />
-            </View>
-          }
+            {
+              friend.pending && !showActivityIndicator && !friendAdded &&
+              <View style={{flexDirection: 'row'}}>
+                <Icon containerStyle={styles.iconStyle} name='cancel' color='red' onPress={() => this.denyFriendRequest(friend)} />
+                <Icon containerStyle={styles.iconStyle} name='add' color="#4296CC"onPress={() => this.acceptFriendRequest(friend)} />
+              </View>
+            }
+
+            {
+              friend.pending && showActivityIndicator && !friendAdded && <ActivityIndicator
+                animating={showActivityIndicator}
+                size="large"
+              />
+            }
+
+            {
+              friend.pending && !showActivityIndicator && friendAdded && <Icon name='check-circle' color="green" />
+            }
+
+
+          </View>
+
 
           { this.props.isGroup && this.renderCheckBox(friend) }
           { friend.isGroup && this.addToGroup(friend) }
@@ -179,7 +205,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#4296CC',
     alignSelf: 'flex-end',
-    flex: 1
+    flex: 1,
   },
   acceptJoinPlus: {
     color: '#4296CC',
