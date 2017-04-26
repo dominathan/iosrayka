@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { ActivityIndicator, View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
@@ -9,6 +9,9 @@ export class GroupDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      checked: false,
+      groupJoined: false,
+      showActivityIndicator: false,
     };
 
     this.joinGroup = this.joinGroup.bind(this);
@@ -17,17 +20,31 @@ export class GroupDetail extends Component {
   joinGroup(group) {
     if(group.publicGroup || !group.private) {
       //join public
+      this.setState({showActivityIndicator: true});
       joinPublicGroup(group)
-        .then((success) => { console.log("SUCCESS")})
-        .catch((err) => { console.log("FAILURE")})
+        .then((success) => { 
+          this.setState({showActivityIndicator: false, groupJoined: true});
+        })
+        .catch((err) => {
+          this.setState({showActivityIndicator: false});
+         })
 
     } else {
       // join private
+      this.setState({showActivityIndicator: true});
+      joinPrivateGroup(group)
+        .then(success => {
+          this.setState({showActivityIndicator: false, groupJoined: true});
+        })
+        .catch(err => {
+          this.setState({showActivityIndicator: false});
+        });
     }
   }
 
   render() {
     const { group } = this.props;
+    const { groupJoined, showActivityIndicator } = this.state;
     return (
       <View style={styles.groupItem}>
         { group.myGroup && <Icon name='group' color='#8E8E8E' /> }
@@ -45,7 +62,7 @@ export class GroupDetail extends Component {
           </TouchableOpacity>
           <View style={styles.buttonStyles}>
             {
-              group.publicGroup && <Button
+              group.publicGroup && !showActivityIndicator && !groupJoined && <Button
                 buttonStyle={styles.acceptJoinGroupRequestButton}
                 title="JOIN"
                 icon={{name: 'add', color: '#4296CC'}}
@@ -56,13 +73,23 @@ export class GroupDetail extends Component {
               />
             }
             {
-              group.privateGroup && <Button
+              showActivityIndicator && !groupJoined && <ActivityIndicator
+                animating={showActivityIndicator}
+                size="large"
+              />
+            }
+            {
+              group.publicGroup || group.privateGroup && !showActivityIndicator && groupJoined && <Icon style={styles.icon} name='check-circle' color="green" />
+            }
+            {
+              group.privateGroup && !showActivityIndicator && !groupJoined && <Button
                 buttonStyle={styles.acceptJoinGroupRequestButton}
                 title="REQUEST"
                 icon={{name: 'add', color: '#4296CC'}}
                 backgroundColor='#FFF'
                 color='#4296CC'
                 borderRadius={1}
+                onPress={() => this.joinGroup(group)}
               />
             }
           </View>
@@ -110,6 +137,11 @@ const styles = StyleSheet.create({
     backgroundColor: '#4296CC'
   },
   buttonStyles: {
+    alignItems: 'flex-end',
+    alignSelf: 'flex-end',
+    flex: 1
+  },
+  icon: {
     alignItems: 'flex-end',
     alignSelf: 'flex-end',
     flex: 1
