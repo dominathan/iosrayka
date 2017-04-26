@@ -68,7 +68,7 @@ const TabView = (props, context) => {
     {
       routeCallback: () => { drawer.close(); Actions.friends({type: 'reset'}); },
       name: 'Friends',
-      icon: 'gears'
+      icon: 'street-view'
     },
     {
       routeCallback: () => { drawer.close(); Actions.myPlaces({type: 'reset'}); },
@@ -78,7 +78,7 @@ const TabView = (props, context) => {
     {
       routeCallback: () => { drawer.close(); Actions.groups({type: 'reset'}); },
       name: 'Groups',
-      icon: 'gears'
+      icon: 'group'
     },
     {
       routeCallback: () => { drawer.close(); Actions.notifications({type: 'reset'}); },
