@@ -122,6 +122,7 @@ export class FriendDetail extends Component {
               friend.search && !showActivityIndicator && friendAdded && <Icon name='check-circle' color="green" />
             }
           </View>
+
           <View style={styles.acceptFriend}>
 
             {
@@ -140,9 +141,12 @@ export class FriendDetail extends Component {
             }
 
             {
-              friend.pending && !showActivityIndicator && friendAdded && <Icon containerStyle={styles.iconStyle} name='check-circle' color="green" />
+              friend.pending && !showActivityIndicator && friendAdded && <Icon name='check-circle' color="green" />
             }
+
+
           </View>
+
 
           { this.props.isGroup && this.renderCheckBox(friend) }
           { friend.isGroup && this.addToGroup(friend) }
@@ -196,6 +200,12 @@ const styles = StyleSheet.create({
   acceptFriend: {
     alignItems: 'flex-end',
     flexDirection: 'row',
+  },
+  acceptJoinGroupRequestButton: {
+    borderWidth: 1,
+    borderColor: '#4296CC',
+    alignSelf: 'flex-end',
+    flex: 1,
   },
   acceptJoinPlus: {
     color: '#4296CC',

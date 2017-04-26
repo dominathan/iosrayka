@@ -83,13 +83,13 @@ const defaultGet = (subUrl, params) => {
 
 const addPlaceToFavorite = (place) => defaultPost('places', place);
 const loginUser = (userProfile) => defaultPost('users', userProfile);
-const getPlaces = () => defaultGet('places');
+const getPlaces = (latLng) => defaultGet('places',latLng);
 const getPlace = (place) => defaultGet(`places/${place.id}`);
 const getFriendPlaces = () => defaultGet(`places/friends`);
 const getExpertPlaces = () => defaultGet(`places/experts`);
 const getUserPlaces = (user) => defaultPost('places/user', user);
 const getFilterPlaces = (places) => defaultGet('places/types', places)
-const getFeed = () => defaultGet('feed');
+const getFeed = (latLng) => defaultGet('feed',latLng);
 const getUserFeed = (user) => defaultGet(`feed/users/${user.id}`);
 const getFriends = () => defaultGet('friends');
 const searchForFriends = (query) => defaultGet('users/search', query);

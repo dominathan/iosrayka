@@ -6,6 +6,7 @@ import {
   TextInput,
   StyleSheet,
   TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 
 import { getFriends, createGroup } from '../../services/apiActions';
 import { FriendList } from '../friends/FriendList';
@@ -45,7 +46,9 @@ export class CreateGroup extends Component {
       private: this.state.private
     };
     createGroup(group)
-      .then((data) => console.log('GOT DATA', data))
+      .then((data) => {
+        Actions.groups()
+      })
       .catch((err) => console.error('NO CREATION', err));
   }
 

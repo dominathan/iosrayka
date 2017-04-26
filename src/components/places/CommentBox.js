@@ -28,6 +28,8 @@ export class CommentBox extends Component {
   }
 
   savePlace(place) {
+    const city = place.address_components && place.address_components[3] && place.address_components[3].long_name ? place.address_components[3].long_name : null
+    const country = place.address_components && place.address_components[6] && place.address_components[3].long_name ? place.address_components[6].long_name : null
     const parsedPlace = {
       name: place.name,
       lat: place.geometry.location.lat,
@@ -35,8 +37,8 @@ export class CommentBox extends Component {
       google_id: place.id,
       google_place_id: place.place_id,
       favorite: this.state.favorite,
-      city: place.address_components[3].long_name,
-      country: place.address_components[6].long_name,
+      city: city,
+      country: country,
       data: place
     };
     this.saveChosenPlaceAsFavorite(parsedPlace, this.props.group);
@@ -73,19 +75,21 @@ export class CommentBox extends Component {
     if (group) {
       console.log('group', group);
       Actions.groupProfile({
-        group: group, 
+        group: group,
         type: 'reset',
         new_place: place
       });
     } else {
-      Actions.home({ 
+      Actions.home({
         new_place: place,
-        type: 'reset' 
+        type: 'reset'
       });
     }
     Keyboard.dismiss();
+    console.log("BEGGINING INSERT PLACE", place)
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
+        console.log("SAVED?")
         if(this.state.image) {
           this.handlePhotoUpload(this.state.image)
         }
