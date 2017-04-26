@@ -12,8 +12,10 @@ import { PlaceList } from '../places/PlaceList';
 import FeedButtons from './FeedButtons';
 import Filter from '../places/Filter';
 
-export class Home extends Component {
+const DEBOUNCE_TIME = 2000;
 
+
+export class Home extends Component {
   constructor(props) {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     super(props);
@@ -25,6 +27,7 @@ export class Home extends Component {
       feedReady: false,
       selectedFilter: 'feed',
       selectedHeader: 'global',
+      lastApiCall: null,
       region: new MapView.AnimatedRegion({
         latitude: 32.8039917,
         longitude: -79.9525327,
@@ -44,6 +47,7 @@ export class Home extends Component {
     this.handleGlobal = this.handleGlobal.bind(this);
     this.handleExpert = this.handleExpert.bind(this);
     this.handleFriends = this.handleFriends.bind(this);
+    this.canApiCall = this.canApiCall.bind(this);
   }
 
   componentDidMount() {
@@ -88,6 +92,9 @@ export class Home extends Component {
   }
 
   getPlaces() {
+    this.setState({
+      lastApiCall: new Date()
+    })
     const latitude = this.state.region.latitude._value;
     const longitude = this.state.region.longitude._value;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
@@ -107,7 +114,15 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
-     this.state.region.setValue(region);
+    const { debounceTime } = this.state;
+    this.state.region.setValue(region);
+    if ( this.canApiCall() ) {
+      this.getPlaces();
+    }
+  }
+
+  canApiCall() {
+    return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
   }
 
   navigateToAddPlace() {
