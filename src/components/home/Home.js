@@ -55,8 +55,8 @@ export class Home extends Component {
           longitudeDelta: 0.00421*1.5
       })
       this.state.region = region;
+      this.handleGlobal();
     })
-    this.handleGlobal();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -88,7 +88,10 @@ export class Home extends Component {
   }
 
   getPlaces() {
-    getPlaces()
+    const latitude = this.state.region.latitude._value;
+    const longitude = this.state.region.longitude._value;
+    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
+    getPlaces(queryString)
       .then((data) => {
         this.setState({
           markers: data,
@@ -139,7 +142,10 @@ export class Home extends Component {
 
   globalFilter() {
     this.setState({ feedReady: false });
-    getFeed()
+    const latitude = this.state.region.latitude._value;
+    const longitude = this.state.region.longitude._value;
+    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
+    getFeed(queryString)
       .then((data) => {
         if(data.errors) { Actions.login(); return }
         this.setState({

@@ -6,7 +6,7 @@ import { GroupList } from './GroupList';
 
 export class GroupSearch extends Component {
   static defaultProps = {
-    placeholder: 'Search For Groups',
+    placeholder: 'Enter group name',
     placeholderTextColor: '#A8A8A8',
     autoFocus: false,
   }
@@ -48,7 +48,7 @@ export class GroupSearch extends Component {
         <SearchBar
           lightTheme
           onChangeText={this.handleTextChange}
-          placeholder='Search' />
+          placeholder='Enter group name' />
 
           { <GroupList groups={groups} /> }
 

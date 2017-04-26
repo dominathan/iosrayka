@@ -5,7 +5,7 @@ import { searchForFriends } from '../../services/apiActions';
 
 export class FriendSearch extends Component {
   static defaultProps = {
-    placeholder: 'Search For Friends',
+    placeholder: 'Enter first name, last name, or email',
     placeholderTextColor: '#A8A8A8',
     autoFocus: false,
   }
@@ -40,7 +40,7 @@ export class FriendSearch extends Component {
       <SearchBar
         lightTheme
         onChangeText={this.handleTextChange}
-        placeholder='Search' />
+        placeholder='Enter first name, last name, or email' />
     );
   }
 }
