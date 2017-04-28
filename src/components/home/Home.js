@@ -9,6 +9,7 @@ import { getPlaces, getFeed, getFriendFeed, getExpertFeed, getFilterPlaces, getE
 import { Feed } from '../feed/Feed';
 import { Map } from '../map/Map';
 import { PlaceList } from '../places/PlaceList';
+import { HomeSearch } from './HomeSearch';
 import FeedButtons from './FeedButtons';
 import Filter from '../places/Filter';
 
@@ -34,6 +35,7 @@ export class Home extends Component {
         latitudeDelta: 0.00922*1.5,
         longitudeDelta: 0.00421*1.5
       }),
+      text: '',
       watchID: null,
       lastCall: null
     };
@@ -43,6 +45,7 @@ export class Home extends Component {
     this.filterFriends = this.filterFriends.bind(this);
     this.filterExperts = this.filterExperts.bind(this);
     this.globalFilter = this.globalFilter.bind(this);
+    this.handleTextChange = this.handleTextChange.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.handleGlobal = this.handleGlobal.bind(this);
     this.handleExpert = this.handleExpert.bind(this);
@@ -69,11 +72,7 @@ export class Home extends Component {
         feed: this.state.feed.push(nextProps.new_place),
         markers: this.state.markers.push(nextProps.new_place)
       });
-    }
-  }
-
-  componentWillUnmount() {
-     navigator.geolocation.clearWatch(this.watchID);
+    } 
   }
 
   handleGlobal() {
@@ -89,6 +88,11 @@ export class Home extends Component {
   handleFriends() {
     this.setState({selectedHeader: 'friends'})
     this.filterFriends();
+  }
+
+  handleTextChange(text) {
+    this.searchForPlaces(text);
+    this.setState({ text });
   }
 
   getPlaces() {
@@ -226,6 +230,9 @@ export class Home extends Component {
           <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('top')}>
             <Text style={this.state.selectedFilter === 'top' ? styles.selectedFilter : styles.filters}>TOP</Text>
           </TouchableOpacity>
+          <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('search')}>
+            <Text style={this.state.selectedFilter === 'search' ? styles.selectedFilter : styles.filters}>SEARCH</Text>
+          </TouchableOpacity>
           <TouchableOpacity style={styles.filterButton} onPress={() => this.selectedFilterChange('filter')}>
             <Text style={this.state.selectedFilter === 'filter' ? styles.selectedFilterButton : styles.filterButtonText}>FILTER</Text>
           </TouchableOpacity>
@@ -243,6 +250,7 @@ export class Home extends Component {
         <View style={styles.feed}>
           {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
           {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
+          {feedReady && selectedFilter === 'search' && <HomeSearch />}
           {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}
         </View>
         <View style={styles.feedButtons}>
@@ -310,5 +318,9 @@ const styles = StyleSheet.create({
   },
   feedButtons: {
     height: 60
+  },
+  search: {
+    flex: 1,
+    marginTop: 60,
   }
 });
