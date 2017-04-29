@@ -40,7 +40,7 @@ export class Home extends Component {
       lastCall: null
     };
     this.onRegionChange = this.onRegionChange.bind(this);
-    this.getPlaces = this.getPlaces.bind(this);
+    this.getHomePlaces = this.getHomePlaces.bind(this);
     this.navigateToAddPlace = this.navigateToAddPlace.bind(this);
     this.filterFriends = this.filterFriends.bind(this);
     this.filterExperts = this.filterExperts.bind(this);
@@ -51,9 +51,12 @@ export class Home extends Component {
     this.handleExpert = this.handleExpert.bind(this);
     this.handleFriends = this.handleFriends.bind(this);
     this.canApiCall = this.canApiCall.bind(this);
+    this.selectedFilterChange = this.selectedFilterChange.bind(this);
+    this.filterPlacesFromFeed = this.filterPlacesFromFeed.bind(this);
   }
 
-  componentDidMount() {
+  componentDidMount(props) {
+    console.log('we have props?????', this.props);
     this.watchID = navigator.geolocation.watchPosition((position) => {
       let region = new MapView.AnimatedRegion({
           latitude: position.coords.latitude,
@@ -68,15 +71,19 @@ export class Home extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.new_place) {
+      let updatedMarkers = this.state.markers;
+      let updatedFeed = this.state.feed;
+      updatedFeed.push(nextProps.new_place);
+      updatedMarkers.push(nextProps.new_place);
       this.setState({
-        feed: this.state.feed.push(nextProps.new_place),
-        markers: this.state.markers.push(nextProps.new_place)
+        feed: updatedFeed,
+        markers: updatedMarkers
       });
     } 
   }
 
   handleGlobal() {
-    this.getPlaces();
+    this.getHomePlaces();
     this.setState({selectedHeader: 'global'})
   }
 
@@ -95,7 +102,7 @@ export class Home extends Component {
     this.setState({ text });
   }
 
-  getPlaces() {
+  getHomePlaces() {
     this.setState({
       lastApiCall: new Date()
     })
@@ -121,7 +128,7 @@ export class Home extends Component {
     const { debounceTime } = this.state;
     this.state.region.setValue(region);
     if ( this.canApiCall() ) {
-      this.getPlaces();
+      this.getHomePlaces();
     }
   }
 
@@ -193,7 +200,6 @@ export class Home extends Component {
           });
         })
         .catch((err) => console.log('fuck balls: ', err));
-
   }
 
   filterExperts() {

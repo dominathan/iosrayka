@@ -37,10 +37,15 @@ export class GroupProfile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    console.log('is this working for real?', nextProps);
     if (nextProps.new_place) {
+      let updatedFeed = this.state.feed;
+      let updatedMarkers = this.state.markers;
+      updatedFeed.push(nextProps.new_place);
+      updatedMarkers.push(nextProps.new_place);
       this.setState({
-        feed: this.state.feed.push(nextProps.new_place),
-        markers: this.state.markers.push(nextProps.new_place)
+        feed: updatedFeed,
+        markers: updatedMarkers
       });
     }
   }
@@ -107,9 +112,10 @@ export class GroupProfile extends Component {
             <Text style={this.state.selectedFilter === 'top' ? styles.selectedFilter : styles.filters}>TOP</Text>
           </TouchableOpacity>
         </View>
-        {feedReady && selectedFilter === 'feed' && <Feed feed={feed} />}
-        {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
-
+        <View style={styles.feed}>
+          {feedReady && selectedFilter === 'feed' && <Feed feed={feed} />}
+          {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
+        </View>
         <TouchableOpacity style={styles.addPlaceButton}>
           <Icon
             raised
@@ -157,5 +163,8 @@ const styles = StyleSheet.create({
     paddingTop: 12,
     marginRight: 10,
     marginLeft: 25,
+  },
+  feed: {
+    height: '48%'
   }
 });
