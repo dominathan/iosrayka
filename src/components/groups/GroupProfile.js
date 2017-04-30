@@ -37,17 +37,16 @@ export class GroupProfile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('is this working for real?', nextProps);
     if (nextProps.new_place) {
-      let updatedFeed = this.state.feed;
       let updatedMarkers = this.state.markers;
-      updatedFeed.push(nextProps.new_place);
-      updatedMarkers.push(nextProps.new_place);
+      let updatedFeed = this.state.feed;
+      updatedFeed.unshift(nextProps.new_place);
+      updatedMarkers.unshift(nextProps.new_marker);
       this.setState({
         feed: updatedFeed,
         markers: updatedMarkers
       });
-    }
+    } 
   }
 
   componentDidMount() {

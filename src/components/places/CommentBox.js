@@ -72,25 +72,36 @@ export class CommentBox extends Component {
 
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo } = this.state;
-    if (group) {
-      Actions.pop({
-        refresh: {
-          group: group,
-          new_place: place
-        }
-      });
-    } else {
-      Actions.pop({
-        refresh: { 
-          new_place: place 
-        }
-      });
-    }
+    AsyncStorage.getItem('user', (err, user) => {
+      console.log("WE HAVE A USER", user);
+      newPlace = {
+        user: JSON.parse(user),
+        place: place,
+        comment: text,
+        created_at: Date.now()
+      };
+
+      if (group) {
+        Actions.pop({
+          refresh: {
+            group: group,
+            new_place: newPlace,
+            new_marker: place
+          }
+        });
+      } else {
+        Actions.pop({
+          refresh: { 
+            new_place: newPlace,
+            new_marker: place
+          }
+        });
+      }
+    });  
     Keyboard.dismiss();
     console.log("BEGGINING INSERT PLACE", place)
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
-        console.log("SAVED?")
         if(this.state.image) {
           this.handlePhotoUpload(this.state.image)
         }

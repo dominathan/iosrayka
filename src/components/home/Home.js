@@ -56,7 +56,6 @@ export class Home extends Component {
   }
 
   componentDidMount(props) {
-    console.log('we have props?????', this.props);
     this.watchID = navigator.geolocation.watchPosition((position) => {
       let region = new MapView.AnimatedRegion({
           latitude: position.coords.latitude,
@@ -73,8 +72,8 @@ export class Home extends Component {
     if (nextProps.new_place) {
       let updatedMarkers = this.state.markers;
       let updatedFeed = this.state.feed;
-      updatedFeed.push(nextProps.new_place);
-      updatedMarkers.push(nextProps.new_place);
+      updatedFeed.unshift(nextProps.new_place);
+      updatedMarkers.unshift(nextProps.new_marker);
       this.setState({
         feed: updatedFeed,
         markers: updatedMarkers
@@ -224,6 +223,7 @@ export class Home extends Component {
   }
 
   render() {
+    console.log("WE ARE RENDERING AGAIN IN THE HOME COMPONENT");
     const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader } = this.state;
     return (
       <View style={styles.container}>

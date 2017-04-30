@@ -16,6 +16,13 @@ export class Feed extends Component {
     this.renderFeed = this.renderFeed.bind(this);
   }
 
+  componentWillReceiveProps(newProps) {
+    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    this.setState({
+      feed: ds.cloneWithRows(newProps.feed)
+    });
+  }
+
   renderFeed(feed) {
     return (
       <FeedDetail showButtons={this.props.showButtons} feed={feed} />
@@ -23,6 +30,7 @@ export class Feed extends Component {
   }
 
   render() {
+    console.log('WE ARE CALLING RENDER IN THE FEED LIST!!!!!!!!!!!!!');
     return (
       <View style={styles.listView}>
         <ListView
