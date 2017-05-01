@@ -22,7 +22,7 @@ export class GroupDetail extends Component {
       //join public
       this.setState({showActivityIndicator: true});
       joinPublicGroup(group)
-        .then((success) => { 
+        .then((success) => {
           this.setState({showActivityIndicator: false, groupJoined: true});
         })
         .catch((err) => {

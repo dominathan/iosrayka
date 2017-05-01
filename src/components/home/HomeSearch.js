@@ -3,6 +3,10 @@ import { TextInput, StyleSheet, View, ListView } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 
 import { PlaceList } from '../places/PlaceList';
+import { getFilterPlacesCityOrCountry } from '../../services/apiActions';
+
+const DEBOUNCE_TIME = 500;
+
 
 export class HomeSearch extends Component {
   static defaultProps = {
@@ -11,32 +15,40 @@ export class HomeSearch extends Component {
     autoFocus: false,
   }
   constructor(props) {
-    super(props);
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+
+    super(props);
 
     this.state = {
       text: '',
       searching: false,
       places: ds.cloneWithRows([]),
+      lastApiCall: null,
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.searchForPlace = this.searchForPlace.bind(this);
+    this.canCallApi = this.canCallApi.bind(this);
   }
 
   handleTextChange(text) {
-    this.searchForPlace(text);
+    if ( this.canCallApi() ) {
+      this.searchForPlace(text);
+    }
     this.setState({ text });
   }
 
+  canCallApi() {
+    return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
+  }
+
   searchForPlace(text) {
-    Promise.resolve({ name: 'test' })
-        .then((data) => {
-            this.setState({
-                searching: true,
-                places: this.state.places.cloneWithRows(data)
-            });
-        })
-        .catch((err) => console.log("NOOO", err));
+    this.setState({ lastApiCall: new Date() })
+    getFilterPlacesCityOrCountry(`city_or_country=${text}`)
+      .then(data => {
+        this.setState({ places: this.state.places.cloneWithRows(data) })
+      })
+      .catch(err => console.log("ERRR", err))
   }
 
   render() {
@@ -47,10 +59,9 @@ export class HomeSearch extends Component {
         <SearchBar
           lightTheme
           onChangeText={this.handleTextChange}
-          placeholder='Enter place name' />
+          placeholder='Enter city or country' />
 
-          { <PlaceList places={places} /> }
-
+          <PlaceList places={places} />
       </View>
 
     );

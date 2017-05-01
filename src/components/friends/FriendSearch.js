@@ -3,6 +3,8 @@ import { TextInput, StyleSheet } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { searchForFriends } from '../../services/apiActions';
 
+const DEBOUNCE_TIME = 500;
+
 export class FriendSearch extends Component {
   static defaultProps = {
     placeholder: 'Enter first name, last name, or email',
@@ -14,15 +16,26 @@ export class FriendSearch extends Component {
 
     this.state = {
       text: '',
-      searching: false
+      searching: false,
+      lastApiCall: null,
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.canCallApi = this.canCallApi.bind(this);
   }
 
   handleTextChange(text) {
-    this.searchForFriendsToAdd(text);
-    this.setState({ text });
+    this.setState({
+      text,
+      lastApiCall: new Date()
+    });
+    if ( this.canCallApi() ) {
+      this.searchForFriendsToAdd(text);
+    }
+  }
+
+  canCallApi() {
+    return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
   }
 
   searchForFriendsToAdd(text) {
@@ -33,7 +46,6 @@ export class FriendSearch extends Component {
       })
       .catch(err => console.error('NO SEARACH', err));
   }
-
 
   render() {
     return (

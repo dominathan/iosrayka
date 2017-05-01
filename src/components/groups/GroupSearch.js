@@ -4,6 +4,8 @@ import { SearchBar } from 'react-native-elements'
 import { searchForGroups } from '../../services/apiActions';
 import { GroupList } from './GroupList';
 
+const DEBOUNCE_TIME = 500;
+
 export class GroupSearch extends Component {
   static defaultProps = {
     placeholder: 'Enter group name',
@@ -18,19 +20,42 @@ export class GroupSearch extends Component {
       text: '',
       searching: false,
       groups: ds.cloneWithRows([]),
+      lastApiCall: null,
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
+    this.canCallApi = this.canCallApi.bind(this);
   }
 
   handleTextChange(text) {
-    this.searchForGroupsToAdd(text);
-    this.setState({ text });
+    this.setState({
+      text,
+      lastApiCall: new Date()
+    });
+    if ( this.canCallApi() ) {
+      this.searchForGroupsToAdd(text);
+    }
+  }
+
+  canCallApi() {
+    return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
   }
 
   searchForGroupsToAdd(text) {
     searchForGroups(`search=${text}`)
     .then((data) => {
+      if (data.length && data.length > 0) {
+        data = data.map(elm => {
+          let groupAddition = {};
+          if(elm.private) {
+            groupAddition.privateGroup = true;
+          } else {
+            groupAddition.publicGroup = true;
+          };
+          return Object.assign(elm, groupAddition);
+        })
+      };
+
       this.setState({
         searching: true,
         groups: this.state.groups.cloneWithRows(data)

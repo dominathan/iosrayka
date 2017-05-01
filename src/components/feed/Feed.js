@@ -30,7 +30,6 @@ export class Feed extends Component {
   }
 
   render() {
-    console.log('WE ARE CALLING RENDER IN THE FEED LIST!!!!!!!!!!!!!');
     return (
       <View style={styles.listView}>
         <ListView

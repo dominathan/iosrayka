@@ -13,8 +13,7 @@ import { HomeSearch } from './HomeSearch';
 import FeedButtons from './FeedButtons';
 import Filter from '../places/Filter';
 
-const DEBOUNCE_TIME = 2000;
-
+const DEBOUNCE_TIME = 500;
 
 export class Home extends Component {
   constructor(props) {
@@ -37,7 +36,6 @@ export class Home extends Component {
       }),
       text: '',
       watchID: null,
-      lastCall: null
     };
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getHomePlaces = this.getHomePlaces.bind(this);
@@ -45,14 +43,14 @@ export class Home extends Component {
     this.filterFriends = this.filterFriends.bind(this);
     this.filterExperts = this.filterExperts.bind(this);
     this.globalFilter = this.globalFilter.bind(this);
-    this.handleTextChange = this.handleTextChange.bind(this);
     this.handleFilter = this.handleFilter.bind(this);
     this.handleGlobal = this.handleGlobal.bind(this);
     this.handleExpert = this.handleExpert.bind(this);
     this.handleFriends = this.handleFriends.bind(this);
-    this.canApiCall = this.canApiCall.bind(this);
+    this.canCallApi = this.canCallApi.bind(this);
     this.selectedFilterChange = this.selectedFilterChange.bind(this);
     this.filterPlacesFromFeed = this.filterPlacesFromFeed.bind(this);
+    this.updatePlaceAndFeedFromSearch = this.updatePlaceAndFeedFromSearch.bind(this);
   }
 
   componentDidMount(props) {
@@ -78,7 +76,7 @@ export class Home extends Component {
         feed: updatedFeed,
         markers: updatedMarkers
       });
-    } 
+    }
   }
 
   handleGlobal() {
@@ -94,11 +92,6 @@ export class Home extends Component {
   handleFriends() {
     this.setState({selectedHeader: 'friends'})
     this.filterFriends();
-  }
-
-  handleTextChange(text) {
-    this.searchForPlaces(text);
-    this.setState({ text });
   }
 
   getHomePlaces() {
@@ -124,14 +117,13 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
-    const { debounceTime } = this.state;
     this.state.region.setValue(region);
-    if ( this.canApiCall() ) {
+    if ( this.canCallApi() ) {
       this.getHomePlaces();
     }
   }
 
-  canApiCall() {
+  canCallApi() {
     return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
   }
 
@@ -157,7 +149,7 @@ export class Home extends Component {
   handleFilter(type) {
     const latitude = this.state.region.latitude._value;
     const longitude = this.state.region.longitude._value;
-    const queryString = `lat=${latitude}&lng=${longitude}&distance=20&type=${type}`
+    const queryString = `lat=${latitude}&lng=${longitude}&distance=20&type=${type.name}`
     getFilterPlaces(queryString)
     .then(data => {
       this.setState({markers: data, selectedFilter: 'feed'})
@@ -222,8 +214,18 @@ export class Home extends Component {
         .catch((err) => console.log('fuck balls: ', err));
   }
 
+  updatePlaceAndFeedFromSearch(data) {
+    this.setState({
+      markers: data,
+      places: this.state.places.cloneWithRows(data)
+    })
+    const updatedFeed = [].concat(...data.map(elm => elm.feed))
+    this.setState({
+      feed: updatedFeed
+    })
+  }
+
   render() {
-    console.log("WE ARE RENDERING AGAIN IN THE HOME COMPONENT");
     const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader } = this.state;
     return (
       <View style={styles.container}>
@@ -256,7 +258,7 @@ export class Home extends Component {
         <View style={styles.feed}>
           {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
           {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
-          {feedReady && selectedFilter === 'search' && <HomeSearch />}
+          {feedReady && selectedFilter === 'search' && <HomeSearch updatePlaceAndFeedFromSearch={this.updatePlaceAndFeedFromSearch}/>}
           {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}
         </View>
         <View style={styles.feedButtons}>

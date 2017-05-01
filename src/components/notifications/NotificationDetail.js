@@ -1,14 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Image, TouchableOpacity, ActivityIndicator } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
 import { acceptJoinGroupRequest } from '../../services/apiActions';
-
+//
 export class NotificationDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      groupJoined: false,
+      showActivityIndicator: false,
     };
 
     this.acceptJoinGroupRequest = this.acceptJoinGroupRequest.bind(this);
@@ -19,14 +21,18 @@ export class NotificationDetail extends Component {
       user_id: user.id,
       group_id: user.group_id
     };
-
+    this.setState({showActivityIndicator: true});
     acceptJoinGroupRequest(groupAndUser)
-      .then(data => console.log("SUCCESS", data))
+      .then(data => {
+        this.setState({showActivityIndicator: false, groupJoined: true});
+      })
       .catch(err => console.log("ERR", err))
   }
 
   render() {
     const { notification } = this.props;
+    const { groupJoined, showActivityIndicator } = this.state;
+
     return (
       <View style={styles.userItem}>
         <Image source={{ uri: notification.photo_url || null }} style={styles.photo} />
@@ -41,18 +47,30 @@ export class NotificationDetail extends Component {
 
           </TouchableOpacity>
 
-
-          <TouchableOpacity>
-            <Button
-              buttonStyle={styles.acceptJoinGroupRequestButton}
-              title="JOIN"
-              icon={{name: 'add', color: '#4296CC'}}
-              backgroundColor='#FFF'
-              color='#4296CC'
-              borderRadius={1}
-              onPress={() => this.acceptJoinGroupRequest(notification)}
+          {
+            showActivityIndicator && !groupJoined && <ActivityIndicator
+              animating={showActivityIndicator}
+              size="large"
             />
-          </TouchableOpacity>
+          }
+
+          {
+            !showActivityIndicator && groupJoined && <Icon style={styles.icon} name='check-circle' color="green" />
+          }
+
+          {
+            !showActivityIndicator && !groupJoined && <TouchableOpacity>
+              <Button
+                buttonStyle={styles.acceptJoinGroupRequestButton}
+                title="JOIN"
+                icon={{name: 'add', color: '#4296CC'}}
+                backgroundColor='#FFF'
+                color='#4296CC'
+                borderRadius={1}
+                onPress={() => this.acceptJoinGroupRequest(notification)}
+              />
+            </TouchableOpacity>
+          }
         </View>
       </View>
     );
