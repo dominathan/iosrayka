@@ -71,9 +71,7 @@ export class Profile extends Component {
       .then(data => {
         const list = data.favorites.map(favorite => {
           return {
-            place: {
-              name: favorite.name
-            },
+            place: favorite,
             user: this.state.person
           };
         });

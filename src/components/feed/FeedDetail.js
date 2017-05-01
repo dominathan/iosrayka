@@ -49,9 +49,6 @@ export class FeedDetail extends Component {
     if (this.state.user === undefined) {
       return (null);
     } else {
-      if (feed.user === undefined) {
-        console.log('feed is undefined yo', feed);
-      }
       return (
         <ListItem
          roundAvatar
