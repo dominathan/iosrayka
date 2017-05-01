@@ -27,7 +27,7 @@ export default class FeedButtons extends Component {
           </Col>
           <Col>
             <TouchableOpacity style={selectedHeader === 'expert' ? styles.selectedIconContainer : styles.iconStyleExpert} onPress={handleExpert}>
-              <Icon containerStyle={styles.iconContainerStyles} name="whatshot" color={selectedHeader === 'expert' ? '#3c95cd': "#FFF"} />
+              <Icon containerStyle={styles.iconContainerStyles} type="material-community" name="crown" color={selectedHeader === 'expert' ? '#3c95cd': "#FFF"} />
             </TouchableOpacity>
           </Col>
         </Row>

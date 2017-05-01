@@ -101,7 +101,7 @@ export class Profile extends Component {
             <Image source={{ uri: person.photo_url }} style={styles.photo} />
             </View>
             <View style={styles.profileTextContainer}>
-              <Text style={styles.name}>{person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} name="whatshot"/>} {person.first_name} {person.last_name}</Text>
+              <Text style={styles.name}>{person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>} {person.first_name} {person.last_name}</Text>
               {person.expert &&
                 <View style={styles.expertLinkContainer}>
                   {person.expert_blog_log &&
