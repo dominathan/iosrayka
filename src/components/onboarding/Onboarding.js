@@ -9,7 +9,6 @@ export class Onboarding extends Component {
         super(props);
         this.state = {
             activeSlide: 0,
-            isFirstTime: undefined,
             slides: [
                 {
                     image: require('./tiles/discover.png'),
@@ -28,14 +27,6 @@ export class Onboarding extends Component {
                 }
             ]
         };
-        this.setFirstTime();
-    }
-
-    setFirstTime() {
-      AsyncStorage.getItem('user', (err, user) => {
-        let first_time = JSON.parse(user).first_time;
-        this.setState({ isFirstTime: first_time });
-      });
     }
 
     getActiveSlide() {
@@ -50,10 +41,7 @@ export class Onboarding extends Component {
     advanceSlide() {
         if ((this.state.activeSlide + 1) === this.state.slides.length) {
           this.setState({activeSlide: 0});
-          if (this.state.isFirstTime) {
-            return Actions.home({ type: 'reset'});
-          }
-          Actions.help({ type: 'reset' });
+          Actions.home({ type: 'reset'});
         } else {
           let newActiveSlide = ++this.state.activeSlide;
           this.setState({activeSlide: newActiveSlide});
