@@ -56,7 +56,7 @@ export class FriendDetail extends Component {
       <View style={styles.checkboxContainer}>
         <CheckBox
           checked={this.state.checked}
-          onPress={ _ => {
+          onPress={ () => {
             friend.invited = !this.state.checked
             this.setState({
               checked: !this.state.checked
@@ -73,7 +73,7 @@ export class FriendDetail extends Component {
         <CheckBox
           center
           checked={this.state.checked}
-          onPress={ _ => {
+          onPress={ () => {
             friend.invited = !this.state.checked
             this.setState({
               checked: !this.state.checked
@@ -103,11 +103,10 @@ export class FriendDetail extends Component {
           <View style={styles.addFriend}>
             {
               friend.search && !showActivityIndicator && !friendAdded && <Button
-                  buttonStyle={styles.acceptJoinGroupRequestButton}
-                  title="Add"
-                  icon={{name: 'add', color: '#4296CC'}}
-                  backgroundColor='#FFF'
+                  title='Request'
                   color='#4296CC'
+                  backgroundColor='#FFF'
+                  raised
                   borderRadius={1}
                   onPress={() => this.addFriendToDatabase(friend)}
                 />
@@ -119,7 +118,7 @@ export class FriendDetail extends Component {
               />
             }
             {
-              friend.search && !showActivityIndicator && friendAdded && <Icon name='check-circle' color="green" />
+              friend.search && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Request sent</Text>
             }
           </View>
 
@@ -141,7 +140,7 @@ export class FriendDetail extends Component {
             }
 
             {
-              friend.pending && !showActivityIndicator && friendAdded && <Icon name='check-circle' color="green" />
+              friend.pending && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Request sent</Text>
             }
 
 
@@ -219,5 +218,10 @@ const styles = StyleSheet.create({
   },
   iconStyle: {
     marginRight: 10
+  },
+  requestSent: {
+    marginRight: 20,
+    fontWeight: 'bold',
+    color: '#4296CC'
   }
 });
