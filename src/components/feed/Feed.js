@@ -35,6 +35,7 @@ export class Feed extends Component {
         <ListView
            dataSource={this.state.feed}
            renderRow={this.renderFeed}
+           enableEmptySections={true}
            renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
           />
       </View>

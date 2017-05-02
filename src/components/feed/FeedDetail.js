@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { AsyncStorage, ListView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { AsyncStorage, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { List, ListItem, Icon } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
@@ -8,7 +8,6 @@ import { createLike, beenThere } from '../../services/apiActions';
 export class FeedDetail extends Component {
   constructor(props) {
     super(props);
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
       showHeart: false,
       showBeenThere: false
@@ -55,20 +54,20 @@ export class FeedDetail extends Component {
          subtitle={
            <View style={styles.subtitleView}>
             <Text>
-              <Text 
+              <Text
                 onPress={()=> { Actions.profile({
                   person: feed.user
-                })}} 
+                })}}
                 style={styles.titleStyle}>
                   {feed.user.first_name ? feed.user.first_name + ' ' : feed.user.email + " "}
               </Text>
               <Text style={styles.unBold}>
                 added
               </Text>
-              <Text 
+              <Text
                 onPress={()=>{ Actions.placeProfile({
                   place: feed.place
-                })}} 
+                })}}
                 style={styles.titleStyle}>
                   {" " + feed.place.name}
               </Text>

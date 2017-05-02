@@ -25,6 +25,7 @@ export class FriendList extends Component {
        style={styles.scrollView}
        dataSource={this.props.friends}
        renderRow={this.renderFriends}
+       enableEmptySections={true}
        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
       />
     );

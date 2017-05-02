@@ -20,6 +20,7 @@ export class PlaceList extends Component {
     return (
       <ListView
         dataSource={this.props.places}
+        enableEmptySections={true}
         renderRow={this.renderPlaces}
         renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
       />
