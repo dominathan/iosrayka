@@ -72,8 +72,14 @@ export class CommentBox extends Component {
 
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo } = this.state;
+    addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
+      .then((res) => {
+        if(this.state.image) {
+          this.handlePhotoUpload(this.state.image)
+        }
+      })
+      .catch((error) => console.log('Failed Saving Place: ', error));
     AsyncStorage.getItem('user', (err, user) => {
-      console.log("WE HAVE A USER", user);
       newPlace = {
         user: JSON.parse(user),
         place: place,
@@ -91,22 +97,14 @@ export class CommentBox extends Component {
         });
       } else {
         Actions.pop({
-          refresh: { 
+          refresh: {
             new_place: newPlace,
             new_marker: place
           }
         });
       }
-    });  
+    });
     Keyboard.dismiss();
-    console.log("BEGGINING INSERT PLACE", place)
-    addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
-      .then((res) => {
-        if(this.state.image) {
-          this.handlePhotoUpload(this.state.image)
-        }
-      })
-      .catch((error) => console.log('Failed Saving Place: ', error));
   }
 
   render() {

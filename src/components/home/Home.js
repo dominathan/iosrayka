@@ -135,6 +135,9 @@ export class Home extends Component {
     this.setState({
       selectedFilter: val
     });
+    if(val === 'feed') {
+      this.globalFilter();
+    }
   }
 
   filterPlacesFromFeed(data) {
