@@ -110,6 +110,7 @@ export class Home extends Component {
         });
       })
       .catch((err) => console.log('fuck balls: ', err));
+    this.globalFilter();
   }
 
   componentWillUnmount() {
