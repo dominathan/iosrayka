@@ -63,7 +63,8 @@ export class Home extends Component {
       })
       this.state.region = region;
       this.handleGlobal();
-    })
+    });
+    this.globalFilter();
   }
 
   componentWillReceiveProps(nextProps) {
@@ -80,8 +81,8 @@ export class Home extends Component {
   }
 
   handleGlobal() {
-    this.getHomePlaces();
     this.setState({selectedHeader: 'global'})
+    this.getHomePlaces();
   }
 
   handleExpert() {
@@ -109,7 +110,6 @@ export class Home extends Component {
         });
       })
       .catch((err) => console.log('fuck balls: ', err));
-      this.globalFilter();
   }
 
   componentWillUnmount() {
@@ -159,10 +159,10 @@ export class Home extends Component {
 
   globalFilter() {
     this.setState({ feedReady: false });
-    const latitude = this.state.region.latitude._value;
-    const longitude = this.state.region.longitude._value;
-    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
-    getFeed(queryString)
+    // const latitude = this.state.region.latitude._value;
+    // const longitude = this.state.region.longitude._value;
+    // const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
+    getFeed()
       .then((data) => {
         if(data.errors) { Actions.login(); return }
         this.setState({
