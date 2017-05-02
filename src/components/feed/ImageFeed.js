@@ -31,6 +31,7 @@ export class ImageFeed extends Component {
           contentContainerStyle={styles.grid}
           dataSource={this.state.images}
           renderRow={this.renderImageRow}
+          enableEmptySections={true}
         />
       </View>
     );

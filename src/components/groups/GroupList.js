@@ -21,6 +21,7 @@ export class GroupList extends Component {
       <ListView style={styles.scrollView}
        dataSource={this.props.groups}
        renderRow={this.renderGroups}
+       enableEmptySections={true}
        renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
       />
     );

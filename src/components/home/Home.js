@@ -110,6 +110,7 @@ export class Home extends Component {
         });
       })
       .catch((err) => console.log('fuck balls: ', err));
+    this.globalFilter();
   }
 
   componentWillUnmount() {
@@ -135,6 +136,9 @@ export class Home extends Component {
     this.setState({
       selectedFilter: val
     });
+    if(val === 'feed') {
+      this.globalFilter();
+    }
   }
 
   filterPlacesFromFeed(data) {

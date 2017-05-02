@@ -33,6 +33,7 @@ export class NotificationList extends Component {
         {
           groupRequests.length > 0 && <ListView
             style={styles.scrollView}
+            enableEmptySections={true}
             dataSource={this.state.ds.cloneWithRows(groupRequests)}
             renderRow={this.renderNotifications}
             renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
@@ -41,6 +42,7 @@ export class NotificationList extends Component {
         {
           likes.length > 0 && <ListView
            style={styles.scrollView}
+           enableEmptySections={true}
            dataSource={this.state.ds.cloneWithRows(likes)}
            renderRow={this.renderLikeNotification}
            renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
