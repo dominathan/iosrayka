@@ -46,7 +46,7 @@ export class GroupProfile extends Component {
         feed: updatedFeed,
         markers: updatedMarkers
       });
-    } 
+    }
   }
 
   componentDidMount() {
@@ -66,7 +66,6 @@ export class GroupProfile extends Component {
   getGroupPlaces(groupName) {
     getGroupPlaces(`groupName=${groupName}`)
       .then((data) => {
-        console.log("GROUP DATA", data)
         this.setState({
           feed: data.feed,
           users: data.users,

@@ -18,6 +18,8 @@ export class CommentBox extends Component {
       showPhoto: false,
       image: null,
       photo: {},
+      buttonDisabled: false,
+      user: {}
     };
     this.savePlace = this.savePlace.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
@@ -25,6 +27,9 @@ export class CommentBox extends Component {
     this.togglePhoto = this.togglePhoto.bind(this);
     this.pickImage = this.pickImage.bind(this);
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
+  }
+  componentDidMount() {
+    AsyncStorage.getItem('user', (err, user) => this.setState({user: JSON.parse(user)}))
   }
 
   savePlace(place) {
@@ -71,45 +76,45 @@ export class CommentBox extends Component {
   }
 
   saveChosenPlaceAsFavorite(place, group) {
-    const { favorite, text, photo } = this.state;
+    const { favorite, text, photo, user } = this.state;
+    Keyboard.dismiss();
+    this.setState({buttonDisabled: true})
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
         if(this.state.image) {
           this.handlePhotoUpload(this.state.image)
         }
+
+        newPlace = {
+          user: user,
+          place: place,
+          comment: text,
+          created_at: Date.now()
+        };
+
+        if (group) {
+          Actions.pop({
+            refresh: {
+              group: group,
+              new_place: newPlace,
+              new_marker: place
+            }
+          });
+        } else {
+          Actions.pop({
+            refresh: {
+              new_place: newPlace,
+              new_marker: place
+            }
+          });
+        }
       })
       .catch((error) => console.log('Failed Saving Place: ', error));
-    AsyncStorage.getItem('user', (err, user) => {
-      newPlace = {
-        user: JSON.parse(user),
-        place: place,
-        comment: text,
-        created_at: Date.now()
-      };
-
-      if (group) {
-        Actions.pop({
-          refresh: {
-            group: group,
-            new_place: newPlace,
-            new_marker: place
-          }
-        });
-      } else {
-        Actions.pop({
-          refresh: {
-            new_place: newPlace,
-            new_marker: place
-          }
-        });
-      }
-    });
-    Keyboard.dismiss();
   }
 
   render() {
     const { place } = this.props
-    const { showPhoto, image } = this.state;
+    const { showPhoto, image, buttonDisabled } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.placeToAdd}>
@@ -152,6 +157,7 @@ export class CommentBox extends Component {
          title='Add Place'
          backgroundColor='#4296CC'
          onPress={() => this.savePlace(place)}
+         disabled={buttonDisabled}
          />
 
          { showPhoto && <CameraRollPicker pickImage={this.pickImage} image={image}/>}
