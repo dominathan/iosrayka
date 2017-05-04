@@ -5,8 +5,7 @@ import { SearchBar } from 'react-native-elements'
 import { PlaceList } from '../places/PlaceList';
 import { getFilterPlacesCityOrCountry } from '../../services/apiActions';
 
-const DEBOUNCE_TIME = 500;
-
+const DEBOUNCE_TIME = 100;
 
 export class HomeSearch extends Component {
   static defaultProps = {

@@ -3,7 +3,7 @@ import { TextInput, StyleSheet } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 import { searchForFriends } from '../../services/apiActions';
 
-const DEBOUNCE_TIME = 500;
+const DEBOUNCE_TIME = 100;
 
 export class FriendSearch extends Component {
   static defaultProps = {

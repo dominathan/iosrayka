@@ -17,6 +17,7 @@ import { ImageDetail } from './components/feed/ImageDetail';
 import { Login } from './components/Login';
 import { Onboarding } from './components/onboarding/Onboarding';
 import { Friends } from './components/friends/Friends';
+import { InviteFriends } from './components/friends/InviteFriends';
 import { Notifications } from './components/notifications/Notifications';
 import { Settings } from './components/Settings';
 import { Help } from './components/Help';
@@ -96,6 +97,7 @@ class App extends Component {
                 <Scene renderLeftButton={this.renderDrawerButton} key="settings" component={Settings} title="Settings" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="help" component={Help} title="Help" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="profile" component={Profile} title="Profile" />
+                <Scene renderLeftButton={this.renderDrawerButton} key="inviteFriends" component={InviteFriends} title="Invite Friends" />
                 <Scene key="placeProfile" component={PlaceProfile} title="Place" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="groups" component={Group} title="Groups" onRight={() => Actions.searchGroup()} rightTitle="Search" rightButtonTextStyle={{ color: "#FFF" }} />
                 <Scene key="createGroup" component={CreateGroup} title="Create a Group" />

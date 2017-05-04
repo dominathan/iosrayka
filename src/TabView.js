@@ -81,6 +81,11 @@ const TabView = (props, context) => {
       icon: 'group'
     },
     {
+      routeCallback: () => { drawer.close(); Actions.inviteFriends({type: 'reset'}); },
+      name: 'Invite Friends',
+      icon: 'plus'
+    },
+    {
       routeCallback: () => { drawer.close(); Actions.notifications({type: 'reset'}); },
       name: 'Notifications',
       icon: 'bell'

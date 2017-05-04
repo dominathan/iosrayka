@@ -4,7 +4,7 @@ import { SearchBar } from 'react-native-elements'
 import { searchForGroups } from '../../services/apiActions';
 import { GroupList } from './GroupList';
 
-const DEBOUNCE_TIME = 500;
+const DEBOUNCE_TIME = 100;
 
 export class GroupSearch extends Component {
   static defaultProps = {
