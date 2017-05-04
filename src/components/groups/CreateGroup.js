@@ -7,6 +7,7 @@ import {
   StyleSheet,
   TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
+import { Button } from 'react-native-elements'
 
 import { getFriends, createGroup } from '../../services/apiActions';
 import { FriendList } from '../friends/FriendList';
@@ -27,7 +28,8 @@ export class CreateGroup extends Component {
       text: '',
       loadingFriends: true,
       dataSource: ds.cloneWithRows(['row1', 'row2']),
-      private: false
+      private: false,
+      disableCreateButton: false
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
@@ -40,6 +42,7 @@ export class CreateGroup extends Component {
   }
 
   createThisGroup() {
+    this.setState({disableCreateButton: true})
     const group = {
       groupName: this.state.text,
       friends: this.state.dataSource._dataBlob.s1.filter((friend) => friend.invited),
@@ -75,7 +78,7 @@ export class CreateGroup extends Component {
   }
 
   render() {
-    const { dataSource, loadingFriends } = this.state;
+    const { dataSource, loadingFriends,disableCreateButton } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.publicPrivateContainer}>
@@ -98,9 +101,16 @@ export class CreateGroup extends Component {
         </View>
 
         { !loadingFriends && <FriendList friends={dataSource} isGroup={true} /> }
-
         <TouchableOpacity onPress={this.createThisGroup} style={styles.createGroup}>
-          <Text style={styles.buttonText}>Create!</Text>
+          <Button
+            raised
+            title="Create!"
+            backgroundColor='#4296CC'
+            color="#FFF"
+            borderRadius={30}
+            onPress={this.createThisGroup}
+            disabled={disableCreateButton}
+          />
         </TouchableOpacity>
       </View>
     );
@@ -136,12 +146,9 @@ const styles = StyleSheet.create({
     marginLeft: 25,
   },
   createGroup: {
-    height: 40,
-    width: 270,
     alignSelf: 'center',
-    backgroundColor: '#4296CC',
-    borderRadius: 20,
-    marginBottom: 50
+    marginBottom: "4%",
+    width: "85%"
   },
   buttonText: {
     alignSelf: 'center',
