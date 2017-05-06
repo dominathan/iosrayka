@@ -103,11 +103,12 @@ export class FriendDetail extends Component {
           <View style={styles.addFriend}>
             {
               friend.search && !showActivityIndicator && !friendAdded && <Button
-                  title='Request'
+                  title='Follow'
                   color='#4296CC'
                   backgroundColor='#FFF'
-                  raised
                   borderRadius={1}
+                  raised
+                  borderColor='#4296CC'
                   onPress={() => this.addFriendToDatabase(friend)}
                 />
             }
@@ -118,34 +119,9 @@ export class FriendDetail extends Component {
               />
             }
             {
-              friend.search && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Request sent</Text>
+              friend.search && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Following!</Text>
             }
           </View>
-
-          <View style={styles.acceptFriend}>
-
-            {
-              friend.pending && !showActivityIndicator && !friendAdded &&
-              <View style={{flexDirection: 'row'}}>
-                <Icon containerStyle={styles.iconStyle} name='cancel' color='red' onPress={() => this.denyFriendRequest(friend)} />
-                <Icon containerStyle={styles.iconStyle} name='add' color="#4296CC"onPress={() => this.acceptFriendRequest(friend)} />
-              </View>
-            }
-
-            {
-              friend.pending && showActivityIndicator && !friendAdded && <ActivityIndicator
-                animating={showActivityIndicator}
-                size="large"
-              />
-            }
-
-            {
-              friend.pending && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Request sent</Text>
-            }
-
-
-          </View>
-
 
           { this.props.isGroup && this.renderCheckBox(friend) }
           { friend.isGroup && this.addToGroup(friend) }

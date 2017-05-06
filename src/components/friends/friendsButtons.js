@@ -7,23 +7,24 @@ export default class FriendsButtons extends Component{
     super(props)
   }
 
-  changeTab(selectedTab) {
-    this.setState({selectedTab})
-  }
-
   render() {
     const { selectedTab } = this.props;
     return (
       <Grid style={styles.titleGroupStyle}>
         <Row>
           <Col>
-            <TouchableOpacity style={selectedTab === 'friends' ? styles.selectedIconContainer : styles.iconStyleGlobe} onPress={this.props.getFriends} >
-              <Icon containerStyle={styles.iconContainerStyles} name="people" color={selectedTab === 'friends' ? '#3c95cd': "#FFF"}/>
+            <TouchableOpacity style={selectedTab === 'followers' ? styles.selectedIconContainer : styles.iconStyleGlobe} onPress={this.props.getFollowers} >
+              <Text style={selectedTab === 'followers' ? styles.selectedText : styles.text}>Followers</Text>
             </TouchableOpacity>
           </Col>
           <Col>
-            <TouchableOpacity style={selectedTab === 'requests' ? styles.selectedIconContainer : styles.iconStyleFriends} onPress={this.props.getRequestedFriendsList} >
-              <Icon containerStyle={styles.iconContainerStyles} name="person-add" color={selectedTab === 'requests' ? '#3c95cd': "#FFF"}/>
+            <TouchableOpacity style={selectedTab === 'following' ? styles.selectedIconContainer : styles.following} onPress={this.props.getFollowing} >
+              <Text style={selectedTab === 'following' ? styles.selectedText : styles.text}>Following</Text>
+            </TouchableOpacity>
+          </Col>
+          <Col>
+            <TouchableOpacity style={selectedTab === 'add' ? styles.selectedIconContainer : styles.iconStyleFriends} onPress={this.props.follow} >
+              <Text style={selectedTab === 'add' ? styles.selectedText : styles.text}> + Follow</Text>
             </TouchableOpacity>
           </Col>
         </Row>
@@ -39,20 +40,36 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     alignItems: 'center',
     backgroundColor: '#4296CC',
+    justifyContent: 'center'
   },
   iconStyleGlobe: {
     height: '100%',
-    paddingTop: 5,
+    alignSelf: 'center',
+    justifyContent: 'center'
+  },
+  following: {
+    borderRightWidth: 1,
     borderRightColor: "#FFF",
-    borderRightWidth: 2
+    borderLeftWidth: 1,
+    borderLeftColor: "#FFF",
+    height: '100%',
+    justifyContent: 'center'
   },
   iconStyleFriends: {
     height: '100%',
-    paddingTop: 5,
+    justifyContent: 'center'
   },
   selectedIconContainer: {
     height: '100%',
-    paddingTop: 5,
     backgroundColor: '#FFF',
+    justifyContent: 'center'
+  },
+  text: {
+    color: "#FFF",
+    textAlign: 'center'
+  },
+  selectedText: {
+    color: '#4296CC',
+    textAlign: 'center'
   }
 });

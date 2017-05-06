@@ -1,7 +1,12 @@
-// https://github.com/FaridSafi/react-native-google-places-autocomplete
+/* NOTE
+Friends has been changed to twitter style following/Followers
+Requested friends are your Followers
+Pending friends are people you have follower
+*/
+
 import React, { Component } from 'react';
 import { View, Text, ListView, Image, StyleSheet } from 'react-native';
-import { getFriends, acceptFriend, getRequestedFriends } from '../../services/apiActions';
+import { getFriends, acceptFriend, getRequestedFriends, getPendingFriends } from '../../services/apiActions';
 import FriendsButtons from './friendsButtons';
 import { FriendSearch } from './FriendSearch';
 import { FriendList } from './FriendList';
@@ -14,31 +19,32 @@ export class Friends extends Component {
     super(props);
     this.state = {
       loadingFriends: true,
-      dataSource: ds.cloneWithRows(['row1', 'row2']),
+      dataSource: ds.cloneWithRows([]),
       searching: false,
       pendingFriend: false,
-      selectedTab: 'friends'
+      selectedTab: 'followers'
     };
     this.handleFriendSearch = this.handleFriendSearch.bind(this);
     this.getRequestedFriendsList = this.getRequestedFriendsList.bind(this);
     this.loadFriends = this.loadFriends.bind(this);
+    this.follow = this.follow.bind(this);
   }
 
   componentWillMount() {
-    this.loadFriends();
+    this.getRequestedFriendsList();
   }
 
   loadFriends() {
     this.setState({
-      selectedTab: 'friends'
+      selectedTab: 'following',
+      dataSource: this.state.dataSource.cloneWithRows([]),
     })
-    getFriends()
+    getPendingFriends()
       .then((friends) => {
         if(friends.length > 0) {
           this.setState({
             dataSource: this.state.dataSource.cloneWithRows(friends),
             loadingFriends: false,
-            pendingFriend: false,
             search: false,
           });
         }
@@ -54,41 +60,45 @@ export class Friends extends Component {
     this.setState({
       dataSource: this.state.dataSource.cloneWithRows(friendList),
       loadingFriends: false,
-      pendingFriend: false,
       search: false
     })
   }
 
   getRequestedFriendsList() {
     this.setState({
-      selectedTab: 'requests'
+      selectedTab: 'followers',
+      dataSource: this.state.dataSource.cloneWithRows([])
     })
     getRequestedFriends()
-      .then((data) => {
-        const friendList = data.map((friend) => {
-          friend.pending = true;
-          return friend;
-        })
+      .then((followers) => {
         this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(friendList),
-          searching: false,
-          pendingFriend: true,
+          dataSource: this.state.dataSource.cloneWithRows(followers),
+          loadingFriends: false,
+          search: false,
         });
       })
       .catch(err => console.error('NO SEARACH', err));
-  };
+  }
+
+  follow() {
+    this.setState({
+      selectedTab: 'add',
+      dataSource: this.state.dataSource.cloneWithRows([])
+    })
+  }
 
   render() {
     const { loadingFriends, dataSource, selectedTab } = this.state;
     return (
       <View style={styles.container}>
-        <FriendSearch giveBackFriend={this.handleFriendSearch}/>
+        { selectedTab === 'add' && <FriendSearch giveBackFriend={this.handleFriendSearch}/> }
         { !loadingFriends && <FriendList friends={dataSource} /> }
 
         <View style={styles.friendsButtons}>
           <FriendsButtons
-            getRequestedFriendsList={this.getRequestedFriendsList}
-            getFriends={this.loadFriends}
+            getFollowers={this.getRequestedFriendsList}
+            getFollowing={this.loadFriends}
+            follow={this.follow}
             selectedTab={selectedTab}/>
         </View>
 
