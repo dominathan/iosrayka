@@ -9,8 +9,9 @@ export class FeedDetail extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showHeart: false,
-      showBeenThere: false
+      showHeart: props.feed.showHeart,
+      showBeenThere: props.feed.showBeenThere,
+      user: undefined
     }
 
     this.handleLike = this.handleLike.bind(this);
@@ -45,7 +46,7 @@ export class FeedDetail extends Component {
   render() {
     const { feed } = this.props;
     const { showHeart, showBeenThere } = this.state;
-    if (this.state.user === undefined) {
+    if (!this.state.user) {
       return (null);
     } else {
       return (

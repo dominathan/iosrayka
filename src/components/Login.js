@@ -60,7 +60,7 @@ export class Login extends Component {
     if(navState['url'].includes('/+/redirect')) {
       console.log("HANDLE USER")
       this.handleUser(navState['url'])
-      Actions.home({type: 'reset'})
+      // Actions.home({type: 'reset'})
     }
   }
 
