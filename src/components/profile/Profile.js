@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-import { getFriends, getUserFeed, getUserPlaces } from '../../services/apiActions';
+import { getFriends, getUserFeed, getUserPlaces, getPendingFriends } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { Map } from '../map/Map';
 import ProfileStats from './ProfileStats';
@@ -53,10 +53,11 @@ export class Profile extends Component {
   }
 
   friends() {
-    getFriends()
-      .then(friends => {
-          this.setState({ friends });
-      });
+    getPendingFriends()
+      .then((friends) => {
+        this.setState({ friends });
+      })
+      .catch((err) => console.error('NO FRIENDS!!!', err));
   }
 
   selectedFilterChange(val) {
@@ -112,7 +113,7 @@ export class Profile extends Component {
             </View>
           </View> }
           <View style={styles.statsContainer}>
-            <ProfileStats label="Friends" icon="group" data={friends.length} />
+            <ProfileStats label="Followers" icon="group" data={friends.length} />
             <ProfileStats label="Favorites" icon="star-o" data={favorites.length} />
             <ProfileStats label="Countries" icon="globe" data={countries.length} />
           </View>
