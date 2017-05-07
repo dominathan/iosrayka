@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-import { getFriends, getUserFeed, getUserPlaces, getPendingFriends } from '../../services/apiActions';
+import { getFriends, getUserFeed, getUserPlaces, getPendingFriends, getUserFriends } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { Map } from '../map/Map';
 import ProfileStats from './ProfileStats';
@@ -53,7 +53,7 @@ export class Profile extends Component {
   }
 
   friends() {
-    getPendingFriends()
+    getUserFriends(this.props.person)
       .then((friends) => {
         this.setState({ friends });
       })

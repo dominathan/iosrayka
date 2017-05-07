@@ -93,6 +93,7 @@ const getFilterPlacesCityOrCountry = (cityOrCountry) => defaultGet('places/searc
 const getFeed = (latLng) => defaultGet('feed',latLng);
 const getUserFeed = (user) => defaultGet(`feed/users/${user.id}`);
 const getFriends = () => defaultGet('friends');
+const getUserFriends = (user) => defaultGet(`friends/users/${user.id}`);
 const searchForFriends = (query) => defaultGet('users/search', query);
 const addFriend = (friend) => defaultPost('friends', friend);
 const getFriendFeed = () => defaultGet('feed/friends');
@@ -133,6 +134,7 @@ export {
   getFilterPlacesCityOrCountry,
   getFeed,
   getFriends,
+  getUserFriends,
   searchForFriends,
   addFriend,
   getFriendFeed,
