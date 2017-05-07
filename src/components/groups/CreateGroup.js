@@ -11,6 +11,8 @@ import { Button } from 'react-native-elements'
 
 import { getFriends, createGroup } from '../../services/apiActions';
 import { FriendList } from '../friends/FriendList';
+import { GooglePlacesAutocomplete } from '../places/GooglePlacesAutocomplete';
+import GOOGLE_API_KEY from '../../../config/google';
 
 export class CreateGroup extends Component {
 
@@ -27,14 +29,18 @@ export class CreateGroup extends Component {
     this.state = {
       text: '',
       loadingFriends: true,
-      dataSource: ds.cloneWithRows(['row1', 'row2']),
+      dataSource: ds.cloneWithRows([]),
       private: false,
-      disableCreateButton: false
+      disableCreateButton: false,
+      lat: null,
+      lng: null,
+      city: null
     };
 
     this.handleTextChange = this.handleTextChange.bind(this);
     this.createThisGroup = this.createThisGroup.bind(this);
     this.togglePrivate = this.togglePrivate.bind(this);
+    this.handleSelectedCity = this.handleSelectedCity.bind(this);
   }
 
   componentWillMount() {
@@ -46,7 +52,10 @@ export class CreateGroup extends Component {
     const group = {
       groupName: this.state.text,
       friends: this.state.dataSource._dataBlob.s1.filter((friend) => friend.invited),
-      private: this.state.private
+      private: this.state.private,
+      lat: this.state.lat,
+      lng: this.state.lng,
+      city: this.state.city
     };
     createGroup(group)
       .then((data) => {
@@ -77,8 +86,16 @@ export class CreateGroup extends Component {
     })
   }
 
+  handleSelectedCity(place) {
+    this.setState({
+      lat: place.geometry.location.lat,
+      lng: place.geometry.location.lng,
+      city: place.name
+    });
+  }
+
   render() {
-    const { dataSource, loadingFriends,disableCreateButton } = this.state;
+    const { dataSource, loadingFriends, disableCreateButton } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.publicPrivateContainer}>
@@ -99,7 +116,32 @@ export class CreateGroup extends Component {
             clearButtonMode='while-editing'
           />
         </View>
-
+        <View style={styles.selectCity}>
+          <GooglePlacesAutocomplete
+            placeholder='Enter City'
+            minLength={3}
+            currentLocation={false} // Will add a 'Current location' button at the top of the predefined places list
+            onPress={(data, details) => { // 'details' is provided when fetchDetails = true
+              // console.log("DATA: ", data)
+              // console.log("DETAILS: ", details)
+            }}
+            query={{
+             // available options: https://developers.google.com/places/web-service/autocomplete
+              key: GOOGLE_API_KEY,
+              language: 'en', // language of the results
+              types: '(cities)'
+            }}
+            styles={{
+              textInputContainer: {
+                backgroundColor: 'rgba(0,0,0,0)',
+                borderTopWidth: 0,
+                borderBottomWidth: 0.4,
+                borderBottomColor: '#8D8F90',
+              }
+            }}
+            handleAddPlace={this.handleSelectedCity}
+          />
+        </View>
         { !loadingFriends && <FriendList friends={dataSource} isGroup={true} /> }
         <TouchableOpacity onPress={this.createThisGroup} style={styles.createGroup}>
           <Button
@@ -172,5 +214,9 @@ const styles = StyleSheet.create({
   },
   privatePress: {
     alignSelf: 'center'
+  },
+  selectCity: {
+    flex: 1,
+    width: '100%'
   }
 });

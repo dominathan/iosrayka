@@ -50,15 +50,15 @@ export class GroupProfile extends Component {
   }
 
   componentDidMount() {
-    this.watchID = navigator.geolocation.watchPosition((position) => {
-      let region = new MapView.AnimatedRegion({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: 0.00922*1.5,
-          longitudeDelta: 0.00421*1.5
-      })
-      this.state.region = region;
-    });
+    let region = new MapView.AnimatedRegion({
+      latitude: this.props.group.lat || 32.8039917,
+      longitude: this.props.group.lng || -79.9525327,
+      latitudeDelta: 0.00922*6.5,
+      longitudeDelta: 0.00421*6.5
+    })
+    this.setState({
+      region: region
+    })
     const group = this.props.group;
     this.getGroupPlaces(group.name);
   }
@@ -96,11 +96,11 @@ export class GroupProfile extends Component {
   }
 
   render() {
-    const { selectedFilter, feedReady, region, feed, markers, places } = this.state;
+    const { selectedFilter, feedReady, feed, markers, places, region } = this.state;
 
     return (
       <View style={styles.container}>
-        {region && <Map onRegionChange={this.onRegionChange} region={this.state.region} markers={markers}/>}
+        {region && <Map onRegionChange={this.onRegionChange} region={region} markers={markers}/>}
 
         <View style={styles.publicPrivateContainer}>
           <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('feed')}>
