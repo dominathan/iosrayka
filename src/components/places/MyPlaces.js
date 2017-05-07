@@ -25,14 +25,16 @@ export class MyPlaces extends Component {
       placeFeedReady: false,
     };
     this.userPlaces = this.userPlaces.bind(this);
+  }
 
+  componentDidMount() {
     AsyncStorage.getItem('user', (err, user) => {
       if (err) {
         console.log(' NO user: ', err);
         return;
       };
-      this.userPlaces(user);
-      this.setState({user: user});
+      this.userPlaces(JSON.parse(user));
+      this.setState({user: JSON.parse(user)});
     })
   }
 
