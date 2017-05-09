@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { TextInput, View, ListView, ScrollView, Image, Text, Dimensions, TouchableHighlight,
   TouchableWithoutFeedback, Platform, ActivityIndicator, PixelRatio, AsyncStorage } from 'react-native';
 import Qs from 'qs';
-import { addPlaceToFavorite } from '../../services/apiActions';
 
 const WINDOW = Dimensions.get('window');
 
@@ -481,28 +480,6 @@ const GooglePlacesAutocomplete = React.createClass({
         size="small"
       />
     );
-  },
-
-  selectChosenOption(place) {
-    const parsedPlace = {
-      name: place.name,
-      lat: place.geometry.location.lat,
-      lng: place.geometry.location.lng,
-      google_id: place.id,
-      google_place_id: place.place_id
-    };
-    this.saveChosenPlaceAsFavorite(parsedPlace);
-  },
-
-  saveChosenPlaceAsFavorite(place) {
-    AsyncStorage.getItem('user', (err, user) => {
-      if (err) {
-        return err;
-      }
-      addPlaceToFavorite({ place: place, user: JSON.parse(user) })
-        .then((res) => this.props.handleAddPlace())
-        .catch((error) => console.log('Failed Saving Place: ', error))
-    })
   },
 
   _renderRowData(rowData) {
