@@ -23,15 +23,14 @@ export class GroupProfile extends Component {
       feedReady: false,
       selectedFilter: 'feed',
       region: new MapView.AnimatedRegion({
-        latitude: 32.8039917,
-        longitude: -79.9525327,
-        latitudeDelta: 0.00922*1.5,
-        longitudeDelta: 0.00421*1.5
+        latitude: props.group.lat || 32.8039917,
+        longitude: props.group.lng || -79.9525327,
+        latitudeDelta: 0.00922*6.5,
+        longitudeDelta: 0.00421*6.5
       }),
       watchID: null,
       lastCall: null
     };
-    this.onRegionChange = this.onRegionChange.bind(this);
     this.navigateToAddPlace = this.navigateToAddPlace.bind(this);
     this.getGroupPlaces = this.getGroupPlaces.bind(this);
   }
@@ -50,17 +49,7 @@ export class GroupProfile extends Component {
   }
 
   componentDidMount() {
-    let region = new MapView.AnimatedRegion({
-      latitude: this.props.group.lat || 32.8039917,
-      longitude: this.props.group.lng || -79.9525327,
-      latitudeDelta: 0.00922*6.5,
-      longitudeDelta: 0.00421*6.5
-    })
-    this.setState({
-      region: region
-    })
-    const group = this.props.group;
-    this.getGroupPlaces(group.name);
+    this.getGroupPlaces(this.props.group.name);
   }
 
   getGroupPlaces(groupName) {
@@ -81,10 +70,6 @@ export class GroupProfile extends Component {
     navigator.geolocation.clearWatch(this.state.watchID);
   }
 
-  onRegionChange(region) {
-     this.state.region.setValue(region);
-  }
-
   navigateToAddPlace() {
     Actions.googlePlaces({region: this.state.region, group: this.props.group});
   }
@@ -97,10 +82,9 @@ export class GroupProfile extends Component {
 
   render() {
     const { selectedFilter, feedReady, feed, markers, places, region } = this.state;
-
     return (
       <View style={styles.container}>
-        {region && <Map onRegionChange={this.onRegionChange} region={region} markers={markers}/>}
+        {region && <Map region={region} markers={markers}/>}
 
         <View style={styles.publicPrivateContainer}>
           <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('feed')}>
