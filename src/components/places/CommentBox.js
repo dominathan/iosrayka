@@ -27,14 +27,17 @@ export class CommentBox extends Component {
     this.togglePhoto = this.togglePhoto.bind(this);
     this.pickImage = this.pickImage.bind(this);
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
+    this.getCity = this.getCity.bind(this);
+    this.getCountry = this.getCountry.bind(this);
   }
+
   componentDidMount() {
     AsyncStorage.getItem('user', (err, user) => this.setState({user: JSON.parse(user)}))
   }
 
   savePlace(place) {
-    const city = place.address_components && place.address_components[3] && place.address_components[3].long_name ? place.address_components[3].long_name : null
-    const country = place.address_components && place.address_components[6] && place.address_components[3].long_name ? place.address_components[6].long_name : null
+    const city = this.getCity(place);
+    const country = this.getCountry(place);
     const parsedPlace = {
       name: place.name,
       lat: place.geometry.location.lat,
@@ -47,6 +50,16 @@ export class CommentBox extends Component {
       data: place
     };
     this.saveChosenPlaceAsFavorite(parsedPlace, this.props.group);
+  }
+
+  getCountry(place) {
+    const country = place.address_components.filter((item) => item['types'].includes('country'))[0]
+    return country ? country['long_name'] : null
+  }
+
+  getCity(place) {
+    const city = place.address_components.filter((item) => item['types'].includes('locality'))[0]
+    return city ? city['long_name'] : null
   }
 
   handleTextChange(text) {
