@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ListView } from 'react-native';
-
+import MapView from 'react-native-maps';
 import { getPlace } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { ImageFeed } from '../feed/ImageFeed';
@@ -16,13 +16,19 @@ export class PlaceProfile extends Component {
       favorites: [],
       photos: [],
       place: undefined,
-      selectedFilter: 'feed'
+      selectedFilter: 'feed',
+      region: new MapView.AnimatedRegion({
+        latitude: props.place.lat || 32.8039917,
+        longitude: props.place.lng || -79.9525327,
+        latitudeDelta: 0.00922*6.5,
+        longitudeDelta: 0.00421*6.5
+      }),
     };
 
     this.getPlace = this.getPlace.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.getPlace();
   }
 
@@ -59,10 +65,10 @@ export class PlaceProfile extends Component {
   }
 
   render() {
-    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter } = this.state;
+    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region } = this.state;
     return (
       <View style={styles.container}>
-        <Map markers={markers} styles={styles.mapContainer} />
+        <Map markers={markers} styles={styles.mapContainer} region={region} />
         <View style={styles.detailsContainer}>
           { place && <View style={styles.profileDetailsContainer}>
             <View style={styles.profileTextContainer}>
