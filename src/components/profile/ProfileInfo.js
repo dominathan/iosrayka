@@ -74,9 +74,16 @@ export class ProfileInfo extends Component {
                 }
               })
               .then((data) => {
-                return AsyncStorage.setItem('user', JSON.stringify(data));
+                return new Promise((resolve,reject) => {
+                  AsyncStorage.removeItem('user',(err, result) => {
+                    AsyncStorage.setItem('user', JSON.stringify(data), (err2,result2) => {
+                      if(err2) reject(err2)
+                      resolve(result2)
+                    })
+                  })
+                })
               })
-              .then(() => {
+              .then(data => {
                 Actions.settings({type: 'reset'});
               })
               .catch(error => {

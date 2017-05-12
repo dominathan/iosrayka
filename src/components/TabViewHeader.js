@@ -1,9 +1,49 @@
-import React from 'react';
-import { Image, Text, View, TouchableOpacity } from 'react-native';
+import React, {Component} from 'react';
+import { Image, Text, View, TouchableOpacity, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-const TabViewHeader = (props) => {
-    const user = props.user
+
+
+export default class TabViewHeader extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      user: props.user
+    }
+    this.setCurrentUser = this.setCurrentUser.bind(this);
+    this.goToProfile = this.goToProfile.bind(this);
+  }
+
+  componentDidMount() {
+    this.setCurrentUser();
+  }
+
+  setCurrentUser() {
+    AsyncStorage.getItem('user', (err, user) => {
+      if (err) return err;
+      this.setState({user: JSON.parse(user)})
+    });
+  }
+
+  shouldComponentUpdate(a,b) {
+    return AsyncStorage.getItem('user',(err, user) => {
+      const parsedUser = JSON.parse(user);
+      if(parsedUser.photo_url === this.state.user.photo_url) {
+        return false
+      } else {
+        this.setState({user: parsedUser})
+        return true
+      }
+    })
+  }
+
+  goToProfile() {
+    this.props.drawer.close();
+    Actions.profile({ person: this.state.user, type: 'reset' });
+  }
+
+  render() {
+    const { user } = this.state
     const { imageViewStyle,
             profileImageStyle,
             textStyle,
@@ -12,24 +52,22 @@ const TabViewHeader = (props) => {
             viewStyle
     } = styles;
 
-    const goToProfile = () => {
-      props.drawer.close();
-      Actions.profile({ person: props.user, type: 'reset' });
-    };
     return (
-      <TouchableOpacity onPress={() => goToProfile()}>
+      <TouchableOpacity onPress={() => this.goToProfile()}>
       {!user && <Text> No User To Display</Text>}
       {user &&  <View style={viewStyle}>
             <View style={imageViewStyle}>
-                <Image style={profileImageStyle} source={{ uri: props.user.photo_url }} />
+                <Image style={profileImageStyle} source={{ uri: user.photo_url }} />
             </View>
             <View style={textViewStyle}>
-                <Text style={textStyle}>{props.user.first_name} {props.user.last_name}</Text>
-                <Text style={textStyleEmail}>{props.user.email}</Text>
+                <Text style={textStyle}>{user.first_name} {user.last_name}</Text>
+                <Text style={textStyleEmail}>{user.email}</Text>
             </View>
         </View>}
       </TouchableOpacity>
     );
+  }
+
 };
 
 const styles = {
@@ -69,6 +107,3 @@ const styles = {
         paddingTop: 15
     }
 };
-
-// Make the component available to other parts of the app
-export default TabViewHeader;

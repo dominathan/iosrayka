@@ -22,16 +22,6 @@ class SimpleDrawer extends Component {
     this.setCurrentUser();
   }
 
-  shouldComponentUpdate() {
-    return AsyncStorage.getItem('user', (err, user) => {
-      return JSON.parse(user) !== this.state.user
-    });
-  }
-
-  componentWillUpdate() {
-    this.setCurrentUser()
-  }
-
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
       this.setState({user: JSON.parse(user)});
