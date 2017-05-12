@@ -16,44 +16,6 @@ const propTypes = {
   user: PropTypes.object
 };
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#333B42',
-    alignItems: 'flex-start',
-    justifyContent: 'space-around',
-    borderWidth: 1,
-  },
-  listViewStyle: {
-    flex: 1,
-    marginTop: 25
-  },
-  rowButton: {
-    color: '#8D8F90'
-  },
-  rowButtonContainer: {
-    alignItems: 'flex-start',
-    marginLeft: 10,
-    borderBottomWidth: 1,
-    borderBottomColor: '#8D8F90',
-    paddingBottom: 10,
-    width: 250
-  },
-  rowIcon: {
-    marginLeft: 15,
-    marginRight: 10,
-    justifyContent: 'center',
-    alignItems: 'center',
-    width: 30
-  },
-  rowItem: {
-    flexDirection: 'row',
-    marginTop: 5,
-    marginBottom: 5,
-    padding: 5
-  }
-});
-
 const TabView = (props, context) => {
   const ds = new ListView.DataSource({
     rowHasChanged: (r1, r2) => r1 !== r2
@@ -119,6 +81,46 @@ const TabView = (props, context) => {
     </View>
   );
 };
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#333B42',
+    alignItems: 'flex-start',
+    justifyContent: 'space-around',
+    borderWidth: 1,
+  },
+  listViewStyle: {
+    flex: 1,
+    marginTop: 25
+  },
+  rowButton: {
+    color: '#8D8F90'
+  },
+  rowButtonContainer: {
+    alignItems: 'flex-start',
+    marginLeft: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: '#8D8F90',
+    paddingBottom: 10,
+    width: 250
+  },
+  rowIcon: {
+    marginLeft: 15,
+    marginRight: 10,
+    justifyContent: 'center',
+    alignItems: 'center',
+    width: 30
+  },
+  rowItem: {
+    flexDirection: 'row',
+    marginTop: 5,
+    marginBottom: 5,
+    padding: 5
+  }
+});
+
 
 TabView.contextTypes = contextTypes;
 TabView.propTypes = propTypes;

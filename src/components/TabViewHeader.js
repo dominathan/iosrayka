@@ -2,8 +2,6 @@ import React from 'react';
 import { Image, Text, View, TouchableOpacity } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-// Make a Component
-
 const TabViewHeader = (props) => {
     const user = props.user
     const { imageViewStyle,

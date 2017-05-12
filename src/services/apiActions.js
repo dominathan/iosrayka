@@ -81,6 +81,40 @@ const defaultGet = (subUrl, params) => {
  });
 };
 
+const defaultImagePost = ( subUrl, data ) => {
+  return new Promise((resolve, reject) => {
+      const date = new Date()
+      var photo = {
+        uri: data.photo,
+        type: 'image/jpeg',
+        name: `photo-${date.toISOString()}.jpg`,
+      };
+      AsyncStorage.getItem('token', (err, token) => {
+       if (err) {
+         console.log(' NO TOKEN: ', err);
+         return
+       }
+       const parsedToken = JSON.parse(token);
+        var form = new FormData();
+        form.append("photo", data.photo);
+        if(data.place) {
+          form.append("placename", data.place.name)
+        }
+        fetch(
+          `${API_BASE}/${subUrl}`,
+          {
+            body: form,
+            method: "POST",
+            headers: Object.assign({}, headers(parsedToken), {'Content-Type': 'multipart/form-data'})
+          })
+         .then((response) => response.json())
+         .then((apiData) => resolve(apiData))
+         .catch((apiErr) => reject(apiErr));
+      })
+  })
+}
+
+
 const addPlaceToFavorite = (place) => defaultPost('places', place);
 const loginUser = (userProfile) => defaultPost('users', userProfile);
 const getPlaces = (latLng) => defaultGet('places',latLng);
@@ -118,8 +152,8 @@ const updateUser = (user) => defaultPut(`users/${user.id}`, user);
 const createLike = (likeeLikorPlace) => defaultPost('notifications/like', likeeLikorPlace);
 const getLikes = () => defaultGet('notifications/likes');
 const beenThere = (placeId) => defaultPost('notifications/been_there', placeId);
-
-
+const postImageToPlace = (imageAndPlace) => defaultImagePost('places/image', imageAndPlace);
+const postImageToUser = (image) => defaultImagePost('users/image', image)
 
 export {
   addPlaceToFavorite,
@@ -157,5 +191,7 @@ export {
   updateUser,
   createLike,
   getLikes,
-  beenThere
+  beenThere,
+  postImageToPlace,
+  postImageToUser
 };

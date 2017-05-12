@@ -6,7 +6,7 @@ import { ImagePicker } from 'expo';
 import { CameraRollPicker } from './CameraRollPicker';
 import { API_BASE } from '../../../config/apiBase';
 
-import { addPlaceToFavorite } from '../../services/apiActions';
+import { addPlaceToFavorite, postImageToPlace } from '../../services/apiActions';
 
 
 export class CommentBox extends Component {
@@ -86,6 +86,19 @@ export class CommentBox extends Component {
     this.setState({
       favorite: !this.state.favorite
     });
+  }
+
+  handlePhotoUpload(imageUri) {
+    const photo = {
+      uri: imageUri,
+      type: 'image/jpeg',
+      name: 'photo.jpg',
+    };
+    const data = {
+      photo: photo,
+      place: this.props.place
+    };
+    postImageToPlace(data);
   }
 
   saveChosenPlaceAsFavorite(place, group) {
@@ -177,34 +190,6 @@ export class CommentBox extends Component {
 
       </View>
     );
-  }
-
-  handlePhotoUpload(response) {
-    var photo = {
-      uri: response,
-      type: 'image/jpeg',
-      name: 'photo.jpg',
-    };
-    AsyncStorage.getItem('token', (err, token) => {
-     if (err) {
-       console.log(' NO TOKEN: ', err);
-       return
-     }
-     const parsedToken = JSON.parse(token);
-      var form = new FormData();
-      form.append("photo", photo);
-      form.append("placename", this.props.place.name)
-      fetch(
-        `${API_BASE}/places/image`,
-        {
-          body: form,
-          method: "POST",
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            'Authorization': 'Bearer ' + token
-          }
-        })
-    })
   }
 }
 
