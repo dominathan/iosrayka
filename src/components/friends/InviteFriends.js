@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Expo from 'expo';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, Grid, Col, Row } from 'react-native-elements';
+import { Actions } from 'react-native-router-flux';
 
 export class InviteFriends extends Component {
 
@@ -10,9 +11,6 @@ export class InviteFriends extends Component {
     this.state = {
       contacts: []
     };
-  }
-
-  componentWillMount() {
   }
 
   async getContacts() {
@@ -30,6 +28,7 @@ export class InviteFriends extends Component {
       pageSize: 300,
       pageOffset: 0,
     });
+    Actions.inviteFriendsList({contacts: contacts.data});
     console.log("MY CONTACTS", contacts)
   }
 
