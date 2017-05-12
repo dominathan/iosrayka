@@ -1,6 +1,6 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ListView } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, ListView, ActivityIndicator} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
 import { Icon, Grid, Row } from 'react-native-elements';
@@ -36,6 +36,7 @@ export class Home extends Component {
       }),
       text: '',
       watchID: null,
+      showActivityIndicator: false
     };
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getHomePlaces = this.getHomePlaces.bind(this);
@@ -162,7 +163,7 @@ export class Home extends Component {
   }
 
   globalFilter() {
-    this.setState({ feedReady: false });
+    this.setState({ feedReady: false, showActivityIndicator: true });
     // const latitude = this.state.region.latitude._value;
     // const longitude = this.state.region.longitude._value;
     // const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
@@ -171,19 +172,21 @@ export class Home extends Component {
         if(data.errors) { Actions.login(); return }
         this.setState({
           feed: data || [],
-          feedReady: true
+          feedReady: true,
+          showActivityIndicator: false
         });
       })
       .catch((err) => console.error('NOO FEED', err));
   }
 
   filterFriends() {
-    this.setState({ feedReady: false });
+    this.setState({ feedReady: false, showActivityIndicator: true });
     getFriendFeed()
       .then((data) => {
         this.setState({
           feed: data || [],
-          feedReady: true
+          feedReady: true,
+          showActivityIndicator: false
         });
       })
       .catch((err) => console.error('NOO FEED', err));
@@ -198,12 +201,13 @@ export class Home extends Component {
   }
 
   filterExperts() {
-    this.setState({ feedReady: false });
+    this.setState({ feedReady: false, showActivityIndicator: true });
     getExpertFeed()
       .then((data) => {
         this.setState({
           feed: data || [],
-          feedReady: true
+          feedReady: true,
+          showActivityIndicator: false
         });
       })
       .catch((err) => console.error('NOO FEED', err));
@@ -230,7 +234,7 @@ export class Home extends Component {
   }
 
   render() {
-    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader } = this.state;
+    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator } = this.state;
     return (
       <View style={styles.container}>
         {region && <Map onRegionChange={this.onRegionChange} region={region} markers={markers}/>}
@@ -260,6 +264,12 @@ export class Home extends Component {
           />
         </TouchableOpacity>
         <View style={styles.feed}>
+          {!feedReady && showActivityIndicator && <View style={styles.activityIndicator}>
+            <ActivityIndicator
+              animating={showActivityIndicator}
+              size="large"
+            />
+          </View>}
           {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
           {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
           {feedReady && selectedFilter === 'search' && <HomeSearch updatePlaceAndFeedFromSearch={this.updatePlaceAndFeedFromSearch}/>}
@@ -334,5 +344,8 @@ const styles = StyleSheet.create({
   search: {
     flex: 1,
     marginTop: 60,
+  },
+  activityIndicator: {
+    marginTop: '25%'
   }
 });
