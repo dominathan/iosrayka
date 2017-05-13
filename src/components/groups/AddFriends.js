@@ -1,6 +1,7 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
 import { View, Text, ListView, StyleSheet, TouchableOpacity } from 'react-native';
+import { Actions } from 'react-native-router-flux';
 import { getFriends, addFriendsToGroup } from '../../services/apiActions';
 import { FriendSearch } from '../friends/FriendSearch';
 import { FriendList } from '../friends/FriendList';
@@ -8,7 +9,6 @@ import { FriendList } from '../friends/FriendList';
 export class AddFriends extends Component {
 
   constructor(props) {
-    console.log("ADD FRIEND PROPS", props)
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
     super(props);
@@ -46,7 +46,9 @@ export class AddFriends extends Component {
   addFriendsToGroup(friends) {
     const filtered_friends = friends._dataBlob.s1.filter((friend) => friend.invited)
     addFriendsToGroup({friends: filtered_friends, group_id: this.props.group.id})
-      .then((data) => console.log("ADDED FRIENDS TO GRUOP", data))
+      .then((data) => {
+        Actions.groupProfile({group: this.props.group})
+      })
       .catch((err) => console.log("ERROR", err))
   }
 

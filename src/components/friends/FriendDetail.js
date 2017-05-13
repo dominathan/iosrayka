@@ -53,8 +53,8 @@ export class FriendDetail extends Component {
 
   renderCheckBox(friend) {
     return (
-      <View style={styles.checkboxContainer}>
         <CheckBox
+          containerStyle={styles.checkboxContainer}
           checked={this.state.checked}
           onPress={ () => {
             friend.invited = !this.state.checked
@@ -63,15 +63,15 @@ export class FriendDetail extends Component {
             })
           }}
         />
-      </View>
     );
   }
 
   addToGroup(friend) {
     return (
-      <View style={styles.checkboxContainer}>
+
         <CheckBox
           center
+          containerStyle={styles.checkboxContainer}
           checked={this.state.checked}
           onPress={ () => {
             friend.invited = !this.state.checked
@@ -81,7 +81,6 @@ export class FriendDetail extends Component {
             console.log("ON CHECK", friend)
           }}
         />
-      </View>
     );
   }
 
@@ -167,10 +166,11 @@ const styles = StyleSheet.create({
   },
   checkboxContainer: {
     alignItems: 'flex-end',
-    alignSelf: 'flex-end',
-    justifyContent: 'flex-start',
+    alignSelf: 'center',
+    justifyContent: 'center',
     flex: 1,
-    marginRight: 20
+    backgroundColor: '#FFF',
+    borderWidth: 0,
   },
   acceptFriend: {
     alignItems: 'flex-end',
