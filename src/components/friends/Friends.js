@@ -20,6 +20,10 @@ export class Friends extends Component {
     this.state = {
       loadingFriends: true,
       dataSource: ds.cloneWithRows([]),
+      messages: {
+        noFollowers: "You don't have any followers.",
+        noFollowing: "You aren't following anyone! Search for people to follow."
+      },
       searching: false,
       pendingFriend: false,
       selectedTab: 'followers'
@@ -88,11 +92,27 @@ export class Friends extends Component {
   }
 
   render() {
-    const { loadingFriends, dataSource, selectedTab } = this.state;
+    const { loadingFriends, dataSource, messages, selectedTab } = this.state;
+
     return (
       <View style={styles.container}>
         { selectedTab === 'add' && <FriendSearch giveBackFriend={this.handleFriendSearch}/> }
-        { !loadingFriends && <FriendList friends={dataSource} /> }
+
+        { selectedTab === 'followers'
+          && !loadingFriends 
+          && dataSource.getRowCount === 0 
+          && <Text style={styles.messageText}>{messages.noFollowers}</Text>
+        }
+
+        { selectedTab === 'following'
+          && !loadingFriends 
+          && dataSource.getRowCount === 0 
+          && <Text style={styles.messageText}>{messages.noFollowing}</Text>
+        }
+
+        { !loadingFriends
+          && dataSource.getRowCount() > 0
+          && <FriendList friends={dataSource} /> }
 
         <View style={styles.friendsButtons}>
           <FriendsButtons
@@ -117,6 +137,15 @@ const styles = StyleSheet.create({
   friendsButtons: {
     height: 40,
     alignSelf: 'flex-end',
+  },
+  messageText: {
+    flex: 1,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    justifyContent: 'space-between',
+    fontSize: 16,
+    fontWeight: 'bold'
   }
 
 });

@@ -54,17 +54,6 @@ export class Profile extends Component {
         feedType: 'feed' });
       });
   }
-
-  getActiveUser() {
-    AsyncStorage.getItem('user', (err, user) => {
-      if (err) return err;
-      let user = JSON.parse(user);
-      if (user.id !== this.props.person.id) {
-        return this.setState({showAdd: false});
-      }
-      return user;
-    });
-  }
   
   follow() {
     addFriend(friend)
