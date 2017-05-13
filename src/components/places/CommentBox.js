@@ -28,6 +28,7 @@ export class CommentBox extends Component {
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
     this.getCity = this.getCity.bind(this);
     this.getCountry = this.getCountry.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
@@ -137,6 +138,12 @@ export class CommentBox extends Component {
       .catch((error) => console.log('Failed Saving Place: ', error));
   }
 
+  handleKeyDown(e) {
+    if(e.nativeEvent.key === "Enter"){
+      Keyboard.dismiss()
+    }
+  }
+
   render() {
     const { place } = this.props
     const { showPhoto, image, buttonDisabled } = this.state;
@@ -175,6 +182,8 @@ export class CommentBox extends Component {
             value={this.state.text}
             autoFocus={true}
             multiline={true}
+            returnKeyType={'done'}
+            onKeyPress={this.handleKeyDown}
           />
         </View>
         <Button
