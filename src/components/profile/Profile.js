@@ -68,10 +68,11 @@ export class Profile extends Component {
     let activeUser;
     AsyncStorage.getItem('user')
       .then(user => {
-        if (user.id === this.props.person.id) {
+        activeUser = JSON.parse(user);
+        if (activeUser.id === this.props.person.id) {
           this.setState({showFriendStatus: false});
         }
-        activeUser = JSON.parse(user);
+        
         return getUserFriends(this.props.person);
       })
       .then(friends => {
