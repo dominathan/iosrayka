@@ -133,12 +133,12 @@ export class Profile extends Component {
                 {person.first_name} {person.last_name}
                 { showFriendStatus &&
                   !friendAdded &&
-                      <Icon 
-                        containerStyle={styles.addFriendContainer}
-                        name="add" 
-                        color="#4296CC"
-                        onPress={() => { this.follow(person) }}
-                      />
+                    <Icon 
+                      containerStyle={styles.addFriendContainer}
+                      name="add" 
+                      color="#4296CC"
+                      onPress={() => { this.follow(person) }}
+                    />
                 }
                 { showFriendStatus &&
                   friendAdded && 

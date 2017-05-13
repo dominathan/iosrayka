@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, AsyncStorage } from 'react-native';
+import { Icon } from 'react-native-elements';
 import MapView from 'react-native-maps';
 import { getPlace } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { ImageFeed } from '../feed/ImageFeed';
 import { Map } from '../map/Map';
 import ProfileStats from '../profile/ProfileStats';
+import { Actions } from 'react-native-router-flux';
 
 export class PlaceProfile extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ export class PlaceProfile extends Component {
       markers: [],
       favorites: [],
       photos: [],
+      isFavorited: false,
       place: undefined,
       selectedFilter: 'feed',
       region: new MapView.AnimatedRegion({
@@ -40,22 +43,34 @@ export class PlaceProfile extends Component {
   }
 
   getPlace() {
-    getPlace(this.props.place)
+    let activeUser;
+    AsyncStorage.getItem('user')
+      .then(user => {
+        activeUser = JSON.parse(user);
+        return getPlace(this.props.place);
+      })
       .then(data => {
+        let isFavorited = data.favorites.filter(favorite => {
+          return activeUser.id === favorite.user_id;
+        });
+
         const list = data.favorites.map(favorite => {
           favorite['person'] = favorite.user;
           favorite['place'] = data.place;
           return favorite;
         });
+
         const feed = data.feed.map(item => {
           item['place'] = data.place;
           item['person'] = item.user;
           return item;
-        })
+        });
+
         this.setState({
           markers: [data.place],
           favorites: list,
           feed: feed,
+          isFavorited: (isFavorited.length > 0),
           place: data.place,
           photos: data.images,
           feedType: 'feed'
@@ -65,7 +80,7 @@ export class PlaceProfile extends Component {
   }
 
   render() {
-    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region } = this.state;
+    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, isFavorited } = this.state;
     return (
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} region={region} />
@@ -73,7 +88,27 @@ export class PlaceProfile extends Component {
           { place && <View style={styles.profileDetailsContainer}>
             <View style={styles.profileTextContainer}>
               <View style={styles.profileText}>
-                <Text style={styles.name}>{place.name}</Text>
+                <Text style={styles.name}>
+                  {place.name}
+                  {!isFavorited && 
+                    <Icon 
+                      containerStyle={styles.addFavorite}
+                      name="star-o" 
+                      type="font-awesome"
+                      color="#4296CC"
+                      onPress={() => { Actions.googlePlaces() }}
+                    />
+                  }
+
+                  {isFavorited && 
+                    <Icon 
+                      containerStyle={styles.addFavorite}
+                      name="star"
+                      type="font-awesome"
+                      color="#4296CC"
+                    />
+                  }
+                </Text>
               </View>
               <ProfileStats style={styles.favorites} label="Favorites" icon="star-o" data={favorites.length} />
             </View>
@@ -103,6 +138,12 @@ export class PlaceProfile extends Component {
 }
 
 const styles = StyleSheet.create({
+  addFavorite: {
+    marginTop: 15,
+    marginLeft: 10,
+    height: 15,
+    width: 25
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
