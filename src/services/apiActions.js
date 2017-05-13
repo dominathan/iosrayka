@@ -122,8 +122,8 @@ const getPlace = (place) => defaultGet(`places/${place.id}`);
 const getFriendPlaces = () => defaultGet(`places/friends`);
 const getExpertPlaces = () => defaultGet(`places/experts`);
 const getUserPlaces = (user) => defaultPost('places/user', user);
-const getFilterPlaces = (places) => defaultGet('places/types', places)
-const getFilterPlacesCityOrCountry = (cityOrCountry) => defaultGet('places/search', cityOrCountry)
+const getFilterPlaces = (places) => defaultGet('places/types', places);
+const getFilterPlacesCityOrCountry = (cityOrCountry) => defaultGet('places/search', cityOrCountry);
 const getFeed = (latLng) => defaultGet('feed',latLng);
 const getUserFeed = (user) => defaultGet(`feed/users/${user.id}`);
 const getFriends = () => defaultGet('friends');
@@ -148,12 +148,11 @@ const addFriendsToGroup = (friendsAndGroup) => defaultPost('groups/friends', fri
 const getNotifications = () => defaultGet('notifications');
 const acceptJoinGroupRequest = (friendAndGroup) => defaultPost('groups/accept', friendAndGroup);
 const updateUser = (user) => defaultPut(`users/${user.id}`, user);
-
 const createLike = (likeeLikorPlace) => defaultPost('notifications/like', likeeLikorPlace);
 const getLikes = () => defaultGet('notifications/likes');
 const beenThere = (placeId) => defaultPost('notifications/been_there', placeId);
 const postImageToPlace = (imageAndPlace) => defaultImagePost('places/image', imageAndPlace);
-const postImageToUser = (image) => defaultImagePost('users/image', image)
+const postImageToUser = (image) => defaultImagePost('users/image', image);
 
 export {
   addPlaceToFavorite,

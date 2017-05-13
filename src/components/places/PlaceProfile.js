@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, ActivityIndicator } from 'react-native';
+import { ImagePicker } from 'expo';
 import MapView from 'react-native-maps';
 import { getPlace } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { ImageFeed } from '../feed/ImageFeed';
 import { Map } from '../map/Map';
+import { CameraRollPicker } from './CameraRollPicker';
 import ProfileStats from '../profile/ProfileStats';
+
+
+import { postImageToPlace } from '../../services/apiActions';
 
 export class PlaceProfile extends Component {
   constructor(props) {
@@ -17,6 +22,9 @@ export class PlaceProfile extends Component {
       photos: [],
       place: undefined,
       selectedFilter: 'feed',
+      image: undefined,
+      addPhotoScreen: false,
+      showActivityIndicator: false,
       region: new MapView.AnimatedRegion({
         latitude: props.place.lat || 32.8039917,
         longitude: props.place.lng || -79.9525327,
@@ -26,6 +34,8 @@ export class PlaceProfile extends Component {
     };
 
     this.getPlace = this.getPlace.bind(this);
+    this.pickImage = this.pickImage.bind(this);
+    this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
   }
 
   componentDidMount() {
@@ -64,8 +74,39 @@ export class PlaceProfile extends Component {
       .catch((err) => console.log('fuck balls: ', err));
   }
 
+  pickImage() {
+    ImagePicker.launchImageLibraryAsync({})
+      .then((response) => {
+        this.setState({image: response.uri, addPhotoScreen: true, feedType: undefined})
+      })
+      .catch(error => {
+        console.error(error);
+      })
+  }
+
+  handlePhotoUpload(imageUri) {
+    const photo = {
+      uri: imageUri,
+      type: 'image/jpeg',
+      name: 'photo.jpg',
+    };
+    const data = {
+      photo: photo,
+      place: this.props.place
+    };
+    this.setState({addPhotoScreen: false, showActivityIndicator: true})
+    postImageToPlace(data)
+      .then((res) => {
+        this.state.photos.push(photo)
+        this.setState({showActivityIndicator: false, feedType: 'photos'})
+      })
+      .catch((err) => {
+        this.setState({showActivityIndicator: false, feedType: 'feed'})
+      })
+  }
+
   render() {
-    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region } = this.state;
+    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, image, addPhotoScreen, showActivityIndicator } = this.state;
     return (
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} region={region} />
@@ -89,11 +130,23 @@ export class PlaceProfile extends Component {
               <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('photos')}>
                 <Text style={selectedFilter === 'photos' ? styles.selectedFilter : styles.filters}>PHOTOS</Text>
               </TouchableOpacity>
+              { selectedFilter === 'photos' &&
+                <TouchableOpacity style={styles.privatePress} onPress={() => addPhotoScreen ? this.handlePhotoUpload(image) : this.pickImage()}>
+                  <Text style={selectedFilter === 'photos' ? styles.selectedFilter : styles.filters}> {addPhotoScreen ? "POST PHOTO" : "ADD PHOTO"}</Text>
+                </TouchableOpacity>
+              }
             </View>
             <View style={styles.feed}>
               {(feedType === 'feed') && <Feed showButtons={true} feed={feed} />}
               {(feedType === 'favorites') && <Feed showButtons={false} feed={favorites} />}
               {(feedType === 'photos') && <ImageFeed images={photos} />}
+              {addPhotoScreen && <CameraRollPicker pickImage={() => console.log()} image={image}/>}
+              {showActivityIndicator && <View style={styles.activityIndicator}>
+                <ActivityIndicator
+                  animating={showActivityIndicator}
+                  size="large"
+                />
+              </View>}
             </View>
           </View>
         </View>
@@ -192,5 +245,8 @@ const styles = StyleSheet.create({
   },
   feed: {
     flex: 1
+  },
+  activityIndicator: {
+    marginTop: '25%'
   }
 });

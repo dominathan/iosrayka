@@ -4,7 +4,6 @@ import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { ImagePicker } from 'expo';
 import { CameraRollPicker } from './CameraRollPicker';
-import { API_BASE } from '../../../config/apiBase';
 
 import { addPlaceToFavorite, postImageToPlace } from '../../services/apiActions';
 
