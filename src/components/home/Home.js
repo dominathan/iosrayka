@@ -336,10 +336,13 @@ const styles = StyleSheet.create({
     color: '#8D8F90',
   },
   feed: {
-    height: '43%'
+    flex:1
   },
   feedButtons: {
-    height: 60
+    flex: 0.2,
+    alignSelf: 'flex-end',
+    justifyContent: 'center',
+    alignItems: 'center'
   },
   search: {
     flex: 1,

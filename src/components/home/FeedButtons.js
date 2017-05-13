@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     alignItems: 'flex-end',
     backgroundColor: '#4296CC',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   iconStyleGlobe: {
     height: '100%',
