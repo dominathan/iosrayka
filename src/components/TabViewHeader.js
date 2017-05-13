@@ -2,8 +2,6 @@ import React, {Component} from 'react';
 import { Image, Text, View, TouchableOpacity, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
-
-
 export default class TabViewHeader extends Component {
   constructor(props) {
     super(props)
@@ -28,7 +26,7 @@ export default class TabViewHeader extends Component {
   shouldComponentUpdate(a,b) {
     return AsyncStorage.getItem('user',(err, user) => {
       const parsedUser = JSON.parse(user);
-      if(parsedUser.photo_url === this.state.user.photo_url) {
+      if (parsedUser.photo_url === this.state.user.photo_url) {
         return false
       } else {
         this.setState({user: parsedUser})

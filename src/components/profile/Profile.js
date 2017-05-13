@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking, AsyncStorage } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-import { getFriends, getUserFeed, getUserPlaces, getPendingFriends, getUserFriends } from '../../services/apiActions';
+import { addFriend, getFriends, getUserFeed, getUserPlaces, getPendingFriends, getUserFriends } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { Map } from '../map/Map';
 import ProfileStats from './ProfileStats';
@@ -24,12 +24,15 @@ export class Profile extends Component {
     this.getCountriesVisited = this.getCountriesVisited.bind(this);
     this.feed = this.feed.bind(this);
     this.userPlaces = this.userPlaces.bind(this);
+    this.follow = this.follow.bind(this);
+    this.checkFriend = this.checkFriend.bind(this);
   }
 
   componentWillMount() {
     this.userPlaces();
     this.friends();
     this.feed();
+    this.checkFriend();
   }
 
   getCountriesVisited() {
@@ -52,9 +55,41 @@ export class Profile extends Component {
       });
   }
 
+  getActiveUser() {
+    AsyncStorage.getItem('user', (err, user) => {
+      if (err) return err;
+      let user = JSON.parse(user);
+      if (user.id !== this.props.person.id) {
+        return this.setState({showAdd: false});
+      }
+      return user;
+    });
+  }
+  
+  follow() {
+    addFriend(friend)
+      .then((resp) => {
+        this.setState({friendAdded:true, showActivityIndicator: false})
+      });
+  }
+
   friends() {
-    getUserFriends(this.props.person)
-      .then((friends) => {
+    let activeUser;
+    AsyncStorage.getItem('user')
+      .then(user => {
+        if (user.id === this.props.person.id) {
+          this.setState({showAdd: false});
+        }
+        activeUser = user;
+        return getUserFriends(this.props.person);
+      })
+      .then(friends => {
+        let activeFriend = friends.filter(friend => {
+          return friend.id === user.id;
+        });
+        if (activeFriend) {
+          this.setState({activeFriend: true});
+        }
         this.setState({ friends });
       })
       .catch((err) => console.error('NO FRIENDS!!!', err));
@@ -97,10 +132,21 @@ export class Profile extends Component {
         <View style={styles.detailsContainer}>
           { person && <View style={styles.profileDetailsContainer}>
             <View source={styles.profileImageContainer}>
-            <Image source={{ uri: person.photo_url }} style={styles.photo} />
+              <Image source={{ uri: person.photo_url }} style={styles.photo} />
             </View>
             <View style={styles.profileTextContainer}>
-              <Text style={styles.name}>{person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>} {person.first_name} {person.last_name}</Text>
+              <Text style={styles.name}>
+                {person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>}
+                {!person.first_name && person.email}
+                {person.first_name} {person.last_name}
+              </Text>
+              {
+                <Icon 
+                  name="add" 
+                  color="#4296CC"
+                  onPress={this.follow}
+                />
+              }
               {person.expert &&
                 <View style={styles.expertLinkContainer}>
                   {person.expert_blog_log &&
