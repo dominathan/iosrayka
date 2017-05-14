@@ -59,7 +59,7 @@ export class CreateGroup extends Component {
     };
     createGroup(group)
       .then((data) => {
-        Actions.groups()
+        Actions.groups({type: 'reset'})
       })
       .catch((err) => console.error('NO CREATION', err));
   }
@@ -80,9 +80,9 @@ export class CreateGroup extends Component {
     this.setState({ text });
   }
 
-  togglePrivate() {
+  togglePrivate(priv) {
     this.setState({
-      private: !this.state.private
+      private: priv
     })
   }
 
@@ -99,10 +99,10 @@ export class CreateGroup extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.publicPrivateContainer}>
-          <TouchableOpacity style={styles.privatePress} onPress={this.togglePrivate}>
+          <TouchableOpacity style={styles.privatePress} onPress={() => this.togglePrivate(false)}>
             <Text style={this.state.private ? styles.pubPriv : styles.pubPrivSelected}>PUBLIC</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.privatePress} onPress={this.togglePrivate}>
+          <TouchableOpacity style={styles.privatePress} onPress={() => this.togglePrivate(true)}>
             <Text style={!this.state.private ? styles.pubPriv : styles.pubPrivSelected}>PRIVATE</Text>
           </TouchableOpacity>
         </View>

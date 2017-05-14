@@ -44,11 +44,12 @@ const styles = StyleSheet.create({
     alignSelf: 'flex-end',
     alignItems: 'flex-end',
     backgroundColor: '#4296CC',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   iconStyleGlobe: {
     height: '100%',
-    paddingTop: 5
+    paddingTop: 5,
+    justifyContent: 'center'
   },
   iconStyleFriends: {
     height: '100%',
@@ -56,16 +57,18 @@ const styles = StyleSheet.create({
     borderLeftWidth: 2,
     borderRightWidth: 2,
     borderRightColor: "#FFF",
-    borderLeftColor: "#FFF"
-
+    borderLeftColor: "#FFF",
+    justifyContent: 'center'
   },
   iconStyleExpert: {
     height: '100%',
-    paddingTop: 5
+    paddingTop: 5,
+    justifyContent: 'center'
   },
   selectedIconContainer: {
     height: '100%',
     backgroundColor: '#FFF',
-    paddingTop: 5
+    paddingTop: 5,
+    justifyContent: 'center'
   }
 })

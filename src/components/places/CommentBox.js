@@ -4,7 +4,6 @@ import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { ImagePicker } from 'expo';
 import { CameraRollPicker } from './CameraRollPicker';
-import { API_BASE } from '../../../config/apiBase';
 
 import { addPlaceToFavorite, postImageToPlace } from '../../services/apiActions';
 
@@ -29,6 +28,7 @@ export class CommentBox extends Component {
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
     this.getCity = this.getCity.bind(this);
     this.getCountry = this.getCountry.bind(this);
+    this.handleKeyDown = this.handleKeyDown.bind(this);
   }
 
   componentDidMount() {
@@ -141,6 +141,12 @@ export class CommentBox extends Component {
       .catch((error) => console.log('Failed Saving Place: ', error));
   }
 
+  handleKeyDown(e) {
+    if(e.nativeEvent.key === "Enter"){
+      Keyboard.dismiss()
+    }
+  }
+
   render() {
     const { place } = this.props;
     const { showPhoto, image, buttonDisabled } = this.state;
@@ -179,6 +185,9 @@ export class CommentBox extends Component {
             value={this.state.text}
             autoFocus={true}
             multiline={true}
+            maxLength={255}
+            returnKeyType={'done'}
+            onKeyPress={this.handleKeyDown}
           />
         </View>
         <Button
