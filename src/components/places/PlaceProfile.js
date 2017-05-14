@@ -96,7 +96,7 @@ export class PlaceProfile extends Component {
                       name="star-o" 
                       type="font-awesome"
                       color="#4296CC"
-                      onPress={() => { Actions.googlePlaces() }}
+                      onPress={() => Actions.addPlace({place: this.state.place})}
                     />
                   }
 
@@ -139,8 +139,7 @@ export class PlaceProfile extends Component {
 
 const styles = StyleSheet.create({
   addFavorite: {
-    marginTop: 15,
-    marginLeft: 10,
+    marginLeft: 5,
     height: 15,
     width: 25
   },
@@ -200,12 +199,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   name: {
-    fontSize: 24
+    fontSize: 20
   },
   profileText: {
     alignSelf: 'flex-start',
-    paddingTop: 15,
-    width: '75%'
+    paddingTop: 10,
+    width: '73%'
   },
   favorites: {
     alignSelf: 'flex-end'

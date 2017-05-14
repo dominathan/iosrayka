@@ -20,7 +20,9 @@ const styles = {
       borderRadius: 1,
       height: 50,
       padding: 5,
-      margin: 5
+      paddingRight: 0,
+      marginTop: 5,
+      marginRight: 5
   },
   iconStyles: {
     color: '#4296cc',

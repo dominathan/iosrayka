@@ -49,7 +49,7 @@ export class GooglePlaces extends Component {
           predefinedPlaces={[charleston]}
           handleAddPlace={this.handleAddPlace}
         />}
-        { showCommentAndPhotoBox && <CommentBox place={place} group={group} /> }
+        { showCommentAndPhotoBox && <CommentBox style={styles.commentBox} place={place} group={group} /> }
       </View>
     );
   }
@@ -57,7 +57,6 @@ export class GooglePlaces extends Component {
 
 const styles = {
   container: {
-    marginTop: 65,
-    flex: 1,
+    flex: 1
   }
 };
