@@ -42,11 +42,12 @@ const TabView = (props, context) => {
       name: 'Groups',
       icon: 'group'
     },
-    {
-      routeCallback: () => { drawer.close(); Actions.inviteFriends({type: 'reset'}); },
-      name: 'Invite Friends',
-      icon: 'plus'
-    },
+    // Commenting out until we go live.
+    // {
+    //   routeCallback: () => { drawer.close(); Actions.inviteFriends({type: 'reset'}); },
+    //   name: 'Invite Friends',
+    //   icon: 'plus'
+    // },
     {
       routeCallback: () => { drawer.close(); Actions.notifications({type: 'reset'}); },
       name: 'Notifications',
