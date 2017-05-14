@@ -182,6 +182,7 @@ export class CommentBox extends Component {
             value={this.state.text}
             autoFocus={true}
             multiline={true}
+            maxLength={255}
             returnKeyType={'done'}
             onKeyPress={this.handleKeyDown}
           />
