@@ -22,10 +22,10 @@ export class GroupDetail extends Component {
       //join public
       this.setState({showActivityIndicator: true});
       joinPublicGroup(group)
-        .then((success) => {
+        .then(success => {
           this.setState({showActivityIndicator: false, groupJoined: true});
         })
-        .catch((err) => {
+        .catch(err => {
           this.setState({showActivityIndicator: false});
          })
 
@@ -62,10 +62,11 @@ export class GroupDetail extends Component {
           </TouchableOpacity>
           <View style={styles.buttonStyles}>
             {
-              group.publicGroup && !showActivityIndicator && !groupJoined && <Button
-                buttonStyle={styles.acceptJoinGroupRequestButton}
-                title="JOIN"
-                icon={{name: 'add', color: '#4296CC'}}
+              group.publicGroup && !showActivityIndicator && !groupJoined && <Icon
+                reverse
+                containerStyle={styles.acceptJoinGroupRequestButton}
+                name='account-multiple-plus'
+                type='material-community'
                 backgroundColor='#FFF'
                 color='#4296CC'
                 borderRadius={1}
@@ -79,13 +80,17 @@ export class GroupDetail extends Component {
               />
             }
             {
-              group.publicGroup || group.privateGroup && !showActivityIndicator && groupJoined && <Icon style={styles.icon} name='check-circle' color="green" />
+              (group.publicGroup || group.privateGroup) && !showActivityIndicator && groupJoined && <Icon
+                containerStyle={styles.acceptJoinGroupRequestButton}
+                name='check-circle' 
+                color="green" />
             }
             {
-              group.privateGroup && !showActivityIndicator && !groupJoined && <Button
-                buttonStyle={styles.acceptJoinGroupRequestButton}
-                title="REQUEST"
-                icon={{name: 'add', color: '#4296CC'}}
+              group.privateGroup && !showActivityIndicator && !groupJoined && <Icon
+                reverse
+                containerStyle={styles.acceptJoinGroupRequestButton}
+                name='account-key'
+                type='material-community'
                 backgroundColor='#FFF'
                 color='#4296CC'
                 borderRadius={1}
@@ -128,9 +133,10 @@ const styles = StyleSheet.create({
     paddingLeft: 10
   },
   acceptJoinGroupRequestButton: {
-    borderWidth: 1,
-    borderColor: '#4296CC',
-    alignSelf: 'flex-end'
+    width: 30,
+    height: 30,
+    alignSelf: 'flex-end',
+    marginRight: 5
   },
   acceptJoinPlus: {
     color: '#4296CC',
