@@ -42,7 +42,6 @@ const TabView = (props, context) => {
       name: 'Groups',
       icon: 'group'
     },
-    // Commenting out until we go live.
     // {
     //   routeCallback: () => { drawer.close(); Actions.inviteFriends({type: 'reset'}); },
     //   name: 'Invite Friends',
