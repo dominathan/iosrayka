@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, ActivityIndicator } from 'react-native';
+import { Icon } from 'react-native-elements';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, ActivityIndicator, AsyncStorage  } from 'react-native';
 import { ImagePicker } from 'expo';
 import MapView from 'react-native-maps';
 import { getPlace } from '../../services/apiActions';
@@ -8,6 +9,7 @@ import { ImageFeed } from '../feed/ImageFeed';
 import { Map } from '../map/Map';
 import { CameraRollPicker } from './CameraRollPicker';
 import ProfileStats from '../profile/ProfileStats';
+import { Actions } from 'react-native-router-flux';
 
 
 import { postImageToPlace } from '../../services/apiActions';
@@ -20,6 +22,7 @@ export class PlaceProfile extends Component {
       markers: [],
       favorites: [],
       photos: [],
+      isFavorited: false,
       place: undefined,
       selectedFilter: 'feed',
       image: undefined,
@@ -50,22 +53,34 @@ export class PlaceProfile extends Component {
   }
 
   getPlace() {
-    getPlace(this.props.place)
+    let activeUser;
+    AsyncStorage.getItem('user')
+      .then(user => {
+        activeUser = JSON.parse(user);
+        return getPlace(this.props.place);
+      })
       .then(data => {
+        let isFavorited = data.favorites.filter(favorite => {
+          return activeUser.id === favorite.user_id;
+        });
+
         const list = data.favorites.map(favorite => {
           favorite['person'] = favorite.user;
           favorite['place'] = data.place;
           return favorite;
         });
+
         const feed = data.feed.map(item => {
           item['place'] = data.place;
           item['person'] = item.user;
           return item;
-        })
+        });
+
         this.setState({
           markers: [data.place],
           favorites: list,
           feed: feed,
+          isFavorited: (isFavorited.length > 0),
           place: data.place,
           photos: data.images,
           feedType: 'feed'
@@ -106,7 +121,7 @@ export class PlaceProfile extends Component {
   }
 
   render() {
-    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, image, addPhotoScreen, showActivityIndicator } = this.state;
+    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, isFavorited, image, addPhotoScreen, showActivityIndicator } = this.state;
     return (
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} region={region} />
@@ -114,7 +129,27 @@ export class PlaceProfile extends Component {
           { place && <View style={styles.profileDetailsContainer}>
             <View style={styles.profileTextContainer}>
               <View style={styles.profileText}>
-                <Text style={styles.name}>{place.name}</Text>
+                <Text style={styles.name}>
+                  {place.name}
+                  {!isFavorited && 
+                    <Icon 
+                      containerStyle={styles.addFavorite}
+                      name="star-o" 
+                      type="font-awesome"
+                      color="#4296CC"
+                      onPress={() => Actions.addPlace({place: this.state.place})}
+                    />
+                  }
+
+                  {isFavorited && 
+                    <Icon 
+                      containerStyle={styles.addFavorite}
+                      name="star"
+                      type="font-awesome"
+                      color="#4296CC"
+                    />
+                  }
+                </Text>
               </View>
               <ProfileStats style={styles.favorites} label="Favorites" icon="star-o" data={favorites.length} />
             </View>
@@ -156,6 +191,11 @@ export class PlaceProfile extends Component {
 }
 
 const styles = StyleSheet.create({
+  addFavorite: {
+    marginLeft: 5,
+    height: 15,
+    width: 25
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -212,12 +252,12 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   name: {
-    fontSize: 24
+    fontSize: 20
   },
   profileText: {
     alignSelf: 'flex-start',
-    paddingTop: 15,
-    width: '75%'
+    paddingTop: 10,
+    width: '73%'
   },
   favorites: {
     alignSelf: 'flex-end'

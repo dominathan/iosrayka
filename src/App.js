@@ -13,6 +13,7 @@ import { GooglePlaces } from './components/places/GooglePlaces';
 import { MyPlaces } from './components/places/MyPlaces';
 import { PlaceProfile } from './components/places/PlaceProfile';
 import { ImageDetail } from './components/feed/ImageDetail';
+import { CommentBox } from './components/places/CommentBox';
 
 import { Login } from './components/Login';
 import { Onboarding } from './components/onboarding/Onboarding';
@@ -101,6 +102,7 @@ class App extends Component {
                 <Scene renderLeftButton={this.renderDrawerButton} key="inviteFriends" component={InviteFriends} title="Invite Friends" />
                 <Scene key='inviteFriendsList' component={InviteFriendsList} title="Invite Friends" />
                 <Scene key="placeProfile" component={PlaceProfile} title="Place" />
+                <Scene key="addPlace" component={CommentBox} title="Add a Place" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="groups" component={Group} title="Groups" onRight={() => Actions.searchGroup()} rightTitle="Search" rightButtonTextStyle={{ color: "#FFF" }} />
                 <Scene key="createGroup" component={CreateGroup} title="Create a Group" />
                 <Scene key='searchGroup' component={GroupSearch} title="Search for Groups" />

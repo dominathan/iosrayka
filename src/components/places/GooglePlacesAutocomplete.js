@@ -8,6 +8,7 @@ const WINDOW = Dimensions.get('window');
 const defaultStyles = {
   container: {
     flex: 1,
+    marginTop: 65
   },
   textInputContainer: {
     backgroundColor: '#C9C9CE',

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, Linking, AsyncStorage, ActivityIndicator } from 'react-native';
 import { Icon } from 'react-native-elements';
 
-import { getFriends, getUserFeed, getUserPlaces, getPendingFriends, getUserFriends } from '../../services/apiActions';
+import { addFriend, getFriends, getUserFeed, getUserPlaces, getPendingFriends, getUserFriends } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { Map } from '../map/Map';
 import ProfileStats from './ProfileStats';
@@ -18,12 +18,16 @@ export class Profile extends Component {
       friends: [],
       favoritesList: [],
       person: this.props.person || null,
-      selectedFilter: 'feed'
+      selectedFilter: 'feed',
+      showActivityIndicator: false,
+      friendAdded: false,
+      showFriendStatus: true
     };
 
     this.getCountriesVisited = this.getCountriesVisited.bind(this);
     this.feed = this.feed.bind(this);
     this.userPlaces = this.userPlaces.bind(this);
+    this.follow = this.follow.bind(this);
   }
 
   componentWillMount() {
@@ -51,10 +55,33 @@ export class Profile extends Component {
         feedType: 'feed' });
       });
   }
+  
+  follow(friend) {
+    this.setState({showActivityIndicator: true});
+    addFriend(friend)
+      .then((resp) => {
+        this.setState({friendAdded:true, showActivityIndicator: false})
+      });
+  }
 
   friends() {
-    getUserFriends(this.props.person)
-      .then((friends) => {
+    let activeUser;
+    AsyncStorage.getItem('user')
+      .then(user => {
+        activeUser = JSON.parse(user);
+        if (activeUser.id === this.props.person.id) {
+          this.setState({showFriendStatus: false});
+        }
+        
+        return getUserFriends(this.props.person);
+      })
+      .then(friends => {
+        let activeFriend = friends.filter(friend => {
+          return friend.id === activeUser.id;
+        });
+        if (activeFriend.length === 1) {
+          this.setState({friendAdded: true});
+        }
         this.setState({ friends });
       })
       .catch((err) => console.error('NO FRIENDS!!!', err));
@@ -89,7 +116,7 @@ export class Profile extends Component {
   }
 
   render() {
-    const { countries, favorites, favoritesList, feed, feedType, friends, markers, person, selectedFilter } = this.state;
+    const { countries, favorites, favoritesList, feed, feedType, friends, markers, person, selectedFilter, friendAdded, showActivityIndicator, showFriendStatus } = this.state;
 
     return (
       <View style={styles.container}>
@@ -97,10 +124,28 @@ export class Profile extends Component {
         <View style={styles.detailsContainer}>
           { person && <View style={styles.profileDetailsContainer}>
             <View source={styles.profileImageContainer}>
-            <Image source={{ uri: person.photo_url }} style={styles.photo} />
+              <Image source={{ uri: person.photo_url }} style={styles.photo} />
             </View>
             <View style={styles.profileTextContainer}>
-              <Text style={styles.name}>{person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>} {person.first_name} {person.last_name}</Text>
+              <Text style={styles.name}>
+                {person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>}
+                {!person.first_name && person.email}
+                {person.first_name} {person.last_name}
+                { showFriendStatus &&
+                  !friendAdded &&
+                    <Icon 
+                      containerStyle={styles.addFriendContainer}
+                      name="add" 
+                      color="#4296CC"
+                      onPress={() => { this.follow(person) }}
+                    />
+                }
+                { showFriendStatus &&
+                  friendAdded && 
+                  <Text style={styles.friendAddedText}> (Following)</Text>
+                }
+              </Text>
+
               {person.expert &&
                 <View style={styles.expertLinkContainer}>
                   {person.expert_blog_log &&
@@ -139,6 +184,12 @@ export class Profile extends Component {
 }
 
 const styles = StyleSheet.create({
+  addFriendContainer: {
+    marginTop: 15,
+    marginLeft: 10,
+    height: 15,
+    width: 25
+  },
   container: {
     flex: 1,
     justifyContent: 'center',
@@ -175,6 +226,9 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     color: '#8D8F90',
     paddingTop: 12
+  },
+  friendAddedText: {
+    fontSize: 12
   },
   selectedFilter: {
     color: '#4296CC',

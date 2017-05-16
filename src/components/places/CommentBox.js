@@ -36,6 +36,9 @@ export class CommentBox extends Component {
   }
 
   savePlace(place) {
+    if (place.google_id) {
+      return this.saveChosenPlaceAsFavorite(place, this.props.group);
+    }
     const city = this.getCity(place);
     const country = this.getCountry(place);
     const parsedPlace = {
@@ -145,7 +148,7 @@ export class CommentBox extends Component {
   }
 
   render() {
-    const { place } = this.props
+    const { place } = this.props;
     const { showPhoto, image, buttonDisabled } = this.state;
     return (
       <View style={styles.container}>
@@ -205,6 +208,7 @@ export class CommentBox extends Component {
 const styles = {
   container: {
     flex: 1,
+    marginTop: 70
   },
   placeToAdd: {
     flexDirection: 'row',
@@ -214,7 +218,9 @@ const styles = {
     borderBottomColor: 'gray'
   },
   placeToAddText: {
-    marginLeft: 15
+    marginLeft: 15,
+    width: '75%',
+    flexWrap: 'wrap'
   },
   star: {
     position: 'absolute',

@@ -17,7 +17,7 @@ if (Expo.Constants.manifest.xde) {
   // This value needs to be the tunnel url for your local Expo project.
   // It also needs to be listed in valid callback urls of your Auth0 Client
   // Settings. See the README for more information.
-  redirectUri = 'exp://3d-fzc.dominathan.iosrayka.exp.direct/+/redirect';
+  redirectUri = 'exp://s6-e2j.bhare1987.iosrayka.exp.direct/+/redirect';
 } else {
   redirectUri = `${Expo.Constants.linkingUri}/redirect`;
 }

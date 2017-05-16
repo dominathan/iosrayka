@@ -235,6 +235,7 @@ export class Home extends Component {
 
   render() {
     const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator } = this.state;
+    let placesPopulated = (places.getRowCount() > 0);
     return (
       <View style={styles.container}>
         {region && <Map onRegionChange={this.onRegionChange} region={region} markers={markers}/>}
@@ -271,7 +272,8 @@ export class Home extends Component {
             />
           </View>}
           {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
-          {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
+          {feedReady && selectedFilter === 'top' && placesPopulated && <PlaceList places={places} />}
+          {feedReady && selectedFilter === 'top' && !placesPopulated && <Text style={styles.messageText}>"Nobody has added a favorite in your area!"</Text>}
           {feedReady && selectedFilter === 'search' && <HomeSearch updatePlaceAndFeedFromSearch={this.updatePlaceAndFeedFromSearch}/>}
           {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}
         </View>
@@ -350,5 +352,14 @@ const styles = StyleSheet.create({
   },
   activityIndicator: {
     marginTop: '25%'
+  },
+  messageText: {
+    flex: 1,
+    marginRight: 10,
+    marginLeft: 10,
+    marginTop: 10,
+    justifyContent: 'space-between',
+    fontSize: 16,
+    fontWeight: 'bold'
   }
 });

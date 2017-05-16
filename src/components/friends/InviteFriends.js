@@ -29,7 +29,6 @@ export class InviteFriends extends Component {
       pageOffset: 0,
     });
     Actions.inviteFriendsList({contacts: contacts.data});
-    console.log("MY CONTACTS", contacts)
   }
 
   render() {

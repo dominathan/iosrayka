@@ -37,6 +37,6 @@ const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
     alignSelf: 'stretch',
-    marginLeft: 15
+    marginLeft: 0
   }
 });
