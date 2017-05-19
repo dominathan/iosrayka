@@ -36,7 +36,18 @@ export class Home extends Component {
       }),
       text: '',
       watchID: null,
-      showActivityIndicator: false
+      showActivityIndicator: false,
+      types: [
+        { name: 'bar||night_club', visibleName: 'Bar', checked: false},
+        { name: "cafe", visibleName: 'Coffee', checked: false},
+        { name: "food||restaurant", visibleName: 'Restaurant', checked: false},
+        { name: "lodging", visibleName: 'Hotel', checked: false},
+        { name: "park", visibleName: 'Park', checked: false},
+        { name: "place_of_worship", visibleName: 'Place of Worship' , checked: false},
+        { name: "spa", visibleName: 'Spa' , checked: false},
+        { name: "point_of_interes||establishment", visibleName: 'Other' , checked: false},
+        { name: 'zoo||amusement_park||aquarium||art_gallery||museum', visibleName: 'Things To Do', checked: false}
+      ]
     };
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getHomePlaces = this.getHomePlaces.bind(this);
@@ -52,6 +63,7 @@ export class Home extends Component {
     this.selectedFilterChange = this.selectedFilterChange.bind(this);
     this.filterPlacesFromFeed = this.filterPlacesFromFeed.bind(this);
     this.updatePlaceAndFeedFromSearch = this.updatePlaceAndFeedFromSearch.bind(this);
+    this.toggleFilterCheckbox = this.toggleFilterCheckbox.bind(this);
   }
 
   componentDidMount(props) {
@@ -162,6 +174,13 @@ export class Home extends Component {
     .catch(err => console.log("ERR FILTER", data))
   }
 
+  toggleFilterCheckbox(type) {
+    const { types } = this.state;
+    let typeIndex = types.findIndex(typecheck => typecheck.visibleName === type.visibleName)
+    types[typeIndex].checked = !types[typeIndex].checked
+    this.setState({types: types})
+  }
+
   globalFilter() {
     this.setState({ feedReady: false, showActivityIndicator: true });
     // const latitude = this.state.region.latitude._value;
@@ -234,7 +253,7 @@ export class Home extends Component {
   }
 
   render() {
-    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator } = this.state;
+    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator, types } = this.state;
     let placesPopulated = (places.getRowCount() > 0);
     return (
       <View style={styles.container}>
@@ -275,7 +294,7 @@ export class Home extends Component {
           {feedReady && selectedFilter === 'top' && placesPopulated && <PlaceList places={places} />}
           {feedReady && selectedFilter === 'top' && !placesPopulated && <Text style={styles.messageText}>"Nobody has added a favorite in your area!"</Text>}
           {feedReady && selectedFilter === 'search' && <HomeSearch updatePlaceAndFeedFromSearch={this.updatePlaceAndFeedFromSearch}/>}
-          {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}
+          {feedReady && selectedFilter === 'filter' && <Filter types={types} onPress={this.handleFilter} toggleFilterCheckbox={this.toggleFilterCheckbox} />}
         </View>
         <View style={styles.feedButtons}>
           <FeedButtons handleGlobal={this.handleGlobal} handleExpert={this.handleExpert} handleFriends={this.handleFriends} selectedHeader={selectedHeader}/>

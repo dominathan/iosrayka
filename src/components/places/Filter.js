@@ -1,50 +1,55 @@
-import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
-import { List, ListItem } from 'react-native-elements'
+import React, {Component} from 'react';
+import { ScrollView, StyleSheet, View, Text } from 'react-native';
+import { List, ListItem, CheckBox } from 'react-native-elements'
 
-const types = [
-  { name: 'bar||night_club', visibleName: 'Bar'},
-  { name: "cafe", visibleName: 'Coffee'},
-  { name: "food||restaurant", visibleName: 'Restaurant'},
-  { name: "lodging", visibleName: 'Hotel'},
-  { name: "park", visibleName: 'Park'},
-  { name: "place_of_worship", visibleName: 'Place of Worship' },
-  { name: "spa", visibleName: 'Spa' },
-  { name: "point_of_interes||establishment", visibleName: 'Other' },
-  { name: 'zoo||amusement_park||aquarium||art_gallery||museum', visibleName: 'Things To Do'}
-]
 
-const createTypeList = (onPress) => {
-  return types.map((type, idx) => {
+export default class Filter extends Component {
+  createTypeList(type, idx) {
     return (
       <ListItem
         key={idx}
-        title={type.visibleName}
-        rightIcon={{name: 'filter', type: 'font-awesome'}}
-        onPress={() => selectedFilter(onPress, type)}
+        subtitle={
+          <View style={styles.subtitle}>
+            <Text>{type.visibleName}</Text>
+            <CheckBox
+              containerStyle={styles.checkboxContainer}
+              checked={type.checked}
+              onPress={() => {
+                this.props.toggleFilterCheckbox(type);
+              }}
+            />
+          </View>
+        }
+        hideChevron={true}
+        // onPress={() => selectedFilter(onPress, type)}
       />
     )
-  })
-}
+  }
 
-const selectedFilter = (onPress, type) => {
-  onPress(type)
+  render() {
+    return (
+      <ScrollView>
+        <List style={styles.container}>
+          {this.props.types.map((type,idx) => this.createTypeList(type, idx))}
+        </List>
+      </ScrollView>
+    );
+  }
 }
-
-const Filter = ({ onPress, props }) => {
-  return (
-    <ScrollView>
-      <List style={styles.container}>
-        {createTypeList(onPress)}
-      </List>
-    </ScrollView>
-  );
-};
 
 const styles = StyleSheet.create({
   container: {
-    marginTop: 0
+    marginTop: 0,
+  },
+  checkboxContainer: {
+    alignItems: 'flex-end',
+    alignSelf: 'center',
+    justifyContent: 'center',
+    flex: 1,
+    backgroundColor: '#FFF',
+    borderWidth: 0,
+  },
+  subtitle: {
+
   }
 });
-
-export default Filter;
