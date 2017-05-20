@@ -10,7 +10,7 @@ export default class Filter extends Component {
         key={idx}
         subtitle={
           <View style={styles.subtitle}>
-            <Text>{type.visibleName}</Text>
+            <Text style={styles.title}>{type.visibleName}</Text>
             <CheckBox
               containerStyle={styles.checkboxContainer}
               checked={type.checked}
@@ -50,6 +50,10 @@ const styles = StyleSheet.create({
     borderWidth: 0,
   },
   subtitle: {
-
+    flexDirection: 'row'
+  },
+  title: {
+    alignSelf: 'center',
+    fontSize: 20
   }
 });
