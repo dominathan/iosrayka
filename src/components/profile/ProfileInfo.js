@@ -27,7 +27,7 @@ export class ProfileInfo extends Component {
 
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
-      user = JSON.parse(user)
+      user = JSON.parse(user);
       this.setState({user: user, image: user.photo_url });
     });
   }
@@ -73,15 +73,12 @@ export class ProfileInfo extends Component {
                   return this.handlePhotoUpload(this.state.image)
                 }
               })
-              .then((data) => {
-                return new Promise((resolve,reject) => {
-                  AsyncStorage.removeItem('user',(err, result) => {
-                    AsyncStorage.setItem('user', JSON.stringify(data), (err2,result2) => {
-                      if(err2) reject(err2)
-                      resolve(result2)
-                    })
-                  })
-                })
+              .then(data => {
+                return Promise.all([AsyncStorage.removeItem('user'), data]);
+              })
+              .then(results => {
+                let userData = results[1];
+                return AsyncStorage.setItem('user', JSON.stringify(data));
               })
               .then(data => {
                 Actions.settings({type: 'reset'});

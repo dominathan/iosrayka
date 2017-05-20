@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { ListView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
-import { List, ListItem } from 'react-native-elements';
 
 import { FeedDetail } from './FeedDetail';
 
