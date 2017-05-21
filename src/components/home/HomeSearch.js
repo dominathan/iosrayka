@@ -60,7 +60,7 @@ export class HomeSearch extends Component {
           onChangeText={this.handleTextChange}
           placeholder='Enter city or country' />
 
-          <PlaceList places={places} />
+          { places && places.length > 0 && <PlaceList places={places} /> }
       </View>
 
     );
@@ -70,7 +70,8 @@ export class HomeSearch extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginTop: 65
   },
   textInput: {
     backgroundColor: '#dee2e8',

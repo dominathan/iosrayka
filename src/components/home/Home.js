@@ -1,6 +1,6 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ListView, ActivityIndicator} from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, ListView, ActivityIndicator, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
 import { Icon, Grid, Row } from 'react-native-elements';
@@ -47,7 +47,8 @@ export class Home extends Component {
         { name: "spa", visibleName: 'Spa' , checked: false},
         { name: "point_of_interes,establishment", visibleName: 'Other' , checked: false},
         { name: 'zoo,amusement_park,aquarium,art_gallery,museum', visibleName: 'Things To Do', checked: false}
-      ]
+      ],
+      user: null
     };
     this.onRegionChange = this.onRegionChange.bind(this);
     this.getHomePlaces = this.getHomePlaces.bind(this);
@@ -62,11 +63,20 @@ export class Home extends Component {
     this.canCallApi = this.canCallApi.bind(this);
     this.selectedFilterChange = this.selectedFilterChange.bind(this);
     this.filterPlacesFromFeed = this.filterPlacesFromFeed.bind(this);
-    this.updatePlaceAndFeedFromSearch = this.updatePlaceAndFeedFromSearch.bind(this);
+    this.goToHomeSearch = this.goToHomeSearch.bind(this);
     this.toggleFilterCheckbox = this.toggleFilterCheckbox.bind(this);
+    this.setCurrentUser = this.setCurrentUser.bind(this);
+  }
+
+  setCurrentUser() {
+    AsyncStorage.getItem('user', (err, user) => {
+      this.setState({user: JSON.parse(user) });
+    });
   }
 
   componentDidMount(props) {
+    this.setCurrentUser();
+
     this.watchID = navigator.geolocation.watchPosition((position) => {
       let region = new MapView.AnimatedRegion({
           latitude: position.coords.latitude,
@@ -250,19 +260,12 @@ export class Home extends Component {
         .catch((err) => console.log('fuck balls: ', err));
   }
 
-  updatePlaceAndFeedFromSearch(data) {
-    this.setState({
-      markers: data,
-      places: this.state.places.cloneWithRows(data)
-    })
-    const updatedFeed = [].concat(...data.map(elm => elm.feed))
-    this.setState({
-      feed: updatedFeed
-    })
+  goToHomeSearch() {
+    Actions.homeSearch({type: "reset"})
   }
 
   render() {
-    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator, types } = this.state;
+    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator, types, user } = this.state;
     let placesPopulated = (places.getRowCount() > 0);
     return (
       <View style={styles.container}>
@@ -299,10 +302,10 @@ export class Home extends Component {
               size="large"
             />
           </View>}
-          {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
+          {feedReady && user && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} user={user} />}
           {feedReady && selectedFilter === 'top' && placesPopulated && <PlaceList places={places} />}
           {feedReady && selectedFilter === 'top' && !placesPopulated && <Text style={styles.messageText}>"Nobody has added a favorite in your area!"</Text>}
-          {feedReady && selectedFilter === 'search' && <HomeSearch updatePlaceAndFeedFromSearch={this.updatePlaceAndFeedFromSearch}/>}
+          {feedReady && selectedFilter === 'search' && this.goToHomeSearch()}
           {feedReady && selectedFilter === 'filter' && <Filter types={types} onPress={this.handleFilter} toggleFilterCheckbox={this.toggleFilterCheckbox} />}
         </View>
         <View style={styles.feedButtons}>

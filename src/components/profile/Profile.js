@@ -28,12 +28,20 @@ export class Profile extends Component {
     this.feed = this.feed.bind(this);
     this.userPlaces = this.userPlaces.bind(this);
     this.follow = this.follow.bind(this);
+    this.setCurrentUser = this.setCurrentUser.bind(this);
   }
 
   componentWillMount() {
+    this.setCurrentUser();
     this.userPlaces();
     this.friends();
     this.feed();
+  }
+
+  setCurrentUser() {
+    AsyncStorage.getItem('user', (err, user) => {
+      this.setState({user: JSON.parse(user) });
+    });
   }
 
   getCountriesVisited() {
@@ -55,7 +63,7 @@ export class Profile extends Component {
         feedType: 'feed' });
       });
   }
-  
+
   follow(friend) {
     this.setState({showActivityIndicator: true});
     addFriend(friend)
@@ -72,7 +80,7 @@ export class Profile extends Component {
         if (activeUser.id === this.props.person.id) {
           this.setState({showFriendStatus: false});
         }
-        
+
         return getUserFriends(this.props.person);
       })
       .then(friends => {
@@ -116,7 +124,7 @@ export class Profile extends Component {
   }
 
   render() {
-    const { countries, favorites, favoritesList, feed, feedType, friends, markers, person, selectedFilter, friendAdded, showActivityIndicator, showFriendStatus } = this.state;
+    const { countries, favorites, favoritesList, feed, feedType, friends, markers, person, selectedFilter, friendAdded, showActivityIndicator, showFriendStatus, user } = this.state;
 
     return (
       <View style={styles.container}>
@@ -133,15 +141,15 @@ export class Profile extends Component {
                 {person.first_name} {person.last_name}
                 { showFriendStatus &&
                   !friendAdded &&
-                    <Icon 
+                    <Icon
                       containerStyle={styles.addFriendContainer}
-                      name="add" 
+                      name="add"
                       color="#4296CC"
                       onPress={() => { this.follow(person) }}
                     />
                 }
                 { showFriendStatus &&
-                  friendAdded && 
+                  friendAdded &&
                   <Text style={styles.friendAddedText}> (Following)</Text>
                 }
               </Text>
@@ -172,8 +180,8 @@ export class Profile extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.feed}>
-               {(feedType === 'feed') && <Feed feed={feed} />}
-               {(feedType === 'favoritesList') && <Feed feed={favoritesList} />}
+               {(feedType === 'feed') && user && <Feed feed={feed} user={user} />}
+               {(feedType === 'favoritesList') && user && <Feed feed={favoritesList} user={user} />}
              </View>
           </View>
 
