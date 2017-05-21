@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { TextInput, StyleSheet, View, ListView } from 'react-native';
-import { SearchBar } from 'react-native-elements'
+import { Actions } from 'react-native-router-flux';
 
-import { PlaceList } from '../places/PlaceList';
+import GOOGLE_API_KEY from '../../../config/google';
+import { GooglePlacesAutocomplete } from '../places/GooglePlacesAutocomplete';
 import { getFilterPlacesCityOrCountry } from '../../services/apiActions';
 
 const DEBOUNCE_TIME = 100;
@@ -25,29 +26,11 @@ export class HomeSearch extends Component {
       lastApiCall: null,
     };
 
-    this.handleTextChange = this.handleTextChange.bind(this);
-    this.searchForPlace = this.searchForPlace.bind(this);
-    this.canCallApi = this.canCallApi.bind(this);
+    this.handleAddPlace = this.handleAddPlace.bind(this);
   }
 
-  handleTextChange(text) {
-    if ( this.canCallApi() ) {
-      this.searchForPlace(text);
-    }
-    this.setState({ text });
-  }
-
-  canCallApi() {
-    return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
-  }
-
-  searchForPlace(text) {
-    this.setState({ lastApiCall: new Date() })
-    getFilterPlacesCityOrCountry(`city_or_country=${text}`)
-      .then(data => {
-        this.setState({ places: this.state.places.cloneWithRows(data) })
-      })
-      .catch(err => console.log("ERRR", err))
+  handleAddPlace(place) {
+    Actions.home({location: place.geometry.location, type: 'reset'})
   }
 
   render() {
@@ -55,12 +38,22 @@ export class HomeSearch extends Component {
 
     return (
       <View style={styles.container}>
-        <SearchBar
-          lightTheme
-          onChangeText={this.handleTextChange}
-          placeholder='Enter city or country' />
-
-          <PlaceList places={places} />
+        <GooglePlacesAutocomplete
+          placeholder='Search for City or Country'
+          minLength={2}
+          autoFocus
+          onPress={(data, details) => { // 'details' is provided when fetchDetails = true
+            // console.log("DATA: ", data)
+            // console.log("DETAILS: ", details)
+          }}
+          query={{
+           // available options: https://developers.google.com/places/web-service/autocomplete
+            key: GOOGLE_API_KEY,
+            language: 'en', // language of the results
+           types: '(cities)', // default: 'geocode'
+          }}
+          handleAddPlace={this.handleAddPlace}
+        />
       </View>
 
     );

@@ -31,8 +31,10 @@ export class GroupProfile extends Component {
       watchID: null,
       lastCall: null
     };
+
     this.navigateToAddPlace = this.navigateToAddPlace.bind(this);
     this.getGroupPlaces = this.getGroupPlaces.bind(this);
+    this.setCurrentUser = this.setCurrentUser.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -49,6 +51,7 @@ export class GroupProfile extends Component {
   }
 
   componentDidMount() {
+    this.setCurrentUser();
     this.getGroupPlaces(this.props.group.name);
   }
 
@@ -70,6 +73,12 @@ export class GroupProfile extends Component {
     navigator.geolocation.clearWatch(this.state.watchID);
   }
 
+  setCurrentUser() {
+    AsyncStorage.getItem('user', (err, user) => {
+      this.setState({user: JSON.parse(user) });
+    });
+  }
+
   navigateToAddPlace() {
     Actions.googlePlaces({region: this.state.region, group: this.props.group});
   }
@@ -81,7 +90,7 @@ export class GroupProfile extends Component {
   }
 
   render() {
-    const { selectedFilter, feedReady, feed, markers, places, region } = this.state;
+    const { selectedFilter, feedReady, feed, markers, places, region, user } = this.state;
     return (
       <View style={styles.container}>
         {region && <Map region={region} markers={markers}/>}
@@ -95,7 +104,7 @@ export class GroupProfile extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.feed}>
-          {feedReady && selectedFilter === 'feed' && <Feed feed={feed} />}
+          {feedReady && user && selectedFilter === 'feed' && <Feed feed={feed} user={user} />}
           {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
         </View>
         <TouchableOpacity style={styles.addPlaceButton}>

@@ -22,6 +22,7 @@ export class PlaceProfile extends Component {
       markers: [],
       favorites: [],
       photos: [],
+      user: undefined,
       isFavorited: false,
       place: undefined,
       selectedFilter: 'feed',
@@ -39,10 +40,18 @@ export class PlaceProfile extends Component {
     this.getPlace = this.getPlace.bind(this);
     this.pickImage = this.pickImage.bind(this);
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
+    this.setCurrentUser = this.setCurrentUser.bind(this);
   }
 
   componentDidMount() {
+    this.setCurrentUser();
     this.getPlace();
+  }
+
+  setCurrentUser() {
+    AsyncStorage.getItem('user', (err, user) => {
+      this.setState({user: JSON.parse(user) });
+    });
   }
 
   selectedFilterChange(val) {
@@ -121,7 +130,7 @@ export class PlaceProfile extends Component {
   }
 
   render() {
-    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, isFavorited, image, addPhotoScreen, showActivityIndicator } = this.state;
+    const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, isFavorited, image, addPhotoScreen, showActivityIndicator, user } = this.state;
     return (
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} region={region} />
@@ -131,18 +140,18 @@ export class PlaceProfile extends Component {
               <View style={styles.profileText}>
                 <Text style={styles.name}>
                   {place.name}
-                  {!isFavorited && 
-                    <Icon 
+                  {!isFavorited &&
+                    <Icon
                       containerStyle={styles.addFavorite}
-                      name="star-o" 
+                      name="star-o"
                       type="font-awesome"
                       color="#4296CC"
                       onPress={() => Actions.addPlace({place: this.state.place})}
                     />
                   }
 
-                  {isFavorited && 
-                    <Icon 
+                  {isFavorited &&
+                    <Icon
                       containerStyle={styles.addFavorite}
                       name="star"
                       type="font-awesome"
@@ -172,8 +181,8 @@ export class PlaceProfile extends Component {
               }
             </View>
             <View style={styles.feed}>
-              {(feedType === 'feed') && <Feed showButtons={true} feed={feed} />}
-              {(feedType === 'favorites') && <Feed showButtons={false} feed={favorites} />}
+              {(feedType === 'feed') && user && <Feed showButtons={true} feed={feed} user={user} />}
+              {(feedType === 'favorites') && user && <Feed showButtons={false} feed={favorites} user={user} />}
               {(feedType === 'photos') && <ImageFeed images={photos} />}
               {addPhotoScreen && <CameraRollPicker pickImage={() => console.log()} image={image}/>}
               {showActivityIndicator && <View style={styles.activityIndicator}>

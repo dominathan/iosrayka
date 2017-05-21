@@ -21,7 +21,6 @@ export default class Filter extends Component {
           </View>
         }
         hideChevron={true}
-        // onPress={() => selectedFilter(onPress, type)}
       />
     )
   }

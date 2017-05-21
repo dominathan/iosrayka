@@ -11,22 +11,10 @@ export class FeedDetail extends Component {
     this.state = {
       showHeart: props.feed.showHeart,
       showBeenThere: props.feed.showBeenThere,
-      user: undefined
     }
 
     this.handleLike = this.handleLike.bind(this);
     this.handleBeenThere = this.handleBeenThere.bind(this);
-    this.setCurrentUser = this.setCurrentUser.bind(this);
-  }
-
-  componentDidMount() {
-    this.setCurrentUser();
-  }
-
-  setCurrentUser() {
-    AsyncStorage.getItem('user', (err, user) => {
-      this.setState({user: JSON.parse(user) });
-    });
   }
 
   handleLike(feed) {
@@ -44,9 +32,9 @@ export class FeedDetail extends Component {
   }
 
   render() {
-    const { feed } = this.props;
+    const { feed, user } = this.props;
     const { showHeart, showBeenThere } = this.state;
-    if (!this.state.user) {
+    if (!user) {
       return (null);
     } else {
       return (
@@ -76,7 +64,7 @@ export class FeedDetail extends Component {
             <Text style={styles.textComment}>
               {feed.comment}
             </Text>
-            {this.props.showButtons && this.state.user && this.state.user.id !== feed.user.id && <View style={styles.realSubTitle}>
+            {this.props.showButtons && user && user.id !== feed.user.id && <View style={styles.realSubTitle}>
               <View style={styles.likeAndBeen}>
                 { !showHeart && <TouchableOpacity onPress={() => this.handleLike(feed)}><Text style={styles.likeButton}>Like</Text></TouchableOpacity> }
                 { !showBeenThere && <TouchableOpacity onPress={() => this.handleBeenThere(feed)}><Text style={styles.beenButton}>Been there</Text></TouchableOpacity> }
