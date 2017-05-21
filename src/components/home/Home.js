@@ -29,10 +29,10 @@ export class Home extends Component {
       selectedHeader: 'global',
       lastApiCall: null,
       region: new MapView.AnimatedRegion({
-        latitude: 32.8039917,
-        longitude: -79.9525327,
-        latitudeDelta: 0.00922*1.5,
-        longitudeDelta: 0.00421*1.5
+        latitude: props.location && props.location.lat ? props.location.lat : 32.8039917,
+        longitude: props.location && props.location.lat ? props.location.lng : -79.9525327,
+        latitudeDelta: 0.00922*6.5,
+        longitudeDelta: 0.00421*6.5
       }),
       text: '',
       watchID: null,
@@ -79,12 +79,12 @@ export class Home extends Component {
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
       let region = new MapView.AnimatedRegion({
-          latitude: position.coords.latitude,
-          longitude: position.coords.longitude,
-          latitudeDelta: 0.00922*1.5,
-          longitudeDelta: 0.00421*1.5
+          latitude: this.props.location && this.props.location.lat ? this.props.location.lat : position.coords.latitude,
+          longitude: this.props.location && this.props.location.lng ? this.props.location.lng : position.coords.longitude,
+          latitudeDelta: 0.00922*6.5,
+          longitudeDelta: 0.00421*6.5
       })
-      this.state.region = region;
+      this.setState({region: region});
       this.handleGlobal();
     });
     this.globalFilter();
@@ -202,10 +202,16 @@ export class Home extends Component {
 
   globalFilter() {
     this.setState({ feedReady: false, showActivityIndicator: true });
+    let queryString = '';
+    if(this.props.location && this.props.location.lat) {
+        const latitude = this.props.location.lat;
+        const longitude =  this.props.location.lng;
+        queryString = `lat=${latitude}&lng=${longitude}&distance=20`
+    }
     // const latitude = this.state.region.latitude._value;
     // const longitude = this.state.region.longitude._value;
     // const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
-    getFeed()
+    getFeed(queryString)
       .then((data) => {
         if(data.errors) { Actions.login(); return }
         this.setState({

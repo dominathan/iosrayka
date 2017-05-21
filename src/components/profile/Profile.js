@@ -31,7 +31,7 @@ export class Profile extends Component {
     this.setCurrentUser = this.setCurrentUser.bind(this);
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.setCurrentUser();
     this.userPlaces();
     this.friends();
