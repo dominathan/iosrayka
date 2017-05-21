@@ -28,12 +28,12 @@ export class Home extends Component {
       selectedFilter: 'feed',
       selectedHeader: 'global',
       lastApiCall: null,
-      region: new MapView.AnimatedRegion({
+      region: {
         latitude: props.location && props.location.lat ? props.location.lat : 32.8039917,
         longitude: props.location && props.location.lat ? props.location.lng : -79.9525327,
         latitudeDelta: 0.00922*6.5,
         longitudeDelta: 0.00421*6.5
-      }),
+      },
       text: '',
       watchID: null,
       showActivityIndicator: false,
@@ -78,12 +78,12 @@ export class Home extends Component {
     this.setCurrentUser();
 
     this.watchID = navigator.geolocation.watchPosition((position) => {
-      let region = new MapView.AnimatedRegion({
+      let region = {
           latitude: this.props.location && this.props.location.lat ? this.props.location.lat : position.coords.latitude,
           longitude: this.props.location && this.props.location.lng ? this.props.location.lng : position.coords.longitude,
           latitudeDelta: 0.00922*6.5,
           longitudeDelta: 0.00421*6.5
-      })
+      }
       this.setState({region: region});
       this.handleGlobal();
     });
@@ -122,8 +122,8 @@ export class Home extends Component {
     this.setState({
       lastApiCall: new Date()
     })
-    const latitude = this.state.region.latitude._value;
-    const longitude = this.state.region.longitude._value;
+    const latitude = this.state.region.latitude
+    const longitude = this.state.region.longitude
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
     getPlaces(queryString)
       .then((data) => {
@@ -141,7 +141,7 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
-    this.state.region.setValue(region);
+    this.setState({region: region});
     if ( this.canCallApi() ) {
       this.getHomePlaces();
     }
