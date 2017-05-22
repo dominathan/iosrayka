@@ -182,8 +182,8 @@ export class Home extends Component {
 
     typeQueryString = typeQueryString.lastIndexOf(",") === typeQueryString.length - 1 ? typeQueryString.slice(0,typeQueryString.length - 1) : typeQueryString;
 
-    const latitude = this.state.region.latitude._value;
-    const longitude = this.state.region.longitude._value;
+    const latitude = this.state.region.latitude;
+    const longitude = this.state.region.longitude;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20&type=${typeQueryString}`;
     getFilterPlaces(queryString)
     .then(data => {
