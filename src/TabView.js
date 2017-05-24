@@ -39,7 +39,7 @@ const TabView = (props, context) => {
     },
     {
       routeCallback: () => { drawer.close(); Actions.groups({type: 'reset'}); },
-      name: 'Groups',
+      name: 'Study Abroad Groups',
       icon: 'group'
     },
     // {
