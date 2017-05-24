@@ -1,6 +1,6 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ListView } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, ListView, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
 import { Icon } from 'react-native-elements';
