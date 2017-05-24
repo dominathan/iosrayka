@@ -125,6 +125,7 @@ export class Home extends Component {
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.state.watchID);
+    AsyncStorage.multiRemove(['homePlaces', 'homeFeed', 'friendsFeed', 'friendsPlaces', 'expertsFeed', 'expertsPlaces']);
   }
 
   onRegionChange(region) {
