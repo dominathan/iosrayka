@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { TextInput, StyleSheet, View, ListView } from 'react-native';
+import { StyleSheet, View, ListView } from 'react-native';
 import { SearchBar } from 'react-native-elements'
 
 import { PlaceList } from '../places/PlaceList';
@@ -12,7 +12,7 @@ export class HomeSearch extends Component {
     placeholder: 'Enter place name',
     placeholderTextColor: '#A8A8A8',
     autoFocus: false,
-  }
+  };
   constructor(props) {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
@@ -51,7 +51,7 @@ export class HomeSearch extends Component {
   }
 
   render() {
-    const { searching, places } = this.state;
+    const { places } = this.state;
 
     return (
       <View style={styles.container}>

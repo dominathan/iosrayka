@@ -1,9 +1,9 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ListView, ActivityIndicator} from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, ListView, ActivityIndicator, AsyncStorage} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
-import { Icon, Grid, Row } from 'react-native-elements';
+import { Icon } from 'react-native-elements';
 
 import { getPlaces, getFeed, getFriendFeed, getExpertFeed, getFilterPlaces, getExpertPlaces, getFriendPlaces } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
@@ -52,6 +52,8 @@ export class Home extends Component {
     this.selectedFilterChange = this.selectedFilterChange.bind(this);
     this.filterPlacesFromFeed = this.filterPlacesFromFeed.bind(this);
     this.updatePlaceAndFeedFromSearch = this.updatePlaceAndFeedFromSearch.bind(this);
+    this.refreshFeed = this.refreshFeed.bind(this);
+    this.refreshPlaces = this.refreshPlaces.bind(this);
   }
 
   componentDidMount(props) {
@@ -61,7 +63,7 @@ export class Home extends Component {
           longitude: position.coords.longitude,
           latitudeDelta: 0.00922*1.5,
           longitudeDelta: 0.00421*1.5
-      })
+      });
       this.state.region = region;
       this.handleGlobal();
     });
@@ -82,33 +84,40 @@ export class Home extends Component {
   }
 
   handleGlobal() {
-    this.setState({selectedHeader: 'global'})
+    this.setState({selectedHeader: 'global'});
     this.getHomePlaces();
   }
 
   handleExpert() {
-    this.setState({selectedHeader: 'expert'})
+    this.setState({selectedHeader: 'expert'});
     this.filterExperts();
   }
 
   handleFriends() {
-    this.setState({selectedHeader: 'friends'})
+    this.setState({selectedHeader: 'friends'});
     this.filterFriends();
   }
 
   getHomePlaces() {
     this.setState({
       lastApiCall: new Date()
-    })
+    });
     const latitude = this.state.region.latitude._value;
     const longitude = this.state.region.longitude._value;
-    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
-    getPlaces(queryString)
-      .then((data) => {
+    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
+    AsyncStorage.getItem('homePlaces')
+      .then(homePlaces => {
+        if (homePlaces) {
+          return JSON.parse(homePlaces);
+        }
+        return getPlaces(queryString);
+      })
+      .then(data => {
         this.setState({
           markers: data,
           places: this.state.places.cloneWithRows(data)
         });
+        AsyncStorage.setItem('homePlaces', JSON.stringify(data));
       })
       .catch((err) => console.log('fuck balls: ', err));
     this.globalFilter();
@@ -143,7 +152,7 @@ export class Home extends Component {
   }
 
   filterPlacesFromFeed(data) {
-    return data.reduce((acc,feed,idx,self) => {
+    return data.reduce((acc,feed) => {
       if(!acc.some((elem) => elem.id === feed.place.id)) {
         acc.push(feed.place);
       }
@@ -156,68 +165,151 @@ export class Home extends Component {
     const longitude = this.state.region.longitude._value;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20&type=${type.name}`
     getFilterPlaces(queryString)
-    .then(data => {
-      this.setState({markers: data, selectedFilter: 'feed'})
-    })
-    .catch(err => console.log("ERR FILTER", data))
+      .then(data => {
+        this.setState({markers: data, selectedFilter: 'feed'})
+      })
+      .catch(err => console.log("ERR FILTER", data));
   }
 
   globalFilter() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    // const latitude = this.state.region.latitude._value;
-    // const longitude = this.state.region.longitude._value;
-    // const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
-    getFeed()
-      .then((data) => {
-        if(data.errors) { Actions.login(); return }
-        this.setState({
-          feed: data || [],
-          feedReady: true,
-          showActivityIndicator: false
+    AsyncStorage.getItem('homeFeed')
+        .then(homeFeed => {
+            if (homeFeed) {
+              return JSON.parse(homeFeed);
+            }
+            return getFeed();
+        })
+        .then(data => {
+            if(data.errors) { Actions.login(); return }
+            this.setState({
+              feed: data || [],
+              feedReady: true,
+              showActivityIndicator: false
+            });
+            return AsyncStorage.setItem('homeFeed', JSON.stringify(data));
+        })
+        .catch((err) => console.error('NOO FEED', err));
+  }
+
+  refreshFeed() { 
+    if (this.state.selectedHeader === 'global') {
+      AsyncStorage.removeItem('homeFeed')
+        .then(() => {
+          return this.globalFilter();
+        }); 
+    } else if (this.state.selectedHeader === 'friends') {
+      AsyncStorage.removeItem('friendsFeed')
+        .then(() => {
+          return AsyncStorage.removeItem('friendsPlaces');
+        })
+        .then(() => {
+          return this.filterFriends();
         });
-      })
-      .catch((err) => console.error('NOO FEED', err));
+    } else if (this.state.selectedHeader === 'expert') {
+      AsyncStorage.removeItem('expertsFeed')
+        .then(() => {
+          return AsyncStorage.removeItem('expertsPlaces');
+        })
+        .then(() => {
+          return this.filterExperts();
+        });
+    }
+  }
+
+  refreshPlaces() {
+    if (this.state.selectedHeader === 'global') {
+      AsyncStorage.removeItem('homePlaces')
+        .then(() => {
+          return this.getHomePlaces();
+        }); 
+    } else if (this.state.selectedHeader === 'friends') {
+      AsyncStorage.removeItem('friendsFeed')
+        .then(() => {
+          return AsyncStorage.removeItem('friendsPlaces');
+        })
+        .then(() => {
+          return this.filterFriends();
+        });
+    } else if (this.state.selectedHeader === 'expert') {
+      AsyncStorage.removeItem('expertsFeed')
+        .then(() => {
+          return AsyncStorage.removeItem('expertsPlaces');
+        })
+        .then(() => {
+          return this.filterExperts();
+        });
+    }
   }
 
   filterFriends() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    getFriendFeed()
-      .then((data) => {
+    AsyncStorage.getItem('friendsFeed')
+      .then(friendsFeed => {
+        if (friendsFeed) {
+          return JSON.parse(friendsFeed);
+        }
+        return getFriendFeed();
+      })
+      .then(data => {
         this.setState({
           feed: data || [],
-          feedReady: true,
-          showActivityIndicator: false
+          feedReady: true
         });
+        return AsyncStorage.setItem('friendsFeed', JSON.stringify(data));
       })
-      .catch((err) => console.error('NOO FEED', err));
-    getFriendPlaces()
-      .then((data) => {
+      .then(() => {
+        return AsyncStorage.getItem('friendsPlaces')
+      })
+      .then(friendsPlaces => {
+        if (friendsPlaces) {
+          return JSON.parse(friendsPlaces);
+        }
+        return getFriendPlaces();
+      })
+      .then(data => {
           this.setState({
             markers: data,
-            places: this.state.places.cloneWithRows(data)
+            places: this.state.places.cloneWithRows(data),
+            showActivityIndicator: false
           });
+          AsyncStorage.setItem('friendsPlaces', JSON.stringify(data));
         })
         .catch((err) => console.log('fuck balls: ', err));
   }
 
   filterExperts() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    getExpertFeed()
-      .then((data) => {
+    AsyncStorage.getItem('expertsFeed')
+      .then(expertsFeed => {
+        if (expertsFeed) {
+          return JSON.parse(expertsFeed);
+        }
+        return getExpertFeed();
+      })
+      .then(data => {
         this.setState({
           feed: data || [],
-          feedReady: true,
-          showActivityIndicator: false
+          feedReady: true
         });
+        return AsyncStorage.setItem('expertsFeed', JSON.stringify(data));
       })
-      .catch((err) => console.error('NOO FEED', err));
-
-    getExpertPlaces()
-      .then((data) => {
+      .then(() => {
+        return AsyncStorage.getItem('expertsPlaces');
+      })
+      .then(expertsPlaces => {
+        if (expertsPlaces) {
+          return JSON.parse(expertsPlaces);
+        }
+        return getExpertPlaces();
+      })
+      .then(data => {
           this.setState({
             markers: data,
-            places: this.state.places.cloneWithRows(data)
+            places: this.state.places.cloneWithRows(data),
+            showActivityIndicator: false
           });
+          AsyncStorage.setItem('expertsPlaces', JSON.stringify(data));
         })
         .catch((err) => console.log('fuck balls: ', err));
   }
@@ -271,8 +363,8 @@ export class Home extends Component {
               size="large"
             />
           </View>}
-          {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} />}
-          {feedReady && selectedFilter === 'top' && placesPopulated && <PlaceList places={places} />}
+          {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} refreshFeed={this.refreshFeed} />}
+          {feedReady && selectedFilter === 'top' && placesPopulated && <PlaceList places={places} refreshPlaces={this.refreshPlaces} />}
           {feedReady && selectedFilter === 'top' && !placesPopulated && <Text style={styles.messageText}>"Nobody has added a favorite in your area!"</Text>}
           {feedReady && selectedFilter === 'search' && <HomeSearch updatePlaceAndFeedFromSearch={this.updatePlaceAndFeedFromSearch}/>}
           {feedReady && selectedFilter === 'filter' && <Filter onPress={this.handleFilter} />}

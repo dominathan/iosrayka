@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { ListView, View, Text, Image, StyleSheet, TouchableOpacity } from 'react-native';
+import { ListView, View, StyleSheet, RefreshControl } from 'react-native';
 
 import { FeedDetail } from './FeedDetail';
-
 
 export class Feed extends Component {
 
@@ -10,9 +9,11 @@ export class Feed extends Component {
     super(props);
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
     this.state = {
-      feed: ds.cloneWithRows(props.feed)
+        feed: ds.cloneWithRows(props.feed),
+        refreshing: false
     };
     this.renderFeed = this.renderFeed.bind(this);
+    this.onRefresh = this.onRefresh.bind(this);
   }
 
   componentWillReceiveProps(newProps) {
@@ -20,6 +21,13 @@ export class Feed extends Component {
     this.setState({
       feed: ds.cloneWithRows(newProps.feed)
     });
+  }
+
+  onRefresh() {
+    this.setState({
+        refreshing: true
+    });
+    this.props.refreshFeed();
   }
 
   renderFeed(feed) {
@@ -32,11 +40,17 @@ export class Feed extends Component {
     return (
       <View style={styles.listView}>
         <ListView
-           dataSource={this.state.feed}
-           renderRow={this.renderFeed}
-           enableEmptySections={true}
-           renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
-          />
+          refreshControl={
+            <RefreshControl
+              refreshing={this.state.refreshing}
+              onRefresh={this.onRefresh}
+            />
+          }
+          dataSource={this.state.feed}
+          renderRow={this.renderFeed}
+          enableEmptySections={true}
+          renderSeparator={(sectionId, rowId) => <View key={rowId} style={styles.separator} />}
+        />
       </View>
     );
   }
