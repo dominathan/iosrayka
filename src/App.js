@@ -105,7 +105,7 @@ class App extends Component {
                 <Scene key='inviteFriendsList' component={InviteFriendsList} title="Invite Friends" />
                 <Scene key="placeProfile" component={PlaceProfile} title="Place" />
                 <Scene key="addPlace" component={CommentBox} title="Add a Place" />
-                <Scene renderLeftButton={this.renderDrawerButton} key="groups" component={Group} title="Study Abroad Groups" onRight={() => Actions.searchGroup()} rightTitle="Search" rightButtonTextStyle={{ color: "#FFF" }} />
+                <Scene renderLeftButton={this.renderDrawerButton} key="groups" component={Group} title="Groups" onRight={() => Actions.searchGroup()} rightTitle="Search" rightButtonTextStyle={{ color: "#FFF" }} />
                 <Scene key="createGroup" component={CreateGroup} title="Create a Group" />
                 <Scene key='searchGroup' component={GroupSearch} title="Search for Groups" />
                 <Scene renderLeftButton={this.renderDrawerButton} key='groupProfile' component={GroupProfile} title="Group" onRight={(state) => this.handleAddFriends(state)} rightTitle="+ Friend" rightButtonTextStyle={{ color: '#FFF' }} />
