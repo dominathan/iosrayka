@@ -101,7 +101,7 @@ class App extends Component {
                 <Scene renderLeftButton={this.renderDrawerButton} key="help" component={Help} title="Help" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="profile" component={Profile} title="Profile" />
                 <Scene renderLeftButton={this.renderDrawerButton} key="inviteFriends" component={InviteFriends} title="Invite Friends" />
-                <Scene renderLeftButton={this.renderDrawerButton} key="homeSearch" component={HomeSearch} title="Search City" />
+                <Scene key="homeSearch" component={HomeSearch} title="Search City" />
                 <Scene key='inviteFriendsList' component={InviteFriendsList} title="Invite Friends" />
                 <Scene key="placeProfile" component={PlaceProfile} title="Place" />
                 <Scene key="addPlace" component={CommentBox} title="Add a Place" />

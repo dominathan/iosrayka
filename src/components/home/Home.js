@@ -64,7 +64,6 @@ export class Home extends Component {
     this.canCallApi = this.canCallApi.bind(this);
     this.selectedFilterChange = this.selectedFilterChange.bind(this);
     this.filterPlacesFromFeed = this.filterPlacesFromFeed.bind(this);
-    this.updatePlaceAndFeedFromSearch = this.updatePlaceAndFeedFromSearch.bind(this);
     this.refreshFeed = this.refreshFeed.bind(this);
     this.refreshPlaces = this.refreshPlaces.bind(this);
     this.goToHomeSearch = this.goToHomeSearch.bind(this);
@@ -364,7 +363,8 @@ export class Home extends Component {
   }
 
   goToHomeSearch() {
-    Actions.homeSearch({type: "reset"})
+    Actions.homeSearch();
+    this.selectedFilterChange('feed');
   }
 
   render() {
