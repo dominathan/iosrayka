@@ -25,6 +25,7 @@ export class MyPlaces extends Component {
       placeFeedReady: false,
     };
     this.userPlaces = this.userPlaces.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +39,10 @@ export class MyPlaces extends Component {
     })
   }
 
+  componentWillUnmount() {
+    AsyncStorage.removeItem('myPlaces');
+  }
+
   navigateToAddPlace() {
     Actions.googlePlaces();
   }
@@ -48,15 +53,28 @@ export class MyPlaces extends Component {
     });
   }
 
-  favoritePlaceFilter(favorites,places) {
+  favoritePlaceFilter(favorites, places) {
     const favoriteIds = favorites.map(fav => fav.place_id)
-    return places.filter((place) => favoriteIds.includes(place.id))
+    return places.filter((place) => favoriteIds.includes(place.id));
+  }
+
+  refresh() {
+    return AsyncStorage.removeItem('myPlaces')
+      .then(() => {
+        return this.userPlaces(this.state.user);
+      });
   }
 
   userPlaces(user) {
-    getUserPlaces(user)
+    AsyncStorage.getItem('myPlaces')
+      .then(myPlaces => {
+        if (myPlaces) {
+          return JSON.parse(myPlaces);
+        }
+        return getUserPlaces(user);
+      })
       .then(data => {
-        const actualFavorites = this.favoritePlaceFilter(data.favorites,data.places);
+        const actualFavorites = this.favoritePlaceFilter(data.favorites, data.places);
         this.setState({
           markers: data.places,
           markersFavorites: data.favorites,
@@ -66,6 +84,7 @@ export class MyPlaces extends Component {
           places: this.state.places.cloneWithRows(data.places),
           placeFeedReady: true
         });
+        return AsyncStorage.setItem('myPlaces', JSON.stringify(data));
       })
       .catch((err) => console.log('fuck balls: ', err));
   }
@@ -89,8 +108,8 @@ export class MyPlaces extends Component {
         </View>
 
 
-        {placeFeedReady && selectedFilter === "all" && <PlaceList places={places} /> }
-        {placeFeedReady && selectedFilter === "favorites" && <PlaceList places={favorites} /> }
+        {placeFeedReady && selectedFilter === "all" && <PlaceList places={places} refreshPlaces={this.refresh} /> }
+        {placeFeedReady && selectedFilter === "favorites" && <PlaceList places={favorites} refreshPlaces={this.refresh}/> }
 
         <TouchableOpacity style={styles.addPlaceButton}>
           <Icon

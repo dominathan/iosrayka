@@ -105,7 +105,7 @@ export class Home extends Component {
     const latitude = this.state.region.latitude._value;
     const longitude = this.state.region.longitude._value;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
-    AsyncStorage.getItem('homePlaces')
+    return AsyncStorage.getItem('homePlaces')
       .then(homePlaces => {
         if (homePlaces) {
           return JSON.parse(homePlaces);
@@ -117,10 +117,12 @@ export class Home extends Component {
           markers: data,
           places: this.state.places.cloneWithRows(data)
         });
-        AsyncStorage.setItem('homePlaces', JSON.stringify(data));
+        return AsyncStorage.setItem('homePlaces', JSON.stringify(data));
+      })
+      .then(() => {
+        return this.globalFilter();
       })
       .catch((err) => console.log('fuck balls: ', err));
-    this.globalFilter();
   }
 
   componentWillUnmount() {
@@ -174,7 +176,7 @@ export class Home extends Component {
 
   globalFilter() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    AsyncStorage.getItem('homeFeed')
+    return AsyncStorage.getItem('homeFeed')
         .then(homeFeed => {
             if (homeFeed) {
               return JSON.parse(homeFeed);
@@ -195,12 +197,12 @@ export class Home extends Component {
 
   refreshFeed() { 
     if (this.state.selectedHeader === 'global') {
-      AsyncStorage.removeItem('homeFeed')
+      return AsyncStorage.removeItem('homeFeed')
         .then(() => {
           return this.globalFilter();
         }); 
     } else if (this.state.selectedHeader === 'friends') {
-      AsyncStorage.removeItem('friendsFeed')
+      return AsyncStorage.removeItem('friendsFeed')
         .then(() => {
           return AsyncStorage.removeItem('friendsPlaces');
         })
@@ -208,7 +210,7 @@ export class Home extends Component {
           return this.filterFriends();
         });
     } else if (this.state.selectedHeader === 'expert') {
-      AsyncStorage.removeItem('expertsFeed')
+      return AsyncStorage.removeItem('expertsFeed')
         .then(() => {
           return AsyncStorage.removeItem('expertsPlaces');
         })
@@ -220,12 +222,12 @@ export class Home extends Component {
 
   refreshPlaces() {
     if (this.state.selectedHeader === 'global') {
-      AsyncStorage.removeItem('homePlaces')
+      return AsyncStorage.removeItem('homePlaces')
         .then(() => {
           return this.getHomePlaces();
         }); 
     } else if (this.state.selectedHeader === 'friends') {
-      AsyncStorage.removeItem('friendsFeed')
+      return AsyncStorage.removeItem('friendsFeed')
         .then(() => {
           return AsyncStorage.removeItem('friendsPlaces');
         })
@@ -233,7 +235,7 @@ export class Home extends Component {
           return this.filterFriends();
         });
     } else if (this.state.selectedHeader === 'expert') {
-      AsyncStorage.removeItem('expertsFeed')
+      return AsyncStorage.removeItem('expertsFeed')
         .then(() => {
           return AsyncStorage.removeItem('expertsPlaces');
         })
@@ -245,7 +247,7 @@ export class Home extends Component {
 
   filterFriends() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    AsyncStorage.getItem('friendsFeed')
+    return AsyncStorage.getItem('friendsFeed')
       .then(friendsFeed => {
         if (friendsFeed) {
           return JSON.parse(friendsFeed);
@@ -274,14 +276,14 @@ export class Home extends Component {
             places: this.state.places.cloneWithRows(data),
             showActivityIndicator: false
           });
-          AsyncStorage.setItem('friendsPlaces', JSON.stringify(data));
+          return AsyncStorage.setItem('friendsPlaces', JSON.stringify(data));
         })
         .catch((err) => console.log('fuck balls: ', err));
   }
 
   filterExperts() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    AsyncStorage.getItem('expertsFeed')
+    return AsyncStorage.getItem('expertsFeed')
       .then(expertsFeed => {
         if (expertsFeed) {
           return JSON.parse(expertsFeed);
@@ -310,7 +312,7 @@ export class Home extends Component {
             places: this.state.places.cloneWithRows(data),
             showActivityIndicator: false
           });
-          AsyncStorage.setItem('expertsPlaces', JSON.stringify(data));
+          return AsyncStorage.setItem('expertsPlaces', JSON.stringify(data));
         })
         .catch((err) => console.log('fuck balls: ', err));
   }

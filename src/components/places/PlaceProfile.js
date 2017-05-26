@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'react-native-elements';
-import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, ActivityIndicator, AsyncStorage  } from 'react-native';
+import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, ActivityIndicator, AsyncStorage } from 'react-native';
 import { ImagePicker } from 'expo';
 import MapView from 'react-native-maps';
 import { getPlace } from '../../services/apiActions';
@@ -45,6 +45,10 @@ export class PlaceProfile extends Component {
     this.getPlace();
   }
 
+  componentWillUnmount() {
+    AsyncStorage.removeItem('placeProfile');
+  }
+
   selectedFilterChange(val) {
     this.setState({
       selectedFilter: val,
@@ -57,6 +61,12 @@ export class PlaceProfile extends Component {
     AsyncStorage.getItem('user')
       .then(user => {
         activeUser = JSON.parse(user);
+        return AsyncStorage.getItem('placeProfile');
+      })
+      .then(placeProfile => {
+        if (placeProfile) {
+          return JSON.parse(placeProfile);
+        }
         return getPlace(this.props.place);
       })
       .then(data => {
@@ -85,6 +95,7 @@ export class PlaceProfile extends Component {
           photos: data.images,
           feedType: 'feed'
         });
+        return AsyncStorage.setItem('placeProfile', JSON.stringify(data));
       })
       .catch((err) => console.log('fuck balls: ', err));
   }
@@ -118,6 +129,13 @@ export class PlaceProfile extends Component {
       .catch((err) => {
         this.setState({showActivityIndicator: false, feedType: 'feed'})
       })
+  }
+
+  refresh() {
+    AsyncStorage.removeItem('placeProfile')
+      .then(() => {
+        this.getPlace();
+      });
   }
 
   render() {
@@ -172,8 +190,8 @@ export class PlaceProfile extends Component {
               }
             </View>
             <View style={styles.feed}>
-              {(feedType === 'feed') && <Feed showButtons={true} feed={feed} />}
-              {(feedType === 'favorites') && <Feed showButtons={false} feed={favorites} />}
+              {(feedType === 'feed') && <Feed showButtons={true} feed={feed} refreshFeed={this.refresh} />}
+              {(feedType === 'favorites') && <Feed showButtons={false} feed={favorites} refreshFeed={this.refresh} />}
               {(feedType === 'photos') && <ImageFeed images={photos} />}
               {addPhotoScreen && <CameraRollPicker pickImage={() => console.log()} image={image}/>}
               {showActivityIndicator && <View style={styles.activityIndicator}>

@@ -16,7 +16,12 @@ export class PlaceList extends Component {
     this.setState({
         refreshing: true
     });
-    this.props.refreshPlaces();
+    this.props.refreshPlaces()
+      .then(() => {
+        this.setState({
+          refreshing: false
+        });
+      });
   }
 
   renderPlaces(place) {
@@ -32,6 +37,7 @@ export class PlaceList extends Component {
           <RefreshControl
             refreshing={this.state.refreshing}
             onRefresh={this.onRefresh.bind(this)}
+            title="Update Data"
           />
         }
         dataSource={this.props.places}

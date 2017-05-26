@@ -38,7 +38,7 @@ export class Profile extends Component {
   }
 
   componentWillUnmount() {
-    AsyncStorage.removeItem('profileFeed')
+    return AsyncStorage.removeItem('profileFeed')
       .then(() => {
         AsyncStorage.removeItem('profilePlaces');
       });
@@ -59,7 +59,7 @@ export class Profile extends Component {
   }
 
   feed() {
-    AsyncStorage.getItem('profileFeed')
+    return AsyncStorage.getItem('profileFeed')
       .then(profileFeed => {
         if (profileFeed) {
           return JSON.parse(profileFeed);
@@ -72,7 +72,7 @@ export class Profile extends Component {
           feed,
           feedType: 'feed'
         });
-        AsyncStorage.setItem('profileFeed', JSON.stringify(feed));
+        return AsyncStorage.setItem('profileFeed', JSON.stringify(feed));
       });
   }
   
@@ -86,7 +86,7 @@ export class Profile extends Component {
 
   friends() {
     let activeUser;
-    AsyncStorage.getItem('user')
+    return AsyncStorage.getItem('user')
       .then(user => {
         activeUser = JSON.parse(user);
         if (activeUser.id === this.props.person.id) {
@@ -107,8 +107,7 @@ export class Profile extends Component {
   }
 
   refreshFeed() {
-    console.log('this fires!');
-    AsyncStorage.removeItem('profileFeed')
+    return AsyncStorage.removeItem('profileFeed')
       .then(() => {
         return AsyncStorage.removeItem('profilePlaces');
       })
@@ -127,7 +126,7 @@ export class Profile extends Component {
 
   userPlaces() {
     this.setState({showActivityIndicator: true});
-    AsyncStorage.getItem('profilePlaces')
+    return AsyncStorage.getItem('profilePlaces')
       .then(profilePlaces => {
         if (profilePlaces) {
           return JSON.parse(profilePlaces);

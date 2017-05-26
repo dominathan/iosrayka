@@ -27,7 +27,12 @@ export class Feed extends Component {
     this.setState({
         refreshing: true
     });
-    this.props.refreshFeed();
+    this.props.refreshFeed()
+      .then(() => {
+        this.setState({
+          refreshing: false
+        });
+      });
   }
 
   renderFeed(feed) {
@@ -44,6 +49,7 @@ export class Feed extends Component {
             <RefreshControl
               refreshing={this.state.refreshing}
               onRefresh={this.onRefresh}
+              title="Update data"
             />
           }
           dataSource={this.state.feed}

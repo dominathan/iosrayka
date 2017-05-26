@@ -1,6 +1,6 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
 import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ListView } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, ListView, AsyncStorage } from 'react-native';
 import { Actions } from 'react-native-router-flux';
 import MapView from 'react-native-maps';
 import { Icon } from 'react-native-elements';
@@ -33,6 +33,7 @@ export class GroupProfile extends Component {
     };
     this.navigateToAddPlace = this.navigateToAddPlace.bind(this);
     this.getGroupPlaces = this.getGroupPlaces.bind(this);
+    this.refresh = this.refresh.bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -53,8 +54,14 @@ export class GroupProfile extends Component {
   }
 
   getGroupPlaces(groupName) {
-    getGroupPlaces(`groupName=${groupName}`)
-      .then((data) => {
+    return AsyncStorage.getItem('groupProfileData')
+      .then(groupProfileData => {
+        if (groupProfileData) {
+          return JSON.parse(groupProfileData);
+        }
+        return getGroupPlaces(`groupName=${groupName}`);
+      })
+      .then(data => {
         this.setState({
           feed: data.feed,
           users: data.users,
@@ -62,16 +69,25 @@ export class GroupProfile extends Component {
           markers: data.places,
           places: this.state.places.cloneWithRows(data.places)
         })
+        return AsyncStorage.setItem('groupProfileData', JSON.stringify(data));
       })
       .catch((err) => console.log("I AM A FAILURE", err))
   }
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.state.watchID);
+    AsyncStorage.removeItem('groupProfileData');
   }
 
   navigateToAddPlace() {
     Actions.googlePlaces({region: this.state.region, group: this.props.group});
+  }
+
+  refresh() {
+    return AsyncStorage.removeItem('groupProfileData')
+      .then(() => {
+        return this.getGroupPlaces();
+      });
   }
 
   selectedFilterChange(val) {
@@ -95,8 +111,8 @@ export class GroupProfile extends Component {
           </TouchableOpacity>
         </View>
         <View style={styles.feed}>
-          {feedReady && selectedFilter === 'feed' && <Feed feed={feed} />}
-          {feedReady && selectedFilter === 'top' && <PlaceList places={places} />}
+          {feedReady && selectedFilter === 'feed' && <Feed feed={feed} refreshFeed={this.refresh}/>}
+          {feedReady && selectedFilter === 'top' && <PlaceList places={places} refreshPlaces={this.refresh}/>}
         </View>
         <TouchableOpacity style={styles.addPlaceButton}>
           <Icon
