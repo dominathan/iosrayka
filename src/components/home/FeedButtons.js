@@ -11,7 +11,7 @@ export default class FeedButtons extends Component {
   }
 
   render() {
-    const { selectedHeader, handleGlobal, handleFriends, handleExpert } = this.props
+    const { selectedHeader, handleGlobal, handleFriends, handleExpert } = this.props;
     return (
       <Grid style={styles.titleGroupStyle}>
         <Row>

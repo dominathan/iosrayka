@@ -28,6 +28,7 @@ export class Profile extends Component {
     this.feed = this.feed.bind(this);
     this.userPlaces = this.userPlaces.bind(this);
     this.follow = this.follow.bind(this);
+    this.refreshFeed = this.refreshFeed.bind(this);
     this.setCurrentUser = this.setCurrentUser.bind(this);
   }
 
@@ -36,6 +37,13 @@ export class Profile extends Component {
     this.userPlaces();
     this.friends();
     this.feed();
+  }
+
+  componentWillUnmount() {
+    return AsyncStorage.removeItem('profileFeed')
+      .then(() => {
+        AsyncStorage.removeItem('profilePlaces');
+      });
   }
 
   setCurrentUser() {
@@ -52,15 +60,27 @@ export class Profile extends Component {
       countryTally.push(marker.country);
       return countryTally;
     }, []);
-    this.setState({ countries });
+    this.setState({ 
+      countries,
+      showActivityIndicator: false 
+    });
   }
 
   feed() {
-    getUserFeed(this.props.person)
+    return AsyncStorage.getItem('profileFeed')
+      .then(profileFeed => {
+        if (profileFeed) {
+          return JSON.parse(profileFeed);
+        }
+        return getUserFeed(this.props.person);
+      })
       .then(feed => {
-        this.setState({ display: feed,
-        feed,
-        feedType: 'feed' });
+        this.setState({ 
+          display: feed,
+          feed,
+          feedType: 'feed'
+        });
+        return AsyncStorage.setItem('profileFeed', JSON.stringify(feed));
       });
   }
 
@@ -74,13 +94,12 @@ export class Profile extends Component {
 
   friends() {
     let activeUser;
-    AsyncStorage.getItem('user')
+    return AsyncStorage.getItem('user')
       .then(user => {
         activeUser = JSON.parse(user);
         if (activeUser.id === this.props.person.id) {
           this.setState({showFriendStatus: false});
         }
-
         return getUserFriends(this.props.person);
       })
       .then(friends => {
@@ -95,6 +114,17 @@ export class Profile extends Component {
       .catch((err) => console.error('NO FRIENDS!!!', err));
   }
 
+  refreshFeed() {
+    return AsyncStorage.removeItem('profileFeed')
+      .then(() => {
+        return AsyncStorage.removeItem('profilePlaces');
+      })
+      .then(() => {
+        this.feed();
+        this.userPlaces();
+      });
+  }
+
   selectedFilterChange(val) {
     this.setState({
       selectedFilter: val,
@@ -103,7 +133,14 @@ export class Profile extends Component {
   }
 
   userPlaces() {
-    getUserPlaces(this.state.person)
+    this.setState({showActivityIndicator: true});
+    return AsyncStorage.getItem('profilePlaces')
+      .then(profilePlaces => {
+        if (profilePlaces) {
+          return JSON.parse(profilePlaces);
+        }
+        return getUserPlaces(this.state.person);
+      })
       .then(data => {
         const list = data.favorites.map(favorite => {
           return {
@@ -116,6 +153,7 @@ export class Profile extends Component {
           favorites: data.favorites,
           favoritesList: list
         });
+        return AsyncStorage.setItem('profilePlaces', JSON.stringify(data));
       })
       .then(() => {
         this.getCountriesVisited();
@@ -180,8 +218,8 @@ export class Profile extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.feed}>
-               {(feedType === 'feed') && user && <Feed feed={feed} user={user} />}
-               {(feedType === 'favoritesList') && user && <Feed feed={favoritesList} user={user} />}
+               {(feedType === 'feed') && <Feed feed={feed} refreshFeed={this.refreshFeed} user={user} />}
+               {(feedType === 'favoritesList') && <Feed feed={favoritesList} refreshFeed={this.refreshFeed} user={user} />}
              </View>
           </View>
 
