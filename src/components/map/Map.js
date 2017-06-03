@@ -1,12 +1,11 @@
 // https://github.com/FaridSafi/react-native-google-places-autocomplete
-import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
-import { Actions } from 'react-native-router-flux';
-import { Icon } from 'react-native-elements';
-import MapView from 'react-native-maps';
+import React, { Component } from "react";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { Actions } from "react-native-router-flux";
+import { Icon } from "react-native-elements";
+import MapView from "react-native-maps";
 
 export class Map extends Component {
-
   constructor(props) {
     super(props);
     this.loadMarkers = this.loadMarkers.bind(this);
@@ -17,37 +16,48 @@ export class Map extends Component {
   }
 
   loadMarkers() {
-    return this.props.markers.map((place) => {
-      return {
-        key: place.id + Math.random(),
-        coordinate: {
-          latitude: place.lat,
-          longitude: place.lng
-        },
-        title: place.name
-      };
-    }).map((marker) => {
-      return (
-        <MapView.Marker coordinate={marker.coordinate} key={marker.key} title={marker.title}>
-          <Icon name="location-on" color="red" key={marker.key} />
-          <MapView.Callout style={styles.callout}>
-            <Text style={styles.calloutText}>{marker.title}</Text>
-          </MapView.Callout>
-        </MapView.Marker>
-      );
-    });
+    const { markers } = this.props;
+    if (markers && markers.length) {
+      return this.props.markers
+        .map(place => {
+          return {
+            key: place.id + Math.random(),
+            coordinate: {
+              latitude: place.lat,
+              longitude: place.lng
+            },
+            title: place.name
+          };
+        })
+        .map(marker => {
+          return (
+            <MapView.Marker
+              coordinate={marker.coordinate}
+              key={marker.key}
+              title={marker.title}
+            >
+              <Icon name="location-on" color="red" key={marker.key} />
+              <MapView.Callout style={styles.callout}>
+                <Text style={styles.calloutText}>{marker.title}</Text>
+              </MapView.Callout>
+            </MapView.Marker>
+          );
+        });
+    }
   }
 
   render() {
-    const startingPoints = this.props.markers.length > 0 ? this.loadMarkers() : null;
-    const {Region, gpsAccuracy} = this.props;
+    const startingPoints = this.props.markers.length > 0
+      ? this.loadMarkers()
+      : null;
+    const { Region, gpsAccuracy } = this.props;
     return (
       <MapView.Animated
-        style={{ height: 300, alignSelf: 'stretch' }}
+        style={{ height: 300, alignSelf: "stretch" }}
         onRegionChange={this.props.onRegionChange}
         region={this.props.region}
       >
-        { startingPoints }
+        {startingPoints}
       </MapView.Animated>
     );
   }
@@ -55,16 +65,16 @@ export class Map extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 1
   },
   callout: {
     width: 150,
     height: 25,
-    justifyContent: 'center',
-    alignItems: 'center'
+    justifyContent: "center",
+    alignItems: "center"
   },
   calloutText: {
     fontSize: 16,
-    textAlign: 'center'
+    textAlign: "center"
   }
 });

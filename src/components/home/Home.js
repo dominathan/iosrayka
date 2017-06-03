@@ -1,24 +1,41 @@
-// https://github.com/FaridSafi/react-native-google-places-autocomplete
-import React, { Component } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet, ListView, ActivityIndicator, AsyncStorage} from 'react-native';
+import React, { Component } from "react";
+import {
+  View,
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+  ListView,
+  ActivityIndicator,
+  AsyncStorage
+} from "react-native";
 
-import { Actions } from 'react-native-router-flux';
-import MapView from 'react-native-maps';
-import { Icon } from 'react-native-elements';
+import { Actions } from "react-native-router-flux";
+import MapView from "react-native-maps";
+import { Icon } from "react-native-elements";
 
-import { getPlaces, getFeed, getFriendFeed, getExpertFeed, getFilterPlaces, getExpertPlaces, getFriendPlaces } from '../../services/apiActions';
-import { Feed } from '../feed/Feed';
-import { Map } from '../map/Map';
-import { PlaceList } from '../places/PlaceList';
-import { HomeSearch } from './HomeSearch';
-import FeedButtons from './FeedButtons';
-import Filter from '../places/Filter';
+import {
+  getPlaces,
+  getFeed,
+  getFriendFeed,
+  getExpertFeed,
+  getFilterPlaces,
+  getExpertPlaces,
+  getFriendPlaces
+} from "../../services/apiActions";
+import { Feed } from "../feed/Feed";
+import { Map } from "../map/Map";
+import { PlaceList } from "../places/PlaceList";
+import { HomeSearch } from "./HomeSearch";
+import FeedButtons from "./FeedButtons";
+import Filter from "../places/Filter";
 
 const DEBOUNCE_TIME = 500;
 
 export class Home extends Component {
   constructor(props) {
-    const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
+    const ds = new ListView.DataSource({
+      rowHasChanged: (r1, r2) => r1 !== r2
+    });
     super(props);
 
     this.state = {
@@ -26,28 +43,44 @@ export class Home extends Component {
       places: ds.cloneWithRows([]),
       feed: null,
       feedReady: false,
-      selectedFilter: 'feed',
-      selectedHeader: 'global',
+      selectedFilter: "feed",
+      selectedHeader: "global",
       lastApiCall: null,
       region: {
-        latitude: props.location && props.location.lat ? props.location.lat : 32.8039917,
-        longitude: props.location && props.location.lat ? props.location.lng : -79.9525327,
-        latitudeDelta: 0.00922*6.5,
-        longitudeDelta: 0.00421*6.5
+        latitude: props.location && props.location.lat
+          ? props.location.lat
+          : 32.8039917,
+        longitude: props.location && props.location.lat
+          ? props.location.lng
+          : -79.9525327,
+        latitudeDelta: 0.00922 * 6.5,
+        longitudeDelta: 0.00421 * 6.5
       },
-      text: '',
+      text: "",
       watchID: null,
       showActivityIndicator: false,
       types: [
-        { name: 'bar,night_club', visibleName: 'Bar', checked: false},
-        { name: "cafe", visibleName: 'Coffee', checked: false},
-        { name: "food,restaurant", visibleName: 'Restaurant', checked: false},
-        { name: "lodging", visibleName: 'Hotel', checked: false},
-        { name: "park", visibleName: 'Park', checked: false},
-        { name: "place_of_worship", visibleName: 'Place of Worship' , checked: false},
-        { name: "spa", visibleName: 'Spa' , checked: false},
-        { name: "point_of_interes,establishment", visibleName: 'Other' , checked: false},
-        { name: 'zoo,amusement_park,aquarium,art_gallery,museum', visibleName: 'Things To Do', checked: false}
+        { name: "bar,night_club", visibleName: "Bar", checked: false },
+        { name: "cafe", visibleName: "Coffee", checked: false },
+        { name: "food,restaurant", visibleName: "Restaurant", checked: false },
+        { name: "lodging", visibleName: "Hotel", checked: false },
+        { name: "park", visibleName: "Park", checked: false },
+        {
+          name: "place_of_worship",
+          visibleName: "Place of Worship",
+          checked: false
+        },
+        { name: "spa", visibleName: "Spa", checked: false },
+        {
+          name: "point_of_interes,establishment",
+          visibleName: "Other",
+          checked: false
+        },
+        {
+          name: "zoo,amusement_park,aquarium,art_gallery,museum",
+          visibleName: "Things To Do",
+          checked: false
+        }
       ],
       user: null
     };
@@ -72,22 +105,26 @@ export class Home extends Component {
   }
 
   setCurrentUser() {
-    AsyncStorage.getItem('user', (err, user) => {
-      this.setState({user: JSON.parse(user) });
+    AsyncStorage.getItem("user", (err, user) => {
+      this.setState({ user: JSON.parse(user) });
     });
   }
 
   componentDidMount(props) {
     this.setCurrentUser();
 
-    this.watchID = navigator.geolocation.watchPosition((position) => {
+    this.watchID = navigator.geolocation.watchPosition(position => {
       let region = {
-          latitude: this.props.location && this.props.location.lat ? this.props.location.lat : position.coords.latitude,
-          longitude: this.props.location && this.props.location.lng ? this.props.location.lng : position.coords.longitude,
-          latitudeDelta: 0.00922*6.5,
-          longitudeDelta: 0.00421*6.5
-      }
-      this.setState({region: region});
+        latitude: this.props.location && this.props.location.lat
+          ? this.props.location.lat
+          : position.coords.latitude,
+        longitude: this.props.location && this.props.location.lng
+          ? this.props.location.lng
+          : position.coords.longitude,
+        latitudeDelta: 0.00922 * 6.5,
+        longitudeDelta: 0.00421 * 6.5
+      };
+      this.setState({ region: region });
       this.handleGlobal();
     });
     this.globalFilter();
@@ -107,17 +144,17 @@ export class Home extends Component {
   }
 
   handleGlobal() {
-    this.setState({selectedHeader: 'global'});
+    this.setState({ selectedHeader: "global" });
     this.getHomePlaces();
   }
 
   handleExpert() {
-    this.setState({selectedHeader: 'expert'});
+    this.setState({ selectedHeader: "expert" });
     this.filterExperts();
   }
 
   handleFriends() {
-    this.setState({selectedHeader: 'friends'});
+    this.setState({ selectedHeader: "friends" });
     this.filterFriends();
   }
 
@@ -125,10 +162,10 @@ export class Home extends Component {
     this.setState({
       lastApiCall: new Date()
     });
-    const latitude = this.state.region.latitude
-    const longitude = this.state.region.longitude
-    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`
-    return AsyncStorage.getItem('homePlaces')
+    const latitude = this.state.region.latitude;
+    const longitude = this.state.region.longitude;
+    const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
+    return AsyncStorage.getItem("homePlaces")
       .then(homePlaces => {
         if (homePlaces) {
           return JSON.parse(homePlaces);
@@ -140,124 +177,141 @@ export class Home extends Component {
           markers: data,
           places: this.state.places.cloneWithRows(data)
         });
-        return AsyncStorage.setItem('homePlaces', JSON.stringify(data));
+        return AsyncStorage.setItem("homePlaces", JSON.stringify(data));
       })
       .then(() => {
         return this.globalFilter();
       })
-      .catch((err) => console.log('fuck balls: ', err));
+      .catch(err => console.log("fuck balls: ", err));
   }
 
   componentWillUnmount() {
     navigator.geolocation.clearWatch(this.state.watchID);
-    AsyncStorage.multiRemove(['homePlaces', 'homeFeed', 'friendsFeed', 'friendsPlaces', 'expertsFeed', 'expertsPlaces']);
+    AsyncStorage.multiRemove([
+      "homePlaces",
+      "homeFeed",
+      "friendsFeed",
+      "friendsPlaces",
+      "expertsFeed",
+      "expertsPlaces"
+    ]);
   }
 
   onRegionChange(region) {
-    this.setState({region: region});
-    if ( this.canCallApi() ) {
+    this.setState({ region: region });
+    if (this.canCallApi()) {
       this.getHomePlaces();
     }
   }
 
   canCallApi() {
-    return !this.state.lastApiCall  || new Date() - this.state.lastApiCall > DEBOUNCE_TIME;
+    return (
+      !this.state.lastApiCall ||
+      new Date() - this.state.lastApiCall > DEBOUNCE_TIME
+    );
   }
 
   navigateToAddPlace() {
-    Actions.googlePlaces({region: this.state.region});
+    Actions.googlePlaces({ region: this.state.region });
   }
 
   selectedFilterChange(val) {
     this.setState({
       selectedFilter: val
     });
-    if(val === 'feed') {
+    if (val === "feed") {
       this.globalFilter();
     }
   }
 
   filterPlacesFromFeed(data) {
-    return data.reduce((acc,feed) => {
-      if(!acc.some((elem) => elem.id === feed.place.id)) {
+    return data.reduce((acc, feed) => {
+      if (!acc.some(elem => elem.id === feed.place.id)) {
         acc.push(feed.place);
       }
-      return acc
-    },[])
+      return acc;
+    }, []);
   }
 
   handleFilter() {
     const { types } = this.state;
-    let typeQueryString = types.reduce((accm,elm) => {
-      elm.checked ? accm += elm.name + ',' : ''
-       return accm
-    },'');
+    let typeQueryString = types.reduce((accm, elm) => {
+      elm.checked ? (accm += elm.name + ",") : "";
+      return accm;
+    }, "");
 
-    typeQueryString = typeQueryString.lastIndexOf(",") === typeQueryString.length - 1 ? typeQueryString.slice(0,typeQueryString.length - 1) : typeQueryString;
+    typeQueryString = typeQueryString.lastIndexOf(",") ===
+      typeQueryString.length - 1
+      ? typeQueryString.slice(0, typeQueryString.length - 1)
+      : typeQueryString;
 
     const latitude = this.state.region.latitude;
     const longitude = this.state.region.longitude;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20&type=${typeQueryString}`;
     getFilterPlaces(queryString)
-    .then(data => {
-      this.setState({markers: data})
-    })
-    .catch(err => console.log("ERR FILTER", data));
+      .then(data => {
+        this.setState({ markers: data });
+      })
+      .catch(err => console.log("ERR FILTER", data));
   }
 
   toggleFilterCheckbox(type) {
     const { types } = this.state;
-    let typeIndex = types.findIndex(typecheck => typecheck.visibleName === type.visibleName)
-    types[typeIndex].checked = !types[typeIndex].checked
-    this.setState({types: types})
+    let typeIndex = types.findIndex(
+      typecheck => typecheck.visibleName === type.visibleName
+    );
+    types[typeIndex].checked = !types[typeIndex].checked;
+    this.setState({ types: types });
     this.handleFilter();
   }
 
   globalFilter() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    let queryString = '';
-    if(this.props.location && this.props.location.lat) {
-        const latitude = this.props.location.lat;
-        const longitude =  this.props.location.lng;
-        queryString = `lat=${latitude}&lng=${longitude}&distance=20`
+    let queryString = "";
+    if (this.props.location && this.props.location.lat) {
+      const latitude = this.props.location.lat;
+      const longitude = this.props.location.lng;
+      queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
     }
-    return AsyncStorage.getItem('homeFeed')
-        .then(homeFeed => {
-            if (homeFeed) {
-              return JSON.parse(homeFeed);
-            }
-            return getFeed(queryString);
-        })
-        .then(data => {
-            if(data.errors) { Actions.login(); return }
-            this.setState({
-              feed: data || [],
-              feedReady: true,
-              showActivityIndicator: false
-            });
-            return AsyncStorage.setItem('homeFeed', JSON.stringify(data));
-        })
-        .catch((err) => console.error('NOO FEED', err));
+    return AsyncStorage.getItem("homeFeed")
+      .then(homeFeed => {
+        if (homeFeed) {
+          return JSON.parse(homeFeed);
+        }
+        return getFeed(queryString);
+      })
+      .then(data => {
+        if (data.errors) {
+          Actions.login();
+          return;
+        }
+        this.setState({
+          feed: data || [],
+          feedReady: true,
+          showActivityIndicator: false
+        });
+        return AsyncStorage.setItem("homeFeed", JSON.stringify(data));
+      })
+      .catch(err => Actions.login());
   }
 
-  refreshFeed() { 
-    if (this.state.selectedHeader === 'global') {
-      return AsyncStorage.removeItem('homeFeed')
+  refreshFeed() {
+    if (this.state.selectedHeader === "global") {
+      return AsyncStorage.removeItem("homeFeed").then(() => {
+        return this.globalFilter();
+      });
+    } else if (this.state.selectedHeader === "friends") {
+      return AsyncStorage.removeItem("friendsFeed")
         .then(() => {
-          return this.globalFilter();
-        }); 
-    } else if (this.state.selectedHeader === 'friends') {
-      return AsyncStorage.removeItem('friendsFeed')
-        .then(() => {
-          return AsyncStorage.removeItem('friendsPlaces');
+          return AsyncStorage.removeItem("friendsPlaces");
         })
         .then(() => {
           return this.filterFriends();
         });
-    } else if (this.state.selectedHeader === 'expert') {
-      return AsyncStorage.removeItem('expertsFeed')
+    } else if (this.state.selectedHeader === "expert") {
+      return AsyncStorage.removeItem("expertsFeed")
         .then(() => {
-          return AsyncStorage.removeItem('expertsPlaces');
+          return AsyncStorage.removeItem("expertsPlaces");
         })
         .then(() => {
           return this.filterExperts();
@@ -266,23 +320,22 @@ export class Home extends Component {
   }
 
   refreshPlaces() {
-    if (this.state.selectedHeader === 'global') {
-      return AsyncStorage.removeItem('homePlaces')
+    if (this.state.selectedHeader === "global") {
+      return AsyncStorage.removeItem("homePlaces").then(() => {
+        return this.getHomePlaces();
+      });
+    } else if (this.state.selectedHeader === "friends") {
+      return AsyncStorage.removeItem("friendsFeed")
         .then(() => {
-          return this.getHomePlaces();
-        }); 
-    } else if (this.state.selectedHeader === 'friends') {
-      return AsyncStorage.removeItem('friendsFeed')
-        .then(() => {
-          return AsyncStorage.removeItem('friendsPlaces');
+          return AsyncStorage.removeItem("friendsPlaces");
         })
         .then(() => {
           return this.filterFriends();
         });
-    } else if (this.state.selectedHeader === 'expert') {
-      return AsyncStorage.removeItem('expertsFeed')
+    } else if (this.state.selectedHeader === "expert") {
+      return AsyncStorage.removeItem("expertsFeed")
         .then(() => {
-          return AsyncStorage.removeItem('expertsPlaces');
+          return AsyncStorage.removeItem("expertsPlaces");
         })
         .then(() => {
           return this.filterExperts();
@@ -292,7 +345,7 @@ export class Home extends Component {
 
   filterFriends() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    return AsyncStorage.getItem('friendsFeed')
+    return AsyncStorage.getItem("friendsFeed")
       .then(friendsFeed => {
         if (friendsFeed) {
           return JSON.parse(friendsFeed);
@@ -304,10 +357,10 @@ export class Home extends Component {
           feed: data || [],
           feedReady: true
         });
-        return AsyncStorage.setItem('friendsFeed', JSON.stringify(data));
+        return AsyncStorage.setItem("friendsFeed", JSON.stringify(data));
       })
       .then(() => {
-        return AsyncStorage.getItem('friendsPlaces')
+        return AsyncStorage.getItem("friendsPlaces");
       })
       .then(friendsPlaces => {
         if (friendsPlaces) {
@@ -316,19 +369,19 @@ export class Home extends Component {
         return getFriendPlaces();
       })
       .then(data => {
-          this.setState({
-            markers: data,
-            places: this.state.places.cloneWithRows(data),
-            showActivityIndicator: false
-          });
-          return AsyncStorage.setItem('friendsPlaces', JSON.stringify(data));
-        })
-        .catch((err) => console.log('fuck balls: ', err));
+        this.setState({
+          markers: data,
+          places: this.state.places.cloneWithRows(data),
+          showActivityIndicator: false
+        });
+        return AsyncStorage.setItem("friendsPlaces", JSON.stringify(data));
+      })
+      .catch(err => console.log("fuck balls: ", err));
   }
 
   filterExperts() {
     this.setState({ feedReady: false, showActivityIndicator: true });
-    return AsyncStorage.getItem('expertsFeed')
+    return AsyncStorage.getItem("expertsFeed")
       .then(expertsFeed => {
         if (expertsFeed) {
           return JSON.parse(expertsFeed);
@@ -340,10 +393,10 @@ export class Home extends Component {
           feed: data || [],
           feedReady: true
         });
-        return AsyncStorage.setItem('expertsFeed', JSON.stringify(data));
+        return AsyncStorage.setItem("expertsFeed", JSON.stringify(data));
       })
       .then(() => {
-        return AsyncStorage.getItem('expertsPlaces');
+        return AsyncStorage.getItem("expertsPlaces");
       })
       .then(expertsPlaces => {
         if (expertsPlaces) {
@@ -352,67 +405,157 @@ export class Home extends Component {
         return getExpertPlaces();
       })
       .then(data => {
-          this.setState({
-            markers: data,
-            places: this.state.places.cloneWithRows(data),
-            showActivityIndicator: false
-          });
-          return AsyncStorage.setItem('expertsPlaces', JSON.stringify(data));
-        })
-        .catch((err) => console.log('fuck balls: ', err));
+        this.setState({
+          markers: data,
+          places: this.state.places.cloneWithRows(data),
+          showActivityIndicator: false
+        });
+        return AsyncStorage.setItem("expertsPlaces", JSON.stringify(data));
+      })
+      .catch(err => console.log("fuck balls: ", err));
   }
 
   goToHomeSearch() {
     Actions.homeSearch();
-    this.selectedFilterChange('feed');
+    this.selectedFilterChange("feed");
   }
 
   render() {
-    const { feedReady, region, feed, markers, selectedFilter, places, selectedHeader, showActivityIndicator, types, user } = this.state;
-    let placesPopulated = (places.getRowCount() > 0);
+    const {
+      feedReady,
+      region,
+      feed,
+      markers,
+      selectedFilter,
+      places,
+      selectedHeader,
+      showActivityIndicator,
+      types,
+      user
+    } = this.state;
+    let placesPopulated = places.getRowCount() > 0;
     return (
       <View style={styles.container}>
-        {region && <Map onRegionChange={this.onRegionChange} region={region} markers={markers}/>}
+        {user &&
+          region &&
+          markers &&
+          <Map
+            onRegionChange={this.onRegionChange}
+            region={region}
+            markers={markers}
+          />}
 
         <View style={styles.publicPrivateContainer}>
-          <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('feed')}>
-            <Text style={this.state.selectedFilter === 'feed' ? styles.selectedFilter : styles.filters}>FEED</Text>
+          <TouchableOpacity
+            style={styles.privatePress}
+            onPress={() => this.selectedFilterChange("feed")}
+          >
+            <Text
+              style={
+                this.state.selectedFilter === "feed"
+                  ? styles.selectedFilter
+                  : styles.filters
+              }
+            >
+              FEED
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('top')}>
-            <Text style={this.state.selectedFilter === 'top' ? styles.selectedFilter : styles.filters}>TOP</Text>
+          <TouchableOpacity
+            style={styles.privatePress}
+            onPress={() => this.selectedFilterChange("top")}
+          >
+            <Text
+              style={
+                this.state.selectedFilter === "top"
+                  ? styles.selectedFilter
+                  : styles.filters
+              }
+            >
+              TOP
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.privatePress} onPress={() => this.selectedFilterChange('search')}>
-            <Text style={this.state.selectedFilter === 'search' ? styles.selectedFilter : styles.filters}>SEARCH</Text>
+          <TouchableOpacity
+            style={styles.privatePress}
+            onPress={() => this.selectedFilterChange("search")}
+          >
+            <Text
+              style={
+                this.state.selectedFilter === "search"
+                  ? styles.selectedFilter
+                  : styles.filters
+              }
+            >
+              SEARCH
+            </Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.filterButton} onPress={() => this.selectedFilterChange('filter')}>
-            <Text style={this.state.selectedFilter === 'filter' ? styles.selectedFilterButton : styles.filterButtonText}>FILTER</Text>
+          <TouchableOpacity
+            style={styles.filterButton}
+            onPress={() => this.selectedFilterChange("filter")}
+          >
+            <Text
+              style={
+                this.state.selectedFilter === "filter"
+                  ? styles.selectedFilterButton
+                  : styles.filterButtonText
+              }
+            >
+              FILTER
+            </Text>
           </TouchableOpacity>
         </View>
 
         <TouchableOpacity style={styles.addPlaceButton}>
           <Icon
             raised
-            name='add'
-            color='#FFF'
-            containerStyle={{ backgroundColor: '#4296CC' }}
+            name="add"
+            color="#FFF"
+            containerStyle={{ backgroundColor: "#4296CC" }}
             onPress={this.navigateToAddPlace}
           />
         </TouchableOpacity>
         <View style={styles.feed}>
-          {!feedReady && showActivityIndicator && <View style={styles.activityIndicator}>
-            <ActivityIndicator
-              animating={showActivityIndicator}
-              size="large"
-            />
-          </View>}
-          {feedReady && selectedFilter === 'feed' && <Feed showButtons={true} feed={feed} refreshFeed={this.refreshFeed} user={user} />}
-          {feedReady && selectedFilter === 'top' && placesPopulated && <PlaceList places={places} refreshPlaces={this.refreshPlaces} />}
-          {feedReady && selectedFilter === 'top' && !placesPopulated && <Text style={styles.messageText}>"Nobody has added a favorite in your area!"</Text>}
-          {feedReady && selectedFilter === 'search' && this.goToHomeSearch()}
-          {feedReady && selectedFilter === 'filter' && <Filter types={types} onPress={this.handleFilter} toggleFilterCheckbox={this.toggleFilterCheckbox} />}
+          {!feedReady &&
+            showActivityIndicator &&
+            <View style={styles.activityIndicator}>
+              <ActivityIndicator
+                animating={showActivityIndicator}
+                size="large"
+              />
+            </View>}
+          {feedReady &&
+            selectedFilter === "feed" &&
+            <Feed
+              showButtons={true}
+              feed={feed}
+              refreshFeed={this.refreshFeed}
+              user={user}
+            />}
+          {feedReady &&
+            selectedFilter === "top" &&
+            placesPopulated &&
+            <PlaceList places={places} refreshPlaces={this.refreshPlaces} />}
+          {feedReady &&
+            selectedFilter === "top" &&
+            !placesPopulated &&
+            <Text style={styles.messageText}>
+              "Nobody has added a favorite in your area!"
+            </Text>}
+          {feedReady && selectedFilter === "search" && this.goToHomeSearch()}
+          {feedReady &&
+            selectedFilter === "filter" &&
+            <Filter
+              types={types}
+              onPress={this.handleFilter}
+              toggleFilterCheckbox={this.toggleFilterCheckbox}
+            />}
         </View>
         <View style={styles.feedButtons}>
-          <FeedButtons handleGlobal={this.handleGlobal} handleExpert={this.handleExpert} handleFriends={this.handleFriends} selectedHeader={selectedHeader}/>
+          <FeedButtons
+            handleGlobal={this.handleGlobal}
+            handleExpert={this.handleExpert}
+            handleFriends={this.handleFriends}
+            selectedHeader={selectedHeader}
+          />
         </View>
 
       </View>
@@ -423,77 +566,77 @@ export class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: "space-between"
   },
   map: {
-    flex: 1,
+    flex: 1
   },
   addPlaceButton: {
-    position: 'absolute',
-    bottom: '15%',
-    right: '5%',
+    position: "absolute",
+    bottom: "15%",
+    right: "5%",
     zIndex: 100
   },
   publicPrivateContainer: {
-    flexDirection: 'row',
-    alignItems: 'stretch',
+    flexDirection: "row",
+    alignItems: "stretch",
     height: 45,
     borderBottomWidth: 0.4,
-    borderBottomColor: '#8D8F90',
+    borderBottomColor: "#8D8F90"
   },
   filters: {
     marginRight: 10,
     marginLeft: 25,
-    alignSelf: 'center',
-    color: '#8D8F90',
+    alignSelf: "center",
+    color: "#8D8F90",
     paddingTop: 12
   },
   selectedFilter: {
-    color: '#4296CC',
+    color: "#4296CC",
     borderBottomWidth: 1,
-    borderBottomColor: '#4296CC',
+    borderBottomColor: "#4296CC",
     paddingTop: 12,
     marginRight: 10,
-    marginLeft: 25,
+    marginLeft: 25
   },
   selectedFilterButton: {
-    color: '#4296CC',
+    color: "#4296CC",
     borderBottomWidth: 1,
-    borderBottomColor: '#4296CC',
-    marginLeft: 25,
+    borderBottomColor: "#4296CC",
+    marginLeft: 25
   },
   filterButton: {
-    alignSelf: 'center',
-    position: 'absolute',
+    alignSelf: "center",
+    position: "absolute",
     right: 15,
     top: 12
   },
   filterButtonText: {
-    color: '#8D8F90',
+    color: "#8D8F90"
   },
   feed: {
-    flex:1
+    flex: 1
   },
   feedButtons: {
     flex: 0.2,
-    alignSelf: 'flex-end',
-    justifyContent: 'center',
-    alignItems: 'center'
+    alignSelf: "flex-end",
+    justifyContent: "center",
+    alignItems: "center"
   },
   search: {
     flex: 1,
-    marginTop: 60,
+    marginTop: 60
   },
   activityIndicator: {
-    marginTop: '25%'
+    marginTop: "25%"
   },
   messageText: {
     flex: 1,
     marginRight: 10,
     marginLeft: 10,
     marginTop: 10,
-    justifyContent: 'space-between',
+    justifyContent: "space-between",
     fontSize: 16,
-    fontWeight: 'bold'
+    fontWeight: "bold"
   }
 });
