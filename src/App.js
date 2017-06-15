@@ -1,6 +1,5 @@
 // 1. Import library to help create a comment.
 import React, { Component } from "react";
-import Expo from "expo";
 import { Scene, Router, Actions } from "react-native-router-flux";
 import {
   AsyncStorage,

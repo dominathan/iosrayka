@@ -2,7 +2,6 @@ import React, { Component, NativeModules } from 'react';
 import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet, Keyboard } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
-import { ImagePicker } from 'expo';
 import { CameraRollPicker } from './CameraRollPicker';
 
 import { addPlaceToFavorite, postImageToPlace } from '../../services/apiActions';
@@ -70,13 +69,14 @@ export class CommentBox extends Component {
   }
 
   pickImage() {
-    ImagePicker.launchImageLibraryAsync({})
-      .then((response) => {
-        this.setState({image: response.uri})
-      })
-      .catch(error => {
-        console.error(error);
-      })
+    return;
+    // ImagePicker.launchImageLibraryAsync({})
+    //   .then((response) => {
+    //     this.setState({image: response.uri})
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   })
   }
 
   togglePhoto() {

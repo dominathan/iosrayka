@@ -6,14 +6,15 @@
   "private": true,
   "main": "main.js",
   "dependencies": {
-    "expo": "16.0.0",
     "jwt-decode": "2.2.0",
-    "react": "16.0.0-alpha.6",
-    "react-native": "https://github.com/exponent/react-native/archive/sdk-16.0.0.tar.gz",
+    "react": "16.0.0-alpha.12",
+    "react-native": "^0.45.1",
     "react-native-button": "1.8.2",
     "react-native-communications": "2.2.1",
     "react-native-drawer": "2.3.0",
     "react-native-elements": "0.11.1",
-    "react-native-router-flux": "3.38.0"
+    "react-native-maps": "^0.15.2",
+    "react-native-router-flux": "3.38.0",
+    "react-native-vector-icons": "^4.2.0"
   }
 }
