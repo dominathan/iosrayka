@@ -524,12 +524,20 @@ export class Home extends Component {
             </View>}
           {feedReady &&
             selectedFilter === "feed" &&
+            placesPopulated &&
             <Feed
               showButtons={true}
               feed={feed}
               refreshFeed={this.refreshFeed}
               user={user}
             />}
+          {feedReady &&
+            selectedFilter === "feed" &&
+            !placesPopulated &&
+            selectedHeader === "friends" &&
+            <Text style={styles.messageText}>
+              "You haven't added any friends yet!"
+            </Text>}
           {feedReady &&
             selectedFilter === "top" &&
             placesPopulated &&
