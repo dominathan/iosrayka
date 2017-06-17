@@ -21,6 +21,7 @@ export class Map extends Component {
       return this.props.markers
         .map(place => {
           return {
+            place: place,
             key: place.id + Math.random(),
             coordinate: {
               latitude: place.lat,
@@ -38,7 +39,9 @@ export class Map extends Component {
             >
               <Icon name="location-on" color="red" key={marker.key} />
               <MapView.Callout style={styles.callout}>
-                <Text style={styles.calloutText}>{marker.title}</Text>
+                <TouchableOpacity onPress={() => { Actions.placeProfile({place: marker.place}) }}>
+                  <Text style={styles.calloutText}>{marker.title}</Text>
+                </TouchableOpacity>
               </MapView.Callout>
             </MapView.Marker>
           );
