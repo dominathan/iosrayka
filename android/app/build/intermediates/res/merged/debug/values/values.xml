@@ -273,10 +273,8 @@
     <item name="home" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
-    <item name="react_test_id" type="id"/>
     <item name="split_action_bar" type="id"/>
     <item name="up" type="id"/>
-    <item name="view_tag_native_id" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
@@ -1271,6 +1269,14 @@
     <style name="CalendarDatePickerStyle" ns2:targetApi="lollipop" parent="android:Widget.Material.Light.DatePicker">
         <item name="android:datePickerMode">calendar</item>
     </style>
+    <style name="DefaultExplainingPermissionsTheme" parent="Theme.AppCompat.Light.Dialog.Alert">
+        <!-- Used for the buttons -->
+        <item name="colorAccent">#61c3e7</item>
+        <!-- Used for the title and text -->
+        <item name="android:textColorPrimary">#3d3d3d</item>
+        <!-- Used for the background -->
+        <item name="android:background">@android:color/white</item>
+    </style>
     <style name="DialogAnimationFade">
     <item name="android:windowEnterAnimation">@anim/fade_in</item>
     <item name="android:windowExitAnimation">@anim/fade_out</item>
@@ -1527,8 +1533,7 @@
     <item name="android:windowNoTitle">true</item>
     <item name="android:windowIsFloating">false</item>
     <item name="android:windowBackground">@android:color/transparent</item>
-    <item name="android:windowDrawsSystemBarBackgrounds">true</item>
-    <item name="android:statusBarColor">@android:color/transparent</item>
+    <item name="android:windowTranslucentStatus">true</item>
   </style>
     <style name="Theme.FullScreenDialogAnimatedFade" parent="Theme.FullScreenDialog">
     <item name="android:windowAnimationStyle">@style/DialogAnimationFade</item>

@@ -1,6 +1,10 @@
 [
     {
-        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
-        "source": "/Users/London/.android/build-cache/1175362284c342deedca41c0727a7085e8b4f49a/output/res/xml/preferences.xml"
+        "merged": "/Users/mikefausz/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/Users/mikefausz/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
+    },
+    {
+        "merged": "/Users/mikefausz/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/mikefausz/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.44.0/res/xml/preferences.xml"
     }
 ]
