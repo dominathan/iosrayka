@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import Contacts from 'react-native-contacts';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, Grid, Col, Row } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+
 
 export class InviteFriends extends Component {
 
@@ -13,13 +15,14 @@ export class InviteFriends extends Component {
   }
 
   getContacts() {
-    const contacts = {
-      data: [{
-        emails: ['andrew@andrew.com'],
-        phoneNumbers: ['7042871152'],
-      }]
-    }
-    Actions.inviteFriendsList({contacts: contacts.data});
+    Contacts.getAll((err, contacts) => {
+      if(err === 'denied'){
+        console.log('Error: ', err);
+      } else {
+        console.log('Contacts: ', contacts);
+        Actions.inviteFriendsList({contacts: contacts});
+      }
+    })
   }
 
   render() {
@@ -34,7 +37,7 @@ export class InviteFriends extends Component {
           color="#FFF"
           borderRadius={30}
           large={true}
-          onPress={this.getContacts}
+          onPress={() => this.getContacts()}
         />
       </View>
     );
