@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Icon } from 'react-native-elements';
 import { View, Text, Image, StyleSheet, TouchableOpacity, ListView, ActivityIndicator, AsyncStorage } from 'react-native';
-import { ImagePicker } from 'expo';
 import MapView from 'react-native-maps';
 import { getPlace } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
@@ -51,7 +50,7 @@ export class PlaceProfile extends Component {
   componentWillUnmount() {
     AsyncStorage.removeItem('placeProfile');
   }
-  
+
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
       this.setState({user: JSON.parse(user) });
@@ -110,13 +109,15 @@ export class PlaceProfile extends Component {
   }
 
   pickImage() {
-    ImagePicker.launchImageLibraryAsync({})
-      .then((response) => {
-        this.setState({image: response.uri, addPhotoScreen: true, feedType: undefined})
-      })
-      .catch(error => {
-        console.error(error);
-      })
+    // TODO import image picker
+    return;
+    // ImagePicker.launchImageLibraryAsync({})
+      // .then((response) => {
+      //   this.setState({image: response.uri, addPhotoScreen: true, feedType: undefined})
+      // })
+      // .catch(error => {
+      //   console.error(error);
+      // })
   }
 
   handlePhotoUpload(imageUri) {

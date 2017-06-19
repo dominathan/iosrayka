@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { ImagePicker } from 'expo';
 import { Alert, AsyncStorage, StyleSheet, View, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
@@ -28,18 +27,19 @@ export class ProfileInfo extends Component {
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
       user = JSON.parse(user);
-      this.setState({user: user, image: user.photo_url });
+      if(user) this.setState({user: user, image: user.photo_url });
     });
   }
 
   getPhoto() {
-    ImagePicker.launchImageLibraryAsync({})
-      .then((response) => {
-        this.setState({image: response.uri, imageChanged: true})
-      })
-      .catch(error => {
-        console.error(error);
-      })
+    return;
+    // ImagePicker.launchImageLibraryAsync({})
+    //   .then((response) => {
+    //     this.setState({image: response.uri, imageChanged: true})
+    //   })
+    //   .catch(error => {
+    //     console.error(error);
+    //   })
   }
 
   handlePhotoUpload(imageUri) {
@@ -68,23 +68,25 @@ export class ProfileInfo extends Component {
           onPress: () => {
             this.setState({showActivityIndicator: true})
             updateUser(this.state.user)
-              .then(() => {
+              .then((data) => {
                 if (this.state.imageChanged) {
-                  return this.handlePhotoUpload(this.state.image)
+                  return this.handlePhotoUpload(this.state.image);
+                }
+                else {
+                  return new Promise((resolve, reject) => {
+                    resolve(data);
+                  });
                 }
               })
-              .then(data => {
-                return Promise.all([AsyncStorage.removeItem('user'), data]);
-              })
               .then(results => {
-                let userData = results[1];
-                return AsyncStorage.setItem('user', JSON.stringify(data));
+                console.log("Results; ", results)
+                return AsyncStorage.setItem('user', JSON.stringify(results));
               })
               .then(data => {
                 Actions.settings({type: 'reset'});
               })
               .catch(error => {
-                console.log('FUCK: ', error);
+                console.log('ERROR: ', error);
               });
           }
         }

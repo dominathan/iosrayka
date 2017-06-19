@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import Expo from "expo";
 import { AsyncStorage, WebView, View, StyleSheet } from "react-native";
 import { Actions } from "react-native-router-flux";
 import jwtDecode from "jwt-decode";
@@ -9,17 +8,17 @@ import { loginUser } from "../services/apiActions";
 
 const auth0ClientId = "yVWgohF5HglLD5qTqv1zols99eHPYlBK";
 const auth0Domain = "https://dominathan.auth0.com";
-let redirectUri;
-
-if (Expo.Constants.manifest.xde) {
-  // Hi there, dear reader!
-  // This value needs to be the tunnel url for your local Expo project.
-  // It also needs to be listed in valid callback urls of your Auth0 Client
-  // Settings. See the README for more information.
-  redirectUri = "exp://qy-j9j.dominathan.iosrayka.exp.direct/+/redirect";
-} else {
-  redirectUri = `${Expo.Constants.linkingUri}/redirect`;
-}
+let redirectUri = "exp://qy-j9j.dominathan.iosrayka.exp.direct/+/redirect";
+// 
+// if (Expo.Constants.manifest.xde) {
+//   // Hi there, dear reader!
+//   // This value needs to be the tunnel url for your local Expo project.
+//   // It also needs to be listed in valid callback urls of your Auth0 Client
+//   // Settings. See the README for more information.
+//   redirectUri = "exp://qy-j9j.dominathan.iosrayka.exp.direct/+/redirect";
+// } else {
+//   redirectUri = `${Expo.Constants.linkingUri}/redirect`;
+// }
 
 export class Login extends Component {
   constructor(props) {

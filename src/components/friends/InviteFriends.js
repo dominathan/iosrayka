@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import Expo from 'expo';
+import Contacts from 'react-native-contacts';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button, Grid, Col, Row } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
+
 
 export class InviteFriends extends Component {
 
@@ -13,22 +14,15 @@ export class InviteFriends extends Component {
     };
   }
 
-  async getContacts() {
-    const permission = await Expo.Permissions.askAsync(Expo.Permissions.CONTACTS);
-    if (permission.status !== 'granted') {
-      // Permission was denied...
-      return;
-    }
-
-    const contacts = await Expo.Contacts.getContactsAsync({
-      fields: [
-        Expo.Contacts.PHONE_NUMBERS,
-        Expo.Contacts.EMAILS,
-      ],
-      pageSize: 300,
-      pageOffset: 0,
-    });
-    Actions.inviteFriendsList({contacts: contacts.data});
+  getContacts() {
+    Contacts.getAll((err, contacts) => {
+      if(err === 'denied'){
+        console.log('Error: ', err);
+      } else {
+        console.log('Contacts: ', contacts);
+        Actions.inviteFriendsList({contacts: contacts});
+      }
+    })
   }
 
   render() {
@@ -43,7 +37,7 @@ export class InviteFriends extends Component {
           color="#FFF"
           borderRadius={30}
           large={true}
-          onPress={this.getContacts}
+          onPress={() => this.getContacts()}
         />
       </View>
     );

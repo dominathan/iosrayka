@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Expo from 'expo';
 import { Actions } from 'react-native-router-flux';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 

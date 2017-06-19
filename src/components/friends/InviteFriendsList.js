@@ -26,7 +26,8 @@ componentWillMount() {
 }
 
   renderContacts(contact) {
-    let phoneNumber = contact.phoneNumbers.filter(number => { return number.label === 'mobile' || number.label === 'home' })[0];
+    let phoneNumber = '1234567';
+    // let phoneNumber = contact.phoneNumbers.filter(number => { return number.label === 'mobile' || number.label === 'home' })[0];
     return (
       <View style={styles.listItem}>
         <TouchableOpacity onPress={() => {text(phoneNumber.number)}}>
