@@ -1,7 +1,4 @@
-#Sun Jun 18 19:31:56 EDT 2017
-base.0=/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6f0c2388d53776998337498af247a78f5d4c4f25
-renamed.1=classes2.dex
+#Mon Jun 19 12:40:57 EDT 2017
+base.0=/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
-file.1=/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d17c1871692ed9c5dba80e92da8bd0d762f4a55f/classes.dex
-base.1=/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d17c1871692ed9c5dba80e92da8bd0d762f4a55f
-file.0=/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6f0c2388d53776998337498af247a78f5d4c4f25/classes.dex
+file.0=/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex

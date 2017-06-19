@@ -2,15 +2,6 @@
 <items version="2" >
 
     <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/e4dbdc9886f92ee4cb4e5791e8d878534031ff36/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6d781d439c867fe3e734263065dd0d2a93487745/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-vector-icons/android/build/intermediates/bundles/default/classes.jar"
         jumboMode="false"
@@ -65,15 +56,6 @@
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_0692ebd6c68c6f9343ff46df8c95b56e2f51703f.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="ac6478eec2b4109d26562af6483a30b775a72dc7">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_d17c1871692ed9c5dba80e92da8bd0d762f4a55f/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
         jumboMode="false"
@@ -108,24 +90,6 @@
         revision="25.0.0"
         sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_37db88921ff829c3e2882b6112693225b30d75bb.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/efb073895916d5d5b59f2bf52e91ee30b8254910/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="6d0d5e86f5b7203834df01ed78ebfdd5cbf74d48">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_0075e557b7501bee3fb8f2ccfe2c98c78c8b1e3d/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/e4dbdc9886f92ee4cb4e5791e8d878534031ff36/output/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-24.0.0_1ed078b0dd727d9d7ed5c26dc44fe47032ed3653/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -180,15 +144,6 @@
         revision="23.0.1"
         sha1="f162442a19fff13995fbd51ba414d9ee05579080">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_718e404c7afc369dc52bfdb30e024841e776dbf9.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/71c79b70539e44bb6bee9dc01a5c255b1893e120/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_97002ce77a9b5a4983a7022d39fb4057bd65f4ae/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -290,15 +245,6 @@
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/classes_f6482496f08c087b2b1e976a9371f08f266939b8.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_6f0c2388d53776998337498af247a78f5d4c4f25/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
         jumboMode="false"
@@ -324,15 +270,6 @@
         revision="25.0.0"
         sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_1ed078b0dd727d9d7ed5c26dc44fe47032ed3653.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/1175362284c342deedca41c0727a7085e8b4f49a/output/jars/libs/infer-annotations-4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/infer-annotations-4.0_1090e92c07683f0d4ec5caebc7ad8a19ee8731ed/classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -371,15 +308,6 @@
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/classes_97002ce77a9b5a4983a7022d39fb4057bd65f4ae.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/b2d79258fa905259d47b12646a327dfcee8c2d32/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_e4da413fb748ecb47548b1993f73ca34b7127d54/classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="/Users/London/.android/build-cache/99ea33f82b8188d663b9ae6f2afcd61e7a57b379/output/jars/classes.jar"
         jumboMode="false"
@@ -396,33 +324,6 @@
         revision="23.0.1"
         sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_37db88921ff829c3e2882b6112693225b30d75bb.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-24.0.0_bd502c9f32be993f08c3cb5f3ae47f6110294067/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/ec05db6e828b955f945065a85796a3bb7b802ed3/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_01bf7a8eeca703df0074f7456bf7bad30664b6f7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/London/.android/build-cache/1175362284c342deedca41c0727a7085e8b4f49a/output/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.0"
-        sha1="0d3e48e200296061415952a358fad487e129adaa">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_a62a555078b409de536c6cf258a9fd2fe3c61b57/classes.dex" />
     </item>
     <item
         is-multidex="false"

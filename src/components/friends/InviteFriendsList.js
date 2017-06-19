@@ -17,6 +17,7 @@ componentWillMount() {
   AsyncStorage.getItem('user')
     .then(user => {
       let parsedUser = JSON.parse(user);
+      console.log("Parsed user: ", parsedUser);
       let name = `${parsedUser.first_name} ${parsedUser.last_name}`;
       this.setState({
         message: `${name} wants you to join them in Rayka!`
@@ -26,12 +27,13 @@ componentWillMount() {
 }
 
   renderContacts(contact) {
-    let phoneNumber = '1234567';
-    // let phoneNumber = contact.phoneNumbers.filter(number => { return number.label === 'mobile' || number.label === 'home' })[0];
+    console.log("Contact: ", contact);
+    let phoneNumber = contact.phoneNumbers.filter(number => { return number.label === 'mobile' || number.label === 'home' })[0];
+    let message = this.state.message;
     return (
       <View style={styles.listItem}>
-        <TouchableOpacity onPress={() => {text(phoneNumber.number)}}>
-            <Text style={styles.name}>{`${contact.firstName} ${contact.lastName}`}</Text>
+        <TouchableOpacity onPress={() => {text(phoneNumber.number, message)}}>
+            <Text style={styles.name}>{`${contact.givenName} ${contact.familyName}`}</Text>
             {phoneNumber &&
             <Text style={styles.number}>{phoneNumber.number}</Text>
             }

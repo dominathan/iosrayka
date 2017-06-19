@@ -19,7 +19,6 @@ export class InviteFriends extends Component {
       if(err === 'denied'){
         console.log('Error: ', err);
       } else {
-        console.log('Contacts: ', contacts);
         Actions.inviteFriendsList({contacts: contacts});
       }
     })

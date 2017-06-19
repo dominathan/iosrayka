@@ -55,7 +55,6 @@ export default class TabViewHeader extends Component {
       {!user && <Text> No User To Display</Text>}
       {user &&  <View style={viewStyle}>
             <View style={imageViewStyle}>
-                <Image style={profileImageStyle} source={{ uri: user.photo_url }} />
             </View>
             <View style={textViewStyle}>
                 <Text style={textStyle}>{user.first_name} {user.last_name}</Text>
@@ -64,6 +63,20 @@ export default class TabViewHeader extends Component {
         </View>}
       </TouchableOpacity>
     );
+    // return (
+    //   <TouchableOpacity onPress={() => this.goToProfile()}>
+    //   {!user && <Text> No User To Display</Text>}
+    //   {user &&  <View style={viewStyle}>
+    //         <View style={imageViewStyle}>
+    //             <Image style={profileImageStyle} source={{ uri: user.photo_url }} />
+    //         </View>
+    //         <View style={textViewStyle}>
+    //             <Text style={textStyle}>{user.first_name} {user.last_name}</Text>
+    //             <Text style={textStyleEmail}>{user.email}</Text>
+    //         </View>
+    //     </View>}
+    //   </TouchableOpacity>
+    // );
   }
 
 };

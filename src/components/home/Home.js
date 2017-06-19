@@ -439,7 +439,7 @@ export class Home extends Component {
         {user &&
           region &&
           markers &&
-          <Map
+          <Map style={ styles.map }
             onRegionChange={this.onRegionChange}
             region={region}
             markers={markers}
@@ -569,8 +569,12 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   map: {
-    flex: 1
-  },
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+   },
   addPlaceButton: {
     position: "absolute",
     bottom: "15%",
