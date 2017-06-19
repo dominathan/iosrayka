@@ -9,7 +9,7 @@ import { loginUser } from "../services/apiActions";
 const auth0ClientId = "yVWgohF5HglLD5qTqv1zols99eHPYlBK";
 const auth0Domain = "https://dominathan.auth0.com";
 let redirectUri = "exp://qy-j9j.dominathan.iosrayka.exp.direct/+/redirect";
-// 
+//
 // if (Expo.Constants.manifest.xde) {
 //   // Hi there, dear reader!
 //   // This value needs to be the tunnel url for your local Expo project.
@@ -80,7 +80,7 @@ export class Login extends Component {
     encodedToken = responseObj.id_token;
     decodedToken = jwtDecode(encodedToken);
     this.setState({ user: decodedToken, isLoggedIn: true });
-    AsyncStorage.setItem("fullUser", JSON.stringify(decodedToken));
+    AsyncStorage.setItem("user", JSON.stringify(decodedToken));
     AsyncStorage.setItem("token", JSON.stringify(encodedToken));
     this.handleLoginSuccess(decodedToken);
   }

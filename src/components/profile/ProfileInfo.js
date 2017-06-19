@@ -1,19 +1,22 @@
 import React, { Component } from 'react';
-import { Alert, AsyncStorage, StyleSheet, View, TouchableOpacity, Text, ActivityIndicator} from 'react-native';
+import { Alert, AsyncStorage, StyleSheet, View, TouchableOpacity, Text, ActivityIndicator, CameraRoll } from 'react-native';
 import { Button, FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
 import { updateUser, postImageToUser } from '../../services/apiActions';
 import { CameraRollPicker } from '../places/CameraRollPicker';
+import ImagePicker from 'react-native-image-picker';
 
 export class ProfileInfo extends Component {
   constructor(props) {
     super(props)
     this.state = {
       user: undefined,
-      image: null,
+      imageUri: null,
+      imageSource: null,
       imageChanged: false,
-      showActivityIndicator: false
+      showActivityIndicator: false,
+      error: ''
     }
     this.setCurrentUser = this.setCurrentUser.bind(this);
     this.getPhoto = this.getPhoto.bind(this);
@@ -27,29 +30,44 @@ export class ProfileInfo extends Component {
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
       user = JSON.parse(user);
-      if(user) this.setState({user: user, image: user.photo_url });
+      if(user) this.setState({user: user, imageUri: user.photo_url });
     });
   }
 
   getPhoto() {
-    return;
-    // ImagePicker.launchImageLibraryAsync({})
-    //   .then((response) => {
-    //     this.setState({image: response.uri, imageChanged: true})
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   })
+
+    const options = {
+      title: 'Select Profile Photo',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images'
+      }
+    };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      }
+      else {
+        this.setState({
+          imageUri: 'data:image/jpeg;base64,' + response.data,
+          imageChanged: true
+        });
+      }
+    });
   }
 
   handlePhotoUpload(imageUri) {
-    const photo = {
-      uri: imageUri,
-      type: 'image/jpeg',
-      name: 'photo.jpg',
-    };
     const data = {
-      photo: photo,
+      photo: imageUri,
     };
     return postImageToUser(data);
   }
@@ -66,11 +84,11 @@ export class ProfileInfo extends Component {
         {
           text: 'Ok',
           onPress: () => {
-            this.setState({showActivityIndicator: true})
+            this.setState({showActivityIndicator: true, error: ''});
             updateUser(this.state.user)
               .then((data) => {
                 if (this.state.imageChanged) {
-                  return this.handlePhotoUpload(this.state.image);
+                  return this.handlePhotoUpload(this.state.imageUri);
                 }
                 else {
                   return new Promise((resolve, reject) => {
@@ -80,16 +98,35 @@ export class ProfileInfo extends Component {
               })
               .then(results => {
                 console.log("Results; ", results)
+
+                if(results.error) {
+                  return new Promise((resolve, reject) => {
+                    reject(results.error);
+                  });
+                }
                 return AsyncStorage.setItem('user', JSON.stringify(results));
               })
               .then(data => {
                 Actions.settings({type: 'reset'});
               })
               .catch(error => {
-                console.log('ERROR: ', error);
+                this.handleUpdateError(error);
               });
           }
         }
+      ]
+    );
+  }
+
+  handleUpdateError(error) {
+    console.log('ERROR: ', error);
+    this.setState({showActivityIndicator: false, error});
+
+    Alert.alert(
+      'An error occurred',
+      'The was a problem updating your profile.',
+      [
+        {text: 'OK', onPress: () => console.log('OK Pressed')},
       ]
     );
   }
@@ -136,7 +173,7 @@ export class ProfileInfo extends Component {
               <Text style={styles.addPhoto}> Add / Update Photo </Text>
             </TouchableOpacity>
 
-            { this.state.image && <CameraRollPicker image={this.state.image} pickImage={() => console.log("YAY")}/>}
+            { this.state.imageUri && <CameraRollPicker image={this.state.imageUri} pickImage={() => console.log('yay')}/>}
           </View>
 
 
