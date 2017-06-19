@@ -6,12 +6,12 @@ import { getPlace } from '../../services/apiActions';
 import { Feed } from '../feed/Feed';
 import { ImageFeed } from '../feed/ImageFeed';
 import { Map } from '../map/Map';
-import { CameraRollPicker } from './CameraRollPicker';
 import ProfileStats from '../profile/ProfileStats';
 import { Actions } from 'react-native-router-flux';
 
-
 import { postImageToPlace } from '../../services/apiActions';
+import { CameraRollPicker } from '../places/CameraRollPicker';
+import ImagePicker from 'react-native-image-picker';
 
 export class PlaceProfile extends Component {
   constructor(props) {
@@ -109,25 +109,39 @@ export class PlaceProfile extends Component {
   }
 
   pickImage() {
-    // TODO import image picker
-    return;
-    // ImagePicker.launchImageLibraryAsync({})
-      // .then((response) => {
-      //   this.setState({image: response.uri, addPhotoScreen: true, feedType: undefined})
-      // })
-      // .catch(error => {
-      //   console.error(error);
-      // })
+      const options = {
+        title: 'Select Photo',
+        storageOptions: {
+          skipBackup: true,
+          path: 'images'
+        }
+      };
+
+      ImagePicker.showImagePicker(options, (response) => {
+        console.log('Response = ', response);
+
+        if (response.didCancel) {
+          console.log('User cancelled image picker');
+        }
+        else if (response.error) {
+          console.log('ImagePicker Error: ', response.error);
+        }
+        else if (response.customButton) {
+          console.log('User tapped custom button: ', response.customButton);
+        }
+        else {
+          this.setState({
+            image: 'data:image/jpeg;base64,' + response.data,
+            addPhotoScreen: true,
+            feedType: undefined
+          });
+        }
+      });
   }
 
   handlePhotoUpload(imageUri) {
-    const photo = {
-      uri: imageUri,
-      type: 'image/jpeg',
-      name: 'photo.jpg',
-    };
     const data = {
-      photo: photo,
+      photo: imageUri,
       place: this.props.place
     };
     this.setState({addPhotoScreen: false, showActivityIndicator: true})
