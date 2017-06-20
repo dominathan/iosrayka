@@ -91,7 +91,7 @@ def enableProguardInReleaseBuilds = false
 
 android {
     compileSdkVersion 23
-    buildToolsVersion '25.0.0'
+    buildToolsVersion "23.0.1"
 
     defaultConfig {
         applicationId "com.iosrayka"
@@ -133,9 +133,10 @@ android {
 }
 
 dependencies {
-    compile project(':react-native-contacts')
+    compile project(':react-native-image-picker')
     compile project(':react-native-vector-icons')
     compile project(':react-native-maps')
+    compile project(':react-native-contacts')
     compile fileTree(dir: "libs", include: ["*.jar"])
     compile "com.android.support:appcompat-v7:23.0.1"
     compile "com.facebook.react:react-native:+"  // From node_modules
@@ -147,4 +148,3 @@ task copyDownloadableDepsToLibs(type: Copy) {
     from configurations.compile
     into 'libs'
 }
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
