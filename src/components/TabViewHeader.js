@@ -72,14 +72,16 @@ const styles = {
     imageViewStyle: {
         alignItems: 'center',
         justifyContent: 'center',
-        borderRadius: 30,
+        borderRadius: 60,
+        width: 60,
+        height: 60,
         marginRight: 15,
         marginLeft: 15
     },
     profileImageStyle: {
         width: 60,
         height: 60,
-        borderRadius: 30
+        borderRadius: 60
     },
     textStyle: {
         fontSize: 16,
@@ -100,8 +102,8 @@ const styles = {
         justifyContent: 'center',
         alignItems: 'center',
         marginTop: 50,
-        marginBottom: 20,
+        paddingBottom: 20,
         height: 60,
-        paddingTop: 15
+        paddingTop: 20
     }
 };
