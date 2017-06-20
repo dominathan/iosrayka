@@ -60,9 +60,9 @@ export class Profile extends Component {
       countryTally.push(marker.country);
       return countryTally;
     }, []);
-    this.setState({ 
+    this.setState({
       countries,
-      showActivityIndicator: false 
+      showActivityIndicator: false
     });
   }
 
@@ -75,7 +75,7 @@ export class Profile extends Component {
         return getUserFeed(this.props.person);
       })
       .then(feed => {
-        this.setState({ 
+        this.setState({
           display: feed,
           feed,
           feedType: 'feed'
@@ -173,10 +173,12 @@ export class Profile extends Component {
               <Image source={{ uri: person.photo_url }} style={styles.photo} />
             </View>
             <View style={styles.profileTextContainer}>
-              <Text style={styles.name}>
+              <View>
                 {person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>}
-                {!person.first_name && person.email}
-                {person.first_name} {person.last_name}
+                { !person.first_name &&
+                  <Text style={styles.name}>{person.email}</Text>
+                }
+                <Text style={styles.name}>{person.first_name} {person.last_name}</Text>
                 { showFriendStatus &&
                   !friendAdded &&
                     <Icon
@@ -190,7 +192,7 @@ export class Profile extends Component {
                   friendAdded &&
                   <Text style={styles.friendAddedText}> (Following)</Text>
                 }
-              </Text>
+              </View>
 
               {person.expert &&
                 <View style={styles.expertLinkContainer}>

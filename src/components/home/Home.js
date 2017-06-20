@@ -6,7 +6,8 @@ import {
   StyleSheet,
   ListView,
   ActivityIndicator,
-  AsyncStorage
+  AsyncStorage,
+  PermissionsAndroid
 } from "react-native";
 
 import { Actions } from "react-native-router-flux";
@@ -112,20 +113,32 @@ export class Home extends Component {
 
   componentDidMount(props) {
     this.setCurrentUser();
-
-    this.watchID = navigator.geolocation.watchPosition(position => {
-      let region = {
-        latitude: this.props.location && this.props.location.lat
-          ? this.props.location.lat
-          : position.coords.latitude,
-        longitude: this.props.location && this.props.location.lng
-          ? this.props.location.lng
-          : position.coords.longitude,
-        latitudeDelta: 0.00922 * 6.5,
-        longitudeDelta: 0.00421 * 6.5
-      };
-      this.setState({ region: region });
-      this.handleGlobal();
+    console.log('heyho');
+    PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
+    .then(permission => {
+      if(permission) {
+        console.log('Has permission');
+        this.getLocation();
+      }
+      else {
+        console.log('No permission, requesting...');
+        PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            'title': 'Rayka Location Permission',
+            'message': 'Rayka would like to access your device\'s location ' +
+                       'so we can find businesses close to you.'
+          }
+        )
+        .then(granted => {
+          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            console.log('Permission granted');
+            this.getLocation();
+          } else {
+            console.log('Permission denied');
+          }
+        });
+      }
     });
     this.globalFilter();
   }
@@ -141,6 +154,25 @@ export class Home extends Component {
         markers: updatedMarkers
       });
     }
+  }
+
+  getLocation() {
+    this.watchID = navigator.geolocation.watchPosition(position => {
+      console.log("POsition: ", position)
+      let region = {
+        latitude: this.props.location && this.props.location.lat
+          ? this.props.location.lat
+          : position.coords.latitude,
+        longitude: this.props.location && this.props.location.lng
+          ? this.props.location.lng
+          : position.coords.longitude,
+        latitudeDelta: 0.00922 * 6.5,
+        longitudeDelta: 0.00421 * 6.5
+      };
+      console.log('hey');
+      this.setState({ region: region });
+      this.handleGlobal();
+    });
   }
 
   handleGlobal() {
@@ -173,6 +205,7 @@ export class Home extends Component {
         return getPlaces(queryString);
       })
       .then(data => {
+        console.log('dater', data)
         this.setState({
           markers: data,
           places: this.state.places.cloneWithRows(data)
@@ -281,6 +314,7 @@ export class Home extends Component {
         return getFeed(queryString);
       })
       .then(data => {
+        console.log("Data from home feed: ", data)
         if (data.errors) {
           Actions.login();
           return;
@@ -433,6 +467,7 @@ export class Home extends Component {
       types,
       user
     } = this.state;
+    console.log(places.getRowCount(), 'Places')
     let placesPopulated = places.getRowCount() > 0;
     return (
       <View style={styles.container}>
