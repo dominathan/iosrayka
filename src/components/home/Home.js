@@ -113,32 +113,21 @@ export class Home extends Component {
 
   componentDidMount(props) {
     this.setCurrentUser();
-    console.log('heyho');
-    PermissionsAndroid.check(PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION)
-    .then(permission => {
-      if(permission) {
-        console.log('Has permission');
-        this.getLocation();
-      }
-      else {
-        console.log('No permission, requesting...');
-        PermissionsAndroid.request(
-          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
-          {
-            'title': 'Rayka Location Permission',
-            'message': 'Rayka would like to access your device\'s location ' +
-                       'so we can find businesses close to you.'
-          }
-        )
-        .then(granted => {
-          if (granted === PermissionsAndroid.RESULTS.GRANTED) {
-            console.log('Permission granted');
-            this.getLocation();
-          } else {
-            console.log('Permission denied');
-          }
-        });
-      }
+    this.watchID = navigator.geolocation.watchPosition(position => {
+      console.log("Position: ", position)
+      let region = {
+        latitude: this.props.location && this.props.location.lat
+          ? this.props.location.lat
+          : position.coords.latitude,
+        longitude: this.props.location && this.props.location.lng
+          ? this.props.location.lng
+          : position.coords.longitude,
+        latitudeDelta: 0.00922 * 6.5,
+        longitudeDelta: 0.00421 * 6.5
+      };
+      console.log('hey');
+      this.setState({ region: region });
+      this.handleGlobal();
     });
     this.globalFilter();
   }
@@ -158,7 +147,7 @@ export class Home extends Component {
 
   getLocation() {
     this.watchID = navigator.geolocation.watchPosition(position => {
-      console.log("POsition: ", position)
+      console.log("Position: ", position)
       let region = {
         latitude: this.props.location && this.props.location.lat
           ? this.props.location.lat

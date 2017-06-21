@@ -56,12 +56,12 @@
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_text_dark_normal.xml"
     },
     {
-        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
-    },
-    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_dark_focused.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_normal.xml",

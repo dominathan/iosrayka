@@ -167,14 +167,14 @@ export class Profile extends Component {
     return (
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} />
+          <View source={styles.profileImageContainer}>
+            <Image source={{ uri: person.photo_url }} style={styles.photo} />
+          </View>
         <View style={styles.detailsContainer}>
           { person && <View style={styles.profileDetailsContainer}>
-            <View source={styles.profileImageContainer}>
-              <Image source={{ uri: person.photo_url }} style={styles.photo} />
-            </View>
             <View style={styles.profileTextContainer}>
-              <View>
-                {person.expert && <Icon containerStyle={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>}
+              <View style={styles.nameTextContainer}>
+                {person.expert && <Icon style={styles.expertContainer} size={20} color={'#4296cc'} type="material-community" name="crown"/>}
                 { !person.first_name &&
                   <Text style={styles.name}>{person.email}</Text>
                 }
@@ -182,7 +182,7 @@ export class Profile extends Component {
                 { showFriendStatus &&
                   !friendAdded &&
                     <Icon
-                      containerStyle={styles.addFriendContainer}
+                      style={styles.addFriendContainer}
                       name="add"
                       color="#4296CC"
                       onPress={() => { this.follow(person) }}
@@ -233,8 +233,8 @@ export class Profile extends Component {
 
 const styles = StyleSheet.create({
   addFriendContainer: {
-    marginTop: 15,
     marginLeft: 10,
+    marginBottom: 15,
     height: 15,
     width: 25
   },
@@ -245,14 +245,14 @@ const styles = StyleSheet.create({
   },
   detailsContainer: {
     flex: 1,
-    position: 'relative'
+    position: 'relative',
+    paddingTop: 15
   },
   expertBlogLink: {
     color: '#4296cc',
     fontSize: 16
   },
   expertContainer: {
-    marginTop: 15,
     height: 15,
     width: 25
   },
@@ -310,11 +310,15 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     justifyContent: 'center',
   },
-  name: {
-    fontSize: 20,
+  nameTextContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    paddingTop: 5,
     marginLeft: 80,
-    alignSelf: 'flex-start',
-    paddingTop: 15
+    width: 300
+  },
+  name: {
+    fontSize: 20
   },
   profileDetailsContainer: {
     flex: 1,
@@ -322,7 +326,8 @@ const styles = StyleSheet.create({
     backgroundColor: '#f4f4f4'
   },
   profileImageContainer: {
-    flex: 1
+    flex: 1,
+    zIndex: 10
   },
   profileTextContainer: {
     flex: 3,
@@ -334,10 +339,11 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     alignSelf: 'flex-start',
     position: 'absolute',
-    top: -15,
+    top: -5,
     marginLeft: 5,
     borderWidth: 2,
-    borderColor: '#FFF'
+    borderColor: '#FFF',
+    zIndex: 10,
   },
   statsContainer: {
     flex: 1,
