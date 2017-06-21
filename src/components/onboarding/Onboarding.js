@@ -24,6 +24,11 @@ export class Onboarding extends Component {
                     image: require('./tiles/master.png'),
                     text: 'Curious what the world’s veteran travelers recommend? Find the best cities, bars, restaurants and more from experts who have travelled the globe.',
                     title: 'Master'
+                },
+                {
+                    image: require('./tiles/groups.png'),
+                    text: 'Join Study Abroad Groups to see the recommendations and favorite places of past students who studied there.',
+                    title: 'Groups'
                 }
             ]
         };
