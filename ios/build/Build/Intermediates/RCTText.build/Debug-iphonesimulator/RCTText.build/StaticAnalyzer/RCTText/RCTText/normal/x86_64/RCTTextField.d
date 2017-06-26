@@ -1,0 +1,25 @@
+dependencies: \
+  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/Libraries/Text/RCTTextField.m \
+  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/Libraries/Text/RCTTextField.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTComponent.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/UIView+React.h \
+  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/Libraries/Text/RCTTextSelection.h
