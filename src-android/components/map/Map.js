@@ -38,11 +38,9 @@ export class Map extends Component {
               title={marker.title}
             >
               <Icon name="location-on" color="red" key={marker.key} />
-              <MapView.Callout style={styles.callout}>
-                <TouchableOpacity>
-                  <Text onPress={() => { Actions.placeProfile({place: marker.place}) }}style={styles.calloutText}>{marker.title}</Text>
-                </TouchableOpacity>
-              </MapView.Callout>
+                <MapView.Callout style={styles.callout} onPress={() => { Actions.placeProfile({place: marker.place}) }}>
+                    <Text style={styles.calloutText}>{marker.title}</Text>
+                </MapView.Callout>
             </MapView.Marker>
           );
         });

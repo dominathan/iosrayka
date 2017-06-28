@@ -33,6 +33,8 @@ export class FeedDetail extends Component {
 
   render() {
     const { feed, user } = this.props;
+    console.log("Feed: ", feed)
+    console.log("User: ", user)
     const { showHeart, showBeenThere } = this.state;
     if (!user) {
       return (null);
@@ -42,7 +44,8 @@ export class FeedDetail extends Component {
          roundAvatar
          subtitle={
            <View style={styles.subtitleView}>
-            <Text>
+            <View style={styles.expertIcon}>
+              {feed.user.expert && <Icon color="#4296CC" type="material-community" name="crown" />}
               <Text
                 onPress={()=> { Actions.profile({
                   person: feed.user
@@ -60,7 +63,7 @@ export class FeedDetail extends Component {
                 style={styles.titleStyle}>
                   {" " + feed.place.name}
               </Text>
-            </Text>
+            </View>
             <Text style={styles.textComment}>
               {feed.comment}
             </Text>
@@ -76,9 +79,9 @@ export class FeedDetail extends Component {
             </View>}
            </View>
          }
-         hideChevron={true}
-         avatar={{uri: feed.user.photo_url}}
-         avatarStyle={styles.avatarStyle} />
+       hideChevron={true}
+       avatar={{uri: feed.user.photo_url}}
+       avatarStyle={styles.avatarStyle} />
       );
     }
   }
@@ -111,6 +114,11 @@ const styles = StyleSheet.create({
   titleStyle: {
     fontWeight: '600',
   },
+  expertIcon: {
+    flexWrap: 'wrap',
+    flexDirection: 'row',
+    alignItems: 'center'
+  },
   unBold: {
     fontWeight: '300'
   },
@@ -129,5 +137,4 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between'
   }
-
 });

@@ -39,9 +39,7 @@ export class Map extends Component {
             >
               <Icon name="location-on" color="red" key={marker.key} />
               <MapView.Callout style={styles.callout}>
-                <TouchableOpacity>
                   <Text onPress={() => { Actions.placeProfile({place: marker.place}) }}style={styles.calloutText}>{marker.title}</Text>
-                </TouchableOpacity>
               </MapView.Callout>
             </MapView.Marker>
           );

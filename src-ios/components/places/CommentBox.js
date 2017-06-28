@@ -106,6 +106,7 @@ export class CommentBox extends Component {
 
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo, user } = this.state;
+    console.log(favorite, "FAVORITE")
     Keyboard.dismiss();
     this.setState({buttonDisabled: true})
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
@@ -154,21 +155,6 @@ export class CommentBox extends Component {
       <View style={styles.container}>
         <View style={styles.placeToAdd}>
           <Text style={styles.placeToAddText}>{place.name}</Text>
-          <View style={styles.favoriteContainer}>
-            <TouchableOpacity style={styles.addFavorite} onPress={this.toggleFavorite}>
-              <Text style={styles.addFavoriteText}>Add as Favorite</Text>
-              {
-                !this.state.favorite ?
-                <Icon
-                  name='star-border'
-                />
-                :
-                <Icon name="star"
-                  color='yellow'
-                />
-              }
-            </TouchableOpacity>
-          </View>
         </View>
         <TouchableOpacity onPress={this.togglePhoto} style={styles.addPhotoContainer}>
           <Icon
@@ -197,71 +183,76 @@ export class CommentBox extends Component {
          onPress={() => this.savePlace(place)}
          disabled={buttonDisabled}
          />
+         <Button
+           style={styles.addFavorite}
+           raised
+           title='Add as Favorite'
+           backgroundColor='#4296CC'
+           icon={!this.state.favorite ? {name: 'star-border'} : {name: 'star', color: 'yellow'}}
+           onPress={() => this.toggleFavorite()}
+         />
+          { showPhoto && <CameraRollPicker pickImage={this.pickImage} image={image}/>}
 
-         { showPhoto && <CameraRollPicker pickImage={this.pickImage} image={image}/>}
+       </View>
+     );
+   }
+ }
 
-      </View>
-    );
-  }
-}
-
-const styles = {
-  container: {
-    flex: 1,
-    marginTop: 70
-  },
-  placeToAdd: {
-    flexDirection: 'row',
-    paddingTop: 10,
-    height: 40,
-    borderBottomWidth: 0.4,
-    borderBottomColor: 'gray'
-  },
-  placeToAddText: {
-    marginLeft: 15,
-    width: '75%',
-    flexWrap: 'wrap'
-  },
-  star: {
-    position: 'absolute',
-    top: 1
-  },
-  addFavorite: {
-    right: 10,
-    flexDirection: 'row',
-    marginTop: 10
-  },
-  addFavoriteText: {
-    color: '#4296CC',
-    marginLeft: 10
-  },
-  addPhotoContainer: {
-    height: 40,
-    flexDirection: 'row',
-    marginLeft: 15,
-  },
-  addPhotoText: {
-    alignSelf: 'center',
-    marginLeft: 10,
-    color: '#4296CC'
-  },
-  textStyle: {
-    fontSize: 15,
-    margin: 15,
-    color: 'black',
-    alignSelf: 'stretch',
-    height: 200,
-    textAlignVertical: 'top'
-  },
-  commentContainer: {
-    height: 200,
-    alignItems: 'flex-start',
-  },
-  favoriteContainer: {
-    flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    paddingBottom: 10
-  }
-};
+ const styles = {
+   container: {
+     flex: 1,
+     marginTop: 70
+   },
+   placeToAdd: {
+     flexDirection: 'row',
+     paddingTop: 10,
+     height: 40,
+     borderBottomWidth: 0.4,
+     borderBottomColor: 'gray'
+   },
+   placeToAddText: {
+     marginLeft: 15,
+     width: '75%',
+     flexWrap: 'wrap'
+   },
+   star: {
+     position: 'absolute',
+     top: 1
+   },
+   addFavorite: {
+     marginTop: 10
+   },
+   addFavoriteText: {
+     color: '#4296CC',
+     marginLeft: 10
+   },
+   addPhotoContainer: {
+     height: 40,
+     flexDirection: 'row',
+     marginLeft: 15,
+   },
+   addPhotoText: {
+     alignSelf: 'center',
+     marginLeft: 10,
+     color: '#4296CC'
+   },
+   textStyle: {
+     fontSize: 15,
+     margin: 15,
+     color: 'black',
+     alignSelf: 'stretch',
+     height: 200,
+     textAlignVertical: 'top'
+   },
+   commentContainer: {
+     height: 200,
+     alignItems: 'flex-start',
+   },
+   favoriteContainer: {
+     flex: 1,
+     flexDirection: 'row',
+     justifyContent: 'flex-end',
+     alignItems: 'flex-end',
+     paddingBottom: 10
+   }
+ };

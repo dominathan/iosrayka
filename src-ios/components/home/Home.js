@@ -13,7 +13,7 @@ import {
 import { Actions } from "react-native-router-flux";
 import MapView from "react-native-maps";
 import { Icon } from "react-native-elements";
-
+import _ from "lodash";
 import {
   getPlaces,
   getFeed,
@@ -457,14 +457,15 @@ export class Home extends Component {
       user
     } = this.state;
     console.log(places.getRowCount(), 'Places')
-    let placesPopulated = places.getRowCount() > 0;
+    let placesPopulated = places.getRowCount() > -1;
+    const debounceRegionChange = _.debounce(this.onRegionChange, 200);
     return (
       <View style={styles.container}>
         {user &&
           region &&
           markers &&
           <Map style={ styles.map }
-            onRegionChange={this.onRegionChange}
+            onRegionChange={debounceRegionChange}
             region={region}
             markers={markers}
           />}

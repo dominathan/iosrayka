@@ -1,8 +1,8 @@
 import React, { Component, NativeModules } from 'react';
-import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet, Keyboard } from 'react-native';
+import { TextInput, View, Text, Image, AsyncStorage, TouchableOpacity, CameraRoll, StyleSheet, Keyboard } from 'react-native';
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
-import { CameraRollPicker } from './CameraRollPicker';
+import ImagePicker from 'react-native-image-picker';
 
 import { addPlaceToFavorite, postImageToPlace } from '../../services/apiActions';
 
@@ -23,11 +23,12 @@ export class CommentBox extends Component {
     this.handleTextChange = this.handleTextChange.bind(this);
     this.toggleFavorite = this.toggleFavorite.bind(this);
     this.togglePhoto = this.togglePhoto.bind(this);
-    this.pickImage = this.pickImage.bind(this);
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
     this.getCity = this.getCity.bind(this);
     this.getCountry = this.getCountry.bind(this);
     this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.getPhoto = this.getPhoto.bind(this);
+
   }
 
   componentDidMount() {
@@ -68,18 +69,37 @@ export class CommentBox extends Component {
     this.setState({ text });
   }
 
-  pickImage() {
-    return;
-    // ImagePicker.launchImageLibraryAsync({})
-    //   .then((response) => {
-    //     this.setState({image: response.uri})
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   })
+  getPhoto() {
+    const options = {
+      title: 'Add Photo',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images'
+      }
+    };
+
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      }
+      else {
+        this.setState({
+          imageUri: 'data:image/jpeg;base64,' + response.data,
+          imageChanged: true
+        });
+      }
+    });
   }
 
   togglePhoto() {
+    this.getPhoto();
     this.setState({
       showPhoto: !this.state.showPhoto
     });
@@ -106,6 +126,7 @@ export class CommentBox extends Component {
 
   saveChosenPlaceAsFavorite(place, group) {
     const { favorite, text, photo, user } = this.state;
+    console.log(favorite, "FAVORITE")
     Keyboard.dismiss();
     this.setState({buttonDisabled: true})
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
@@ -154,21 +175,6 @@ export class CommentBox extends Component {
       <View style={styles.container}>
         <View style={styles.placeToAdd}>
           <Text style={styles.placeToAddText}>{place.name}</Text>
-          <View style={styles.favoriteContainer}>
-            <TouchableOpacity style={styles.addFavorite} onPress={this.toggleFavorite}>
-              <Text style={styles.addFavoriteText}>Add as Favorite</Text>
-              {
-                !this.state.favorite ?
-                <Icon
-                  name='star-border'
-                />
-                :
-                <Icon name="star"
-                  color='yellow'
-                />
-              }
-            </TouchableOpacity>
-          </View>
         </View>
         <TouchableOpacity onPress={this.togglePhoto} style={styles.addPhotoContainer}>
           <Icon
@@ -197,9 +203,17 @@ export class CommentBox extends Component {
          onPress={() => this.savePlace(place)}
          disabled={buttonDisabled}
          />
+       <View style={styles.addFavorite} >
 
-         { showPhoto && <CameraRollPicker pickImage={this.pickImage} image={image}/>}
-
+         <Button
+           raised
+           title='Add as Favorite'
+           backgroundColor='#4296CC'
+           icon={!this.state.favorite ? {name: 'star-border'} : {name: 'star', color: 'yellow'}}
+           onPress={() => this.toggleFavorite()}
+           />
+       </View>
+       {this.state.imageUri && <Image source={this.state.imageUri} /> }
       </View>
     );
   }
@@ -227,8 +241,6 @@ const styles = {
     top: 1
   },
   addFavorite: {
-    right: 10,
-    flexDirection: 'row',
     marginTop: 10
   },
   addFavoriteText: {

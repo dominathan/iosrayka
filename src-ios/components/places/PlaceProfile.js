@@ -171,7 +171,7 @@ export class PlaceProfile extends Component {
           { place && <View style={styles.profileDetailsContainer}>
             <View style={styles.profileTextContainer}>
               <View style={styles.profileText}>
-                <Text style={styles.name}>
+                <View style={styles.name}>
                   {place.name}
                   {!isFavorited &&
                     <Icon
@@ -191,7 +191,7 @@ export class PlaceProfile extends Component {
                       color="#4296CC"
                     />
                   }
-                </Text>
+                </View>
               </View>
               <ProfileStats style={styles.favorites} label="Favorites" icon="star-o" data={favorites.length} />
             </View>
