@@ -22,7 +22,6 @@ export class CommentBox extends Component {
     this.savePlace = this.savePlace.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.toggleFavorite = this.toggleFavorite.bind(this);
-    this.togglePhoto = this.togglePhoto.bind(this);
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
     this.getCity = this.getCity.bind(this);
     this.getCountry = this.getCountry.bind(this);
@@ -70,6 +69,7 @@ export class CommentBox extends Component {
   }
 
   getPhoto() {
+    console.log("Get photo");
     const options = {
       title: 'Add Photo',
       storageOptions: {
@@ -90,18 +90,13 @@ export class CommentBox extends Component {
         console.log('User tapped custom button: ', response.customButton);
       }
       else {
+        console.log('Setting photo state', response);
         this.setState({
-          imageUri: 'data:image/jpeg;base64,' + response.data,
-          imageChanged: true
+          image: 'data:image/jpeg;base64,' + response.data,
+          showPhoto: !this.state.showPhoto
         });
+        console.log(this.state.image)
       }
-    });
-  }
-
-  togglePhoto() {
-    this.getPhoto();
-    this.setState({
-      showPhoto: !this.state.showPhoto
     });
   }
 
@@ -112,27 +107,23 @@ export class CommentBox extends Component {
   }
 
   handlePhotoUpload(imageUri) {
-    const photo = {
-      uri: imageUri,
-      type: 'image/jpeg',
-      name: 'photo.jpg',
-    };
     const data = {
-      photo: photo,
+      photo: imageUri,
       place: this.props.place
     };
     postImageToPlace(data);
   }
 
   saveChosenPlaceAsFavorite(place, group) {
-    const { favorite, text, photo, user } = this.state;
+    const { favorite, text, photo, user, image } = this.state;
     console.log(favorite, "FAVORITE")
     Keyboard.dismiss();
     this.setState({buttonDisabled: true})
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
-        if(this.state.image) {
-          this.handlePhotoUpload(this.state.image)
+        if(image) {
+          console.log("Image exists: ", image);
+          this.handlePhotoUpload(image)
         }
 
         newPlace = {
@@ -176,7 +167,7 @@ export class CommentBox extends Component {
         <View style={styles.placeToAdd}>
           <Text style={styles.placeToAddText}>{place.name}</Text>
         </View>
-        <TouchableOpacity onPress={this.togglePhoto} style={styles.addPhotoContainer}>
+        <TouchableOpacity onPress={this.getPhoto} style={styles.addPhotoContainer}>
           <Icon
             name='add-circle-outline'
             color='#4296CC'
@@ -213,7 +204,7 @@ export class CommentBox extends Component {
            onPress={() => this.toggleFavorite()}
            />
        </View>
-       {this.state.imageUri && <Image source={this.state.imageUri} /> }
+       {this.state.showPhoto && <Image style={styles.placePhoto} source={{ uri: this.state.image }} />}
       </View>
     );
   }
@@ -241,7 +232,7 @@ const styles = {
     top: 1
   },
   addFavorite: {
-    marginTop: 10
+    marginTop: 10,
   },
   addFavoriteText: {
     color: '#4296CC',
@@ -269,11 +260,8 @@ const styles = {
     height: 200,
     alignItems: 'flex-start',
   },
-  favoriteContainer: {
+  placePhoto: {
     flex: 1,
-    flexDirection: 'row',
-    justifyContent: 'flex-end',
-    alignItems: 'flex-end',
-    paddingBottom: 10
+    marginTop: 10
   }
 };

@@ -140,6 +140,7 @@ export class PlaceProfile extends Component {
   }
 
   handlePhotoUpload(imageUri) {
+    console.log("tesst")
     const data = {
       photo: imageUri,
       place: this.props.place
@@ -172,7 +173,7 @@ export class PlaceProfile extends Component {
             <View style={styles.profileTextContainer}>
               <View style={styles.profileText}>
                 <View style={styles.name}>
-                  {place.name}
+                  <Text>{place.name}</Text>
                   {!isFavorited &&
                     <Icon
                       containerStyle={styles.addFavorite}
@@ -236,7 +237,8 @@ const styles = StyleSheet.create({
   addFavorite: {
     marginLeft: 5,
     height: 15,
-    width: 25
+    width: 25,
+    fontSize: 15
   },
   container: {
     flex: 1,
