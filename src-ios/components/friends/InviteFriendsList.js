@@ -33,11 +33,10 @@ componentWillMount() {
     return (
       <View style={styles.listItem}>
         <TouchableOpacity onPress={() => {text(phoneNumber.number, message)}}>
-          {contact.givenName && contact.familyName && <Text style={styles.name}>{`${contact.givenName} ${contact.familyName}`}</Text>}
-          {contact.givenName && !contact.familyName && <Text style={styles.name}>{`${contact.givenName}`}</Text>}
-          {!contact.givenName && contact.familyName && <Text style={styles.name}>{`${contact.familyName}`}</Text>}            {phoneNumber &&
-            <Text style={styles.number}>{phoneNumber.number}</Text>
-            }
+          <Text style={styles.name}>{`${contact.givenName} ${contact.familyName}`}</Text>
+          {phoneNumber &&
+          <Text style={styles.number}>{phoneNumber.number}</Text>
+          }
         </TouchableOpacity>
       </View>
     );
