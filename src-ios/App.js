@@ -6,7 +6,8 @@ import {
   StatusBar,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Text
 } from "react-native";
 import { Icon } from "react-native-elements";
 
@@ -38,6 +39,8 @@ import { CreateGroup } from "./components/groups/CreateGroup";
 import { GroupSearch } from "./components/groups/GroupSearch";
 import { GroupProfile } from "./components/groups/GroupProfile";
 import { AddFriends } from "./components/groups/AddFriends";
+
+Text.defaultProps.allowFontScaling=false;
 
 // 2. Create a Component
 class App extends Component {
