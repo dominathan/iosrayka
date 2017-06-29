@@ -3,273 +3,273 @@
 
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ba9b39366b723ccff6359d1117332968e98a4aca">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.0.1_03b5bbd9797742da8d4a799f79b8201d3e070c5b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="2668e49e4e31c7d451b76a36009b902bf44e0d70">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.0.1_664f4cd31a167f324aa9dfd14665fc6c0166371d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="050f688115ea65a0292d8483a6ffe6bcdab1e2ef">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.0.1_71cf7f65357a8e9157b598363bb58f4a088cd956.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_76f7638883c1bb6d18f16090d509dba57853bcbf.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="63994437f62bc861bc20c605d12962f7246116d1">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_a0b412993e143f514d261ce205c9d102b755aa86.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_8e19f8d1918c48f8c2bae894e4643b012dcf670d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.4_ecabf17a42d2d3a3ce34d547c840bdb3c28381aa.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/libs/infer-annotations-4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_c60c2606ef815b6d2672baf3b0438bd5f6f88219.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_a8eacc34b7ddb8a8b04a77ad3b18fd627e979d41.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/usr/local/opt/android-sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_a3862d5254716316fcf2d5130c0578e01be9d716.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.4_0594deebb8928e969b01f95379a038f19781dfda.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_322e068c27efae4a5e83bc66b87a031a0810c1b5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d9c4402c3057225d80cbbbec52154e7a25b0ebdf">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.0.1_95350f87f32938f236eab38855755d612ad9f20b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="0d3e48e200296061415952a358fad487e129adaa">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.45.1_397016c069fad42acbc901cf440681d7c4a395ea.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_0692ebd6c68c6f9343ff46df8c95b56e2f51703f.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.facebook.fbui.textlayoutbuilder/staticlayout-proxy/1.0/f162442a19fff13995fbd51ba414d9ee05579080/staticlayout-proxy-1.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_718e404c7afc369dc52bfdb30e024841e776dbf9.jar" />
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_5e12eef4f41eaf0b3a2fbaec217398e959c0e9b8.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_a5857a6ba7520c0a6a880c3e27c54f4fa209ef8d.jar" />
+        sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_1dc2b062ac6d2e10f10aad2b6f6f90cbe51bd397.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-vector-icons/unspecified/jars/classes.jar"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="b319ff9834bbeb9be394687614eb86892699ea14">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-vector-icons-unspecified_63a4aa83b9b7fde965c6a7f9ff5f43cd2424368f.jar" />
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_6c5c2a3dcbc48e939022185141868c4239476207.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_427b344a807a31108911f3f9aec551ede3ab8242.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.0.1/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="5a61f17cd72e20aa4323cbf5f909b7c609619275">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.0.1_81060fb3272b51bb5bad377b6042db2804445752.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="185debb713f05e6ae262b4167d7645dce64ca4cb">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-image-picker-unspecified_ae8362425b3caf5aa43c41432493e4be7c377d78.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_da7f5d39b8a18445c2e5e4418872d533203855a9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.4_0682c91c42065a7e34b10e8c8e29fbda9d8688a3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_b0fb272d5449c2ad0989765e0b1805a70b369106.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_db92cd6ca5b0103fb117f50043e38fa00ef0ff07.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.0.1/jars/classes.jar"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="cf836a435a496eb22ff2aa69aa1e619462549f81">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.0.1_ce0e2b79bf14c26b1db10177ddc94df609adef60.jar" />
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.0.1_fa84dac07e6481e834f7f9f49e6d8a810dc02014.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_37db88921ff829c3e2882b6112693225b30d75bb.jar" />
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_a7f5bc8f530381eec6865ccebe409fc662384f55.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-contacts/unspecified/jars/classes.jar"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-ws/3.4.1/8ace66ef7002d98f633377c9e67daeeb196d8c3b/okhttp-ws-3.4.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="c2fe4faf9c99bce4a99ad16eca7c5ca4006ced70">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-contacts-unspecified_e68f9571af7c1e626bdf38a6cc27e4a434082db3.jar" />
+        sha1="8ace66ef7002d98f633377c9e67daeeb196d8c3b">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/okhttp-ws-3.4.1_0cb03877d856cbd419b0be756bff8fca98ab6a3b.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/jars/classes.jar"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="050f688115ea65a0292d8483a6ffe6bcdab1e2ef">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.0.1_6d961851bcedc4f74a991c679d5f907d6b48c8e4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2f7e6e2dad1bccaf68a8820820adc6c0d5b96d37">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-24.0.0_965c2114941aa95a8e508c644a53a45c9ee44006.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2668e49e4e31c7d451b76a36009b902bf44e0d70">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.0.1_47b868df1a142f8f82cd8cd4585d270bbe3e80a9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5803db663655ef5cb38c6bcb17ba326fdb9edfbd">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-tasks-10.2.4_09ed138a34f9f924acd7f8562a41d1240ea121c3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.4.1/63994437f62bc861bc20c605d12962f7246116d1/okhttp-urlconnection-3.4.1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="63994437f62bc861bc20c605d12962f7246116d1">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.4.1_de0a5447a4afbcf063dcb84a7f8f00bb85ec3c0d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="6d0d5e86f5b7203834df01ed78ebfdd5cbf74d48">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.2.4_d8a19756d89505205c72d7df9759279be7b8eef7.jar" />
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-maps-10.2.4_087422fbfc63469e9cf205bf5670cddfd4626f83.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-maps/unspecified/jars/classes.jar"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.4.1/c7c4f9e35c2fd5900da24f9872e3971801f08ce0/okhttp-3.4.1.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="cfe651e3dc0896e6e084eb8ab986e16aa0cf47c0">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-maps-unspecified_cbccb2cbba0e05b2f7200b48ca3b14831f6ec1ab.jar" />
+        sha1="c7c4f9e35c2fd5900da24f9872e3971801f08ce0">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/okhttp-3.4.1_0badcf00cb121fc8a5769be963c80ebf4b036cac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_449f2c7fb77d80bca6fd69392eda685bd39b14b3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-vector-icons/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="b319ff9834bbeb9be394687614eb86892699ea14">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-vector-icons-unspecified_c578b76ab05bab940cd504b779546b38b1eb7080.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/24.0.0/support-annotations-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="2943c74db6d4346ab8c6531adac91fa05c137c40">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/support-annotations-24.0.0_583ca8fe05f1749236675bce0289ba057e5a4fd4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="dd1d0d84da2cff18f741c63a9c3af7d9aa89fdd6">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-base-10.2.4_eb72d7e98e5980bb76d577bf1364d2a452b86aca.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="0d3e48e200296061415952a358fad487e129adaa">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.45.1_47e0995e38952d2d7fb2ddd05ef5e76697eb0b14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-maps/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="b02fb3b9e4da928d34859c1a39d7ea9e8a96c63d">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-maps-unspecified_c4807beeffd96ac7e8d17af11b22f3af38e6eaf6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.0.1_745d818b2a5ef65c40805f4276df09cb85b84478.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9ed08fab37c3a572da1d9ed2bf2e36c8d3e2bc48">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.google.android.gms-play-services-basement-10.2.4_aebf5c5a3a63ed463ad49a82baa7a6923f6a0ad4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d9c4402c3057225d80cbbbec52154e7a25b0ebdf">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.0.1_a25273e9a59128f03b6bb3733ec6f0d369bd36ac.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3cf285c3125aea5a7601edf79f116985ecdfbd86">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-image-picker-unspecified_e74e269438754e1eb211868a505d0d43c35aa31b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.9.0/f824591a0016efbaeddb8300bee54832a1398cfa/okio-1.9.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/okio-1.9.0_4785ea3f154151b1ad7749f9ea75e8c0ad5fbb41.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="5a61f17cd72e20aa4323cbf5f909b7c609619275">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.0.1_a095485389f880647516e9a411f557b749029d7d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.0.1/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ba9b39366b723ccff6359d1117332968e98a4aca">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.0.1_02e8c85fbd091d95ff8c9f769b2d1b25c40df84f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-contacts/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="0ffa552da31f88385c969aa0e00e9a87434f1bcd">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-contacts-unspecified_1cb5a538bf8bd7ecf37adee8abe2c8bbf9719880.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/jars/libs/internal_impl-24.0.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fcaf463e10e69c1923ccf1edeba3b4196d239e00">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/internal_impl-24.0.0_944f625ff2c6bc37e02e35856f058ae22053bf5c.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_a5e87b5c7532b4f1330d74fb2d440fd5315b8fcf.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_a2c467f61644f04f3a838083c668a59cb53db18b.jar" />
     </item>
 
 </items>
