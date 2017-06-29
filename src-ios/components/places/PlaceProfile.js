@@ -94,6 +94,7 @@ export class PlaceProfile extends Component {
           return item;
         });
 
+        console.log('get place', JSON.stringify(data));
         this.setState({
           markers: [data.place],
           favorites: list,
