@@ -3,9 +3,8 @@ import { TextInput, View, Text, AsyncStorage, TouchableOpacity, CameraRoll, Styl
 import { Icon, Button } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 import { CameraRollPicker } from './CameraRollPicker';
-
+import ImagePicker from 'react-native-image-picker';
 import { addPlaceToFavorite, postImageToPlace } from '../../services/apiActions';
-
 
 export class CommentBox extends Component {
   constructor(props) {
@@ -13,16 +12,13 @@ export class CommentBox extends Component {
     this.state = {
       text: '',
       favorite: false,
-      showPhoto: false,
-      image: null,
-      photo: {},
+      imageUri: null,
       buttonDisabled: false,
       user: {}
     };
     this.savePlace = this.savePlace.bind(this);
     this.handleTextChange = this.handleTextChange.bind(this);
     this.toggleFavorite = this.toggleFavorite.bind(this);
-    this.togglePhoto = this.togglePhoto.bind(this);
     this.pickImage = this.pickImage.bind(this);
     this.handlePhotoUpload = this.handlePhotoUpload.bind(this);
     this.getCity = this.getCity.bind(this);
@@ -69,19 +65,31 @@ export class CommentBox extends Component {
   }
 
   pickImage() {
-    return;
-    // ImagePicker.launchImageLibraryAsync({})
-    //   .then((response) => {
-    //     this.setState({image: response.uri})
-    //   })
-    //   .catch(error => {
-    //     console.error(error);
-    //   })
-  }
-
-  togglePhoto() {
-    this.setState({
-      showPhoto: !this.state.showPhoto
+    const options = {
+      title: 'Select Place Photo',
+      allowsEditing: true,
+      storageOptions: {
+        skipBackup: true,
+        path: 'images'
+      }
+    };
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
+      if (response.didCancel) {
+        console.log('User cancelled image picker');
+      }
+      else if (response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      }
+      else if (response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      }
+      else {
+        this.setState({
+          imageUri: 'data:image/jpeg;base64,' + response.data,
+          imageChanged: true
+        });
+      }
     });
   }
 
@@ -92,16 +100,11 @@ export class CommentBox extends Component {
   }
 
   handlePhotoUpload(imageUri) {
-    const photo = {
-      uri: imageUri,
-      type: 'image/jpeg',
-      name: 'photo.jpg',
-    };
     const data = {
-      photo: photo,
+      photo: imageUri,
       place: this.props.place
     };
-    postImageToPlace(data);
+    return postImageToPlace(data);
   }
 
   saveChosenPlaceAsFavorite(place, group) {
@@ -111,8 +114,10 @@ export class CommentBox extends Component {
     this.setState({buttonDisabled: true})
     addPlaceToFavorite({ place: place, comment: text, favorite: favorite, group: group })
       .then((res) => {
-        if(this.state.image) {
-          this.handlePhotoUpload(this.state.image)
+        if(this.state.imageUri) {
+          this.handlePhotoUpload(this.state.imageUri).then((result) => {
+            console.log('handlePhotoUpload', JSON.stringify(result));
+          });
         }
 
         newPlace = {
@@ -150,13 +155,13 @@ export class CommentBox extends Component {
 
   render() {
     const { place } = this.props;
-    const { showPhoto, image, buttonDisabled } = this.state;
+    const { showPhoto, imageUri, buttonDisabled } = this.state;
     return (
       <View style={styles.container}>
         <View style={styles.placeToAdd}>
           <Text style={styles.placeToAddText}>{place.name}</Text>
         </View>
-        <TouchableOpacity onPress={this.togglePhoto} style={styles.addPhotoContainer}>
+        <TouchableOpacity onPress={this.pickImage} style={styles.addPhotoContainer}>
           <Icon
             name='add-circle-outline'
             color='#4296CC'
@@ -191,7 +196,7 @@ export class CommentBox extends Component {
            icon={!this.state.favorite ? {name: 'star-border'} : {name: 'star', color: 'yellow'}}
            onPress={() => this.toggleFavorite()}
          />
-          { showPhoto && <CameraRollPicker pickImage={this.pickImage} image={image}/>}
+          { imageUri && <CameraRollPicker pickImage={() => console.log('pick image')} image={imageUri}/>}
 
        </View>
      );

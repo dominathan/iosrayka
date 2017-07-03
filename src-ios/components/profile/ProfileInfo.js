@@ -11,7 +11,6 @@ export class ProfileInfo extends Component {
     this.state = {
       user: undefined,
       imageUri: null,
-      imageSource: null,
       imageChanged: false,
       showActivityIndicator: false,
       error: ''
@@ -32,6 +31,7 @@ export class ProfileInfo extends Component {
   getPhoto() {
     const options = {
       title: 'Select Profile Photo',
+      allowsEditing: true,
       storageOptions: {
         skipBackup: true,
         path: 'images'
