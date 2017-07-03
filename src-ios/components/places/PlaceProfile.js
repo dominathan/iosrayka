@@ -296,7 +296,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   name: {
-    fontSize: 20
+    fontSize: 20,
+    flexDirection: 'row'
   },
   profileText: {
     alignSelf: 'flex-start',
