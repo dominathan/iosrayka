@@ -36,7 +36,6 @@ export class Feed extends Component {
   }
 
   renderFeed(feed) {
-    console.log("Feed: ", feed)
     return (
       <FeedDetail showButtons={this.props.showButtons} feed={feed} user={this.props.user}/>
     );

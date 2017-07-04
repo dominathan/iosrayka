@@ -112,9 +112,9 @@ export class Home extends Component {
   }
 
   componentDidMount(props) {
+    console.log("Props: ", props);
     this.setCurrentUser();
     this.watchID = navigator.geolocation.watchPosition(position => {
-      console.log("Position: ", position)
       let region = {
         latitude: this.props.location && this.props.location.lat
           ? this.props.location.lat
@@ -125,7 +125,6 @@ export class Home extends Component {
         latitudeDelta: 0.00922 * 6.5,
         longitudeDelta: 0.00421 * 6.5
       };
-      console.log('hey');
       this.setState({ region: region });
       this.handleGlobal();
     });
@@ -147,7 +146,6 @@ export class Home extends Component {
 
   getLocation() {
     this.watchID = navigator.geolocation.watchPosition(position => {
-      console.log("Position: ", position)
       let region = {
         latitude: this.props.location && this.props.location.lat
           ? this.props.location.lat
@@ -158,7 +156,7 @@ export class Home extends Component {
         latitudeDelta: 0.00922 * 6.5,
         longitudeDelta: 0.00421 * 6.5
       };
-      console.log('hey');
+      debugger
       this.setState({ region: region });
       this.handleGlobal();
     });
@@ -183,6 +181,7 @@ export class Home extends Component {
     this.setState({
       lastApiCall: new Date()
     });
+    console.log("State: ", this.state);
     const latitude = this.state.region.latitude;
     const longitude = this.state.region.longitude;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
@@ -191,10 +190,11 @@ export class Home extends Component {
         if (homePlaces) {
           return JSON.parse(homePlaces);
         }
+        console.log("Query String: ", queryString);
         return getPlaces(queryString);
       })
       .then(data => {
-        console.log('dater', data)
+        console.log('Data from getHomePlaces: ', data)
         this.setState({
           markers: data,
           places: this.state.places.cloneWithRows(data)
@@ -220,6 +220,7 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
+    console.log("Regin on regionChange": region);
     this.setState({ region: region });
     if (this.canCallApi()) {
       this.getHomePlaces();
@@ -456,7 +457,6 @@ export class Home extends Component {
       types,
       user
     } = this.state;
-    console.log(places.getRowCount(), 'Places')
     let placesPopulated = places.getRowCount() > -1;
     const debounceRegionChange = _.debounce(this.onRegionChange, 200);
     return (
@@ -465,6 +465,7 @@ export class Home extends Component {
           region &&
           markers &&
           <Map style={ styles.map }
+            onRegionChangeComplete={debounceRegionChange}
             onRegionChange={debounceRegionChange}
             region={region}
             markers={markers}

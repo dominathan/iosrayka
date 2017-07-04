@@ -33,8 +33,6 @@ export class FeedDetail extends Component {
 
   render() {
     const { feed, user } = this.props;
-    console.log("Feed: ", feed)
-    console.log("User: ", user)
     const { showHeart, showBeenThere } = this.state;
     if (!user) {
       return (null);

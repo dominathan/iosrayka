@@ -4,9 +4,41 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>AppIcon20x20@2x.png</key>
+		<data>
+		80XUXGXipry/R43CdPKaARY4qg0=
+		</data>
+		<key>AppIcon20x20@3x.png</key>
+		<data>
+		W8i86yACwbw0SJtyJN0Gi4BVI94=
+		</data>
+		<key>AppIcon29x29@2x.png</key>
+		<data>
+		LP9ZuEURbWRIKoJR8PsBzlUgFWE=
+		</data>
+		<key>AppIcon29x29@3x.png</key>
+		<data>
+		fb2Qfx6Hyr6ybJz1LrdaSGoPodo=
+		</data>
+		<key>AppIcon40x40@2x.png</key>
+		<data>
+		IPF6Yyi8iD1Pvq095FceHkAy37s=
+		</data>
+		<key>AppIcon40x40@3x.png</key>
+		<data>
+		MHOl1OeE9cJlwHVCNBSSeADQanM=
+		</data>
+		<key>AppIcon60x60@2x.png</key>
+		<data>
+		MHOl1OeE9cJlwHVCNBSSeADQanM=
+		</data>
+		<key>AppIcon60x60@3x.png</key>
+		<data>
+		GAFsi2oz4f7ONiNn8X3AW6iTvas=
+		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		KPviOngdJmvLF2avuE+6+Ypixk4=
+		iWAt4bNaAuunXFbAUnErIMCmKFM=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -243,7 +275,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		pQtvqxuMbSrKuZjpz2QlzE0qOwY=
+		z8kNYV550Hizcx/YNsn9cL9m2nM=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -267,23 +299,23 @@
 		</data>
 		<key>PlugIns/iosraykaTests.xctest.dSYM/Contents/Info.plist</key>
 		<data>
-		58fMg0qwXqdWJC8w789pJABFQJc=
+		5LXYIccKTyYlw4Wwvj5ZBaPYMeo=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest.dSYM/Contents/Resources/DWARF/iosraykaTests</key>
 		<data>
-		e2lytHiwBSprlutZ2DdCBijo+iE=
+		bdnpqDEYupqfesqWgns8omuXvNk=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest/Info.plist</key>
 		<data>
-		WCAccHeHxoe6PGbN7UTLspBd0e8=
+		pZpvJvTyhJoNOrfqnYtUVHZJNzo=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		s1dou9L5JToEMeCidjBUIQJtsEY=
+		imov3NfRAZ5xSZSzASD0B0gGItk=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest/iosraykaTests</key>
 		<data>
-		1FeFerlwAV2XSVLJsuBmG5GfbDM=
+		U82YdEJp+9T7WqjoxIFaWjw8smg=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -296,15 +328,103 @@
 	</dict>
 	<key>files2</key>
 	<dict>
+		<key>AppIcon20x20@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			80XUXGXipry/R43CdPKaARY4qg0=
+			</data>
+			<key>hash2</key>
+			<data>
+			qJqOSwBimJ2qFso84zaLyM5LXOaCDxv/oDUB3HbfF0U=
+			</data>
+		</dict>
+		<key>AppIcon20x20@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			W8i86yACwbw0SJtyJN0Gi4BVI94=
+			</data>
+			<key>hash2</key>
+			<data>
+			JSE2FZh+9tffKu1A8hdDVXhNZMQisIYaJvedMURVGuE=
+			</data>
+		</dict>
+		<key>AppIcon29x29@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			LP9ZuEURbWRIKoJR8PsBzlUgFWE=
+			</data>
+			<key>hash2</key>
+			<data>
+			uAI7J8d9oA0MvN8NfOTFhMmYuy1cul0bFP4M+TOa5Ps=
+			</data>
+		</dict>
+		<key>AppIcon29x29@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			fb2Qfx6Hyr6ybJz1LrdaSGoPodo=
+			</data>
+			<key>hash2</key>
+			<data>
+			BGLFDKHvFqKA4PPcVhb5Qh3ajzFlL+vXpZuAI9fCb2I=
+			</data>
+		</dict>
+		<key>AppIcon40x40@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			IPF6Yyi8iD1Pvq095FceHkAy37s=
+			</data>
+			<key>hash2</key>
+			<data>
+			jDkGCXHcb/jg5qqfyNvyfJt5uIS0Kst0J9kV4fp79FQ=
+			</data>
+		</dict>
+		<key>AppIcon40x40@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MHOl1OeE9cJlwHVCNBSSeADQanM=
+			</data>
+			<key>hash2</key>
+			<data>
+			hN6EFmfArXNyjoZmGmwN0Sr7Mr5khtNG3qs1kJ++7vU=
+			</data>
+		</dict>
+		<key>AppIcon60x60@2x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			MHOl1OeE9cJlwHVCNBSSeADQanM=
+			</data>
+			<key>hash2</key>
+			<data>
+			hN6EFmfArXNyjoZmGmwN0Sr7Mr5khtNG3qs1kJ++7vU=
+			</data>
+		</dict>
+		<key>AppIcon60x60@3x.png</key>
+		<dict>
+			<key>hash</key>
+			<data>
+			GAFsi2oz4f7ONiNn8X3AW6iTvas=
+			</data>
+			<key>hash2</key>
+			<data>
+			z0u8JxZea8Ddv68nYRqmrYguPFcD4jpq5sDNXFlfxrg=
+			</data>
+		</dict>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			KPviOngdJmvLF2avuE+6+Ypixk4=
+			iWAt4bNaAuunXFbAUnErIMCmKFM=
 			</data>
 			<key>hash2</key>
 			<data>
-			aM/LzqMUcUy1Z0qh38FCDZrAZv7qWhkAhIoVEiS2bu8=
+			hoco/NpiJpIDflv3hAkDbfp+Xe4wEqPR9q4XLhV/K4M=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -989,55 +1109,55 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			58fMg0qwXqdWJC8w789pJABFQJc=
+			5LXYIccKTyYlw4Wwvj5ZBaPYMeo=
 			</data>
 			<key>hash2</key>
 			<data>
-			FHLOkXI9U+SeJQ52Tta1/t4uaVYSZral7XLyv9HQW80=
+			GVk8lLc5lcBhx9ZUZduZskfADzlyJ4bwdFoNyJiOaMI=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest.dSYM/Contents/Resources/DWARF/iosraykaTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			e2lytHiwBSprlutZ2DdCBijo+iE=
+			bdnpqDEYupqfesqWgns8omuXvNk=
 			</data>
 			<key>hash2</key>
 			<data>
-			mnm8fm400I88FNMixRYtM3fzHC0+mDr2RSvORhIjXfk=
+			sbPv67cqfx4s3Gux+2STAmvz8FKEsMN6kvqctmIXWuY=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			WCAccHeHxoe6PGbN7UTLspBd0e8=
+			pZpvJvTyhJoNOrfqnYtUVHZJNzo=
 			</data>
 			<key>hash2</key>
 			<data>
-			tM3IK8KhZy5lkgFkHgQw0r0bkPaJz42EFTVkh0aPqxE=
+			BD7fHVhxpJAAY1U2ANncqB0f7pU8x1grmafgeJQG8Ws=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			s1dou9L5JToEMeCidjBUIQJtsEY=
+			imov3NfRAZ5xSZSzASD0B0gGItk=
 			</data>
 			<key>hash2</key>
 			<data>
-			9Oh/dhYmnF5Y116WIoj+8MoSmEMtouzD3Ydxy3Ntv34=
+			+wPr9pizG8HQvHlVmEH5/cEdmzYaMUJ5KsGfhkM7h7c=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest/iosraykaTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			1FeFerlwAV2XSVLJsuBmG5GfbDM=
+			U82YdEJp+9T7WqjoxIFaWjw8smg=
 			</data>
 			<key>hash2</key>
 			<data>
-			EUUOU5Ge5TtaqLFlyrZzBgRU4OeNOhJktZeQWrtn2ow=
+			0vJicUZ8iQCnk5t8aZwp0YM2K5DwB3uWML1vE5hZUBk=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>

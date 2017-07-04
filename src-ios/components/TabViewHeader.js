@@ -20,14 +20,12 @@ export default class TabViewHeader extends Component {
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
       if (err) return err;
-      console.log('yo', user)
       this.setState({user: JSON.parse(user)})
     });
   }
 
   shouldComponentUpdate(a,b) {
     return AsyncStorage.getItem('user',(err, user) => {
-      console.log('ho', user)
       const parsedUser = JSON.parse(user);
       if(parsedUser && this.state.user && parsedUser.photo_url === this.state.user.photo_url) {
         return false

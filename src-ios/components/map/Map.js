@@ -52,9 +52,11 @@ export class Map extends Component {
       ? this.loadMarkers()
       : null;
     const { Region, gpsAccuracy } = this.props;
+    console.log("Region from maps: ", this.props.region)
     return (
       <MapView.Animated
         style={{ height: 300, alignSelf: "stretch" }}
+        onRegionChangeComplete={this.props.onRegionChange}
         onRegionChange={this.props.onRegionChange}
         region={this.props.region}
       >
