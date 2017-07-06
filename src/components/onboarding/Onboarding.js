@@ -17,7 +17,7 @@ export class Onboarding extends Component {
                 },
                 {
                     image: require('./tiles/explore.png'),
-                    text: 'Tired of outdated rankings? Find just the best that the world has to offer from the favorites of your friends and of the public.',
+                    text: 'Frustrated with outdated 1-5 star rankings? Find just the best that the world has to offer from the favorites of your friends and of the public.',
                     title: 'Explore'
                 },
                 {

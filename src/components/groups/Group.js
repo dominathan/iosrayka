@@ -95,6 +95,7 @@ export class Group extends Component {
 
   render() {
     const { groups, searching } = this.state;
+    let myGroupsPopulated = groups.getRowCount() > 0;
     return (
       <View style={styles.container}>
 
@@ -110,7 +111,11 @@ export class Group extends Component {
           </TouchableOpacity>
         </View>
 
-        <GroupList groups={groups} />
+        { !myGroupsPopulated && this.state.selectedFilter === 'myGroups' &&
+          <Text style={styles.messageText}>{"You don't belong to any groups yet! Join a public or private group above."}</Text>
+        }
+      
+        { myGroupsPopulated && <GroupList groups={groups} /> }
 
         <TouchableOpacity onPress={this.createGroupScreen} style={styles.createGroup}>
           <Text style={styles.buttonText}>Create Group</Text>
@@ -165,4 +170,13 @@ const styles = StyleSheet.create({
     marginRight: 25,
     marginLeft: 25,
   },
+  messageText: {
+    flex: 1,
+    marginRight: 10,
+    marginLeft: 25,
+    marginTop: 10,
+    justifyContent: "space-between",
+    fontSize: 16,
+    fontWeight: "bold"
+  }
 });
