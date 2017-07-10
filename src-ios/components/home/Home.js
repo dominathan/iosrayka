@@ -548,7 +548,7 @@ export class Home extends Component {
             selectedFilter === "top" &&
             !placesPopulated &&
             <Text style={styles.messageText}>
-              "Nobody has added a favorite in your area!"
+              {"Nobody has added a favorite in your area!"}
             </Text>}
           {feedReady && selectedFilter === "search" && this.goToHomeSearch()}
           {feedReady &&

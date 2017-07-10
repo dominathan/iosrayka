@@ -12,18 +12,23 @@ export class Onboarding extends Component {
             slides: [
                 {
                     image: require('./tiles/discover.png'),
-                    text: 'Tired of always asking friends for advice on where to go? Simply scroll through the feed to see the recommendations and favorite places of people you know and trust.',
+                    text: 'Scroll through the feed to see recommendations and favorite places from people you know and trust. Use the bottom tabs to navigate between Public, Friends and Experts',
                     title: 'Discover'
                 },
                 {
                     image: require('./tiles/explore.png'),
-                    text: 'Tired of outdated rankings? Find just the best that the world has to offer from the favorites of your friends and of the public.',
+                    text: 'Tired of outdated rankings and 1-5 star reviews? Find the best the world has to offer from a ranking based on compiled favorites.',
                     title: 'Explore'
                 },
                 {
                     image: require('./tiles/master.png'),
                     text: 'Curious what the world’s veteran travelers recommend? Find the best cities, bars, restaurants and more from experts who have travelled the globe.',
                     title: 'Master'
+                },
+                {
+                    image: require('./tiles/groups.png'),
+                    text: 'Join Study Abroad Groups to see the recommendations and favorite places of past students who studied there.',
+                    title: 'Groups'
                 }
             ]
         };
