@@ -435,6 +435,7 @@ export class Home extends Component {
       types,
       user
     } = this.state;
+    console.log("Markers: ", markers);
     const debounceRegionChange = _.debounce(this.onRegionChange, 200);
     let placesPopulated = places.getRowCount() > -1;
     return (
