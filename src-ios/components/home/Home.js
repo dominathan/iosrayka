@@ -443,6 +443,7 @@ export class Home extends Component {
           region &&
           markers &&
           <Map
+            onRegionChangeComplete={debounceRegionChange}
             onRegionChange={debounceRegionChange}
             region={region}
             markers={markers}
