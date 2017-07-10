@@ -168,7 +168,8 @@ export class Home extends Component {
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
     return AsyncStorage.getItem("homePlaces")
       .then(homePlaces => {
-        if (homePlaces) {
+        if (JSON.parse(homePlaces).length > 0) {
+          console.log("Has home places", JSON.parse(homePlaces));
           return JSON.parse(homePlaces);
         }
         return getPlaces(queryString);
@@ -199,7 +200,6 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
-    console.log("DOOT");
     this.setState({ region: region });
     if (this.canCallApi()) {
       this.getHomePlaces();
@@ -435,7 +435,6 @@ export class Home extends Component {
       types,
       user
     } = this.state;
-    console.log("Markers: ", markers);
     const debounceRegionChange = _.debounce(this.onRegionChange, 200);
     let placesPopulated = places.getRowCount() > -1;
     return (
