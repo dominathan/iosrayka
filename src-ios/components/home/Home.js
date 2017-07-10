@@ -6,14 +6,14 @@ import {
   StyleSheet,
   ListView,
   ActivityIndicator,
-  AsyncStorage,
-  PermissionsAndroid
+  AsyncStorage
 } from "react-native";
 
 import { Actions } from "react-native-router-flux";
 import MapView from "react-native-maps";
 import { Icon } from "react-native-elements";
 import _ from "lodash";
+
 import {
   getPlaces,
   getFeed,
@@ -112,8 +112,8 @@ export class Home extends Component {
   }
 
   componentDidMount(props) {
-    console.log("Props: ", props);
     this.setCurrentUser();
+
     this.watchID = navigator.geolocation.watchPosition(position => {
       let region = {
         latitude: this.props.location && this.props.location.lat
@@ -144,24 +144,6 @@ export class Home extends Component {
     }
   }
 
-  getLocation() {
-    this.watchID = navigator.geolocation.watchPosition(position => {
-      let region = {
-        latitude: this.props.location && this.props.location.lat
-          ? this.props.location.lat
-          : position.coords.latitude,
-        longitude: this.props.location && this.props.location.lng
-          ? this.props.location.lng
-          : position.coords.longitude,
-        latitudeDelta: 0.00922 * 6.5,
-        longitudeDelta: 0.00421 * 6.5
-      };
-      debugger
-      this.setState({ region: region });
-      this.handleGlobal();
-    });
-  }
-
   handleGlobal() {
     this.setState({ selectedHeader: "global" });
     this.getHomePlaces();
@@ -181,7 +163,6 @@ export class Home extends Component {
     this.setState({
       lastApiCall: new Date()
     });
-    console.log("State: ", this.state);
     const latitude = this.state.region.latitude;
     const longitude = this.state.region.longitude;
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
@@ -190,11 +171,9 @@ export class Home extends Component {
         if (homePlaces) {
           return JSON.parse(homePlaces);
         }
-        console.log("Query String: ", queryString);
         return getPlaces(queryString);
       })
       .then(data => {
-        console.log('Data from getHomePlaces: ', data)
         this.setState({
           markers: data,
           places: this.state.places.cloneWithRows(data)
@@ -220,7 +199,6 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
-    console.log("Regin on regionChange": region);
     this.setState({ region: region });
     if (this.canCallApi()) {
       this.getHomePlaces();
@@ -304,13 +282,12 @@ export class Home extends Component {
         return getFeed(queryString);
       })
       .then(data => {
-        console.log("Data from home feed: ", data)
         if (data.errors) {
           Actions.login();
           return;
         }
         this.setState({
-          feed: data,
+          feed: data || [],
           feedReady: true,
           showActivityIndicator: false
         });
@@ -457,15 +434,14 @@ export class Home extends Component {
       types,
       user
     } = this.state;
-    let placesPopulated = places.getRowCount() > -1;
     const debounceRegionChange = _.debounce(this.onRegionChange, 200);
+    let placesPopulated = places.getRowCount() > 0;
     return (
       <View style={styles.container}>
         {user &&
           region &&
           markers &&
-          <Map style={ styles.map }
-            onRegionChangeComplete={debounceRegionChange}
+          <Map
             onRegionChange={debounceRegionChange}
             region={region}
             markers={markers}
@@ -603,12 +579,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-   },
+    flex: 1
+  },
   addPlaceButton: {
     position: "absolute",
     bottom: "15%",
