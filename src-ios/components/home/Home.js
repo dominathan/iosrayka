@@ -199,6 +199,7 @@ export class Home extends Component {
   }
 
   onRegionChange(region) {
+    console.log("DOOT");
     this.setState({ region: region });
     if (this.canCallApi()) {
       this.getHomePlaces();
@@ -435,7 +436,7 @@ export class Home extends Component {
       user
     } = this.state;
     const debounceRegionChange = _.debounce(this.onRegionChange, 200);
-    let placesPopulated = places.getRowCount() > 0;
+    let placesPopulated = places.getRowCount() > -1;
     return (
       <View style={styles.container}>
         {user &&
