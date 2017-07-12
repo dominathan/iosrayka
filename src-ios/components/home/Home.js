@@ -114,7 +114,7 @@ export class Home extends Component {
   componentDidMount(props) {
     this.setCurrentUser();
 
-    this.watchID = navigator.geolocation.watchPosition(position => {
+    this.watchID = navigator.geolocation.getCurrentPosition(position => {
       let region = {
         latitude: this.props.location && this.props.location.lat
           ? this.props.location.lat
@@ -168,7 +168,7 @@ export class Home extends Component {
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
     return AsyncStorage.getItem("homePlaces")
       .then(homePlaces => {
-        if (JSON.parse(homePlaces).length > 0) {
+        if (homePlaces && JSON.parse(homePlaces).length > 0) {
           console.log("Has home places", JSON.parse(homePlaces));
           return JSON.parse(homePlaces);
         }
@@ -444,7 +444,6 @@ export class Home extends Component {
           markers &&
           <Map
             onRegionChangeComplete={debounceRegionChange}
-            onRegionChange={debounceRegionChange}
             region={region}
             markers={markers}
           />}

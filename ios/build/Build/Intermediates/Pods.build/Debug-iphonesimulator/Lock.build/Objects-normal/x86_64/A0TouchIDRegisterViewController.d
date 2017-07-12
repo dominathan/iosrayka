@@ -1,0 +1,31 @@
+dependencies: \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/TouchID/Private/A0TouchIDRegisterViewController.m \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Target\ Support\ Files/Lock/Lock-prefix.pch \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/TouchID/Private/A0TouchIDRegisterViewController.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/A0ContainerViewController.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/A0KeyboardEnabledView.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0Theme.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0ServiceTheme.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0CredentialFieldView.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Utils/A0ProgressButton.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Utils/A0KeyboardHandler.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/TouchID/Private/A0TouchIDSignUpViewController.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0AuthenticationUIComponent.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0DatabaseLoginViewController.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0ConnectionDomainMatcher.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0MFACodeViewController.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ChangePasswordViewController.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0FieldValidator.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthParameters.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0NavigationView.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0TitleView.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/Constants.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logging.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logger.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/TouchID/A0KeyUploader.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Lock.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0APIClientProvider.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthenticatorProvider.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Token.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0UserProfile.h \
+  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/A0LoginView.h

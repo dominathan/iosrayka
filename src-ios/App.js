@@ -40,7 +40,7 @@ import { GroupSearch } from "./components/groups/GroupSearch";
 import { GroupProfile } from "./components/groups/GroupProfile";
 import { AddFriends } from "./components/groups/AddFriends";
 
-Text.defaultProps.allowFontScaling=false;
+Text.defaultProps.allowFontScaling = false;
 
 // 2. Create a Component
 class App extends Component {
@@ -63,7 +63,7 @@ class App extends Component {
 
   componentDidMount() {
     AsyncStorage.getItem("token").then(token => {
-      if (token) {
+      if(token) {
         this.setState({ isLoggedIn: true });
       } else {
         this.setState({ isLoggedIn: false });
@@ -84,7 +84,7 @@ class App extends Component {
   }
 
   renderDrawerButton() {
-    return (
+    return(
       <TouchableOpacity
         onPress={() => {
           Actions.get("drawer").ref.toggle();
@@ -96,10 +96,10 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.isLoggedIn === undefined) {
+    if(this.state.isLoggedIn === undefined) {
       return null;
     } else {
-      return (
+      return(
         <Router
           navigationBarStyle={{
             backgroundColor: "#3c95cd",
@@ -119,7 +119,6 @@ class App extends Component {
                 key="home"
                 component={Home}
                 title="Home"
-                initial
               />
               <Scene
                 renderLeftButton={this.renderDrawerButton}
@@ -233,7 +232,7 @@ class App extends Component {
                 title="Profile Info"
               />
               <Scene key="imageDetail" component={ImageDetail} title="Image" />
-              <Scene key="login" component={Login} title="Login" hideNavBar />
+              <Scene key="login" component={Login} title="Login" hideNavBar initial />
             </Scene>
           </Scene>
         </Router>

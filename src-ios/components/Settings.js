@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Alert, AsyncStorage, StyleSheet, View } from 'react-native';
+import { Alert, AsyncStorage, Linking, StyleSheet, View } from 'react-native';
 import { List, ListItem } from 'react-native-elements';
 import { Actions } from 'react-native-router-flux';
 
@@ -42,6 +42,13 @@ export class Settings extends Component {
                 }
               ]
             );
+          }
+        },
+        {
+          title: 'Privacy Policy',
+          icon: {name: 'external-link', type: 'font-awesome'},
+          onPress: () => {
+            Linking.openURL('http://rayka-app.com/privacy-policy/');
           }
         }
       ]

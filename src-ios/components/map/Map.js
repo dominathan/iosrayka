@@ -56,8 +56,7 @@ export class Map extends Component {
     return (
       <MapView.Animated
         style={{ height: 300, alignSelf: "stretch" }}
-        onRegionChangeComplete={this.props.onRegionChange}
-        onRegionChange={this.props.onRegionChange}
+        onRegionChangeComplete={this.props.onRegionChangeComplete}
         region={this.props.region}
       >
         {startingPoints}

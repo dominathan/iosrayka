@@ -26,6 +26,7 @@
 		1A42DDA606A44706A6125F35 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 02F124482C694833A19F987E /* EvilIcons.ttf */; };
 		211A34E0D7FD460A9718B8DA /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 775254B7A268472BAE932B33 /* Octicons.ttf */; };
 		2607C8CAA43D46769CA2031A /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A06B83C5924C4BFA8253B69C /* Ionicons.ttf */; };
+		28F0729C5E8A4AD192C3212B /* libA0RNLock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A5DFCEE858054E20A31F8B3E /* libA0RNLock.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		2D02E4BF1E0B4AB3006451C7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
@@ -38,12 +39,15 @@
 		2D02E4C81E0B4AEC006451C7 /* libRCTWebSocket-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3E991DF850E9000B6D8A /* libRCTWebSocket-tvOS.a */; };
 		2D02E4C91E0B4AEC006451C7 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3DAD3EA31DF850E9000B6D8A /* libReact.a */; };
 		2DCD954D1E0B4F2C00145EB5 /* iosraykaTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* iosraykaTests.m */; };
+		3523BC2FBCA6417FCBF1FBFB /* libPods-iosraykaTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C4F606179CF8DE8A35EEE8A /* libPods-iosraykaTests.a */; };
+		492D77B3652C8EDD16821A43 /* libPods-iosrayka-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 546087D150279EFB53D16A01 /* libPods-iosrayka-tvOSTests.a */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		64A004D82904488FAA9AF051 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 07D45CA2C9C343DBA77DE726 /* MaterialIcons.ttf */; };
 		8293166F0B6B4019A4769E00 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBAA78B8F9FF43A1AE04D629 /* libRNVectorIcons.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		85B3D9B641594B6E81ACBD31 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C1528642F56E4484B91786F0 /* Zocial.ttf */; };
 		9418ABCA5DBE49E5A41ACCFA /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AA9AF8B25C3E43388D686DF3 /* libAirMaps.a */; };
+		96A66395A056BA90A02A543D /* libPods-iosrayka.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A224DDE89B51B058892E22E /* libPods-iosrayka.a */; };
 		985C0149E0804A7CA894BF25 /* libRNImagePicker.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 144160EEECE74A92B5F28964 /* libRNImagePicker.a */; };
 		9F06AC9740C14BF9847CA828 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 997EFAE119404738A1936B48 /* FontAwesome.ttf */; };
 		B177241B629D419C9578F72A /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BB4B7573B9074D5C8D917599 /* Foundation.ttf */; };
@@ -284,6 +288,13 @@
 			remoteGlobalIDString = 5DBEB1501B18CEA900B34395;
 			remoteInfo = RNVectorIcons;
 		};
+		85B0E7ED1F15B43A009B88DF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85B0E7E91F15B439009B88DF /* A0RNLock.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 5F0499EE1CAE9F4A006F6C05;
+			remoteInfo = A0RNLock;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -310,25 +321,36 @@
 		144160EEECE74A92B5F28964 /* libRNImagePicker.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNImagePicker.a; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		1B52971C3FDE41E3BC9FF662 /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		2A224DDE89B51B058892E22E /* libPods-iosrayka.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosrayka.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E47B1E0B4A5D006451C7 /* iosrayka-tvOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iosrayka-tvOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D02E4901E0B4A5D006451C7 /* iosrayka-tvOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "iosrayka-tvOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		37DDE894F61E4892BC65C5D8 /* RCTContacts.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RCTContacts.xcodeproj; path = "../node_modules/react-native-contacts/ios/RCTContacts.xcodeproj"; sourceTree = "<group>"; };
+		4C4F606179CF8DE8A35EEE8A /* libPods-iosraykaTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosraykaTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		546087D150279EFB53D16A01 /* libPods-iosrayka-tvOSTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iosrayka-tvOSTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		643F78994E8D2DE53624B654 /* Pods-iosrayka.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosrayka.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosrayka/Pods-iosrayka.release.xcconfig"; sourceTree = "<group>"; };
 		65371BC67A9B4E719A377A1D /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		6DD2D077CDA64BADA2248683 /* RNImagePicker.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNImagePicker.xcodeproj; path = "../node_modules/react-native-image-picker/ios/RNImagePicker.xcodeproj"; sourceTree = "<group>"; };
 		70C53B81044E4BE9A1E37FD7 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/lib/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 		7745899AA30A45CBB24F2AD1 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		775254B7A268472BAE932B33 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
+		79281986C84921133806C680 /* Pods-iosraykaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosraykaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iosraykaTests/Pods-iosraykaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
+		85B0E7E91F15B439009B88DF /* A0RNLock.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = A0RNLock.xcodeproj; path = "../node_modules/react-native-lock/ios/A0RNLock.xcodeproj"; sourceTree = "<group>"; };
 		86837CE2B6734C19A311D55C /* libRCTContacts.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRCTContacts.a; sourceTree = "<group>"; };
+		9225E4779D99D7AFEAF0F533 /* Pods-iosrayka-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosrayka-tvOSTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosrayka-tvOSTests/Pods-iosrayka-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		997EFAE119404738A1936B48 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		A06B83C5924C4BFA8253B69C /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		A4B948A4EF0A5144D92A961E /* Pods-iosrayka.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosrayka.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iosrayka/Pods-iosrayka.debug.xcconfig"; sourceTree = "<group>"; };
+		A5DFCEE858054E20A31F8B3E /* libA0RNLock.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libA0RNLock.a; sourceTree = "<group>"; };
 		AA9AF8B25C3E43388D686DF3 /* libAirMaps.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libAirMaps.a; sourceTree = "<group>"; };
 		BB4B7573B9074D5C8D917599 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		C1528642F56E4484B91786F0 /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		C59FBC7AE45F477881AAD5CF /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
+		E42E6075368768ACF2220699 /* Pods-iosrayka-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosrayka-tvOSTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iosrayka-tvOSTests/Pods-iosrayka-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		EBAA78B8F9FF43A1AE04D629 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = "<group>"; };
+		F0B7643E86463F69D5CB2148 /* Pods-iosraykaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iosraykaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-iosraykaTests/Pods-iosraykaTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -337,6 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */,
+				3523BC2FBCA6417FCBF1FBFB /* libPods-iosraykaTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,6 +382,8 @@
 				9418ABCA5DBE49E5A41ACCFA /* libAirMaps.a in Frameworks */,
 				8293166F0B6B4019A4769E00 /* libRNVectorIcons.a in Frameworks */,
 				985C0149E0804A7CA894BF25 /* libRNImagePicker.a in Frameworks */,
+				28F0729C5E8A4AD192C3212B /* libA0RNLock.a in Frameworks */,
+				96A66395A056BA90A02A543D /* libPods-iosrayka.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -381,6 +406,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				492D77B3652C8EDD16821A43 /* libPods-iosrayka-tvOSTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -444,6 +470,16 @@
 				00E356F11AD99517003FC87E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0476B6A152EC60F89CF07C53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2A224DDE89B51B058892E22E /* libPods-iosrayka.a */,
+				546087D150279EFB53D16A01 /* libPods-iosrayka-tvOSTests.a */,
+				4C4F606179CF8DE8A35EEE8A /* libPods-iosraykaTests.a */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		139105B71AF99BAD00B5F7CC /* Products */ = {
@@ -533,6 +569,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				85B0E7E91F15B439009B88DF /* A0RNLock.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -569,6 +606,8 @@
 				00E356EF1AD99517003FC87E /* iosraykaTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				7C2EF081DE6D4082808944CD /* Resources */,
+				DB3F5CB0D953277C68779A05 /* Pods */,
+				0476B6A152EC60F89CF07C53 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -617,6 +656,27 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		85B0E7EA1F15B439009B88DF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85B0E7EE1F15B43A009B88DF /* libA0RNLock.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DB3F5CB0D953277C68779A05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4B948A4EF0A5144D92A961E /* Pods-iosrayka.debug.xcconfig */,
+				643F78994E8D2DE53624B654 /* Pods-iosrayka.release.xcconfig */,
+				E42E6075368768ACF2220699 /* Pods-iosrayka-tvOSTests.debug.xcconfig */,
+				9225E4779D99D7AFEAF0F533 /* Pods-iosrayka-tvOSTests.release.xcconfig */,
+				79281986C84921133806C680 /* Pods-iosraykaTests.debug.xcconfig */,
+				F0B7643E86463F69D5CB2148 /* Pods-iosraykaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -624,9 +684,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "iosraykaTests" */;
 			buildPhases = (
+				C2A178AAA61F04ABA30CB1FB /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
+				6A0D2620DB35FA8A2F1644E8 /* [CP] Embed Pods Frameworks */,
+				DDF4F8898ED239ACA06CE878 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -642,10 +705,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "iosrayka" */;
 			buildPhases = (
+				22EA27F77CDAC4000D32EE41 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				1AE69467EAD2FEF0B522B696 /* [CP] Embed Pods Frameworks */,
+				39163EEA4549BB961C208996 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -678,9 +744,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2D02E4BB1E0B4A5E006451C7 /* Build configuration list for PBXNativeTarget "iosrayka-tvOSTests" */;
 			buildPhases = (
+				44A6A5E691B653E5FD4FC58C /* [CP] Check Pods Manifest.lock */,
 				2D02E48C1E0B4A5D006451C7 /* Sources */,
 				2D02E48D1E0B4A5D006451C7 /* Frameworks */,
 				2D02E48E1E0B4A5D006451C7 /* Resources */,
+				E7E5AB0538B74A912D09E8C9 /* [CP] Embed Pods Frameworks */,
+				A378C9AB07A74B4D231B49AC /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -733,6 +802,10 @@
 			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
 			projectDirPath = "";
 			projectReferences = (
+				{
+					ProductGroup = 85B0E7EA1F15B439009B88DF /* Products */;
+					ProjectRef = 85B0E7E91F15B439009B88DF /* A0RNLock.xcodeproj */;
+				},
 				{
 					ProductGroup = 8550A65B1F015970003E2D64 /* Products */;
 					ProjectRef = 70C53B81044E4BE9A1E37FD7 /* AirMaps.xcodeproj */;
@@ -1022,6 +1095,13 @@
 			remoteRef = 8550A68A1F015971003E2D64 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		85B0E7EE1F15B43A009B88DF /* libA0RNLock.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libA0RNLock.a;
+			remoteRef = 85B0E7ED1F15B43A009B88DF /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -1083,6 +1163,36 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
 		};
+		1AE69467EAD2FEF0B522B696 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iosrayka/Pods-iosrayka-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		22EA27F77CDAC4000D32EE41 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
 		2D02E4CB1E0B4B27006451C7 /* Bundle React Native Code And Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -1096,6 +1206,111 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/packager/react-native-xcode.sh";
+		};
+		39163EEA4549BB961C208996 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iosrayka/Pods-iosrayka-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44A6A5E691B653E5FD4FC58C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		6A0D2620DB35FA8A2F1644E8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iosraykaTests/Pods-iosraykaTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A378C9AB07A74B4D231B49AC /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iosrayka-tvOSTests/Pods-iosrayka-tvOSTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C2A178AAA61F04ABA30CB1FB /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		DDF4F8898ED239ACA06CE878 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iosraykaTests/Pods-iosraykaTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7E5AB0538B74A912D09E8C9 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iosrayka-tvOSTests/Pods-iosrayka-tvOSTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1164,6 +1379,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 79281986C84921133806C680 /* Pods-iosraykaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				DEVELOPMENT_TEAM = 5V6GNV32B7;
@@ -1177,12 +1393,16 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
 				INFOPLIST_FILE = iosraykaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1200,6 +1420,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F0B7643E86463F69D5CB2148 /* Pods-iosraykaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -1210,12 +1431,16 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
 				INFOPLIST_FILE = iosraykaTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1233,6 +1458,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4B948A4EF0A5144D92A961E /* Pods-iosrayka.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1245,6 +1471,9 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
 				INFOPLIST_FILE = iosrayka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1263,6 +1492,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 643F78994E8D2DE53624B654 /* Pods-iosrayka.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
@@ -1274,6 +1504,9 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
 				INFOPLIST_FILE = iosrayka/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1308,11 +1541,15 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
 				INFOPLIST_FILE = "iosrayka-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1348,11 +1585,15 @@
 					"$(SRCROOT)/../node_modules/react-native-maps/lib/ios/**",
 					"$(SRCROOT)/../node_modules/react-native-vector-icons/RNVectorIconsManager",
 					"$(SRCROOT)/../node_modules/react-native-image-picker/ios",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
+					"$(SRCROOT)/../node_modules/react-native-lock/ios/A0RNLock/**",
 				);
 				INFOPLIST_FILE = "iosrayka-tvOS/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
@@ -1372,6 +1613,7 @@
 		};
 		2D02E4991E0B4A5E006451C7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E42E6075368768ACF2220699 /* Pods-iosrayka-tvOSTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1389,6 +1631,7 @@
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.facebook.REACT.iosrayka-tvOSTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1400,6 +1643,7 @@
 		};
 		2D02E49A1E0B4A5E006451C7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9225E4779D99D7AFEAF0F533 /* Pods-iosrayka-tvOSTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1413,6 +1657,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",

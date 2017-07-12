@@ -250,7 +250,7 @@ export class CommentBox extends Component {
      textAlignVertical: 'top'
    },
    commentContainer: {
-     height: 200,
+     height: 150,
      alignItems: 'flex-start',
    },
    favoriteContainer: {
