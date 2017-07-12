@@ -116,8 +116,7 @@ class App extends Component {
                 renderLeftButton={this.renderDrawerButton}
                 key="home"
                 component={Home}
-                title="Home"
-                initial
+                title="Travel"
               />
               <Scene
                 renderLeftButton={this.renderDrawerButton}
@@ -190,10 +189,11 @@ class App extends Component {
                 renderLeftButton={this.renderDrawerButton}
                 key="groups"
                 component={Group}
-                title="Groups"
+                title="Home"
                 onRight={() => Actions.searchGroup()}
                 rightTitle="Search"
                 rightButtonTextStyle={{ color: "#FFF" }}
+                initial
               />
               <Scene
                 key="createGroup"

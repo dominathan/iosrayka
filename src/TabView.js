@@ -23,7 +23,7 @@ const TabView = (props, context) => {
   const drawer = context.drawer;
   const routes = ds.cloneWithRows([
     {
-      routeCallback: () => { drawer.close(); Actions.home({type: 'reset'}); },
+      routeCallback: () => { drawer.close(); Actions.groups({type: 'reset'}); },
       name: 'Home',
       icon: 'home'
     },
@@ -38,8 +38,8 @@ const TabView = (props, context) => {
       icon: 'map'
     },
     {
-      routeCallback: () => { drawer.close(); Actions.groups({type: 'reset'}); },
-      name: 'Study Abroad Groups',
+      routeCallback: () => { drawer.close(); Actions.home({type: 'reset'}); },
+      name: 'Travel',
       icon: 'group'
     },
     // {
