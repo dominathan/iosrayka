@@ -71,7 +71,7 @@ export class Login extends Component {
         if(res.first_time) {
           return Actions.onboarding({ type: "reset" });
         }
-        Actions.home({ type: "reset" });
+        Actions.groups({ type: "reset" });
       })
       .catch(err => {
         console.log("FUCK BALLS", err);
