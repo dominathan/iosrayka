@@ -13,22 +13,22 @@ export class Onboarding extends Component {
                 {
                     image: require('./tiles/Onboarding_1.png'),
                     text: 'Create or join study abroad groups to find the best places to go during your time abroad.',
-                    title: ''
+                    title: 'Connect'
                 },
                 {
                     image: require('./tiles/Onboarding_2.png'),
                     text: 'Find the best resturants, bars, coffee shops, and more from the recommendations of only study abroad students.',
-                    title: ''
+                    title: 'Explore'
                 },
                 {
                     image: require('./tiles/Onboarding_3.png'),
                     text: 'Don’t rely on a 1-5 rating from strangers: search among rankings of compiled student favorites.',
-                    title: ''
+                    title: 'Discover'
                 },
                 {
                     image: require('./tiles/Onboarding_4.png'),
                     text: 'Recommend your own favorite places to go through our easy interface.',
-                    title: ''
+                    title: 'Recommend'
                 }
             ]
         };
