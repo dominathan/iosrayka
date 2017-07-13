@@ -26,6 +26,7 @@ const styles = StyleSheet.create({
     },
     imageContainer: {
       flex: 3,
+      marginTop: 15,
       width: null,
       height: null,
       resizeMode: 'contain'

@@ -21,14 +21,14 @@ export class Group extends Component {
     super(props);
     this.state = {
       groups: ds.cloneWithRows([]),
-      selectedFilter: 'myGroups',
+      selectedFilter: 'public',
     };
 
     this.createGroupScreen = this.createGroupScreen.bind(this);
   }
 
   componentDidMount() {
-    this.getUserGroups();
+    this.getAllPublicGroups();
   }
 
   getUserGroups() {
