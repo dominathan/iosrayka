@@ -6,7 +6,8 @@ import {
   Image,
   ScrollView,
   StyleSheet,
-  TouchableOpacity } from 'react-native';
+  TouchableOpacity
+} from 'react-native';
 import { Actions } from 'react-native-router-flux';
 
 import { GroupList } from './GroupList';
@@ -34,40 +35,41 @@ export class Group extends Component {
   getUserGroups() {
     getMyGroups()
       .then((data) => {
+        console.log(data)
         const groups = data.map((group) => {
           group.group.myGroup = true;
           group.group.memberCount = group.users.length
           return group.group
         });
-        this.setState({groups: this.state.groups.cloneWithRows(groups)})
+        this.setState({ groups: this.state.groups.cloneWithRows(groups) })
       })
       .catch((err) => console.warn("FUCK BALLS", err))
   }
 
   getAllPublicGroups() {
     getPublicGroups()
-    .then((data) => {
-      const groups = data.map((group) => {
-        group.group.publicGroup = true;
-        group.group.memberCount = group.users.length
-        return group.group
-      });
-      this.setState({groups: this.state.groups.cloneWithRows(groups)})
-    })
-    .catch((err) => console.warn("FUCK BALLS", err))
+      .then((data) => {
+        const groups = data.map((group) => {
+          group.group.publicGroup = true;
+          group.group.memberCount = group.users.length
+          return group.group
+        });
+        this.setState({ groups: this.state.groups.cloneWithRows(groups) })
+      })
+      .catch((err) => console.warn("FUCK BALLS", err))
   }
 
   getAllPrivateGroups() {
     getPrivateGroups()
-    .then((data) => {
-      const groups = data.map((group) => {
-        group.group.privateGroup = true;
-        group.group.memberCount = group.users.length
-        return group.group
-      });
-      this.setState({groups: this.state.groups.cloneWithRows(groups)})
-    })
-    .catch((err) => console.warn("FUCK BALLS", err))
+      .then((data) => {
+        const groups = data.map((group) => {
+          group.group.privateGroup = true;
+          group.group.memberCount = group.users.length
+          return group.group
+        });
+        this.setState({ groups: this.state.groups.cloneWithRows(groups) })
+      })
+      .catch((err) => console.warn("FUCK BALLS", err))
   }
 
   createGroupScreen() {
@@ -80,22 +82,22 @@ export class Group extends Component {
   }
 
   handleFilter(val) {
-    switch (val) {
-      case "myGroups":
-        this.getUserGroups();
-        break
-      case "public":
-        this.getAllPublicGroups();
-        break
-      case "private":
-        this.getAllPrivateGroups();
-        break
+    switch(val) {
+    case "myGroups":
+      this.getUserGroups();
+      break
+    case "public":
+      this.getAllPublicGroups();
+      break
+    case "private":
+      this.getAllPrivateGroups();
+      break
     }
   }
 
   render() {
     const { groups, searching } = this.state;
-    return (
+    return(
       <View style={styles.container}>
 
         <View style={styles.publicPrivateContainer}>

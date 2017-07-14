@@ -24,6 +24,7 @@ import { CommentBox } from "./components/places/CommentBox";
 
 import { Login } from "./components/Login";
 import { Onboarding } from "./components/onboarding/Onboarding";
+import { PrivacyPolicy } from "./components/privacyPolicy/PrivacyPolicy";
 import { Friends } from "./components/friends/Friends";
 import { InviteFriends } from "./components/friends/InviteFriends";
 import { InviteFriendsList } from "./components/friends/InviteFriendsList";
@@ -224,6 +225,12 @@ class App extends Component {
                 key="onboarding"
                 component={Onboarding}
                 title="Onboarding"
+                hideNavBar
+              />
+              <Scene
+                key="privacypolicy"
+                component={PrivacyPolicy}
+                title="Privacy Policy"
                 hideNavBar
               />
               <Scene

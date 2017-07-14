@@ -6,7 +6,8 @@ import {
   StatusBar,
   View,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
+  Text
 } from "react-native";
 import { Icon } from "react-native-elements";
 
@@ -23,6 +24,7 @@ import { CommentBox } from "./components/places/CommentBox";
 
 import { Login } from "./components/Login";
 import { Onboarding } from "./components/onboarding/Onboarding";
+import { PrivacyPolicy } from "./components/privacyPolicy/PrivacyPolicy";
 import { Friends } from "./components/friends/Friends";
 import { InviteFriends } from "./components/friends/InviteFriends";
 import { InviteFriendsList } from "./components/friends/InviteFriendsList";
@@ -38,6 +40,8 @@ import { CreateGroup } from "./components/groups/CreateGroup";
 import { GroupSearch } from "./components/groups/GroupSearch";
 import { GroupProfile } from "./components/groups/GroupProfile";
 import { AddFriends } from "./components/groups/AddFriends";
+
+Text.defaultProps.allowFontScaling = false;
 
 // 2. Create a Component
 class App extends Component {
@@ -60,7 +64,7 @@ class App extends Component {
 
   componentDidMount() {
     AsyncStorage.getItem("token").then(token => {
-      if (token) {
+      if(token) {
         this.setState({ isLoggedIn: true });
       } else {
         this.setState({ isLoggedIn: false });
@@ -81,7 +85,7 @@ class App extends Component {
   }
 
   renderDrawerButton() {
-    return (
+    return(
       <TouchableOpacity
         onPress={() => {
           Actions.get("drawer").ref.toggle();
@@ -93,10 +97,10 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.isLoggedIn === undefined) {
+    if(this.state.isLoggedIn === undefined) {
       return null;
     } else {
-      return (
+      return(
         <Router
           navigationBarStyle={{
             backgroundColor: "#3c95cd",
@@ -192,7 +196,6 @@ class App extends Component {
                 onRight={() => Actions.searchGroup()}
                 rightTitle="Search"
                 rightButtonTextStyle={{ color: "#FFF" }}
-                initial
               />
               <Scene
                 key="createGroup"
@@ -225,12 +228,18 @@ class App extends Component {
                 hideNavBar
               />
               <Scene
+                key="privacypolicy"
+                component={PrivacyPolicy}
+                title="Privacy Policy"
+                hideNavBar
+              />
+              <Scene
                 key="profileInfo"
                 component={ProfileInfo}
                 title="Profile Info"
               />
               <Scene key="imageDetail" component={ImageDetail} title="Image" />
-              <Scene key="login" component={Login} title="Login" hideNavBar />
+              <Scene key="login" component={Login} title="Login" hideNavBar initial />
             </Scene>
           </Scene>
         </Router>
