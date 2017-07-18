@@ -6,8 +6,7 @@ import {
   StyleSheet,
   ListView,
   ActivityIndicator,
-  AsyncStorage,
-  PermissionsAndroid
+  AsyncStorage
 } from "react-native";
 
 import { Actions } from "react-native-router-flux";
@@ -49,12 +48,12 @@ export class Home extends Component {
       selectedHeader: "global",
       lastApiCall: null,
       region: {
-        latitude: props.location && props.location.lat
-          ? props.location.lat
-          : 32.8039917,
-        longitude: props.location && props.location.lat
-          ? props.location.lng
-          : -79.9525327,
+        latitude: props.location && props.location.lat ?
+          props.location.lat :
+          32.8039917,
+        longitude: props.location && props.location.lat ?
+          props.location.lng :
+          -79.9525327,
         latitudeDelta: 0.00922 * 6.5,
         longitudeDelta: 0.00421 * 6.5
       },
@@ -114,19 +113,18 @@ export class Home extends Component {
 
   componentDidMount(props) {
     this.setCurrentUser();
-    this.watchID = navigator.geolocation.watchPosition(position => {
-      console.log("Position: ", position)
+
+    this.watchID = navigator.geolocation.getCurrentPosition(position => {
       let region = {
-        latitude: this.props.location && this.props.location.lat
-          ? this.props.location.lat
-          : position.coords.latitude,
-        longitude: this.props.location && this.props.location.lng
-          ? this.props.location.lng
-          : position.coords.longitude,
+        latitude: this.props.location && this.props.location.lat ?
+          this.props.location.lat :
+          position.coords.latitude,
+        longitude: this.props.location && this.props.location.lng ?
+          this.props.location.lng :
+          position.coords.longitude,
         latitudeDelta: 0.00922 * 6.5,
         longitudeDelta: 0.00421 * 6.5
       };
-      console.log('hey');
       this.setState({ region: region });
       this.handleGlobal();
     });
@@ -134,7 +132,7 @@ export class Home extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.new_place) {
+    if(nextProps.new_place) {
       let updatedMarkers = this.state.markers;
       let updatedFeed = this.state.feed;
       updatedFeed.unshift(nextProps.new_place);
@@ -144,25 +142,6 @@ export class Home extends Component {
         markers: updatedMarkers
       });
     }
-  }
-
-  getLocation() {
-    this.watchID = navigator.geolocation.watchPosition(position => {
-      console.log("Position: ", position)
-      let region = {
-        latitude: this.props.location && this.props.location.lat
-          ? this.props.location.lat
-          : position.coords.latitude,
-        longitude: this.props.location && this.props.location.lng
-          ? this.props.location.lng
-          : position.coords.longitude,
-        latitudeDelta: 0.00922 * 6.5,
-        longitudeDelta: 0.00421 * 6.5
-      };
-      console.log('hey');
-      this.setState({ region: region });
-      this.handleGlobal();
-    });
   }
 
   handleGlobal() {
@@ -189,13 +168,13 @@ export class Home extends Component {
     const queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
     return AsyncStorage.getItem("homePlaces")
       .then(homePlaces => {
-        if (homePlaces) {
+        if(homePlaces && JSON.parse(homePlaces).length > 0) {
+          console.log("Has home places", JSON.parse(homePlaces));
           return JSON.parse(homePlaces);
         }
         return getPlaces(queryString);
       })
       .then(data => {
-        console.log('dater', data)
         this.setState({
           markers: data,
           places: this.state.places.cloneWithRows(data)
@@ -222,14 +201,13 @@ export class Home extends Component {
 
   onRegionChange(region) {
     this.setState({ region: region });
-    if (this.canCallApi()) {
+    if(this.canCallApi()) {
       this.getHomePlaces();
     }
   }
 
   canCallApi() {
-    return (
-      !this.state.lastApiCall ||
+    return(!this.state.lastApiCall ||
       new Date() - this.state.lastApiCall > DEBOUNCE_TIME
     );
   }
@@ -242,14 +220,14 @@ export class Home extends Component {
     this.setState({
       selectedFilter: val
     });
-    if (val === "feed") {
+    if(val === "feed") {
       this.globalFilter();
     }
   }
 
   filterPlacesFromFeed(data) {
     return data.reduce((acc, feed) => {
-      if (!acc.some(elem => elem.id === feed.place.id)) {
+      if(!acc.some(elem => elem.id === feed.place.id)) {
         acc.push(feed.place);
       }
       return acc;
@@ -264,9 +242,9 @@ export class Home extends Component {
     }, "");
 
     typeQueryString = typeQueryString.lastIndexOf(",") ===
-      typeQueryString.length - 1
-      ? typeQueryString.slice(0, typeQueryString.length - 1)
-      : typeQueryString;
+      typeQueryString.length - 1 ?
+      typeQueryString.slice(0, typeQueryString.length - 1) :
+      typeQueryString;
 
     const latitude = this.state.region.latitude;
     const longitude = this.state.region.longitude;
@@ -291,26 +269,25 @@ export class Home extends Component {
   globalFilter() {
     this.setState({ feedReady: false, showActivityIndicator: true });
     let queryString = "";
-    if (this.props.location && this.props.location.lat) {
+    if(this.props.location && this.props.location.lat) {
       const latitude = this.props.location.lat;
       const longitude = this.props.location.lng;
       queryString = `lat=${latitude}&lng=${longitude}&distance=20`;
     }
     return AsyncStorage.getItem("homeFeed")
       .then(homeFeed => {
-        if (homeFeed) {
+        if(homeFeed) {
           return JSON.parse(homeFeed);
         }
         return getFeed(queryString);
       })
       .then(data => {
-        console.log("Data from home feed: ", data)
-        if (data.errors) {
+        if(data.errors) {
           Actions.login();
           return;
         }
         this.setState({
-          feed: data,
+          feed: data || [],
           feedReady: true,
           showActivityIndicator: false
         });
@@ -320,11 +297,11 @@ export class Home extends Component {
   }
 
   refreshFeed() {
-    if (this.state.selectedHeader === "global") {
+    if(this.state.selectedHeader === "global") {
       return AsyncStorage.removeItem("homeFeed").then(() => {
         return this.globalFilter();
       });
-    } else if (this.state.selectedHeader === "friends") {
+    } else if(this.state.selectedHeader === "friends") {
       return AsyncStorage.removeItem("friendsFeed")
         .then(() => {
           return AsyncStorage.removeItem("friendsPlaces");
@@ -332,7 +309,7 @@ export class Home extends Component {
         .then(() => {
           return this.filterFriends();
         });
-    } else if (this.state.selectedHeader === "expert") {
+    } else if(this.state.selectedHeader === "expert") {
       return AsyncStorage.removeItem("expertsFeed")
         .then(() => {
           return AsyncStorage.removeItem("expertsPlaces");
@@ -344,11 +321,11 @@ export class Home extends Component {
   }
 
   refreshPlaces() {
-    if (this.state.selectedHeader === "global") {
+    if(this.state.selectedHeader === "global") {
       return AsyncStorage.removeItem("homePlaces").then(() => {
         return this.getHomePlaces();
       });
-    } else if (this.state.selectedHeader === "friends") {
+    } else if(this.state.selectedHeader === "friends") {
       return AsyncStorage.removeItem("friendsFeed")
         .then(() => {
           return AsyncStorage.removeItem("friendsPlaces");
@@ -356,7 +333,7 @@ export class Home extends Component {
         .then(() => {
           return this.filterFriends();
         });
-    } else if (this.state.selectedHeader === "expert") {
+    } else if(this.state.selectedHeader === "expert") {
       return AsyncStorage.removeItem("expertsFeed")
         .then(() => {
           return AsyncStorage.removeItem("expertsPlaces");
@@ -371,7 +348,7 @@ export class Home extends Component {
     this.setState({ feedReady: false, showActivityIndicator: true });
     return AsyncStorage.getItem("friendsFeed")
       .then(friendsFeed => {
-        if (friendsFeed) {
+        if(friendsFeed) {
           return JSON.parse(friendsFeed);
         }
         return getFriendFeed();
@@ -387,7 +364,7 @@ export class Home extends Component {
         return AsyncStorage.getItem("friendsPlaces");
       })
       .then(friendsPlaces => {
-        if (friendsPlaces) {
+        if(friendsPlaces) {
           return JSON.parse(friendsPlaces);
         }
         return getFriendPlaces();
@@ -407,7 +384,7 @@ export class Home extends Component {
     this.setState({ feedReady: false, showActivityIndicator: true });
     return AsyncStorage.getItem("expertsFeed")
       .then(expertsFeed => {
-        if (expertsFeed) {
+        if(expertsFeed) {
           return JSON.parse(expertsFeed);
         }
         return getExpertFeed();
@@ -423,7 +400,7 @@ export class Home extends Component {
         return AsyncStorage.getItem("expertsPlaces");
       })
       .then(expertsPlaces => {
-        if (expertsPlaces) {
+        if(expertsPlaces) {
           return JSON.parse(expertsPlaces);
         }
         return getExpertPlaces();
@@ -457,17 +434,15 @@ export class Home extends Component {
       types,
       user
     } = this.state;
-    console.log(places.getRowCount(), 'Places')
-    let placesPopulated = places.getRowCount() > -1;
     const debounceRegionChange = _.debounce(this.onRegionChange, 200);
-
-    return (
+    let placesPopulated = places.getRowCount() > -1;
+    return(
       <View style={styles.container}>
         {user &&
           region &&
           markers &&
-          <Map style={ styles.map }
-            onRegionChange={debounceRegionChange}
+          <Map
+            onRegionChangeComplete={debounceRegionChange}
             region={region}
             markers={markers}
           />}
@@ -573,7 +548,7 @@ export class Home extends Component {
             selectedFilter === "top" &&
             !placesPopulated &&
             <Text style={styles.messageText}>
-              "Nobody has added a favorite in your area!"
+              {"Nobody has added a favorite in your area!"}
             </Text>}
           {feedReady && selectedFilter === "search" && this.goToHomeSearch()}
           {feedReady &&
@@ -604,12 +579,8 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
   map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-   },
+    flex: 1
+  },
   addPlaceButton: {
     position: "absolute",
     bottom: "15%",

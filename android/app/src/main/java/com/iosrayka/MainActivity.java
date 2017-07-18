@@ -1,4 +1,4 @@
-package com.iosrayka;
+package com.rayka;
 
 import com.facebook.react.ReactActivity;
 

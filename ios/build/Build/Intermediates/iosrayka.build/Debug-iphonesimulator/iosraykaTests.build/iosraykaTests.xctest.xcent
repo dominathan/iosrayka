@@ -3,10 +3,10 @@
 <plist version="1.0">
 <dict>
 	<key>application-identifier</key>
-	<string>5V6GNV32B7.com.rayka.iosapp</string>
+	<string>5V6GNV32B7.org.reactjs.native.example.iosraykaTests</string>
 	<key>keychain-access-groups</key>
 	<array>
-		<string>5V6GNV32B7.com.rayka.iosapp</string>
+		<string>5V6GNV32B7.org.reactjs.native.example.iosraykaTests</string>
 	</array>
 </dict>
 </plist>

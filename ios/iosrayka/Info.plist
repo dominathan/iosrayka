@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>iosrayka</string>
+	<string>Rayka</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -17,11 +17,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.2</string>
+	<string>1.3</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1</string>
+	<string>2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -36,15 +36,15 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>Rayka would like to access your camera to take a photo.</string>
+	<string>Rayka would like to access your camera</string>
 	<key>NSContactsUsageDescription</key>
-	<string>Rayka would like to access your contacts to invite your friends.</string>
+	<string>Rayka would like to access your contacts</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Rayka would like to access your location</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
-	<key>NSMainNibFile</key>
-	<string>LaunchScreen</string>
+	<string>Rayka would like to access your location when using the app</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Rayka would like to access your photo library to set your profile photo.</string>
+	<string>Rayka would like to access your photo library</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Entypo.ttf</string>

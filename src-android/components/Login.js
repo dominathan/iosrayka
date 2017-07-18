@@ -34,7 +34,7 @@ export class Login extends Component {
   }
 
   componentDidMount() {
-    if (this.props.getIsLoggedIn()) {
+    if(this.props.getIsLoggedIn()) {
       Actions.home({ type: "reset" });
     }
   }
@@ -50,19 +50,19 @@ export class Login extends Component {
   }
 
   _toQueryString(params) {
-    return (
+    return(
       "?" +
       Object.entries(params)
-        .map(
-          ([key, value]) =>
-            `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-        )
-        .join("&")
+      .map(
+        ([key, value]) =>
+        `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
+      )
+      .join("&")
     );
   }
 
   onNavigationStateChange(navState) {
-    if (navState["url"].includes("+/redirect")) {
+    if(navState["url"].includes("+/redirect")) {
       console.log("STATE CHANGE");
       this.handleUser(navState["url"]);
       return;
@@ -91,8 +91,8 @@ export class Login extends Component {
       .then(res => {
         AsyncStorage.setItem("user", JSON.stringify(res.user));
         this.props.setIsLoggedIn(true);
-        if (res.first_time) {
-          return Actions.onboarding({ type: "reset" });
+        if(res.first_time) {
+          return Actions.privacypolicy({ type: "reset" });
         }
         Actions.home({ type: "reset" });
       })
@@ -122,14 +122,14 @@ export class Login extends Component {
 
   handleError(e) {
     console.log("ERRROR", e);
-    if (e === "WebKitErrorDomain") {
+    if(e === "WebKitErrorDomain") {
       return;
     }
   }
 
   render() {
     const { url } = this.state;
-    return (
+    return(
       <View style={styles.container}>
         {url &&
           <WebView

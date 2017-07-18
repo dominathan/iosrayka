@@ -20,7 +20,6 @@
     "react-native-drawer": "2.3.0",
     "react-native-elements": "0.11.1",
     "react-native-image-picker": "^0.26.3",
-    "react-native-lock": "0.4.0",
     "react-native-maps": "^0.15.2",
     "react-native-router-flux": "3.38.0",
     "react-native-vector-icons": "^4.2.0"
