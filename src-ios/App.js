@@ -208,15 +208,6 @@ class App extends Component {
                 title="Search for Groups"
               />
               <Scene
-                renderLeftButton={this.renderDrawerButton}
-                key="groupProfile"
-                component={GroupProfile}
-                title="Group"
-                onRight={state => this.handleAddFriends(state)}
-                rightTitle="+ Friend"
-                rightButtonTextStyle={{ color: "#FFF" }}
-              />
-              <Scene
                 key="addFriends"
                 component={AddFriends}
                 title="Add to Group"
@@ -239,7 +230,27 @@ class App extends Component {
                 title="Profile Info"
               />
               <Scene key="imageDetail" component={ImageDetail} title="Image" />
-              <Scene key="login" component={Login} title="Login" hideNavBar initial />
+              {!this.state.isLoggedIn && <Scene key="login" component={Login} title="Login" hideNavBar initial />}
+              {this.state.isLoggedIn && <Scene key="login" component={Login} title="Login" hideNavBar />}
+              {!this.state.isLoggedIn && <Scene
+                              renderLeftButton={this.renderDrawerButton}
+                              key="groupProfile"
+                              component={GroupProfile}
+                              title="Group"
+                              onRight={state => this.handleAddFriends(state)}
+                              rightTitle="+ Friend"
+                              rightButtonTextStyle={{ color: "#FFF" }}
+                            />}
+              {this.state.isLoggedIn && <Scene
+                              renderLeftButton={this.renderDrawerButton}
+                              key="groupProfile"
+                              component={GroupProfile}
+                              title="Group"
+                              onRight={state => this.handleAddFriends(state)}
+                              rightTitle="+ Friend"
+                              rightButtonTextStyle={{ color: "#FFF" }}
+                              initial
+                            />}
             </Scene>
           </Scene>
         </Router>
