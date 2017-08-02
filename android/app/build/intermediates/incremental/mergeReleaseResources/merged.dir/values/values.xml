@@ -7,10 +7,14 @@
     <bool name="abc_action_bar_embed_tabs">true</bool>
     <bool name="abc_action_bar_embed_tabs_pre_jb">false</bool>
     <bool name="abc_action_bar_expanded_action_views_exclusive">true</bool>
+    <bool name="abc_allow_stacked_button_bar">false</bool>
     <bool name="abc_config_actionMenuItemAllCaps">true</bool>
     <bool name="abc_config_allowActionMenuItemTextWithIcon">false</bool>
     <bool name="abc_config_closeDialogWhenTouchOutside">true</bool>
     <bool name="abc_config_showMenuShortcutsWhenKeyboardPresent">false</bool>
+    <bool name="spb_default_mirror_mode">false</bool>
+    <bool name="spb_default_progressiveStart_activated">false</bool>
+    <bool name="spb_default_reversed">false</bool>
     <color name="abc_input_method_navigation_guard">@android:color/black</color>
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
@@ -30,6 +34,101 @@
     <color name="button_material_dark">#ff5a595b</color>
     <color name="button_material_light">#ffd6d7d7</color>
     <color name="catalyst_redbox_background">#eecc0000</color>
+    <color name="com_auth0_credential_box_background">@android:color/transparent</color>
+    <color name="com_auth0_credential_box_border">#ccc</color>
+    <color name="com_auth0_credential_field_background">@android:color/transparent</color>
+    <color name="com_auth0_credential_field_cursor">#ffb3b5b6</color>
+    <color name="com_auth0_credential_field_error">#c00</color>
+    <color name="com_auth0_credential_field_hint">#ccc</color>
+    <color name="com_auth0_lock_background">#ffffffff</color>
+    <color name="com_auth0_lock_blue">#16214d</color>
+    <color name="com_auth0_lock_blue_light">#44c7f4</color>
+    <color name="com_auth0_lock_grey">#d0d2d3</color>
+    <color name="com_auth0_lock_red">#eb5424</color>
+    <color name="com_auth0_primary_button_disabled_background">#153a4d</color>
+    <color name="com_auth0_primary_button_highlighted_background">#0A1024</color>
+    <color name="com_auth0_primary_button_normal_background">#15204D</color>
+    <color name="com_auth0_primary_button_text">@android:color/white</color>
+    <color name="com_auth0_secondary_button_border">#f0f0f0</color>
+    <color name="com_auth0_secondary_button_disabled_background">@android:color/transparent</color>
+    <color name="com_auth0_secondary_button_normal_background">@android:color/transparent</color>
+    <color name="com_auth0_secondary_button_text">#4d4d4d</color>
+    <color name="com_auth0_social_amazon">#ffad1d</color>
+    <color name="com_auth0_social_amazon_text">#000000</color>
+    <color name="com_auth0_social_aol">#355FA7</color>
+    <color name="com_auth0_social_aol_text">#ffffff</color>
+    <color name="com_auth0_social_baidu">#2A2AE0</color>
+    <color name="com_auth0_social_baidu_text">#ffffff</color>
+    <color name="com_auth0_social_bitbucket">#205081</color>
+    <color name="com_auth0_social_bitbucket_text">#ffffff</color>
+    <color name="com_auth0_social_box">#4A79B5</color>
+    <color name="com_auth0_social_box_text">#ffffff</color>
+    <color name="com_auth0_social_button_icon_background">#46000000</color>
+    <color name="com_auth0_social_dropbox">#007ee5</color>
+    <color name="com_auth0_social_dropbox_text">#ffffff</color>
+    <color name="com_auth0_social_dwolla">#DE881A</color>
+    <color name="com_auth0_social_dwolla_text">#ffffff</color>
+    <color name="com_auth0_social_evernote">#82B137</color>
+    <color name="com_auth0_social_evernote_sandbox">#82B137</color>
+    <color name="com_auth0_social_evernote_sandbox_text">#ffffff</color>
+    <color name="com_auth0_social_evernote_text">#ffffff</color>
+    <color name="com_auth0_social_exact">#A21D22</color>
+    <color name="com_auth0_social_exact_text">#ffffff</color>
+    <color name="com_auth0_social_facebook">#4863AE</color>
+    <color name="com_auth0_social_facebook_text">#ffffff</color>
+    <color name="com_auth0_social_fitbit">#77C1C5</color>
+    <color name="com_auth0_social_fitbit_text">#ffffff</color>
+    <color name="com_auth0_social_github">#EDEDED</color>
+    <color name="com_auth0_social_github_text">#000000</color>
+    <color name="com_auth0_social_google_oauth2">#4285F4</color>
+    <color name="com_auth0_social_google_oauth2_text">#ffffff</color>
+    <color name="com_auth0_social_instagram">#38537A</color>
+    <color name="com_auth0_social_instagram_text">#ffffff</color>
+    <color name="com_auth0_social_linkedin">#0083a8</color>
+    <color name="com_auth0_social_linkedin_text">#ffffff</color>
+    <color name="com_auth0_social_miicard">#D0E9FF</color>
+    <color name="com_auth0_social_miicard_text">#000000</color>
+    <color name="com_auth0_social_paypal">#EDEDED</color>
+    <color name="com_auth0_social_paypal_text">#32689A</color>
+    <color name="com_auth0_social_planningcenter">#4F4F4F</color>
+    <color name="com_auth0_social_planningcenter_text">#D1D1D1</color>
+    <color name="com_auth0_social_renren">#2D54B4</color>
+    <color name="com_auth0_social_renren_text">#ffffff</color>
+    <color name="com_auth0_social_salesforce">#EDEDED</color>
+    <color name="com_auth0_social_salesforce_community">#EDEDED</color>
+    <color name="com_auth0_social_salesforce_community_text">#F00000</color>
+    <color name="com_auth0_social_salesforce_sandbox">#EDEDED</color>
+    <color name="com_auth0_social_salesforce_sandbox_text">#F00000</color>
+    <color name="com_auth0_social_salesforce_text">#F00000</color>
+    <color name="com_auth0_social_shopify">#82B137</color>
+    <color name="com_auth0_social_shopify_text">#ffffff</color>
+    <color name="com_auth0_social_soundcloud">#B23900</color>
+    <color name="com_auth0_social_soundcloud_text">#ffffff</color>
+    <color name="com_auth0_social_thecity">#757470</color>
+    <color name="com_auth0_social_thecity_sandbox">#757470</color>
+    <color name="com_auth0_social_thecity_sandbox_text">#D1D1D1</color>
+    <color name="com_auth0_social_thecity_text">#D1D1D1</color>
+    <color name="com_auth0_social_thirtysevensignals">#6AC071</color>
+    <color name="com_auth0_social_thirtysevensignals_text">#ffffff</color>
+    <color name="com_auth0_social_twitter">#46c0fb</color>
+    <color name="com_auth0_social_twitter_text">#ffffff</color>
+    <color name="com_auth0_social_unknown">#E33B1B</color>
+    <color name="com_auth0_social_unknown_text">#ffffff</color>
+    <color name="com_auth0_social_vkontakte">#51678D</color>
+    <color name="com_auth0_social_vkontakte_text">#ffffff</color>
+    <color name="com_auth0_social_weibo">#F9F6F1</color>
+    <color name="com_auth0_social_weibo_text">#F00000</color>
+    <color name="com_auth0_social_windowslive">#446EEB</color>
+    <color name="com_auth0_social_windowslive_text">#ffffff</color>
+    <color name="com_auth0_social_wordpress">#508ABD</color>
+    <color name="com_auth0_social_wordpress_text">#ffffff</color>
+    <color name="com_auth0_social_yahoo">#a200c2</color>
+    <color name="com_auth0_social_yahoo_text">#ffffff</color>
+    <color name="com_auth0_social_yammer">#3C6FC5</color>
+    <color name="com_auth0_social_yammer_text">#ffffff</color>
+    <color name="com_auth0_social_yandex">#B00000</color>
+    <color name="com_auth0_social_yandex_text">#ffffff</color>
+    <color name="com_auth0_title_lock_icon_background">#f0f0f0</color>
     <color name="common_google_signin_btn_text_dark_default">@android:color/white</color>
     <color name="common_google_signin_btn_text_dark_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_dark_focused">@android:color/black</color>
@@ -68,12 +167,13 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
-    <color name="ripple_material_dark">#42ffffff</color>
+    <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
     <color name="secondary_text_default_material_dark">#b3ffffff</color>
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
+    <color name="spb_default_color">#33b5e5</color>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
@@ -86,7 +186,9 @@
     <declare-styleable name="ActivityChooserView"><attr format="string" name="initialActivityCount"/><attr format="reference" name="expandActivityOverflowButtonDrawable"/></declare-styleable>
     <declare-styleable name="AlertDialog"><attr name="android:layout"/><attr format="reference" name="buttonPanelSideLayout"/><attr format="reference" name="listLayout"/><attr format="reference" name="multiChoiceItemLayout"/><attr format="reference" name="singleChoiceItemLayout"/><attr format="reference" name="listItemLayout"/></declare-styleable>
     <declare-styleable name="AppCompatTextView"><attr format="reference|boolean" name="textAllCaps"/><attr name="android:textAppearance"/></declare-styleable>
+    <declare-styleable name="ButtonBarLayout"><attr format="boolean" name="allowStacking"/></declare-styleable>
     <declare-styleable name="CompoundButton"><attr name="android:button"/><attr format="color" name="buttonTint"/><attr name="buttonTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
+    <declare-styleable name="CredentialField"><attr format="reference" name="com_auth0_normalIconDrawable"/><attr format="reference" name="com_auth0_errorIconDrawable"/><attr format="color" name="com_auth0_errorColor"/></declare-styleable>
     <declare-styleable name="DrawerArrowToggle"><attr format="color" name="color"/><attr format="boolean" name="spinBars"/><attr format="dimension" name="drawableSize"/><attr format="dimension" name="gapBetweenBars"/><attr format="dimension" name="arrowHeadLength"/><attr format="dimension" name="arrowShaftLength"/><attr format="dimension" name="barLength"/><attr format="dimension" name="thickness"/></declare-styleable>
     <declare-styleable name="GenericDraweeHierarchy"><attr format="integer" name="fadeDuration"/><attr format="float" name="viewAspectRatio"/><attr format="reference" name="placeholderImage"/><attr name="placeholderImageScaleType">
       <enum name="none" value="-1"/>
@@ -150,6 +252,7 @@
 <enum name="adjust_height" value="2"/>
 
 </attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
+    <declare-styleable name="Lock.Theme"><attr format="reference" name="Auth0.BackgroundImageStyle"/><attr format="reference" name="Auth0.PrimaryButtonStyle"/><attr format="reference" name="Auth0.SecondaryButtonStyle"/><attr format="reference" name="Auth0.CredentialField"/><attr format="reference" name="Auth0.CredentialField.Username"/><attr format="reference" name="Auth0.CredentialField.Email"/><attr format="reference" name="Auth0.CredentialField.Password"/><attr format="reference" name="Auth0.CredentialBox"/><attr format="reference" name="Auth0.Message"/><attr format="reference|color" name="Auth0.Background"/><attr format="reference" name="Auth0.Title.Text"/><attr format="reference" name="Auth0.Title.Icon"/><attr format="color" name="Auth0.Separator.Color"/><attr format="reference" name="Auth0.GridView.Small"/></declare-styleable>
     <declare-styleable name="MapAttrs"><attr name="mapType">
 <enum name="none" value="0"/>
 
@@ -165,6 +268,7 @@
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction"><flag name="never" value="0"/><flag name="ifRoom" value="1"/><flag name="always" value="2"/><flag name="withText" value="4"/><flag name="collapseActionView" value="8"/></attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/></declare-styleable>
+    <declare-styleable name="PhoneField"><attr format="reference" name="com_auth0_normalPhoneIconDrawable"/><attr format="reference" name="com_auth0_errorPhoneIconDrawable"/><attr format="color" name="com_auth0_errorPhoneColor"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
     <declare-styleable name="SearchView"><attr format="reference" name="layout"/><attr format="boolean" name="iconifiedByDefault"/><attr name="android:maxWidth"/><attr format="string" name="queryHint"/><attr format="string" name="defaultQueryHint"/><attr name="android:imeOptions"/><attr name="android:inputType"/><attr format="reference" name="closeIcon"/><attr format="reference" name="goIcon"/><attr format="reference" name="searchIcon"/><attr format="reference" name="searchHintIcon"/><attr format="reference" name="voiceIcon"/><attr format="reference" name="commitIcon"/><attr format="reference" name="suggestionRowLayout"/><attr format="reference" name="queryBackground"/><attr format="reference" name="submitBackground"/><attr name="android:focusable"/></declare-styleable>
@@ -184,11 +288,12 @@
 
 </attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
     <declare-styleable name="SimpleDraweeView"><attr format="string" name="actualImageUri"/></declare-styleable>
+    <declare-styleable name="SmoothProgressBar"><attr format="reference" name="spbStyle"/><attr format="color" name="spb_color"/><attr format="dimension" name="spb_stroke_width"/><attr format="dimension" name="spb_stroke_separator_length"/><attr format="integer" name="spb_sections_count"/><attr format="float" name="spb_speed"/><attr format="float" name="spb_progressiveStart_speed"/><attr format="float" name="spb_progressiveStop_speed"/><attr format="enum" name="spb_interpolator"><enum name="spb_interpolator_accelerate" value="0"/><enum name="spb_interpolator_linear" value="1"/><enum name="spb_interpolator_acceleratedecelerate" value="2"/><enum name="spb_interpolator_decelerate" value="3"/></attr><attr format="boolean" name="spb_reversed"/><attr format="boolean" name="spb_mirror_mode"/><attr format="reference" name="spb_colors"/><attr format="boolean" name="spb_progressiveStart_activated"/><attr format="reference" name="spb_background"/><attr format="boolean" name="spb_generate_background_with_colors"/><attr format="boolean" name="spb_gradients"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="reference" name="track"/><attr name="android:textOn"/><attr name="android:textOff"/><attr format="dimension" name="thumbTextPadding"/><attr format="reference" name="switchTextAppearance"/><attr format="dimension" name="switchMinWidth"/><attr format="dimension" name="switchPadding"/><attr format="boolean" name="splitTrack"/><attr format="boolean" name="showText"/></declare-styleable>
     <declare-styleable name="TextAppearance"><attr name="android:textColor"/><attr name="android:textSize"/><attr name="android:textStyle"/><attr name="android:shadowColor"/><attr name="android:shadowDx"/><attr name="android:shadowDy"/><attr name="android:shadowRadius"/><attr name="android:typeface"/><attr name="textAllCaps"/></declare-styleable>
     <declare-styleable name="TextStyle"><attr name="android:textAppearance"/><attr name="android:textColor"/><attr name="android:textSize"/><attr name="android:textStyle"/><attr name="android:shadowColor"/><attr name="android:shadowDx"/><attr name="android:shadowDy"/><attr name="android:shadowRadius"/><attr name="android:singleLine"/><attr name="android:maxLines"/><attr name="android:ellipsize"/></declare-styleable>
-    <declare-styleable name="Theme"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowNoTitle"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="dimension|fraction" name="windowFixedWidthMajor"/><attr format="dimension|fraction" name="windowFixedHeightMinor"/><attr format="dimension|fraction" name="windowFixedWidthMinor"/><attr format="dimension|fraction" name="windowFixedHeightMajor"/><attr format="dimension|fraction" name="windowMinWidthMajor"/><attr format="dimension|fraction" name="windowMinWidthMinor"/><attr name="android:windowIsFloating"/><attr name="android:windowAnimationStyle"/><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionOverflowMenuStyle"/><attr format="reference" name="actionBarPopupTheme"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarTheme"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeCutDrawable"/><attr format="reference" name="actionModeCopyDrawable"/><attr format="reference" name="actionModePasteDrawable"/><attr format="reference" name="actionModeSelectAllDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModeFindDrawable"/><attr format="reference" name="actionModeWebSearchDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="dialogTheme"/><attr format="dimension" name="dialogPreferredPadding"/><attr format="reference" name="listDividerAlertDialog"/><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="selectableItemBackgroundBorderless"/><attr format="reference" name="borderlessButtonStyle"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="dividerHorizontal"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="toolbarStyle"/><attr format="reference" name="toolbarNavigationButtonStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="reference" name="popupWindowStyle"/><attr format="reference|color" name="editTextColor"/><attr format="reference" name="editTextBackground"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="reference" name="searchViewStyle"/><attr format="dimension" name="listPreferredItemHeight"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemHeightLarge"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="textAppearanceListItem"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="reference" name="panelBackground"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/><attr format="color" name="colorPrimary"/><attr format="color" name="colorPrimaryDark"/><attr format="color" name="colorAccent"/><attr format="color" name="colorControlNormal"/><attr format="color" name="colorControlActivated"/><attr format="color" name="colorControlHighlight"/><attr format="color" name="colorButtonNormal"/><attr format="color" name="colorSwitchThumbNormal"/><attr format="reference" name="controlBackground"/><attr format="reference" name="alertDialogStyle"/><attr format="reference" name="alertDialogButtonGroupStyle"/><attr format="boolean" name="alertDialogCenterButtons"/><attr format="reference" name="alertDialogTheme"/><attr format="reference|color" name="textColorAlertDialogListItem"/><attr format="reference" name="buttonBarPositiveButtonStyle"/><attr format="reference" name="buttonBarNegativeButtonStyle"/><attr format="reference" name="buttonBarNeutralButtonStyle"/><attr format="reference" name="autoCompleteTextViewStyle"/><attr format="reference" name="buttonStyle"/><attr format="reference" name="buttonStyleSmall"/><attr format="reference" name="checkboxStyle"/><attr format="reference" name="checkedTextViewStyle"/><attr format="reference" name="editTextStyle"/><attr format="reference" name="radioButtonStyle"/><attr format="reference" name="ratingBarStyle"/><attr format="reference" name="spinnerStyle"/><attr format="reference" name="switchStyle"/></declare-styleable>
+    <declare-styleable name="Theme"><attr format="boolean" name="windowActionBar"/><attr format="boolean" name="windowNoTitle"/><attr format="boolean" name="windowActionBarOverlay"/><attr format="boolean" name="windowActionModeOverlay"/><attr format="dimension|fraction" name="windowFixedWidthMajor"/><attr format="dimension|fraction" name="windowFixedHeightMinor"/><attr format="dimension|fraction" name="windowFixedWidthMinor"/><attr format="dimension|fraction" name="windowFixedHeightMajor"/><attr format="dimension|fraction" name="windowMinWidthMajor"/><attr format="dimension|fraction" name="windowMinWidthMinor"/><attr name="android:windowIsFloating"/><attr name="android:windowAnimationStyle"/><attr format="reference" name="actionBarTabStyle"/><attr format="reference" name="actionBarTabBarStyle"/><attr format="reference" name="actionBarTabTextStyle"/><attr format="reference" name="actionOverflowButtonStyle"/><attr format="reference" name="actionOverflowMenuStyle"/><attr format="reference" name="actionBarPopupTheme"/><attr format="reference" name="actionBarStyle"/><attr format="reference" name="actionBarSplitStyle"/><attr format="reference" name="actionBarTheme"/><attr format="reference" name="actionBarWidgetTheme"/><attr format="dimension" name="actionBarSize"><enum name="wrap_content" value="0"/></attr><attr format="reference" name="actionBarDivider"/><attr format="reference" name="actionBarItemBackground"/><attr format="reference" name="actionMenuTextAppearance"/><attr format="color|reference" name="actionMenuTextColor"/><attr format="reference" name="actionModeStyle"/><attr format="reference" name="actionModeCloseButtonStyle"/><attr format="reference" name="actionModeBackground"/><attr format="reference" name="actionModeSplitBackground"/><attr format="reference" name="actionModeCloseDrawable"/><attr format="reference" name="actionModeCutDrawable"/><attr format="reference" name="actionModeCopyDrawable"/><attr format="reference" name="actionModePasteDrawable"/><attr format="reference" name="actionModeSelectAllDrawable"/><attr format="reference" name="actionModeShareDrawable"/><attr format="reference" name="actionModeFindDrawable"/><attr format="reference" name="actionModeWebSearchDrawable"/><attr format="reference" name="actionModePopupWindowStyle"/><attr format="reference" name="textAppearanceLargePopupMenu"/><attr format="reference" name="textAppearanceSmallPopupMenu"/><attr format="reference" name="dialogTheme"/><attr format="dimension" name="dialogPreferredPadding"/><attr format="reference" name="listDividerAlertDialog"/><attr format="reference" name="actionDropDownStyle"/><attr format="dimension" name="dropdownListPreferredItemHeight"/><attr format="reference" name="spinnerDropDownItemStyle"/><attr format="reference" name="homeAsUpIndicator"/><attr format="reference" name="actionButtonStyle"/><attr format="reference" name="buttonBarStyle"/><attr format="reference" name="buttonBarButtonStyle"/><attr format="reference" name="selectableItemBackground"/><attr format="reference" name="selectableItemBackgroundBorderless"/><attr format="reference" name="borderlessButtonStyle"/><attr format="reference" name="dividerVertical"/><attr format="reference" name="dividerHorizontal"/><attr format="reference" name="activityChooserViewStyle"/><attr format="reference" name="toolbarStyle"/><attr format="reference" name="toolbarNavigationButtonStyle"/><attr format="reference" name="popupMenuStyle"/><attr format="reference" name="popupWindowStyle"/><attr format="reference|color" name="editTextColor"/><attr format="reference" name="editTextBackground"/><attr format="reference" name="imageButtonStyle"/><attr format="reference" name="textAppearanceSearchResultTitle"/><attr format="reference" name="textAppearanceSearchResultSubtitle"/><attr format="reference|color" name="textColorSearchUrl"/><attr format="reference" name="searchViewStyle"/><attr format="dimension" name="listPreferredItemHeight"/><attr format="dimension" name="listPreferredItemHeightSmall"/><attr format="dimension" name="listPreferredItemHeightLarge"/><attr format="dimension" name="listPreferredItemPaddingLeft"/><attr format="dimension" name="listPreferredItemPaddingRight"/><attr format="reference" name="dropDownListViewStyle"/><attr format="reference" name="listPopupWindowStyle"/><attr format="reference" name="textAppearanceListItem"/><attr format="reference" name="textAppearanceListItemSmall"/><attr format="reference" name="panelBackground"/><attr format="dimension" name="panelMenuListWidth"/><attr format="reference" name="panelMenuListTheme"/><attr format="reference" name="listChoiceBackgroundIndicator"/><attr format="color" name="colorPrimary"/><attr format="color" name="colorPrimaryDark"/><attr format="color" name="colorAccent"/><attr format="color" name="colorControlNormal"/><attr format="color" name="colorControlActivated"/><attr format="color" name="colorControlHighlight"/><attr format="color" name="colorButtonNormal"/><attr format="color" name="colorSwitchThumbNormal"/><attr format="reference" name="controlBackground"/><attr format="reference" name="alertDialogStyle"/><attr format="reference" name="alertDialogButtonGroupStyle"/><attr format="boolean" name="alertDialogCenterButtons"/><attr format="reference" name="alertDialogTheme"/><attr format="reference|color" name="textColorAlertDialogListItem"/><attr format="reference" name="buttonBarPositiveButtonStyle"/><attr format="reference" name="buttonBarNegativeButtonStyle"/><attr format="reference" name="buttonBarNeutralButtonStyle"/><attr format="reference" name="autoCompleteTextViewStyle"/><attr format="reference" name="buttonStyle"/><attr format="reference" name="buttonStyleSmall"/><attr format="reference" name="checkboxStyle"/><attr format="reference" name="checkedTextViewStyle"/><attr format="reference" name="editTextStyle"/><attr format="reference" name="radioButtonStyle"/><attr format="reference" name="ratingBarStyle"/><attr format="reference" name="seekBarStyle"/><attr format="reference" name="spinnerStyle"/><attr format="reference" name="switchStyle"/></declare-styleable>
     <declare-styleable name="Toolbar"><attr format="reference" name="titleTextAppearance"/><attr format="reference" name="subtitleTextAppearance"/><attr name="title"/><attr name="subtitle"/><attr name="android:gravity"/><attr format="dimension" name="titleMargins"/><attr format="dimension" name="titleMarginStart"/><attr format="dimension" name="titleMarginEnd"/><attr format="dimension" name="titleMarginTop"/><attr format="dimension" name="titleMarginBottom"/><attr name="contentInsetStart"/><attr name="contentInsetEnd"/><attr name="contentInsetLeft"/><attr name="contentInsetRight"/><attr format="dimension" name="maxButtonHeight"/><attr format="reference" name="collapseIcon"/><attr format="string" name="collapseContentDescription"/><attr name="popupTheme"/><attr format="reference" name="navigationIcon"/><attr format="string" name="navigationContentDescription"/><attr name="android:minHeight"/><attr name="logo"/><attr format="string" name="logoDescription"/><attr format="color" name="titleTextColor"/><attr format="color" name="subtitleTextColor"/></declare-styleable>
     <declare-styleable name="View"><attr format="dimension" name="paddingStart"/><attr format="dimension" name="paddingEnd"/><attr name="android:focusable"/><attr format="reference" name="theme"/><attr name="android:theme"/></declare-styleable>
     <declare-styleable name="ViewBackgroundHelper"><attr name="android:background"/><attr format="color" name="backgroundTint"/><attr name="backgroundTintMode"><enum name="src_over" value="3"/><enum name="src_in" value="5"/><enum name="src_atop" value="9"/><enum name="multiply" value="14"/><enum name="screen" value="15"/></attr></declare-styleable>
@@ -217,6 +322,10 @@
     <dimen name="abc_control_corner_material">2dp</dimen>
     <dimen name="abc_control_inset_material">4dp</dimen>
     <dimen name="abc_control_padding_material">4dp</dimen>
+    <item name="abc_dialog_fixed_height_major" type="dimen">80%</item>
+    <item name="abc_dialog_fixed_height_minor" type="dimen">100%</item>
+    <item name="abc_dialog_fixed_width_major" type="dimen">320dp</item>
+    <item name="abc_dialog_fixed_width_minor" type="dimen">320dp</item>
     <dimen name="abc_dialog_list_padding_vertical_material">8dp</dimen>
     <item name="abc_dialog_min_width_major" type="dimen">65%</item>
     <item name="abc_dialog_min_width_minor" type="dimen">95%</item>
@@ -235,6 +344,9 @@
     <dimen name="abc_panel_menu_list_width">296dp</dimen>
     <dimen name="abc_search_view_preferred_width">320dip</dimen>
     <dimen name="abc_search_view_text_min_width">160dip</dimen>
+    <dimen name="abc_seekbar_track_background_height_material">2dp</dimen>
+    <dimen name="abc_seekbar_track_progress_height_material">2dp</dimen>
+    <dimen name="abc_select_dialog_padding_start_material">20dp</dimen>
     <dimen name="abc_switch_padding">3dp</dimen>
     <dimen name="abc_text_size_body_1_material">14sp</dimen>
     <dimen name="abc_text_size_body_2_material">14sp</dimen>
@@ -253,10 +365,52 @@
     <dimen name="abc_text_size_subtitle_material_toolbar">16dp</dimen>
     <dimen name="abc_text_size_title_material">20sp</dimen>
     <dimen name="abc_text_size_title_material_toolbar">20dp</dimen>
-    <item name="dialog_fixed_height_major" type="dimen">80%</item>
-    <item name="dialog_fixed_height_minor" type="dimen">100%</item>
-    <item name="dialog_fixed_width_major" type="dimen">320dp</item>
-    <item name="dialog_fixed_width_minor" type="dimen">320dp</item>
+    <dimen name="com_auth0_activity_horizontal_margin">16dp</dimen>
+    <dimen name="com_auth0_activity_vertical_margin">16dp</dimen>
+    <dimen name="com_auth0_credential_box_border_width">1dp</dimen>
+    <dimen name="com_auth0_credential_box_corner_radius">4dp</dimen>
+    <dimen name="com_auth0_credential_field_font_size">15sp</dimen>
+    <dimen name="com_auth0_credential_field_height">50dp</dimen>
+    <dimen name="com_auth0_credential_field_icon_right_padding">8dp</dimen>
+    <dimen name="com_auth0_credential_field_padding">18dp</dimen>
+    <dimen name="com_auth0_credential_field_vertical_padding">5dp</dimen>
+    <dimen name="com_auth0_db_reset_password_message_width">230dp</dimen>
+    <dimen name="com_auth0_db_reset_password_secondary_padding">10dp</dimen>
+    <dimen name="com_auth0_lock_vertical_margin">10dp</dimen>
+    <dimen name="com_auth0_passwordless_button_margin_top">20dp</dimen>
+    <dimen name="com_auth0_passwordless_horizontal_padding">10dp</dimen>
+    <dimen name="com_auth0_passwordless_icon_left_padding">14dp</dimen>
+    <dimen name="com_auth0_passwordless_progress_message_margin">16dp</dimen>
+    <dimen name="com_auth0_passwordless_progress_message_width">200dp</dimen>
+    <dimen name="com_auth0_primary_button_corner_radius">5dp</dimen>
+    <dimen name="com_auth0_primary_button_height">55dp</dimen>
+    <dimen name="com_auth0_primary_button_progress_size">30dp</dimen>
+    <dimen name="com_auth0_primary_button_text_size">13sp</dimen>
+    <dimen name="com_auth0_secondary_button_border_width">1dp</dimen>
+    <dimen name="com_auth0_secondary_button_corner_radius">15dp</dimen>
+    <dimen name="com_auth0_secondary_button_height">30dp</dimen>
+    <dimen name="com_auth0_secondary_button_margin_bottom">5dp</dimen>
+    <dimen name="com_auth0_secondary_button_text_size">10sp</dimen>
+    <dimen name="com_auth0_secondary_button_width">60dp</dimen>
+    <dimen name="com_auth0_social_button_corner_radius">5dp</dimen>
+    <dimen name="com_auth0_social_button_icon_label_size">50dp</dimen>
+    <dimen name="com_auth0_social_button_icon_size">16sp</dimen>
+    <dimen name="com_auth0_social_button_text_padding_left">10dp</dimen>
+    <dimen name="com_auth0_social_button_text_size">13sp</dimen>
+    <dimen name="com_auth0_social_db_form_padding_top">45dp</dimen>
+    <dimen name="com_auth0_social_grid_view_height">60dp</dimen>
+    <dimen name="com_auth0_social_grid_view_item_spacing_vertical">10dp</dimen>
+    <dimen name="com_auth0_social_list_item_interspace">5dp</dimen>
+    <dimen name="com_auth0_social_list_padding_top">25dp</dimen>
+    <dimen name="com_auth0_title_lock_image_horizontal_padding">15dp</dimen>
+    <dimen name="com_auth0_title_lock_image_size">60dp</dimen>
+    <dimen name="com_auth0_title_lock_image_vertical_padding">17dp</dimen>
+    <dimen name="com_auth0_title_lock_margin_top">36dp</dimen>
+    <dimen name="com_auth0_title_lock_text_margin_top">5dp</dimen>
+    <dimen name="com_auth0_title_lock_text_size">24sp</dimen>
+    <dimen name="com_auth0_webview_button_icon_label_size">50dp</dimen>
+    <dimen name="com_auth0_webview_button_text_padding_left">10dp</dimen>
+    <dimen name="com_auth0_webview_button_text_size">13sp</dimen>
     <item format="float" name="disabled_alpha_material_dark" type="dimen">0.30</item>
     <item format="float" name="disabled_alpha_material_light" type="dimen">0.26</item>
     <item format="float" name="highlight_alpha_material_colored" type="dimen">0.26</item>
@@ -265,6 +419,8 @@
     <dimen name="notification_large_icon_height">64dp</dimen>
     <dimen name="notification_large_icon_width">64dp</dimen>
     <dimen name="notification_subtext_size">12dp</dimen>
+    <dimen name="spb_default_stroke_separator_length">4dp</dimen>
+    <dimen name="spb_default_stroke_width">4dp</dimen>
     <drawable name="notification_template_icon_bg">#3333B5E5</drawable>
     <item name="action_bar_activity_content" type="id"/>
     <item name="action_bar_spinner" type="id"/>
@@ -281,7 +437,10 @@
     <integer name="abc_config_activityShortDur">150</integer>
     <integer name="abc_max_action_buttons">2</integer>
     <integer name="cancel_button_image_alpha">127</integer>
+    <integer name="com_auth0_social_grid_max_elements">5</integer>
     <integer name="google_play_services_version">10240000</integer>
+    <integer name="spb_default_interpolator">0</integer>
+    <integer name="spb_default_sections_count">4</integer>
     <integer name="status_bar_notification_info_maxnum">999</integer>
     <string name="abc_action_bar_home_description">Navigate home</string>
     <string name="abc_action_bar_home_description_format">%1$s, %2$s</string>
@@ -291,6 +450,8 @@
     <string name="abc_action_mode_done">Done</string>
     <string name="abc_activity_chooser_view_see_all">See all</string>
     <string name="abc_activitychooserview_choose_application">Choose an app</string>
+    <string name="abc_capital_off">OFF</string>
+    <string name="abc_capital_on">ON</string>
     <string name="abc_search_hint">Search…</string>
     <string name="abc_searchview_description_clear">Clear query</string>
     <string name="abc_searchview_description_query">Search query</string>
@@ -323,6 +484,199 @@
     <string name="catalyst_report_button" project="catalyst" translatable="false">Report</string>
     <string name="catalyst_settings" project="catalyst" translatable="false">Dev Settings</string>
     <string name="catalyst_settings_title" project="catalyst" translatable="false">Catalyst Dev Settings</string>
+    <string name="com_auth0_android_react_native_lock_no_activity">Cannot find Android Activity to show Lock</string>
+    <string name="com_auth0_application_load_failed_message">Couldn\'t obtain application configuration. Please check your Auth0 configuration and try again.</string>
+    <string name="com_auth0_application_load_failed_title">Failed to load application information</string>
+    <string name="com_auth0_application_load_no_connection_message">No Internet connection found. Please check your Internet configuration and try again.</string>
+    <string name="com_auth0_application_retry_button_text">Retry</string>
+    <string name="com_auth0_auth0_lock">Lock</string>
+    <string name="com_auth0_database_change_password_title">Reset Password</string>
+    <string name="com_auth0_database_login_title">Login</string>
+    <string name="com_auth0_database_signup_title">Sign Up</string>
+    <string name="com_auth0_db_cancel_button_text">CANCEL</string>
+    <string name="com_auth0_db_change_password_btn_text">SEND</string>
+    <string name="com_auth0_db_change_password_error_message">There was an error processing the reset password.</string>
+    <string name="com_auth0_db_change_password_error_title">Could\'nt change your password</string>
+    <string name="com_auth0_db_change_password_message_success">We\'ve just sent you an email to reset your password.</string>
+    <string name="com_auth0_db_change_password_title_success">Reset Password</string>
+    <string name="com_auth0_db_enterprise_login_message">Please enter your corporate credentials at %s</string>
+    <string name="com_auth0_db_login_btn_text">ACCESS</string>
+    <string name="com_auth0_db_login_error_message">There was an error processing the sign in.</string>
+    <string name="com_auth0_db_login_error_title">There was an error logging in</string>
+    <string name="com_auth0_db_login_invalid_credentials_error_message">Wrong email or password.</string>
+    <string name="com_auth0_db_login_invalid_mfa_code_message">The MFA code you entered is invalid or has expired.</string>
+    <string name="com_auth0_db_login_unauthorized_error_message">User is blocked.</string>
+    <string name="com_auth0_db_reset_password_button_text">RESET PASSWORD</string>
+    <string name="com_auth0_db_reset_password_by_link_title_message">Please enter your email. We will send you the link to the change password form.</string>
+    <string name="com_auth0_db_reset_password_invalid_repeat_password_message">The passwords you entered must match. Please try again.</string>
+    <string name="com_auth0_db_signup_btn_text">SIGN UP</string>
+    <string name="com_auth0_db_signup_button_text">SIGN UP</string>
+    <string name="com_auth0_db_signup_error_message">There was an error processing the sign up.</string>
+    <string name="com_auth0_db_signup_error_title">There was an error signing up</string>
+    <string name="com_auth0_db_signup_title_message">Please enter your email and password</string>
+    <string name="com_auth0_db_signup_user_already_exists_error_message">The user already exists.</string>
+    <string name="com_auth0_db_single_sign_on_button">LOGIN WITH %s</string>
+    <string name="com_auth0_email_placeholder">Email</string>
+    <string name="com_auth0_enterprise_no_connection_message">There was no connection configured for the domain</string>
+    <string name="com_auth0_invalid_code_message">You must enter a valid code.</string>
+    <string name="com_auth0_invalid_credentials_message">The email and password you entered are invalid. Please try again.</string>
+    <string name="com_auth0_invalid_credentials_title">Invalid credentials</string>
+    <string name="com_auth0_invalid_email_message">The email you entered is invalid. Please try again.</string>
+    <string name="com_auth0_invalid_password_message">The password you entered is invalid. Please try again.</string>
+    <string name="com_auth0_invalid_username_credentials_message">The username and password you entered are invalid. Please try again.</string>
+    <string name="com_auth0_invalid_username_message">The username you entered is invalid. Please try again.</string>
+    <string name="com_auth0_loading_title"/>
+    <string name="com_auth0_mfa_code_message">Please enter a verification code from\n your code generator application.</string>
+    <string name="com_auth0_mfa_code_placeholder">Verification Code</string>
+    <string name="com_auth0_mfa_code_title_enter_code">Two Step Verification</string>
+    <string name="com_auth0_new_password_placeholder">New Password</string>
+    <string name="com_auth0_ok_btn_text">OK</string>
+    <string name="com_auth0_password_placeholder">Password</string>
+    <string name="com_auth0_passwordless_already_have_code_btn">Already have a code?</string>
+    <string name="com_auth0_passwordless_code_placeholder">Code</string>
+    <string name="com_auth0_passwordless_default_code">+1</string>
+    <string name="com_auth0_passwordless_enter_email">Enter your email to sign in or create an account</string>
+    <string name="com_auth0_passwordless_enter_phone_number">Enter your phone number to sign in or create an account</string>
+    <string name="com_auth0_passwordless_invalid_link_error_title">Couldn\'t log in with the magic link, it was probably used already or not valid anymore</string>
+    <string name="com_auth0_passwordless_login_access_btn_text">Login</string>
+    <string name="com_auth0_passwordless_login_error_message">There was an error processing the sign in.</string>
+    <string name="com_auth0_passwordless_login_error_title">There was an error logging in</string>
+    <string name="com_auth0_passwordless_login_invalid_credentials_message_email">Wrong email or passcode.</string>
+    <string name="com_auth0_passwordless_login_invalid_credentials_message_sms">Wrong phone number or passcode.</string>
+    <string name="com_auth0_passwordless_login_invalid_passcode_message">You must enter a valid code.</string>
+    <string name="com_auth0_passwordless_login_message_email">
+    
+        Please check your email &lt;b>%s&lt;/b>.&lt;br/>You&amp;#39;ve received a message from us with your passcode
+    
+    </string>
+    <string name="com_auth0_passwordless_login_message_in_progress_email">
+    
+        Logging in with your email &lt;b>%s&lt;/b>.
+    
+    </string>
+    <string name="com_auth0_passwordless_login_message_in_progress_sms">
+    
+        Logging in with your phone &lt;b>%s&lt;/b>.
+    
+    </string>
+    <string name="com_auth0_passwordless_login_message_magic_link_email">
+    
+        Please check your email &lt;b>%s&lt;/b>.&lt;br/>You&amp;#39;ve received a message from us with the link
+    
+    </string>
+    <string name="com_auth0_passwordless_login_message_magic_link_sms">
+    
+        Please check your phone &lt;b>%s&lt;/b>.&lt;br/>You&amp;#39;ve received a message from us with the link
+    
+    </string>
+    <string name="com_auth0_passwordless_login_message_sms">
+    
+        Please check your phone &lt;b>%s&lt;/b>.&lt;br/>You&amp;#39;ve received a message from us with your passcode
+    
+    </string>
+    <string name="com_auth0_passwordless_magic_link_sent_mark">\u2713</string>
+    <string name="com_auth0_passwordless_no_code_button">Didn\'t receive code</string>
+    <string name="com_auth0_passwordless_no_jwt_found_title">There was an error with your configuration</string>
+    <string name="com_auth0_passwordless_no_magic_link_button">Let me enter a code</string>
+    <string name="com_auth0_passwordless_phone_placeholder">Phone Number</string>
+    <string name="com_auth0_passwordless_request_new_link_btn_text">Request new link</string>
+    <string name="com_auth0_passwordless_resend_code_button">Resend</string>
+    <string name="com_auth0_passwordless_send_code_error_message_email">Couldn\'t send an email with your passcode. Please try again later.</string>
+    <string name="com_auth0_passwordless_send_code_error_message_sms">Couldn\'t send an SMS to your phone. Please try again later.</string>
+    <string name="com_auth0_passwordless_send_code_error_tile_email">There was an error sending the email code</string>
+    <string name="com_auth0_passwordless_send_code_error_tile_sms">There was an error sending the SMS code</string>
+    <string name="com_auth0_passwordless_send_code_no_phone_message_email">You must enter a valid email address</string>
+    <string name="com_auth0_passwordless_send_code_no_phone_message_sms">You must enter a valid phone number</string>
+    <string name="com_auth0_passwordless_send_passcode_btn_text">SEND</string>
+    <string name="com_auth0_passwordless_title_enter_passcode">Enter code</string>
+    <string name="com_auth0_passwordless_title_in_progress_code">Log in with Code</string>
+    <string name="com_auth0_passwordless_title_in_progress_magic_link">Log in with Magic Link</string>
+    <string name="com_auth0_passwordless_title_invalid_link">Login</string>
+    <string name="com_auth0_passwordless_title_magic_link">Magic Link Sent</string>
+    <string name="com_auth0_passwordless_title_send_passcode">Send Passcode</string>
+    <string name="com_auth0_repeat_password_placeholder">Confirm New Password</string>
+    <string name="com_auth0_social_access_denied_message">Permissions were not granted. Try again.</string>
+    <string name="com_auth0_social_amazon">LOGIN WITH AMAZON</string>
+    <string name="com_auth0_social_aol">LOGIN WITH AOL</string>
+    <string name="com_auth0_social_baidu">LOGIN WITH 百度</string>
+    <string name="com_auth0_social_bitbucket">LOG IN WITH BITBUCKET</string>
+    <string name="com_auth0_social_box">LOGIN WITH BOX</string>
+    <string name="com_auth0_social_db_title">Login</string>
+    <string name="com_auth0_social_dropbox">LOG IN WITH DROPBOX</string>
+    <string name="com_auth0_social_dwolla">LOGIN WITH DWOLLA</string>
+    <string name="com_auth0_social_error_message">The application isn\'t configured properly for the social connection. Please check your Auth0\'s application configuration</string>
+    <string name="com_auth0_social_error_title">There was an error during authentication</string>
+    <string name="com_auth0_social_evernote">LOGIN WITH EVERNOTE</string>
+    <string name="com_auth0_social_evernote_sandbox">LOGIN WITH EVERNOTE (SANDBOX)</string>
+    <string name="com_auth0_social_exact">LOGIN WITH EXACT</string>
+    <string name="com_auth0_social_facebook">LOGIN WITH FACEBOOK</string>
+    <string name="com_auth0_social_fitbit">LOGIN WITH FITBIT</string>
+    <string name="com_auth0_social_github">LOGIN WITH GITHUB</string>
+    <string name="com_auth0_social_google_oauth2">LOGIN WITH GOOGLE</string>
+    <string name="com_auth0_social_icon_amazon">a</string>
+    <string name="com_auth0_social_icon_aol">l</string>
+    <string name="com_auth0_social_icon_baidu">u</string>
+    <string name="com_auth0_social_icon_box">x</string>
+    <string name="com_auth0_social_icon_dwolla">D</string>
+    <string name="com_auth0_social_icon_evernote">n</string>
+    <string name="com_auth0_social_icon_evernote_sandbox">n</string>
+    <string name="com_auth0_social_icon_facebook">f</string>
+    <string name="com_auth0_social_icon_fitbit">#</string>
+    <string name="com_auth0_social_icon_github">è</string>
+    <string name="com_auth0_social_icon_google_oauth2">+</string>
+    <string name="com_auth0_social_icon_instagram">i</string>
+    <string name="com_auth0_social_icon_linkedin">L</string>
+    <string name="com_auth0_social_icon_miicard">m</string>
+    <string name="com_auth0_social_icon_paypal">$</string>
+    <string name="com_auth0_social_icon_planningcenter">y</string>
+    <string name="com_auth0_social_icon_renren">r</string>
+    <string name="com_auth0_social_icon_salesforce">*</string>
+    <string name="com_auth0_social_icon_salesforce_sandbox">*</string>
+    <string name="com_auth0_social_icon_shopify">s</string>
+    <string name="com_auth0_social_icon_soundcloud">t</string>
+    <string name="com_auth0_social_icon_thecity">c</string>
+    <string name="com_auth0_social_icon_thecity_sandbox">c</string>
+    <string name="com_auth0_social_icon_thirtysevensignals">b</string>
+    <string name="com_auth0_social_icon_twitter">T</string>
+    <string name="com_auth0_social_icon_vkontakte">N</string>
+    <string name="com_auth0_social_icon_weibo">S</string>
+    <string name="com_auth0_social_icon_windowslive">W</string>
+    <string name="com_auth0_social_icon_wordpress">w</string>
+    <string name="com_auth0_social_icon_yahoo">Y</string>
+    <string name="com_auth0_social_icon_yammer">!</string>
+    <string name="com_auth0_social_icon_yandex">&amp;</string>
+    <string name="com_auth0_social_instagram">LOGIN WITH INSTAGRAM</string>
+    <string name="com_auth0_social_invalid_authorize_url">Auth0 authorize url not properly set.</string>
+    <string name="com_auth0_social_linkedin">LOGIN WITH LINKEDIN</string>
+    <string name="com_auth0_social_miicard">LOGIN WITH MIICARD</string>
+    <string name="com_auth0_social_oauth2_error_message">Didn\'t receive Auth0 token as the result of OAuth2 authentication flow/</string>
+    <string name="com_auth0_social_oauth2_error_title">Invalid OAuth2 response</string>
+    <string name="com_auth0_social_only_title">Login</string>
+    <string name="com_auth0_social_paypal">LOGIN WITH PAYPAL</string>
+    <string name="com_auth0_social_planningcenter">LOGIN WITH PLANNING CENTER</string>
+    <string name="com_auth0_social_renren">LOGIN WITH 人人</string>
+    <string name="com_auth0_social_salesforce">LOGIN WITH SALESFORCE</string>
+    <string name="com_auth0_social_salesforce_community">LOGIN WITH SALESFORCE (COMMUNITY)</string>
+    <string name="com_auth0_social_salesforce_sandbox">LOGIN WITH SALESFORCE (SANDBOX)</string>
+    <string name="com_auth0_social_separator">OR</string>
+    <string name="com_auth0_social_shopify">LOGIN WITH SHOPIFY</string>
+    <string name="com_auth0_social_signup_separator">Or please enter your email and password</string>
+    <string name="com_auth0_social_soundcloud">LOGIN WITH SOUNDCLOUD</string>
+    <string name="com_auth0_social_thecity">LOGIN WITH THE CITY</string>
+    <string name="com_auth0_social_thecity_sandbox">LOGIN WITH THE CITY (SANDBOX)</string>
+    <string name="com_auth0_social_thirtysevensignals">LOGIN WITH 37 SIGNALS</string>
+    <string name="com_auth0_social_twitter">LOGIN WITH TWITTER</string>
+    <string name="com_auth0_social_unknown_placeholder">LOGIN WITH %s</string>
+    <string name="com_auth0_social_vkontakte">LOGIN WITH VKONTAKTE</string>
+    <string name="com_auth0_social_weibo">LOGIN WITH 新浪微博</string>
+    <string name="com_auth0_social_windowslive">LOGIN WITH MICROSOFT</string>
+    <string name="com_auth0_social_wordpress">LOGIN WITH WORDPRESS</string>
+    <string name="com_auth0_social_yahoo">LOGIN WITH YAHOO!</string>
+    <string name="com_auth0_social_yammer">LOGIN WITH YAMMER</string>
+    <string name="com_auth0_social_yandex">LOGIN WITH YANDEX</string>
+    <string name="com_auth0_sso_text">SINGLE SIGN-ON ENABLED</string>
+    <string name="com_auth0_username_email_placeholder">Username/Email</string>
+    <string name="com_auth0_username_placeholder">Username</string>
     <string msgid="2523291102206661146" name="common_google_play_services_enable_button">Enable</string>
     <string msgid="227660514972886228" name="common_google_play_services_enable_text"><ns1:g id="app_name">%1$s</ns1:g> won\'t work unless you enable Google Play services.</string>
     <string msgid="5122002158466380389" name="common_google_play_services_enable_title">Enable Google Play services</string>
@@ -340,6 +694,17 @@
     <string name="common_open_on_phone">Open on phone</string>
     <string name="common_signin_button_text">Sign in</string>
     <string name="common_signin_button_text_long">Sign in with Google</string>
+    <string name="define_smoothprogressbar"/>
+    <string name="library_smoothprogressbar_author">Antoine Merle</string>
+    <string name="library_smoothprogressbar_authorWebsite">https://github.com/castorflex</string>
+    <string name="library_smoothprogressbar_isOpenSource">true</string>
+    <string name="library_smoothprogressbar_libraryDescription">Small library allowing you to make a smooth indeterminate progress bar. You can either user your progress bars and set this drawable or use directly the SmoothProgressBarView.</string>
+    <string name="library_smoothprogressbar_libraryName">SmoothProgressBar</string>
+    <string name="library_smoothprogressbar_libraryVersion">1.0.0</string>
+    <string name="library_smoothprogressbar_libraryWebsite">https://github.com/castorflex/SmoothProgressBar</string>
+    <string name="library_smoothprogressbar_licenseId">apache_2_0</string>
+    <string name="library_smoothprogressbar_repositoryLink">https://github.com/castorflex/SmoothProgressBar.git</string>
+    <item format="float" name="spb_default_speed" type="string">1.0</item>
     <string name="status_bar_notification_info_overflow">999+</string>
     <style name="AlertDialog.AppCompat" parent="Base.AlertDialog.AppCompat"/>
     <style name="AlertDialog.AppCompat.Light" parent="Base.AlertDialog.AppCompat.Light"/>
@@ -542,10 +907,10 @@
         <item name="windowMinWidthMinor">@dimen/abc_dialog_min_width_minor</item>
     </style>
     <style name="Base.Theme.AppCompat.Dialog.FixedSize">
-        <item name="windowFixedWidthMajor">@dimen/dialog_fixed_width_major</item>
-        <item name="windowFixedWidthMinor">@dimen/dialog_fixed_width_minor</item>
-        <item name="windowFixedHeightMajor">@dimen/dialog_fixed_height_major</item>
-        <item name="windowFixedHeightMinor">@dimen/dialog_fixed_height_minor</item>
+        <item name="windowFixedWidthMajor">@dimen/abc_dialog_fixed_width_major</item>
+        <item name="windowFixedWidthMinor">@dimen/abc_dialog_fixed_width_minor</item>
+        <item name="windowFixedHeightMajor">@dimen/abc_dialog_fixed_height_major</item>
+        <item name="windowFixedHeightMinor">@dimen/abc_dialog_fixed_height_minor</item>
     </style>
     <style name="Base.Theme.AppCompat.Dialog.MinWidth">
         <item name="windowMinWidthMajor">@dimen/abc_dialog_min_width_major</item>
@@ -571,10 +936,10 @@
         <item name="windowMinWidthMinor">@dimen/abc_dialog_min_width_minor</item>
     </style>
     <style name="Base.Theme.AppCompat.Light.Dialog.FixedSize">
-        <item name="windowFixedWidthMajor">@dimen/dialog_fixed_width_major</item>
-        <item name="windowFixedWidthMinor">@dimen/dialog_fixed_width_minor</item>
-        <item name="windowFixedHeightMajor">@dimen/dialog_fixed_height_major</item>
-        <item name="windowFixedHeightMinor">@dimen/dialog_fixed_height_minor</item>
+        <item name="windowFixedWidthMajor">@dimen/abc_dialog_fixed_width_major</item>
+        <item name="windowFixedWidthMinor">@dimen/abc_dialog_fixed_width_minor</item>
+        <item name="windowFixedHeightMajor">@dimen/abc_dialog_fixed_height_major</item>
+        <item name="windowFixedHeightMinor">@dimen/abc_dialog_fixed_height_minor</item>
     </style>
     <style name="Base.Theme.AppCompat.Light.Dialog.MinWidth">
         <item name="windowMinWidthMajor">@dimen/abc_dialog_min_width_major</item>
@@ -644,8 +1009,10 @@
         <item name="isLightTheme">true</item>
     </style>
     <style name="Base.V7.Theme.AppCompat" parent="Platform.AppCompat">
+        <item name="windowNoTitle">false</item>
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
+        <item name="windowActionModeOverlay">false</item>
         <item name="actionBarPopupTheme">@null</item>
 
         <!-- Used by MediaRouter -->
@@ -722,7 +1089,7 @@
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Widget.PopupMenu.Small</item>
         <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
-        <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+        <item name="dropDownListViewStyle">?android:attr/dropDownListViewStyle</item>
 
         <!-- SearchView attributes -->
         <item name="searchViewStyle">@style/Widget.AppCompat.SearchView</item>
@@ -762,11 +1129,14 @@
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
 
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+        <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
         <!-- Button styles -->
         <item name="buttonStyle">@style/Widget.AppCompat.Button</item>
         <item name="buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
         <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Widget.Button</item>
+
+        <item name="imageButtonStyle">@style/Widget.AppCompat.ImageButton</item>
 
         <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
         <item name="buttonBarButtonStyle">@style/Widget.AppCompat.Button.ButtonBar.AlertDialog</item>
@@ -814,8 +1184,10 @@
         <item name="android:listDivider">@null</item>
     </style>
     <style name="Base.V7.Theme.AppCompat.Light" parent="Platform.AppCompat.Light">
+        <item name="windowNoTitle">false</item>
         <item name="windowActionBar">true</item>
         <item name="windowActionBarOverlay">false</item>
+        <item name="windowActionModeOverlay">false</item>
         <item name="actionBarPopupTheme">@null</item>
 
         <!-- Used by MediaRouter -->
@@ -892,7 +1264,7 @@
         <item name="textAppearanceLargePopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Large</item>
         <item name="textAppearanceSmallPopupMenu">@style/TextAppearance.AppCompat.Light.Widget.PopupMenu.Small</item>
         <item name="listPopupWindowStyle">@style/Widget.AppCompat.ListPopupWindow</item>
-        <item name="dropDownListViewStyle">@style/Widget.AppCompat.ListView.DropDown</item>
+        <item name="dropDownListViewStyle">?android:attr/dropDownListViewStyle</item>
 
         <!-- SearchView attributes -->
         <item name="searchViewStyle">@style/Widget.AppCompat.Light.SearchView</item>
@@ -932,11 +1304,14 @@
         <item name="switchStyle">@style/Widget.AppCompat.CompoundButton.Switch</item>
 
         <item name="ratingBarStyle">@style/Widget.AppCompat.RatingBar</item>
+        <item name="seekBarStyle">@style/Widget.AppCompat.SeekBar</item>
 
         <!-- Button styles -->
         <item name="buttonStyle">@style/Widget.AppCompat.Button</item>
         <item name="buttonStyleSmall">@style/Widget.AppCompat.Button.Small</item>
         <item name="android:textAppearanceButton">@style/TextAppearance.AppCompat.Widget.Button</item>
+
+        <item name="imageButtonStyle">@style/Widget.AppCompat.ImageButton</item>
 
         <item name="buttonBarStyle">@style/Widget.AppCompat.ButtonBar</item>
         <item name="buttonBarButtonStyle">@style/Widget.AppCompat.Button.ButtonBar.AlertDialog</item>
@@ -1045,10 +1420,8 @@
         <item name="android:layout_weight">1</item>
         <item name="android:minWidth">80dip</item>
     </style>
-    <style name="Base.Widget.AppCompat.ActionButton" parent="">
+    <style name="Base.Widget.AppCompat.ActionButton" parent="RtlUnderlay.Widget.AppCompat.ActionButton">
         <item name="android:background">?attr/actionBarItemBackground</item>
-        <item name="android:paddingLeft">12dip</item>
-        <item name="android:paddingRight">12dip</item>
         <item name="android:minWidth">@dimen/abc_action_button_min_width_material</item>
         <item name="android:minHeight">@dimen/abc_action_button_min_height_material</item>
         <item name="android:scaleType">center</item>
@@ -1059,7 +1432,7 @@
     <style name="Base.Widget.AppCompat.ActionButton.CloseMode">
         <item name="android:background">?attr/controlBackground</item>
     </style>
-    <style name="Base.Widget.AppCompat.ActionButton.Overflow">
+    <style name="Base.Widget.AppCompat.ActionButton.Overflow" parent="RtlUnderlay.Widget.AppCompat.ActionButton.Overflow">
         <item name="android:src">@drawable/abc_ic_menu_moreoverflow_mtrl_alpha</item>
         <item name="android:background">?attr/actionBarItemBackground</item>
         <item name="android:contentDescription">@string/abc_action_menu_overflow_description</item>
@@ -1129,6 +1502,8 @@
         <item name="android:background">?attr/controlBackground</item>
         <item name="showText">false</item>
         <item name="switchPadding">@dimen/abc_switch_padding</item>
+        <item name="android:textOn">@string/abc_capital_on</item>
+        <item name="android:textOff">@string/abc_capital_off</item>
     </style>
     <style name="Base.Widget.AppCompat.DrawerArrowToggle" parent="Base.Widget.AppCompat.DrawerArrowToggle.Common">
         <item name="barLength">18dp</item>
@@ -1149,6 +1524,9 @@
         <item name="android:gravity">center_vertical</item>
     </style>
     <style name="Base.Widget.AppCompat.EditText" parent="Base.V7.Widget.AppCompat.EditText"/>
+    <style name="Base.Widget.AppCompat.ImageButton" parent="android:Widget.ImageButton">
+        <item name="android:background">@drawable/abc_btn_default_mtrl_shape</item>
+    </style>
     <style name="Base.Widget.AppCompat.Light.ActionBar" parent="Base.Widget.AppCompat.ActionBar">
         <item name="actionButtonStyle">@style/Widget.AppCompat.Light.ActionButton</item>
         <item name="actionOverflowButtonStyle">@style/Widget.AppCompat.Light.ActionButton.Overflow</item>
@@ -1229,6 +1607,15 @@
         <item name="searchHintIcon">@null</item>
         <item name="defaultQueryHint">@string/abc_search_hint</item>
     </style>
+    <style name="Base.Widget.AppCompat.SeekBar" parent="android:Widget">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/abc_seekbar_track_material</item>
+        <item name="android:indeterminateDrawable">@drawable/abc_seekbar_track_material</item>
+        <item name="android:thumb">@drawable/abc_seekbar_thumb_material</item>
+        <item name="android:focusable">true</item>
+        <item name="android:paddingLeft">16dip</item>
+        <item name="android:paddingRight">16dip</item>
+    </style>
     <style name="Base.Widget.AppCompat.Spinner" parent="Platform.Widget.AppCompat.Spinner">
         <item name="android:background">@drawable/abc_spinner_mtrl_am_alpha</item>
         <item name="android:popupBackground">@drawable/abc_popup_background_mtrl_mult</item>
@@ -1287,6 +1674,102 @@
     <item name="android:windowEnterAnimation">@anim/slide_up</item>
     <item name="android:windowExitAnimation">@anim/slide_down</item>
   </style>
+    <style name="Lock.Theme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="spbStyle">@style/Lock.Theme.ProgressBarHorizontal</item>
+        <item name="Auth0.PrimaryButtonStyle">@style/Lock.Theme.PrimaryButton</item>
+        <item name="Auth0.SecondaryButtonStyle">@style/Lock.Theme.SecondaryButton</item>
+        <item name="Auth0.CredentialField.Email">@style/Lock.Theme.CredentialField.Email</item>
+        <item name="Auth0.CredentialField.Password">@style/Lock.Theme.CredentialField.Password</item>
+        <item name="Auth0.CredentialField.Username">@style/Lock.Theme.CredentialField.Username</item>
+        <item name="Auth0.CredentialBox">@style/Lock.Theme.CredentialBox</item>
+        <item name="Auth0.Message">@style/Lock.Theme.Message</item>
+        <item name="Auth0.Background">@color/com_auth0_lock_background</item>
+        <item name="Auth0.Title.Icon">@style/Lock.Theme.Title.Icon</item>
+        <item name="Auth0.Title.Text">@style/Lock.Theme.Title.Text</item>
+        <item name="Auth0.Separator.Color">@color/com_auth0_credential_box_border</item>
+        <item name="Auth0.CredentialField">@style/Lock.Theme.CredentialField</item>
+        <item name="Auth0.GridView.Small">@style/Lock.Theme.Social.GridView</item>
+    </style>
+    <style name="Lock.Theme.CredentialBox">
+        <item name="android:background">@drawable/com_auth0_box_credential_background</item>
+    </style>
+    <style name="Lock.Theme.CredentialField" parent="Widget.AppCompat.EditText">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/com_auth0_credential_field_height</item>
+        <item name="android:textSize">@dimen/com_auth0_credential_field_font_size</item>
+        <item name="android:textColorHint">@color/com_auth0_credential_field_hint</item>
+        <item name="android:paddingLeft">@dimen/com_auth0_credential_field_padding</item>
+        <item name="android:paddingRight">@dimen/com_auth0_credential_field_padding</item>
+        <item name="android:paddingBottom">@dimen/com_auth0_credential_field_vertical_padding</item>
+        <item name="android:paddingTop">@dimen/com_auth0_credential_field_vertical_padding</item>
+        <item name="android:drawablePadding">@dimen/com_auth0_credential_field_icon_right_padding</item>
+        <item name="android:background">@color/com_auth0_credential_field_background</item>
+        <item name="android:textCursorDrawable">@drawable/com_auth0_cursor</item>
+    </style>
+    <style name="Lock.Theme.CredentialField.Email" parent="Lock.Theme.CredentialField">
+        <item name="com_auth0_normalIconDrawable">@drawable/com_auth0_ic_email</item>
+        <item name="com_auth0_errorIconDrawable">@drawable/com_auth0_ic_email_error</item>
+    </style>
+    <style name="Lock.Theme.CredentialField.Password" parent="Lock.Theme.CredentialField">
+        <item name="com_auth0_normalIconDrawable">@drawable/com_auth0_ic_lock</item>
+        <item name="com_auth0_errorIconDrawable">@drawable/com_auth0_ic_lock_error</item>
+    </style>
+    <style name="Lock.Theme.CredentialField.Username" parent="Lock.Theme.CredentialField">
+        <item name="com_auth0_normalIconDrawable">@drawable/com_auth0_ic_person</item>
+        <item name="com_auth0_errorIconDrawable">@drawable/com_auth0_ic_person_error</item>
+    </style>
+    <style name="Lock.Theme.Message" parent="TextAppearance.AppCompat.Small">
+        <item name="android:layout_marginBottom">@dimen/com_auth0_lock_vertical_margin</item>
+    </style>
+    <style name="Lock.Theme.PrimaryButton" parent="Widget.AppCompat.ActionButton">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/com_auth0_primary_button_height</item>
+        <item name="android:textColor">@color/com_auth0_primary_button_text</item>
+        <item name="android:background">@drawable/com_auth0_btn_primary_background</item>
+        <item name="android:textSize">@dimen/com_auth0_primary_button_text_size</item>
+    </style>
+    <style name="Lock.Theme.ProgressBarHorizontal">
+        <item name="spb_color">@color/com_auth0_lock_blue_light</item>
+    </style>
+    <style name="Lock.Theme.SecondaryButton" parent="Widget.AppCompat.ActionButton">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/com_auth0_secondary_button_text</item>
+        <item name="android:layout_height">@dimen/com_auth0_secondary_button_height</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">@dimen/com_auth0_secondary_button_text_size</item>
+        <item name="android:background">@drawable/com_auth0_btn_secondary_background</item>
+        <item name="android:layout_marginBottom">@dimen/com_auth0_secondary_button_margin_bottom</item>
+    </style>
+    <style name="Lock.Theme.Social"/>
+    <style name="Lock.Theme.Social.GridView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/com_auth0_social_grid_view_height</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:stretchMode">columnWidth</item>
+        <item name="android:verticalSpacing">@dimen/com_auth0_social_grid_view_item_spacing_vertical</item>
+    </style>
+    <style name="Lock.Theme.Title"/>
+    <style name="Lock.Theme.Title.Icon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginTop">@dimen/com_auth0_title_lock_margin_top</item>
+        <item name="android:src">@drawable/com_auth0_ic_people</item>
+        <item name="android:layout_alignParentTop">true</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:background">@drawable/com_auth0_icon_background</item>
+        <item name="android:cropToPadding">false</item>
+        <item name="android:paddingLeft">@dimen/com_auth0_title_lock_image_horizontal_padding</item>
+        <item name="android:paddingRight">@dimen/com_auth0_title_lock_image_horizontal_padding</item>
+        <item name="android:paddingBottom">@dimen/com_auth0_title_lock_image_vertical_padding</item>
+        <item name="android:paddingTop">@dimen/com_auth0_title_lock_image_vertical_padding</item>
+    </style>
+    <style name="Lock.Theme.Title.Text" parent="TextAppearance.AppCompat.Caption">
+        <item name="android:textSize">@dimen/com_auth0_title_lock_text_size</item>
+        <item name="android:layout_marginTop">@dimen/com_auth0_title_lock_text_margin_top</item>
+        <item name="android:layout_centerHorizontal">true</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>
 
@@ -1391,10 +1874,6 @@
         <item name="android:layout_gravity">center_vertical|left</item>
         <item name="android:paddingRight">8dp</item>
     </style>
-    <style name="RtlOverlay.Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton.Overflow">
-        <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
-        <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
-    </style>
     <style name="RtlOverlay.Widget.AppCompat.DialogTitle.Icon" parent="android:Widget">
         <item name="android:layout_marginRight">8dp</item>
     </style>
@@ -1426,6 +1905,26 @@
     </style>
     <style name="RtlOverlay.Widget.AppCompat.SearchView.MagIcon" parent="android:Widget">
         <item name="android:layout_marginLeft">@dimen/abc_dropdownitem_text_padding_left</item>
+    </style>
+    <style name="RtlUnderlay.Widget.AppCompat.ActionButton" parent="android:Widget">
+        <item name="android:paddingLeft">12dp</item>
+        <item name="android:paddingRight">12dp</item>
+    </style>
+    <style name="RtlUnderlay.Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton">
+        <item name="android:paddingLeft">@dimen/abc_action_bar_overflow_padding_start_material</item>
+        <item name="android:paddingRight">@dimen/abc_action_bar_overflow_padding_end_material</item>
+    </style>
+    <style name="SmoothProgressBar" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="spb_color">@color/spb_default_color</item>
+        <item name="spb_sections_count">@integer/spb_default_sections_count</item>
+        <item name="spb_speed">@string/spb_default_speed</item>
+        <item name="spb_stroke_width">@dimen/spb_default_stroke_width</item>
+        <item name="spb_stroke_separator_length">@dimen/spb_default_stroke_separator_length</item>
+        <item name="spb_reversed">@bool/spb_default_reversed</item>
+        <item name="spb_mirror_mode">@bool/spb_default_mirror_mode</item>
+        <item name="spb_interpolator">@integer/spb_default_interpolator</item>
+        <item name="android:minHeight">48dp</item>
+        <item name="android:maxHeight">48dp</item>
     </style>
     <style name="SpinnerDatePickerDialog" ns2:targetApi="lollipop" parent="Theme.AppCompat.Light.Dialog">
         <item name="android:datePickerStyle">@style/SpinnerDatePickerStyle</item>
@@ -1524,7 +2023,7 @@
         <item name="windowNoTitle">true</item>
     </style>
     <style name="Theme.Catalyst"/>
-    <style name="Theme.Catalyst.RedBox" parent="@style/Theme.AppCompat.DialogWhenLarge">
+    <style name="Theme.Catalyst.RedBox">
     <item name="android:windowBackground">@color/catalyst_redbox_background</item>
     <item name="android:windowAnimationStyle">@style/Animation.Catalyst.RedBox</item>
     <item name="android:inAnimation">@android:anim/fade_in</item>
@@ -1553,6 +2052,9 @@
         <item name="android:windowFullscreen">true</item>
         <item name="android:windowContentOverlay">@null</item>
     </style>
+    <style name="Theme.SmoothProgressBarDefaults" parent="android:Theme">
+        <item name="spbStyle">@style/SmoothProgressBar</item>
+    </style>
     <style name="ThemeOverlay.AppCompat" parent="Base.ThemeOverlay.AppCompat"/>
     <style name="ThemeOverlay.AppCompat.ActionBar" parent="Base.ThemeOverlay.AppCompat.ActionBar"/>
     <style name="ThemeOverlay.AppCompat.Dark" parent="Base.ThemeOverlay.AppCompat.Dark"/>
@@ -1570,7 +2072,7 @@
     </style>
     <style name="Widget.AppCompat.ActionButton" parent="Base.Widget.AppCompat.ActionButton"/>
     <style name="Widget.AppCompat.ActionButton.CloseMode" parent="Base.Widget.AppCompat.ActionButton.CloseMode"/>
-    <style name="Widget.AppCompat.ActionButton.Overflow" parent="RtlOverlay.Widget.AppCompat.ActionButton.Overflow"/>
+    <style name="Widget.AppCompat.ActionButton.Overflow" parent="Base.Widget.AppCompat.ActionButton.Overflow"/>
     <style name="Widget.AppCompat.ActionMode" parent="Base.Widget.AppCompat.ActionMode">
     </style>
     <style name="Widget.AppCompat.ActivityChooserView" parent="Base.Widget.AppCompat.ActivityChooserView">
@@ -1593,6 +2095,7 @@
     </style>
     <style name="Widget.AppCompat.DropDownItem.Spinner" parent="RtlOverlay.Widget.AppCompat.Search.DropDown.Text"/>
     <style name="Widget.AppCompat.EditText" parent="Base.Widget.AppCompat.EditText"/>
+    <style name="Widget.AppCompat.ImageButton" parent="Base.Widget.AppCompat.ImageButton"/>
     <style name="Widget.AppCompat.Light.ActionBar" parent="Base.Widget.AppCompat.Light.ActionBar">
     </style>
     <style name="Widget.AppCompat.Light.ActionBar.Solid" parent="Base.Widget.AppCompat.Light.ActionBar.Solid">
@@ -1642,6 +2145,7 @@
     <style name="Widget.AppCompat.RatingBar" parent="Base.Widget.AppCompat.RatingBar"/>
     <style name="Widget.AppCompat.SearchView" parent="Base.Widget.AppCompat.SearchView"/>
     <style name="Widget.AppCompat.SearchView.ActionBar" parent="Base.Widget.AppCompat.SearchView.ActionBar"/>
+    <style name="Widget.AppCompat.SeekBar" parent="Base.Widget.AppCompat.SeekBar"/>
     <style name="Widget.AppCompat.Spinner" parent="Base.Widget.AppCompat.Spinner"/>
     <style name="Widget.AppCompat.Spinner.DropDown"/>
     <style name="Widget.AppCompat.Spinner.DropDown.ActionBar"/>

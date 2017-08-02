@@ -31,7 +31,7 @@ MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/London/Sit
 		ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml:7:22-64
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
 ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml:8:5-77
-MERGED from [com.facebook.react:react-native:0.45.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/AndroidManifest.xml:11:5-78
+MERGED from [com.facebook.react:react-native:0.46.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.46.4/AndroidManifest.xml:11:5-78
 	android:name
 		ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml:8:22-75
 uses-permission#android.permission.CAMERA
@@ -48,6 +48,12 @@ ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidM
 		ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml:11:22-76
 uses-sdk
 ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml:13:5-15:41
+MERGED from [iosrayka:react-native-lock:unspecified] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-lock/unspecified/AndroidManifest.xml:30:5-32:41
+MERGED from [com.auth0.android:lock-passwordless:1.17.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock-passwordless/1.17.1/AndroidManifest.xml:28:5-30:41
+MERGED from [com.auth0.android:lock:1.17.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.auth0.android:identity-core:1.17.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/identity-core/1.17.1/AndroidManifest.xml:28:5-30:41
+MERGED from [com.auth0.android:core:1.17.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/core/1.17.1/AndroidManifest.xml:7:5-9:41
+MERGED from [com.hannesdorfmann.smoothprogressbar:library:1.0.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.hannesdorfmann.smoothprogressbar/library/1.0.0/AndroidManifest.xml:8:5-10:41
 MERGED from [iosrayka:react-native-image-picker:unspecified] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [iosrayka:react-native-vector-icons:unspecified] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-vector-icons/unspecified/AndroidManifest.xml:7:5-9:41
 MERGED from [iosrayka:react-native-maps:unspecified] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-maps/unspecified/AndroidManifest.xml:5:5-7:41
@@ -56,8 +62,8 @@ MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/London/Sit
 MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/AndroidManifest.xml:3:5-43
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:17:5-43
 MERGED from [iosrayka:react-native-contacts:unspecified] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-contacts/unspecified/AndroidManifest.xml:7:5-9:41
-MERGED from [com.facebook.react:react-native:0.45.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/AndroidManifest.xml:7:5-9:41
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:20:5-43
+MERGED from [com.facebook.react:react-native:0.46.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.46.4/AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.1.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/AndroidManifest.xml:20:5-43
 MERGED from [com.android.support:support-v4:24.0.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:21:5-23:54
 MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/AndroidManifest.xml:14:5-16:41
 MERGED from [com.facebook.fresco:fresco:1.0.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.0.1/AndroidManifest.xml:5:5-7:41
@@ -79,13 +85,14 @@ MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/London/Sites/launchpee
 		INJECTED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml
 application
 ADDED from /Users/London/Sites/launchpeer/iosrayka/android/app/src/main/AndroidManifest.xml:17:5-35:19
+MERGED from [com.hannesdorfmann.smoothprogressbar:library:1.0.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.hannesdorfmann.smoothprogressbar/library/1.0.0/AndroidManifest.xml:12:5-20
 MERGED from [iosrayka:react-native-image-picker:unspecified] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/AndroidManifest.xml:11:5-21:19
 MERGED from [com.google.android.gms:play-services-maps:10.2.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-maps/10.2.4/AndroidManifest.xml:24:5-19
 MERGED from [com.google.android.gms:play-services-base:10.2.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/AndroidManifest.xml:18:5-20:19
 MERGED from [com.google.android.gms:play-services-tasks:10.2.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-tasks/10.2.4/AndroidManifest.xml:4:5-19
 MERGED from [com.google.android.gms:play-services-basement:10.2.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/10.2.4/AndroidManifest.xml:19:5-21:19
-MERGED from [com.facebook.react:react-native:0.45.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.45.1/AndroidManifest.xml:13:5-20
-MERGED from [com.android.support:appcompat-v7:23.0.1] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/AndroidManifest.xml:22:5-20
+MERGED from [com.facebook.react:react-native:0.46.4] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.46.4/AndroidManifest.xml:13:5-20
+MERGED from [com.android.support:appcompat-v7:23.1.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/AndroidManifest.xml:22:5-20
 MERGED from [com.android.support:support-v4:24.0.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/24.0.0/AndroidManifest.xml:25:5-20
 MERGED from [com.facebook.soloader:soloader:0.1.0] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/AndroidManifest.xml:3:3-17
 MERGED from [org.webkit:android-jsc:r174650] /Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/org.webkit/android-jsc/r174650/AndroidManifest.xml:2:3-17
