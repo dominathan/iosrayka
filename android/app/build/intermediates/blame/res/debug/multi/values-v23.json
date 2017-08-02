@@ -134,13 +134,13 @@
                     "endOffset": 185
                 },
                 "from": {
-                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-v23/values-v23.xml",
+                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-v23/values-v23.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
-                        "startOffset": 290,
+                        "startOffset": 297,
                         "endColumn": 134,
-                        "endOffset": 420
+                        "endOffset": 427
                     }
                 }
             },
@@ -153,13 +153,13 @@
                     "endOffset": 260
                 },
                 "from": {
-                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-v23/values-v23.xml",
+                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-v23/values-v23.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
-                        "startOffset": 655,
+                        "startOffset": 669,
                         "endColumn": 74,
-                        "endOffset": 725
+                        "endOffset": 739
                     }
                 }
             },
@@ -172,13 +172,13 @@
                     "endOffset": 347
                 },
                 "from": {
-                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-v23/values-v23.xml",
+                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-v23/values-v23.xml",
                     "position": {
                         "startLine": 8,
                         "startColumn": 4,
-                        "startOffset": 730,
+                        "startOffset": 744,
                         "endColumn": 86,
-                        "endOffset": 812
+                        "endOffset": 826
                     }
                 }
             },
@@ -192,14 +192,14 @@
                     "endOffset": 675
                 },
                 "from": {
-                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-v23/values-v23.xml",
+                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-v23/values-v23.xml",
                     "position": {
                         "startLine": 9,
                         "startColumn": 4,
-                        "startOffset": 817,
+                        "startOffset": 831,
                         "endLine": 14,
                         "endColumn": 12,
-                        "endOffset": 1140
+                        "endOffset": 1154
                     }
                 }
             },
@@ -213,14 +213,14 @@
                     "endOffset": 1015
                 },
                 "from": {
-                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-v23/values-v23.xml",
+                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-v23/values-v23.xml",
                     "position": {
                         "startLine": 15,
                         "startColumn": 4,
-                        "startOffset": 1145,
+                        "startOffset": 1159,
                         "endLine": 20,
                         "endColumn": 12,
-                        "endOffset": 1480
+                        "endOffset": 1494
                     }
                 }
             },
@@ -233,13 +233,13 @@
                     "endOffset": 1120
                 },
                 "from": {
-                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/values-v23/values-v23.xml",
+                    "file": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/values-v23/values-v23.xml",
                     "position": {
                         "startLine": 23,
                         "startColumn": 4,
-                        "startOffset": 1715,
+                        "startOffset": 1736,
                         "endColumn": 104,
-                        "endOffset": 1815
+                        "endOffset": 1836
                     }
                 }
             }

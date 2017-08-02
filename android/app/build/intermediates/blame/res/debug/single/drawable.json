@@ -9,7 +9,7 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_light.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_list_selector_holo_light.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_disabled.xml",
@@ -18,6 +18,10 @@
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_box_credential_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_box_credential_background.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark_focused.xml",
@@ -33,19 +37,23 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_internal_bg.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_internal_bg.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_cab_background_internal_bg.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_dark.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_list_selector_background_transition_holo_dark.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_full_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_ratingbar_full_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_ratingbar_full_material.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_borderless_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_btn_borderless_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_primary_background_highlighted.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_primary_background_highlighted.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
@@ -54,6 +62,10 @@
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_item_background_holo_dark.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_primary_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_primary_background.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
@@ -92,6 +104,14 @@
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_track_material.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_seekbar_track_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_icon_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_icon_background.xml"
+    },
+    {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_ratingbar_full_material.xml",
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_ratingbar_full_material.xml"
     },
@@ -109,11 +129,15 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_text_cursor_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_text_cursor_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_text_cursor_material.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_disabled.xml",
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_disabled.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_secondary_background_disabled.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_secondary_background_disabled.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light.xml",
@@ -124,8 +148,12 @@
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_light.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_cursor.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_cursor.xml"
+    },
+    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_edit_text_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_edit_text_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_edit_text_material.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_light.xml",
@@ -133,7 +161,15 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_check_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_check_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_btn_check_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_primary_background_normal.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_primary_background_normal.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_icon_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_icon_background.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
@@ -144,12 +180,16 @@
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_disabled.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_button_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_button_background.xml"
+    },
+    {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_switch_thumb_material.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_textfield_search_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_textfield_search_material.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_light_focused.xml",
@@ -157,11 +197,23 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_light.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_light.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_dialog_material_background_light.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_text_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_text_background.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_seekbar_thumb_material.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_seekbar_thumb_material.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_switch_thumb_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_switch_thumb_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_switch_thumb_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_button_background_highlighted.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_button_background_highlighted.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_borderless_material.xml",
@@ -172,12 +224,20 @@
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_text_background_normal.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_text_background_normal.xml"
+    },
+    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_dialog_material_background_dark.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_dialog_material_background_dark.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_dialog_material_background_dark.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_normal.xml",
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_dark_normal.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_secondary_background_highlighted.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_secondary_background_highlighted.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
@@ -189,7 +249,7 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_holo_dark.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_holo_dark.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_list_selector_holo_dark.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
@@ -200,12 +260,20 @@
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_light_focused.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_button_background_normal.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_button_background_normal.xml"
+    },
+    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark_normal.xml",
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_text_dark_normal.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_radio_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_radio_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_btn_radio_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_passwordless_circle_green.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock-passwordless/1.17.1/res/drawable/com_auth0_passwordless_circle_green.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark.xml",
@@ -220,8 +288,16 @@
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-base/10.2.4/res/drawable/common_google_signin_btn_icon_light.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_secondary_background.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_secondary_background.xml"
+    },
+    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_colored_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_colored_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_secondary_background_normal.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_secondary_background_normal.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_textfield_search_material.xml",
@@ -229,7 +305,7 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_spinner_textfield_background_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_spinner_textfield_background_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_spinner_textfield_background_material.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
@@ -237,15 +313,15 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_tab_indicator_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_tab_indicator_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_tab_indicator_material.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_light.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_item_background_holo_light.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_item_background_holo_light.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_cab_background_top_material.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_cab_background_top_material.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_cab_background_top_material.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_light_normal.xml",
@@ -253,11 +329,15 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_item_background_holo_dark.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_item_background_holo_dark.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_item_background_holo_dark.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_btn_default_mtrl_shape.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_default_mtrl_shape.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_btn_primary_background_disabled.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_btn_primary_background_disabled.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_icon_dark_focused.xml",
@@ -280,8 +360,12 @@
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_btn_check_material.xml"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/com_auth0_social_text_background_highlighted.xml",
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.auth0.android/lock/1.17.1/res/drawable/com_auth0_social_text_background_highlighted.xml"
+    },
+    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/abc_list_selector_background_transition_holo_light.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/res/drawable/abc_list_selector_background_transition_holo_light.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/res/drawable/abc_list_selector_background_transition_holo_light.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/drawable/common_google_signin_btn_text_dark.xml",
