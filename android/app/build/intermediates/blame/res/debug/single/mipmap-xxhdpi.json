@@ -4,6 +4,10 @@
         "source": "/Users/mikefausz/launchpeer/rayka/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     },
     {
+        "merged": "/Users/London/Sites/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/Users/London/Sites/launchpeer/rayka/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
     }

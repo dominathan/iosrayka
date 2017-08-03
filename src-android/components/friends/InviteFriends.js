@@ -16,16 +16,16 @@ export class InviteFriends extends Component {
 
   getContacts() {
     Contacts.getAll((err, contacts) => {
-      if(err === 'denied'){
+      if(err) {
         console.log('Error: ', err);
       } else {
-        Actions.inviteFriendsList({contacts: contacts});
+        Actions.inviteFriendsList({ contacts: contacts });
       }
     })
   }
 
   render() {
-    return (
+    return(
       <View style={styles.container}>
         <Text style={styles.title}> Get your friends on Rayka </Text>
         <Text style={styles.subtitle}> Looking for travel tips from friends? Make sure they join you</Text>

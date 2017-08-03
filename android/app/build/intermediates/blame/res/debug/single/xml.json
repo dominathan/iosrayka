@@ -1,7 +1,7 @@
 [
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
-        "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
+        "source": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/exploded-aar/rayka/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
     },
     {
         "merged": "/Users/mikefausz/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
@@ -9,10 +9,18 @@
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
-        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
+        "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/rayka/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/xml/provider_paths.xml",
+        "source": "/Users/London/Sites/launchpeer/rayka/android/app/build/intermediates/exploded-aar/rayka/react-native-image-picker/unspecified/res/xml/provider_paths.xml"
     },
     {
         "merged": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
         "source": "/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.46.4/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/Users/London/Sites/launchpeer/rayka/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/Users/London/Sites/launchpeer/rayka/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.46.4/res/xml/preferences.xml"
     }
 ]

@@ -8,6 +8,7 @@ import { addFriend, acceptFriend, declineFriend } from '../../services/apiAction
 export class FriendDetail extends Component {
   constructor(props) {
     super(props);
+    console.log("Friend Detail");
     this.state = {
       checked: false,
       showActivityIndicator: false,
@@ -21,39 +22,39 @@ export class FriendDetail extends Component {
   }
 
   addFriendToDatabase(friend) {
-    this.setState({showActivityIndicator: true})
+    this.setState({ showActivityIndicator: true })
     addFriend(friend)
       .then((resp) => {
-        this.setState({friendAdded:true, showActivityIndicator: false})
+        this.setState({ friendAdded: true, showActivityIndicator: false })
       })
       .catch((err) => console.error('NO ADD FRIEND', err));
   }
 
   goToProfile(friend) {
-    Actions.profile({person: friend});
+    Actions.profile({ person: friend });
   }
 
   acceptFriendRequest(friend) {
-    this.setState({showActivityIndicator: true})
+    this.setState({ showActivityIndicator: true })
     acceptFriend(friend)
       .then((yay) => {
-        this.setState({friendAdded:true, showActivityIndicator: false})
+        this.setState({ friendAdded: true, showActivityIndicator: false })
       })
       .catch(err => console.log('nOOOOO ', err))
   }
 
   denyFriendRequest(friend) {
-    this.setState({showActivityIndicator: true})
+    this.setState({ showActivityIndicator: true })
     declineFriend(friend)
       .then((yay) => {
-        this.setState({friendAdded:true, showActivityIndicator: false})
+        this.setState({ friendAdded: true, showActivityIndicator: false })
       })
       .catch(err => console.log('nOOOOO ', err))
   }
 
   renderCheckBox(friend) {
-    return (
-        <CheckBox
+    return(
+      <CheckBox
           containerStyle={styles.checkboxContainer}
           checked={this.state.checked}
           onPress={ () => {
@@ -67,9 +68,9 @@ export class FriendDetail extends Component {
   }
 
   addToGroup(friend) {
-    return (
+    return(
 
-        <CheckBox
+      <CheckBox
           center
           containerStyle={styles.checkboxContainer}
           checked={this.state.checked}
@@ -87,7 +88,7 @@ export class FriendDetail extends Component {
   render() {
     const friend = this.props.friend;
     const { showActivityIndicator, friendAdded } = this.state;
-    return (
+    return(
       <View style={styles.friendItem}>
         <Image source={{ uri: friend.photo_url || null }} style={styles.photo} />
         <View style={styles.textContainer}>
@@ -121,9 +122,8 @@ export class FriendDetail extends Component {
               friend.search && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Following!</Text>
             }
           </View>
-
-          { this.props.isGroup && this.renderCheckBox(friend) }
-          { friend.isGroup && this.addToGroup(friend) }
+            { this.props.isGroup && this.renderCheckBox(friend) }
+            { friend.isGroup && this.addToGroup(friend) }
         </View>
       </View>
     );

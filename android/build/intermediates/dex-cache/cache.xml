@@ -93,6 +93,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/rayka/react-native-contacts/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c2fe4faf9c99bce4a99ad16eca7c5ca4006ced70">
+        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/rayka-react-native-contacts-unspecified_2feafc616c6ed6662e23ca7143cf847ba62b6cc3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp/okhttp/2.5.0/4de2b4ed3445c37ec1720a7d214712e845a24636/okhttp-2.5.0.jar"
         jumboMode="false"
         optimize="true"
@@ -135,6 +144,15 @@
         revision="23.0.1"
         sha1="f162442a19fff13995fbd51ba414d9ee05579080">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_718e404c7afc369dc52bfdb30e024841e776dbf9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/rayka/react-native-lock/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3a06d299645175ca35f3f38a73754df50db00281">
+        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/rayka-react-native-lock-unspecified_07ce4641351735b3c8f212f14420c506691b3506.jar" />
     </item>
     <item
         is-multidex="false"
@@ -183,12 +201,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-vector-icons/unspecified/jars/classes.jar"
+        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/rayka/react-native-maps/unspecified/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="b319ff9834bbeb9be394687614eb86892699ea14">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-vector-icons-unspecified_63a4aa83b9b7fde965c6a7f9ff5f43cd2424368f.jar" />
+        sha1="cfe651e3dc0896e6e084eb8ab986e16aa0cf47c0">
+        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/rayka-react-native-maps-unspecified_b61260e2a4ffc5169fe3aa33a4196efe48ce465d.jar" />
     </item>
     <item
         is-multidex="false"
@@ -219,30 +237,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-lock/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="3a06d299645175ca35f3f38a73754df50db00281">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-lock-unspecified_863bd15c88ac4ba6142cad9800e7ec0bb54ec228.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.0.1/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="5a61f17cd72e20aa4323cbf5f909b7c609619275">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.0.1_81060fb3272b51bb5bad377b6042db2804445752.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-image-picker/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="185debb713f05e6ae262b4167d7645dce64ca4cb">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-image-picker-unspecified_ae8362425b3caf5aa43c41432493e4be7c377d78.jar" />
     </item>
     <item
         is-multidex="false"
@@ -309,15 +309,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-contacts/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c2fe4faf9c99bce4a99ad16eca7c5ca4006ced70">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-contacts-unspecified_e68f9571af7c1e626bdf38a6cc27e4a434082db3.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.4.1/f07c773f7b3a03c3801d405cadbdc93f7548e321/jackson-databind-2.4.1.jar"
         jumboMode="false"
         optimize="true"
@@ -327,12 +318,30 @@
     </item>
     <item
         is-multidex="false"
+        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/rayka/react-native-vector-icons/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="b319ff9834bbeb9be394687614eb86892699ea14">
+        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/rayka-react-native-vector-icons-unspecified_5577fe8079cac8adfd7a5bf39a98e8b6b93a4af3.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="/Users/London/.gradle/caches/modules-2/files-2.1/com.squareup/otto/1.3.5/7941cd2c2c8ec006800d75c35f8a9dacf892ab93/otto-1.3.5.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="7941cd2c2c8ec006800d75c35f8a9dacf892ab93">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/otto-1.3.5_d67be1ebcd161b1f231f2941b5470179611a9852.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/rayka/react-native-image-picker/unspecified/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="185debb713f05e6ae262b4167d7645dce64ca4cb">
+        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/rayka-react-native-image-picker-unspecified_907d366f49b10eab7fb5bb1d7023445c7be5c497.jar" />
     </item>
     <item
         is-multidex="false"
@@ -351,15 +360,6 @@
         revision="23.0.1"
         sha1="55605135bd7b836612e0bba7037c9669f6ccf89f">
         <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/jackson-annotations-2.4.1_1b235129b95571c39fa4701fe6d765c561dd3671.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/exploded-aar/iosrayka/react-native-maps/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="cfe651e3dc0896e6e084eb8ab986e16aa0cf47c0">
-        <dex dex="/Users/London/Sites/launchpeer/iosrayka/android/app/build/intermediates/pre-dexed/debug/iosrayka-react-native-maps-unspecified_cbccb2cbba0e05b2f7200b48ca3b14831f6ec1ab.jar" />
     </item>
 
 </items>
