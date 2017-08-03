@@ -19,6 +19,7 @@ export class InviteFriends extends Component {
       if(err) {
         console.log('Error: ', err);
       } else {
+        console.log("Headed to inviteFrindsLists");
         Actions.inviteFriendsList({ contacts: contacts });
       }
     })

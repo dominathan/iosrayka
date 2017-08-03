@@ -97,11 +97,8 @@ class App extends Component {
   }
 
   render() {
-    if(this.state.isLoggedIn === undefined) {
-      return null;
-    } else {
-      return(
-        <Router
+    return(
+      <Router
           navigationBarStyle={{
             backgroundColor: "#3c95cd",
             justifyContent: "flex-start",
@@ -189,6 +186,15 @@ class App extends Component {
                 title="Add a Place"
               />
               <Scene
+                              renderLeftButton={this.renderDrawerButton}
+                              key="groupProfile"
+                              component={GroupProfile}
+                              title="Group"
+                              onRight={state => this.handleAddFriends(state)}
+                              rightTitle="+ Friend"
+                              rightButtonTextStyle={{ color: "#FFF" }}
+                            />
+              <Scene
                 renderLeftButton={this.renderDrawerButton}
                 key="groups"
                 component={Group}
@@ -232,30 +238,30 @@ class App extends Component {
               <Scene key="imageDetail" component={ImageDetail} title="Image" />
               {!this.state.isLoggedIn && <Scene key="login" component={Login} title="Login" hideNavBar initial />}
               {this.state.isLoggedIn && <Scene key="login" component={Login} title="Login" hideNavBar />}
-              {!this.state.isLoggedIn && <Scene
-                              renderLeftButton={this.renderDrawerButton}
-                              key="groupProfile"
-                              component={GroupProfile}
-                              title="Group"
-                              onRight={state => this.handleAddFriends(state)}
-                              rightTitle="+ Friend"
-                              rightButtonTextStyle={{ color: "#FFF" }}
-                            />}
+              {!this.state.isLoggedIn &&
+                <Scene
+                  renderLeftButton={this.renderDrawerButton}
+                  key="groups"
+                  component={Group}
+                  title="Home"
+                  onRight={() => Actions.searchGroup()}
+                  rightTitle="Search"
+                  rightButtonTextStyle={{ color: "#FFF" }}
+                />}
               {this.state.isLoggedIn && <Scene
-                              renderLeftButton={this.renderDrawerButton}
-                              key="groupProfile"
-                              component={GroupProfile}
-                              title="Group"
-                              onRight={state => this.handleAddFriends(state)}
-                              rightTitle="+ Friend"
-                              rightButtonTextStyle={{ color: "#FFF" }}
-                              initial
-                            />}
+                renderLeftButton={this.renderDrawerButton}
+                key="groups"
+                component={Group}
+                title="Home"
+                onRight={() => Actions.searchGroup()}
+                rightTitle="Search"
+                rightButtonTextStyle={{ color: "#FFF" }}
+                initial
+              />}
             </Scene>
           </Scene>
         </Router>
-      );
-    }
+    );
   }
 }
 

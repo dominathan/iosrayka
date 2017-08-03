@@ -16,6 +16,7 @@ export class GroupProfile extends Component {
     const ds = new ListView.DataSource({ rowHasChanged: (r1, r2) => r1 !== r2 });
 
     super(props);
+
     this.state = {
       markers: [],
       feed: [],
@@ -23,10 +24,10 @@ export class GroupProfile extends Component {
       feedReady: false,
       selectedFilter: 'feed',
       region: new MapView.AnimatedRegion({
-        latitude: props.group.lat || 32.8039917,
-        longitude: props.group.lng || -79.9525327,
-        latitudeDelta: 0.00922*6.5,
-        longitudeDelta: 0.00421*6.5
+        latitude: props.group ? props.group.lat || 32.8039917 : 32.8039917,
+        longitude: props.group ? props.group.lng || -79.9525327 : -79.9525327,
+        latitudeDelta: 0.00922 * 6.5,
+        longitudeDelta: 0.00421 * 6.5
       }),
       watchID: null,
       lastCall: null
@@ -39,7 +40,7 @@ export class GroupProfile extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.new_place) {
+    if(nextProps.new_place) {
       let updatedMarkers = this.state.markers;
       let updatedFeed = this.state.feed;
       updatedFeed.unshift(nextProps.new_place);
@@ -59,7 +60,7 @@ export class GroupProfile extends Component {
   getGroupPlaces(groupName) {
     return AsyncStorage.getItem('groupProfileData')
       .then(groupProfileData => {
-        if (groupProfileData) {
+        if(groupProfileData) {
           return JSON.parse(groupProfileData);
         }
         return getGroupPlaces(`groupName=${groupName}`);
@@ -84,12 +85,12 @@ export class GroupProfile extends Component {
 
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
-      this.setState({user: JSON.parse(user) });
+      this.setState({ user: JSON.parse(user) });
     });
   }
 
   navigateToAddPlace() {
-    Actions.googlePlaces({region: this.state.region, group: this.props.group});
+    Actions.googlePlaces({ region: this.state.region, group: this.props.group });
   }
 
   refresh() {
@@ -107,7 +108,7 @@ export class GroupProfile extends Component {
 
   render() {
     const { selectedFilter, feedReady, feed, markers, places, region, user } = this.state;
-    return (
+    return(
       <View style={styles.container}>
         {region && <Map region={region} markers={markers}/>}
 

@@ -39,6 +39,7 @@ export class Home extends Component {
     });
     super(props);
 
+    console.log("Home props: ", props)
     this.state = {
       markers: [],
       places: ds.cloneWithRows([]),
@@ -49,9 +50,8 @@ export class Home extends Component {
       lastApiCall: null,
       region: {
         latitude: props.location && props.location.lat ?
-          props.location.lat :
-          32.8039917,
-        longitude: props.location && props.location.lat ?
+          props.location.lat : 32.8039917,
+        longitude: props.location && props.location.lng ?
           props.location.lng :
           -79.9525327,
         latitudeDelta: 0.00922 * 6.5,
@@ -117,11 +117,9 @@ export class Home extends Component {
     this.watchID = navigator.geolocation.getCurrentPosition(position => {
       let region = {
         latitude: this.props.location && this.props.location.lat ?
-          this.props.location.lat :
-          position.coords.latitude,
+          this.props.location.lat : position.coords.latitude,
         longitude: this.props.location && this.props.location.lng ?
-          this.props.location.lng :
-          position.coords.longitude,
+          this.props.location.lng : position.coords.longitude,
         latitudeDelta: 0.00922 * 6.5,
         longitudeDelta: 0.00421 * 6.5
       };
