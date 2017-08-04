@@ -24,7 +24,7 @@
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.auth0.lock.react"
-    android:versionCode="1"
+    android:versionCode="2"
     android:versionName="0.4.0" >
 
     <uses-sdk
