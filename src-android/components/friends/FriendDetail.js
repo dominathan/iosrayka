@@ -8,7 +8,6 @@ import { addFriend, acceptFriend, declineFriend } from '../../services/apiAction
 export class FriendDetail extends Component {
   constructor(props) {
     super(props);
-    console.log("Friend Detail");
     this.state = {
       checked: false,
       showActivityIndicator: false,
@@ -122,8 +121,9 @@ export class FriendDetail extends Component {
               friend.search && !showActivityIndicator && friendAdded && <Text style={styles.requestSent}>Following!</Text>
             }
           </View>
-            { this.props.isGroup && this.renderCheckBox(friend) }
-            { friend.isGroup && this.addToGroup(friend) }
+
+          { this.props.isGroup && this.renderCheckBox(friend) }
+          { friend.isGroup && this.addToGroup(friend) }
         </View>
       </View>
     );

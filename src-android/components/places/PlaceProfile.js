@@ -31,8 +31,8 @@ export class PlaceProfile extends Component {
       region: new MapView.AnimatedRegion({
         latitude: props.place.lat || 32.8039917,
         longitude: props.place.lng || -79.9525327,
-        latitudeDelta: 0.00922*6.5,
-        longitudeDelta: 0.00421*6.5
+        latitudeDelta: 0.00922 * 6.5,
+        longitudeDelta: 0.00421 * 6.5
       }),
     };
 
@@ -53,7 +53,7 @@ export class PlaceProfile extends Component {
 
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
-      this.setState({user: JSON.parse(user) });
+      this.setState({ user: JSON.parse(user) });
     });
   }
 
@@ -72,7 +72,7 @@ export class PlaceProfile extends Component {
         return AsyncStorage.getItem('placeProfile');
       })
       .then(placeProfile => {
-        if (placeProfile) {
+        if(placeProfile) {
           return JSON.parse(placeProfile);
         }
         return getPlace(this.props.place);
@@ -109,34 +109,31 @@ export class PlaceProfile extends Component {
   }
 
   pickImage() {
-      const options = {
-        title: 'Select Photo',
-        storageOptions: {
-          skipBackup: true,
-          path: 'images'
-        }
-      };
+    const options = {
+      title: 'Select Photo',
+      storageOptions: {
+        skipBackup: true,
+        path: 'images'
+      }
+    };
 
-      ImagePicker.showImagePicker(options, (response) => {
-        console.log('Response = ', response);
+    ImagePicker.showImagePicker(options, (response) => {
+      console.log('Response = ', response);
 
-        if (response.didCancel) {
-          console.log('User cancelled image picker');
-        }
-        else if (response.error) {
-          console.log('ImagePicker Error: ', response.error);
-        }
-        else if (response.customButton) {
-          console.log('User tapped custom button: ', response.customButton);
-        }
-        else {
-          this.setState({
-            image: 'data:image/jpeg;base64,' + response.data,
-            addPhotoScreen: true,
-            feedType: undefined
-          });
-        }
-      });
+      if(response.didCancel) {
+        console.log('User cancelled image picker');
+      } else if(response.error) {
+        console.log('ImagePicker Error: ', response.error);
+      } else if(response.customButton) {
+        console.log('User tapped custom button: ', response.customButton);
+      } else {
+        this.setState({
+          image: 'data:image/jpeg;base64,' + response.data,
+          addPhotoScreen: true,
+          feedType: undefined
+        });
+      }
+    });
   }
 
   handlePhotoUpload(imageUri) {
@@ -144,14 +141,14 @@ export class PlaceProfile extends Component {
       photo: imageUri,
       place: this.props.place
     };
-    this.setState({addPhotoScreen: false, showActivityIndicator: true})
+    this.setState({ addPhotoScreen: false, showActivityIndicator: true })
     postImageToPlace(data)
       .then((res) => {
         this.state.photos.push(photo)
-        this.setState({showActivityIndicator: false, feedType: 'photos'})
+        this.setState({ showActivityIndicator: false, feedType: 'photos' })
       })
       .catch((err) => {
-        this.setState({showActivityIndicator: false, feedType: 'feed'})
+        this.setState({ showActivityIndicator: false, feedType: 'feed' })
       })
   }
 
@@ -164,7 +161,7 @@ export class PlaceProfile extends Component {
 
   render() {
     const { favorites, favoritesList, feed, feedType, markers, place, photos, selectedFilter, region, isFavorited, image, addPhotoScreen, showActivityIndicator, user } = this.state;
-    return (
+    return(
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} region={region} />
         <View style={styles.detailsContainer}>
@@ -235,8 +232,9 @@ export class PlaceProfile extends Component {
 const styles = StyleSheet.create({
   addFavorite: {
     marginLeft: 5,
-    height: 15,
-    width: 25
+    height: 25,
+    width: 25,
+    flex: 1
   },
   container: {
     flex: 1,
@@ -294,29 +292,31 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   name: {
-    fontSize: 20
+    fontSize: 35,
+    flexDirection: 'row',
+    marginTop: 10
   },
   profileText: {
     alignSelf: 'flex-start',
-    paddingTop: 10,
-    width: '73%'
+    width: '73%',
   },
   favorites: {
-    alignSelf: 'flex-end'
+    alignSelf: 'flex-end',
   },
   profileDetailsContainer: {
     flex: 1,
     flexDirection: 'row',
-    backgroundColor: '#f4f4f4'
+    backgroundColor: '#f4f4f4',
+    paddingBottom: 0
   },
   profileImageContainer: {
     flex: 1
   },
   profileTextContainer: {
     flex: 1,
-    height: 45,
     marginLeft: 10,
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingBottom: 0
   },
   statsContainer: {
     flex: 1,

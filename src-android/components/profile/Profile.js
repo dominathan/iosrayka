@@ -48,13 +48,13 @@ export class Profile extends Component {
 
   setCurrentUser() {
     AsyncStorage.getItem('user', (err, user) => {
-      this.setState({user: JSON.parse(user) });
+      this.setState({ user: JSON.parse(user) });
     });
   }
 
   getCountriesVisited() {
     let countries = this.state.markers.reduce((countryTally, marker) => {
-      if (countryTally.includes(marker.country)) {
+      if(countryTally.includes(marker.country)) {
         return countryTally;
       }
       countryTally.push(marker.country);
@@ -69,7 +69,7 @@ export class Profile extends Component {
   feed() {
     return AsyncStorage.getItem('profileFeed')
       .then(profileFeed => {
-        if (profileFeed) {
+        if(profileFeed) {
           return JSON.parse(profileFeed);
         }
         return getUserFeed(this.props.person);
@@ -85,10 +85,10 @@ export class Profile extends Component {
   }
 
   follow(friend) {
-    this.setState({showActivityIndicator: true});
+    this.setState({ showActivityIndicator: true });
     addFriend(friend)
       .then((resp) => {
-        this.setState({friendAdded:true, showActivityIndicator: false})
+        this.setState({ friendAdded: true, showActivityIndicator: false })
       });
   }
 
@@ -97,8 +97,8 @@ export class Profile extends Component {
     return AsyncStorage.getItem('user')
       .then(user => {
         activeUser = JSON.parse(user);
-        if (activeUser.id === this.props.person.id) {
-          this.setState({showFriendStatus: false});
+        if(activeUser.id === this.props.person.id) {
+          this.setState({ showFriendStatus: false });
         }
         return getUserFriends(this.props.person);
       })
@@ -106,8 +106,8 @@ export class Profile extends Component {
         let activeFriend = friends.filter(friend => {
           return friend.id === activeUser.id;
         });
-        if (activeFriend.length === 1) {
-          this.setState({friendAdded: true});
+        if(activeFriend.length === 1) {
+          this.setState({ friendAdded: true });
         }
         this.setState({ friends });
       })
@@ -133,10 +133,10 @@ export class Profile extends Component {
   }
 
   userPlaces() {
-    this.setState({showActivityIndicator: true});
+    this.setState({ showActivityIndicator: true });
     return AsyncStorage.getItem('profilePlaces')
       .then(profilePlaces => {
-        if (profilePlaces) {
+        if(profilePlaces) {
           return JSON.parse(profilePlaces);
         }
         return getUserPlaces(this.state.person);
@@ -164,7 +164,7 @@ export class Profile extends Component {
   render() {
     const { countries, favorites, favoritesList, feed, feedType, friends, markers, person, selectedFilter, friendAdded, showActivityIndicator, showFriendStatus, user } = this.state;
 
-    return (
+    return(
       <View style={styles.container}>
         <Map markers={markers} styles={styles.mapContainer} />
           <View source={styles.profileImageContainer}>
@@ -234,8 +234,7 @@ export class Profile extends Component {
 const styles = StyleSheet.create({
   addFriendContainer: {
     marginLeft: 10,
-    marginBottom: 15,
-    height: 15,
+    height: 25,
     width: 25
   },
   container: {
@@ -246,7 +245,6 @@ const styles = StyleSheet.create({
   detailsContainer: {
     flex: 1,
     position: 'relative',
-    paddingTop: 15
   },
   expertBlogLink: {
     color: '#4296cc',
@@ -327,7 +325,7 @@ const styles = StyleSheet.create({
   },
   profileImageContainer: {
     flex: 1,
-    zIndex: 10
+    zIndex: 10,
   },
   profileTextContainer: {
     flex: 3,
@@ -339,7 +337,7 @@ const styles = StyleSheet.create({
     borderRadius: 35,
     alignSelf: 'flex-start',
     position: 'absolute',
-    top: -5,
+    top: -25,
     marginLeft: 5,
     borderWidth: 2,
     borderColor: '#FFF',
