@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0LockReact.m \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0LockReact.h \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0LockReact.m \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0LockReact.h \
   ../../../ios/Pods/Headers/Public/Lock/Lock.h \
   ../../../ios/Pods/Headers/Public/Lock/A0APIClient.h \
   ../../../ios/Pods/Headers/Public/Lock/A0APIRouter.h \
@@ -40,6 +40,6 @@ dependencies: \
   ../../../ios/Pods/Headers/Public/Lock/A0Lock+A0EmailLockViewController.h \
   ../../../ios/Pods/Headers/Public/Lock/A0EmailLockViewController.h \
   ../../../ios/Pods/Headers/Public/Lock/A0WebViewAuthenticator.h \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0Token+ReactNative.h \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0DictionarySerialization.h \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0UserProfile+ReactNative.h
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0Token+ReactNative.h \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0DictionarySerialization.h \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0UserProfile+ReactNative.h

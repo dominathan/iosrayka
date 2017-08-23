@@ -1,2 +1,2 @@
-dependencies: /Users/London/Sites/launchpeer/iosrayka/ios/iosrayka/main.m \
-  /Users/London/Sites/launchpeer/iosrayka/ios/iosrayka/AppDelegate.h
+dependencies: /Users/Brandon/Documents/git/iosrayka/ios/iosrayka/main.m \
+  /Users/Brandon/Documents/git/iosrayka/ios/iosrayka/AppDelegate.h

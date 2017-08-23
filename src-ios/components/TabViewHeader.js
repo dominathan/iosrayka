@@ -5,7 +5,6 @@ import { Actions } from 'react-native-router-flux';
 export default class TabViewHeader extends Component {
   constructor(props) {
     super(props)
-    console.log('bo', props)
     this.state = {
       user: props.user || {}
     }

@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/ReactCommon/cxxreact/JSCLegacyTracing.cpp
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/ReactCommon/cxxreact/JSCLegacyTracing.cpp
