@@ -1,22 +1,22 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/Libraries/Settings/RCTSettingsManager.m \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/Libraries/Settings/RCTSettingsManager.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/Libraries/Settings/RCTSettingsManager.m \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/Libraries/Settings/RCTSettingsManager.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeModule.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridge.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBridgeDelegate.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTJavaScriptLoader.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTFrameUpdate.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTInvalidating.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTConvert.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAnimationType.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTBorderStyle.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTLog.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTAssert.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTUtils.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTPointerEvents.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTTextDecorationLineType.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/Yoga.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGEnums.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/yoga/YGMacros.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTEventDispatcher.h

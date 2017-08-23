@@ -1,9 +1,9 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/A0LockReactModule.m \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/A0LockReactModule.h \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/A0LockReactModule.m \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/A0LockReactModule.h \
   ../../react-native/React/Base/RCTBridgeModule.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0LockReact.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/build/Build/Products/Debug-iphonesimulator/include/React/RCTDefines.h \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native-lock/ios/A0RNLock/Core/A0LockReact.h \
   ../../../ios/Pods/Headers/Public/Lock/Lock.h \
   ../../../ios/Pods/Headers/Public/Lock/A0APIClient.h \
   ../../../ios/Pods/Headers/Public/Lock/A0APIRouter.h \

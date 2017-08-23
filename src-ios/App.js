@@ -186,14 +186,14 @@ class App extends Component {
                 title="Add a Place"
               />
               <Scene
-                              renderLeftButton={this.renderDrawerButton}
-                              key="groupProfile"
-                              component={GroupProfile}
-                              title="Group"
-                              onRight={state => this.handleAddFriends(state)}
-                              rightTitle="+ Friend"
-                              rightButtonTextStyle={{ color: "#FFF" }}
-                            />
+                renderLeftButton={this.renderDrawerButton}
+                key="groupProfile"
+                component={GroupProfile}
+                title="Group"
+                onRight={state => this.handleAddFriends(state)}
+                rightTitle="+ Friend"
+                rightButtonTextStyle={{ color: "#FFF" }}
+              />
               <Scene
                 renderLeftButton={this.renderDrawerButton}
                 key="groups"

@@ -7,7 +7,7 @@ const headers = (token) => {
     'Accept': 'application/json',
     'Content-Type': 'application/json',
     'Origin': '',
-    'Authorization': `Bearer ${token ? token : undefined}`
+    'Authorization': `Bearer ${token ? token.idToken : undefined}`
   };
 };
 
@@ -20,7 +20,7 @@ const defaultPost = (subUrl, data) => {
        return
      }
      const parsedToken = JSON.parse(token);
-
+     console.log('WE ARE POSTING!')
      fetch(`${API_BASE}/${subUrl}`, {
        method: 'POST',
        headers: headers(parsedToken),

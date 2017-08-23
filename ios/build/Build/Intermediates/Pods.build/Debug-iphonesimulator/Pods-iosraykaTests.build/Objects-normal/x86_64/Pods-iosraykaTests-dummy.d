@@ -1,2 +1,2 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Target\ Support\ Files/Pods-iosraykaTests/Pods-iosraykaTests-dummy.m
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Target\ Support\ Files/Pods-iosraykaTests/Pods-iosraykaTests-dummy.m

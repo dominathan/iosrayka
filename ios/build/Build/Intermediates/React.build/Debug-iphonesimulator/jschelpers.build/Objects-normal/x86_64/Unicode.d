@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/ReactCommon/jschelpers/Unicode.cpp \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/ReactCommon/jschelpers/Unicode.h
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/ReactCommon/jschelpers/Unicode.cpp \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/ReactCommon/jschelpers/Unicode.h

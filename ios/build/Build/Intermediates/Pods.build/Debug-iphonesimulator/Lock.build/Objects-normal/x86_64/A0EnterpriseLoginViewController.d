@@ -1,34 +1,34 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0EnterpriseLoginViewController.m \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Target\ Support\ Files/Lock/Lock-prefix.pch \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Connection.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0EnterpriseLoginViewController.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0DatabaseLoginViewController.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0AuthenticationUIComponent.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/A0KeyboardEnabledView.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0ConnectionDomainMatcher.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthParameters.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0CredentialFieldView.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0CredentialsValidator.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0FieldValidator.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0UsernameValidator.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0PasswordValidator.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0PasswordFieldView.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/Constants.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logging.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logger.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/A0LoginView.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/Masonry.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASUtilities.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/View+MASAdditions.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASConstraintMaker.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASConstraint.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASViewAttribute.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/View+MASShorthandAdditions.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/ViewController+MASAdditions.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/NSArray+MASAdditions.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/NSArray+MASShorthandAdditions.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASCompositeConstraint.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASViewConstraint.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/MASLayoutConstraint.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.h
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0EnterpriseLoginViewController.m \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Target\ Support\ Files/Lock/Lock-prefix.pch \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0Connection.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0EnterpriseLoginViewController.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0DatabaseLoginViewController.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0AuthenticationUIComponent.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/A0KeyboardEnabledView.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0ConnectionDomainMatcher.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthParameters.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0CredentialFieldView.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0CredentialsValidator.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0FieldValidator.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0UsernameValidator.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0PasswordValidator.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0PasswordFieldView.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/Constants.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logging.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logger.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/A0LoginView.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/Masonry.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASUtilities.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/View+MASAdditions.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASConstraintMaker.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASConstraint.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASViewAttribute.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/View+MASShorthandAdditions.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/ViewController+MASAdditions.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/NSArray+MASAdditions.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/NSArray+MASShorthandAdditions.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASCompositeConstraint.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASViewConstraint.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/MASLayoutConstraint.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.h

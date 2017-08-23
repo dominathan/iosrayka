@@ -54,11 +54,11 @@
 		</data>
 		<key>Auth0.bundle/Info.plist</key>
 		<data>
-		fe38Rw6r/FzcWmDiGpcmQaLXFKw=
+		NIhdnC6mE0tIdEJHNbod1Hj4hq8=
 		</data>
 		<key>Auth0.bundle/_CodeSignature/CodeDirectory</key>
 		<data>
-		t9dNLnsdelQPikL2c8ZMLwFclyo=
+		uGbFu7Tq6O8jM7pI3ayFrRWn5xM=
 		</data>
 		<key>Auth0.bundle/_CodeSignature/CodeRequirements</key>
 		<data>
@@ -66,7 +66,7 @@
 		</data>
 		<key>Auth0.bundle/_CodeSignature/CodeRequirements-1</key>
 		<data>
-		BnoGSf9eAC3iE1eK0fg/Onw48sE=
+		81/3iPnEx79oCAvVoXWi634Jd8I=
 		</data>
 		<key>Auth0.bundle/_CodeSignature/CodeResources</key>
 		<data>
@@ -570,7 +570,7 @@
 		</data>
 		<key>Base.lproj/LaunchScreen.nib</key>
 		<data>
-		iWAt4bNaAuunXFbAUnErIMCmKFM=
+		EZr/Jw5uXLRyfam635B+5cdSWvE=
 		</data>
 		<key>Entypo.ttf</key>
 		<data>
@@ -748,10 +748,6 @@
 		<data>
 		0hPLcrGRiL8HEYGWbYL+qhcqBZI=
 		</data>
-		<key>Frameworks/XCTest.framework/TextBasedStubs/XCTest.tbd</key>
-		<data>
-		a88XIbyyK4c/LWXFfuMspfqry7g=
-		</data>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<data>
 		WCRTesUWwwgFmL3LE2MH7WTx524=
@@ -807,7 +803,7 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		GAP4zqjEYvOLpgi/WTKcPk2kxdA=
+		eQKD60gN5Z4pEa75a93or0icSkI=
 		</data>
 		<key>Ionicons.ttf</key>
 		<data>
@@ -815,7 +811,7 @@
 		</data>
 		<key>MaterialCommunityIcons.ttf</key>
 		<data>
-		DSN6NXpkKNkGErJOcadN65obBio=
+		iEMpKSoaB/KiSnpQryZBH+pXuYo=
 		</data>
 		<key>MaterialIcons.ttf</key>
 		<data>
@@ -835,19 +831,19 @@
 		</data>
 		<key>PlugIns/iosraykaTests.xctest.dSYM/Contents/Resources/DWARF/iosraykaTests</key>
 		<data>
-		WlxXdsVAV5hf6y0g2PJZGzJn0bI=
+		F31UZYuL62WZj/wXriPawRu/9ko=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest/Info.plist</key>
 		<data>
-		pZpvJvTyhJoNOrfqnYtUVHZJNzo=
+		gcYfgR/pv0KVTXfRigZimjxfcrE=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest/_CodeSignature/CodeResources</key>
 		<data>
-		imov3NfRAZ5xSZSzASD0B0gGItk=
+		uYSA/q603Z3JKtqntsHEB8ctp5Q=
 		</data>
 		<key>PlugIns/iosraykaTests.xctest/iosraykaTests</key>
 		<data>
-		a2cmf6P5WFBXn6r557pQUgjAMDg=
+		uvBt8V0IRtASHU5ILCEenAWblR0=
 		</data>
 		<key>SimpleLineIcons.ttf</key>
 		<data>
@@ -996,22 +992,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			fe38Rw6r/FzcWmDiGpcmQaLXFKw=
+			NIhdnC6mE0tIdEJHNbod1Hj4hq8=
 			</data>
 			<key>hash2</key>
 			<data>
-			6vF1tGy0/BQpiaJ3ZW0o+10CY5ySMuhw5DI0W3bOcvM=
+			0FdGn/EbXoxtzPHkcvYzcZ9NKE0cBuDwUi9/f/UGvwc=
 			</data>
 		</dict>
 		<key>Auth0.bundle/_CodeSignature/CodeDirectory</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			t9dNLnsdelQPikL2c8ZMLwFclyo=
+			uGbFu7Tq6O8jM7pI3ayFrRWn5xM=
 			</data>
 			<key>hash2</key>
 			<data>
-			+c/5VyImNIcUr2OUDSgIWiuNikCFbEd8I465WvuZS+A=
+			EsQABrIo1dpYcxf1ubMpr3iPgsuWpqNLfltOPmZvLAY=
 			</data>
 		</dict>
 		<key>Auth0.bundle/_CodeSignature/CodeRequirements</key>
@@ -1029,11 +1025,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			BnoGSf9eAC3iE1eK0fg/Onw48sE=
+			81/3iPnEx79oCAvVoXWi634Jd8I=
 			</data>
 			<key>hash2</key>
 			<data>
-			WO1WFfyzyRNNNxr9CQXnshIRbSx3J6xaloDIY+NG9cc=
+			YikQ1HcfAR+/x/nJ3oSS/f+sjE757gQUbzkb0kD3eKs=
 			</data>
 		</dict>
 		<key>Auth0.bundle/_CodeSignature/CodeResources</key>
@@ -2415,11 +2411,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			iWAt4bNaAuunXFbAUnErIMCmKFM=
+			EZr/Jw5uXLRyfam635B+5cdSWvE=
 			</data>
 			<key>hash2</key>
 			<data>
-			hoco/NpiJpIDflv3hAkDbfp+Xe4wEqPR9q4XLhV/K4M=
+			dpNGGFHhzSpgQRvWQMt3nUElIRMRGgLE1xXODy45MF4=
 			</data>
 		</dict>
 		<key>Entypo.ttf</key>
@@ -2906,17 +2902,6 @@
 			jnKXP8AnVeA8lhMYYv9wWZO1A6Rn46h/Dz1jgopnxYQ=
 			</data>
 		</dict>
-		<key>Frameworks/XCTest.framework/TextBasedStubs/XCTest.tbd</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			a88XIbyyK4c/LWXFfuMspfqry7g=
-			</data>
-			<key>hash2</key>
-			<data>
-			MBD5ESSJZQT8SOz38Gjm3TBNd5TSyT7+Y+vzNdKvBNM=
-			</data>
-		</dict>
 		<key>Frameworks/XCTest.framework/XCTest</key>
 		<dict>
 			<key>hash</key>
@@ -2927,11 +2912,6 @@
 			<data>
 			IADHMXRzh2kXQfDooCuUCvpfdBho8wtowxBPGULESx8=
 			</data>
-		</dict>
-		<key>Frameworks/XCTest.framework/XCTest.tbd</key>
-		<dict>
-			<key>symlink</key>
-			<string>TextBasedStubs/XCTest.tbd</string>
 		</dict>
 		<key>Frameworks/XCTest.framework/XPCServices/XCUIRecorderService.xpc/Info.plist</key>
 		<dict>
@@ -3071,11 +3051,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			DSN6NXpkKNkGErJOcadN65obBio=
+			iEMpKSoaB/KiSnpQryZBH+pXuYo=
 			</data>
 			<key>hash2</key>
 			<data>
-			23dV6HNW9c2rGDZbm9uO2NLcl2/WhbSACZldABqN9m0=
+			1bSKsbDzuZUQE0oDJhp+sgYYtyyRBwyCUcQIAoyRcm4=
 			</data>
 		</dict>
 		<key>MaterialIcons.ttf</key>
@@ -3115,44 +3095,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			WlxXdsVAV5hf6y0g2PJZGzJn0bI=
+			F31UZYuL62WZj/wXriPawRu/9ko=
 			</data>
 			<key>hash2</key>
 			<data>
-			UO1J4HSr/DyFclSwGUrL+/z8o0exf0Lto5XF57pa5bY=
+			7+qZO5xRCL71kTnffGlwHXtyIoEd1HYIYeQUFl2bGh4=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest/Info.plist</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			pZpvJvTyhJoNOrfqnYtUVHZJNzo=
+			gcYfgR/pv0KVTXfRigZimjxfcrE=
 			</data>
 			<key>hash2</key>
 			<data>
-			BD7fHVhxpJAAY1U2ANncqB0f7pU8x1grmafgeJQG8Ws=
+			vDXOdZnQAphq0EsuwbShhhDIaHhi5FshQXkJKWymfXA=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest/_CodeSignature/CodeResources</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			imov3NfRAZ5xSZSzASD0B0gGItk=
+			uYSA/q603Z3JKtqntsHEB8ctp5Q=
 			</data>
 			<key>hash2</key>
 			<data>
-			+wPr9pizG8HQvHlVmEH5/cEdmzYaMUJ5KsGfhkM7h7c=
+			Bs7d5v29uV3Ofe9f51U+5+GyZqyccTCxTBFa5sy3cik=
 			</data>
 		</dict>
 		<key>PlugIns/iosraykaTests.xctest/iosraykaTests</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			a2cmf6P5WFBXn6r557pQUgjAMDg=
+			uvBt8V0IRtASHU5ILCEenAWblR0=
 			</data>
 			<key>hash2</key>
 			<data>
-			oXQrHtdFyH6Rgq2PxO4XSq+GeM8LHtEWrb47275dyps=
+			/2X8KKIERhjq9C+ynKjMDMJpy7vrJvUmvdyuSSyARg8=
 			</data>
 		</dict>
 		<key>SimpleLineIcons.ttf</key>

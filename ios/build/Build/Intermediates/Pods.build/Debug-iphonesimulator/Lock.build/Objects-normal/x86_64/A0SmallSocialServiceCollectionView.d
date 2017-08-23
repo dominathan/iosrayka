@@ -1,31 +1,31 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0SmallSocialServiceCollectionView.m \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Target\ Support\ Files/Lock/Lock-prefix.pch \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0SmallSocialServiceCollectionView.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ServiceCollectionViewLayoutDelegate.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ServiceCollectionViewCell.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/UIButton+A0SolidButton.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0APIClient.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0APIRouter.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Errors.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0ErrorCode.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Provider/A0IdentityProviderAuthenticator.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Provider/A0BaseAuthenticator.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0APIClientProvider.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Provider/A0AuthenticationProvider.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Strategy.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/A0LockConfiguration.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0LockNotification.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Connection.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthParameters.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/iOS/NSObject+A0AuthenticatorProvider.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthenticatorProvider.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/A0Lock.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/NSError+A0APIError.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/NSError+A0AuthAPIError.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ServiceViewModel.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0ServiceTheme.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/Constants.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logging.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logger.h \
-  /Users/London/Sites/launchpeer/iosrayka/ios/Pods/Lock/Lock/Core/NSError+A0LockErrors.h
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0SmallSocialServiceCollectionView.m \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Target\ Support\ Files/Lock/Lock-prefix.pch \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0SmallSocialServiceCollectionView.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ServiceCollectionViewLayoutDelegate.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ServiceCollectionViewCell.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/CoreUI/UIButton+A0SolidButton.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0APIClient.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0APIRouter.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0Errors.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0ErrorCode.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Provider/A0IdentityProviderAuthenticator.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Provider/A0BaseAuthenticator.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0APIClientProvider.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Provider/A0AuthenticationProvider.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0Strategy.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/A0LockConfiguration.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0LockNotification.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0Connection.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthParameters.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/iOS/NSObject+A0AuthenticatorProvider.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0AuthenticatorProvider.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/A0Lock.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/NSError+A0APIError.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/NSError+A0AuthAPIError.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/UI/Private/A0ServiceViewModel.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/CoreUI/A0ServiceTheme.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/Constants.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logging.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/Private/A0Logger.h \
+  /Users/Brandon/Documents/git/iosrayka/ios/Pods/Lock/Lock/Core/NSError+A0LockErrors.h

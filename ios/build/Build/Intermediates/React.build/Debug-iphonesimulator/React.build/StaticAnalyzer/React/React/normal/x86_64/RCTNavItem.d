@@ -1,4 +1,4 @@
 dependencies: \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/React/Views/RCTNavItem.m \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/React/Views/RCTNavItem.h \
-  /Users/London/Sites/launchpeer/iosrayka/node_modules/react-native/React/Views/RCTComponent.h
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/React/Views/RCTNavItem.m \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/React/Views/RCTNavItem.h \
+  /Users/Brandon/Documents/git/iosrayka/node_modules/react-native/React/Views/RCTComponent.h
